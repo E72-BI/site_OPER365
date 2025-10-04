@@ -459,8 +459,8 @@
   /* Responsivo (redundante aqui, mas mantém consistência com harmonizado) */
   @media (max-width: 768px) {
     #whatsappFloat.whatsapp-float { bottom: 15px; right: 15px; }
-    #whatsappFloat .zap-button { padding: 14px; }
-    #whatsappFloat .zap-icon { width: 20px; height: 20px; }
+    #whatsappFloat .zap-button { padding: 20px; }
+    #whatsappFloat .zap-icon { width: 28px; height: 28px; }
     #whatsappFloat .zap-tooltip { display: none; }
   }
   
