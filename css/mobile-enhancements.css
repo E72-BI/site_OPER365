@@ -1,0 +1,828 @@
+/* Mobile Enhancements for OPER - Gestão de Manutenção */
+/* This file enhances mobile experience without affecting desktop */
+
+/* Enhanced touch targets for mobile navigation */
+@media (max-width: 768px) {
+  /* Ajustes para botão flutuante de WhatsApp em mobile */
+  .whatsapp-float {
+    bottom: 15px;
+    right: 15px;
+  }
+  /* Removido tamanho fixo do ícone para usar dimensionamento responsivo do CSS base */
+  
+  
+  /* Remover a duplicidade de keyframes pulse deste arquivo (mantê-la no style-harmonizado.css) */
+  
+  /* Ajustes para botão do FAQ em mobile */
+  .faq-btn {
+    display: block;
+    width: 100%;
+    text-align: center;
+    margin-bottom: var(--space-md);
+  }
+  /* Hide desktop image on mobile */
+  .hero-image .desktop-image {
+    display: none;
+  }
+  
+  /* Show mobile image on mobile */
+  .hero-image .mobile-image {
+    display: block;
+    width: 100%;
+    max-width: 100%;
+    height: auto;
+    object-position: center bottom;
+    object-fit: cover;
+    margin: 0;
+    padding: 0;
+  }
+  
+  /* Enhanced mobile typography */
+  body {
+    font-size: var(--text-base);
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+  
+  h1, .h1 {
+    font-size: var(--text-4xl);
+    line-height: 1.1;
+  }
+  
+  h2, .h2 {
+    font-size: clamp(var(--text-2xl), 3vw, var(--text-4xl)); /* Reduced slightly from previous size */
+    line-height: 1.2;
+    color: var(--accent-blue); /* Ensure mobile h2 is also blue */
+  }
+  
+  h3, .h3 {
+    font-size: var(--text-2xl);
+    line-height: 1.3;
+  }
+  
+  h4, .h4 {
+    font-size: var(--text-xl);
+    line-height: 1.4;
+  }
+  
+  p {
+    font-size: var(--text-base);
+    line-height: 1.6;
+    margin-bottom: var(--space-sm);
+  }
+  
+  .hero-content .subtitle {
+    font-weight: var(--font-weight-bold); /* Make it bolder */
+    color: var(--coral); /* Changed to red color */
+    font-size: clamp(var(--text-2xl), 3vw, var(--text-4xl)); /* Reduced slightly from previous size */
+    line-height: var(--heading-line-height);
+    margin-bottom: var(--space-xs);
+  }
+  
+  /* Improved readability for mobile */
+  .hero-content .description,
+  .section-description,
+  .testimonial-text-no-photo {
+    font-size: var(--text-base);
+    line-height: 1.6;
+    letter-spacing: 0.01em;
+  }
+  
+  /* Better mobile section spacing */
+  .hero {
+    padding: var(--space-md) 0 0; /* Remove bottom padding to glue image to next section */
+    margin-top: 80px;
+  }
+  
+  .hero .container {
+    flex-direction: column; /* Changed from column-reverse to column */
+  }
+  
+  .hero-image {
+    text-align: center;
+    justify-content: center;
+    align-items: flex-end;
+    margin: 0 0 -30px 0; /* Increased negative margin to pull image further down */
+    padding: 0;
+  }
+  
+  .hero-content {
+    padding-bottom: var(--space-lg);
+    background: rgba(255, 255, 255, 0.85);
+    backdrop-filter: blur(5px);
+    border-radius: 0; /* Removed border radius */
+    padding: var(--space-md);
+    margin: 0;
+    box-shadow: none;
+  }
+  
+  .hero-content .subtitle {
+    font-weight: var(--font-weight-bold);
+    color: var(--coral);
+    font-size: clamp(var(--text-2xl), 3vw, var(--text-4xl));
+    line-height: var(--heading-line-height);
+    margin-bottom: var(--space-xs);
+    margin-top: -10px; /* Moved closer to the image */
+  }
+  
+  .hero-image img {
+    width: 100%;
+    max-width: 100%;
+    height: auto;
+    object-position: center bottom;
+    object-fit: cover;
+    margin: 0;
+    padding: 0;
+  }
+  
+  .hero-content .title {
+    font-size: var(--text-3xl); /* Reduced from default mobile size */
+    line-height: 1.2;
+  }
+  
+  /* Remove borders from sections */
+  .compliance-section {
+    padding: var(--space-xl) 0;
+    border-top-left-radius: 0; /* Removed border radius */
+    border-top-right-radius: 0; /* Removed border radius */
+    box-shadow: none; /* Removed box shadow */
+    border: none; /* Removed border */
+  }
+  
+  .features {
+    padding: var(--space-xl) 0;
+    border-radius: 0; /* Removed border radius */
+    box-shadow: none; /* Removed box shadow */
+    border: none; /* Removed border */
+  }
+  
+  .app-section {
+    padding: var(--space-xl) 0;
+    border-radius: 0; /* Removed border radius */
+    box-shadow: none; /* Removed box shadow */
+    border: none; /* Removed border */
+  }
+  
+  .stats {
+    padding: var(--space-xl) 0;
+    border-radius: 0; /* Removed border radius */
+    box-shadow: none; /* Removed box shadow */
+    border: none; /* Removed border */
+  }
+  
+  .testimonials-no-photo {
+    padding: var(--space-xl) 0;
+    border-radius: 0; /* Removed border radius */
+    box-shadow: none; /* Removed box shadow */
+    border: none; /* Removed border */
+  }
+  
+  @media (max-width: 768px) {
+    /* Eliminar espaços entre FAQ e News Section */
+    .faq-section {
+      padding-bottom: 0 !important;
+      margin-bottom: 0 !important;
+    }
+    
+    .faq-content {
+      gap: 0 !important;
+      margin-bottom: 0 !important;
+      padding-bottom: 0 !important;
+    }
+    
+    .faq-image-column {
+      margin: 0 !important;
+      padding: 0 !important;
+    }
+    
+    .faq-image-column .mobile-image {
+      margin: 0 !important;
+      padding: 0 !important;
+    }
+    
+    .news-section {
+      margin-top: 0 !important;
+      padding-top: 0 !important;
+    }
+  }
+  
+  .faq-section {
+    padding: var(--space-lg) 0;
+    border-radius: 0; /* Removed border radius */
+    box-shadow: none; /* Removed box shadow */
+    border: none; /* Removed border */
+  }
+  
+  .news-section {
+    padding: var(--space-xl) 0;
+    border-radius: 0; /* Removed border radius */
+    box-shadow: none; /* Removed box shadow */
+    border: none; /* Removed border */
+  }
+  
+  .cta-section {
+    padding: var(--space-md) 0;
+    min-height: auto;
+    background: linear-gradient(135deg, #FFF4D6 0%, #F2CB57 100%);
+    position: relative;
+    overflow: hidden;
+    border-radius: 0; /* Removed border radius */
+    box-shadow: none; /* Removed box shadow */
+    border: none; /* Removed border */
+  }
+  
+  .cta-content {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    padding: var(--space-lg) var(--space-sm);
+  }
+  
+  .cta-text {
+    width: 100%;
+    padding: 0;
+    margin: 0 0 var(--space-sm) 0; /* Reduzido espaçamento abaixo do texto */
+  }
+  
+  .cta-text h2 {
+    font-size: var(--text-2xl);
+    color: var(--dark-gray);
+    margin-bottom: var(--space-sm);
+    line-height: 1.2;
+  }
+  
+  .cta-text p {
+    font-size: var(--text-base);
+    color: rgba(0, 0, 0, 0.75);
+    margin-bottom: var(--space-md);
+    line-height: 1.5;
+  }
+  
+  .cta-image {
+    width: 150%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 0; /* Sem espaçamento entre botão e imagem */
+  }
+  
+  .cta-image img {
+    width: 120%;
+    max-width: 800px; /* Imagem maior */
+    height: auto;
+    border-radius: 0;
+    border: none;
+    box-shadow: none;
+    object-fit: cover;
+    margin: 0 auto;
+  }
+  
+  .btn-cta {
+    background: var(--accent-orange);
+    color: var(--white);
+    border: none;
+    padding: var(--space-sm) var(--space-lg);
+    font-size: var(--text-base);
+    font-weight: var(--font-weight-bold);
+    border-radius: var(--radius-md);
+    text-transform: none;
+    letter-spacing: normal;
+    box-shadow: 0 4px 10px rgba(214, 67, 45, 0.3);
+    margin: 0 auto 0 auto; /* Sem espaçamento abaixo do botão */
+    display: block;
+  }
+  
+  .btn-cta:hover {
+    background: var(--accent-orange-hover);
+    transform: translateY(-2px);
+    box-shadow: 0 6px 15px rgba(214, 67, 45, 0.4);
+  }
+  
+  /* Enhanced mobile navigation experience */
+  .nav-menu {
+    padding: var(--space-lg);
+  }
+  
+  .nav-menu li {
+    margin: var(--space-sm) 0;
+    width: 100%;
+  }
+  
+  /* Better mobile form elements */
+  input, textarea, select {
+    min-height: 44px;
+    padding: var(--space-sm);
+    font-size: var(--text-base);
+  }
+  
+  /* Improved mobile image handling */
+  .hero-image img,
+  .faq-image {
+    width: 100%;
+    max-width: 100%;
+    height: auto;
+  }
+  
+  /* Image Section - Desktop and Mobile Specific */
+  /* Rules moved to style-harmonizado.css for better control */
+  
+  /* Optimized image loading for mobile */
+  img {
+    image-rendering: -webkit-optimize-contrast;
+    /* Reduce image quality on slower connections */
+    content-visibility: auto;
+    contain-intrinsic-size: 100%;
+  }
+  
+  /* Enhanced mobile card interactions */
+  .compliance-card,
+  .feature-card-enhanced,
+  .testimonial-card-no-photo,
+  .stat-card,
+  .news-card {
+    transition: none;
+  }
+  
+  .compliance-card:hover,
+  .feature-card-enhanced:hover,
+  .testimonial-card-no-photo:hover,
+  .stat-card:hover,
+  .news-card:hover {
+    transform: none;
+  }
+  
+  /* Better mobile accordion experience */
+  .accordion-content.active {
+    max-height: 500px;
+  }
+  
+  /* Enhanced mobile button feedback */
+  .btn:active {
+    transform: translateY(1px);
+  }
+  
+  .btn-primary:active {
+    background: var(--accent-orange-hover);
+    border-color: var(--accent-orange-hover);
+  }
+  
+  /* Improved mobile focus states for accessibility */
+  a:focus, 
+  button:focus, 
+  input:focus, 
+  textarea:focus {
+    outline: 2px solid var(--primary-blue);
+    outline-offset: 2px;
+  }
+  
+  /* Better mobile loading experience */
+  .loading-spinner {
+    width: 40px;
+    height: 40px;
+  }
+  
+  /* Enhanced mobile touch feedback */
+  .touch-ripple {
+    position: relative;
+    overflow: hidden;
+  }
+  
+  .touch-ripple:after {
+    content: "";
+    display: block;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    background-image: radial-gradient(circle, rgba(0,0,0,0.1) 10%, transparent 10.01%);
+    background-repeat: no-repeat;
+    background-position: 50%;
+    transform: scale(10,10);
+    opacity: 0;
+    transition: transform .5s, opacity 1s;
+  }
+  
+  .touch-ripple:active:after {
+    transform: scale(0,0);
+    opacity: .2;
+    transition: 0s;
+  }
+  
+  /* Better mobile scrolling experience */
+  html {
+    scroll-behavior: smooth;
+  }
+  
+  /* Enhanced mobile accessibility */
+  @media (prefers-reduced-motion: reduce) {
+    *, *::before, *::after {
+      animation-duration: 0.01ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 0.01ms !important;
+    }
+  }
+  
+  /* Improved mobile text selection */
+  ::selection {
+    background: var(--primary-blue);
+    color: var(--white);
+  }
+  
+  /* Better mobile input experience */
+  input, textarea {
+    -webkit-appearance: none;
+    border-radius: var(--radius-md);
+  }
+  
+  /* Enhanced mobile image optimization */
+  img {
+    image-rendering: -webkit-optimize-contrast;
+  }
+  
+  /* Better mobile loading performance */
+  .lazy-load {
+    opacity: 0;
+    transition: opacity 0.3s;
+  }
+  
+  .lazy-load.loaded {
+    opacity: 1;
+  }
+  
+  /* Mobile-specific image optimizations */
+  .hero-image img {
+    object-fit: cover;
+    object-position: center top;
+  }
+  
+  .faq-image, .cta-image img {
+    object-fit: contain;
+    object-position: center;
+  }
+  
+  /* Reduce image sizes for mobile */
+  @media (max-width: 480px) {
+    .hero-image img {
+      max-height: 300px;
+    }
+    
+    .faq-image, .cta-image img {
+      max-height: 250px;
+    }
+  }
+  
+  /* Optimize card images for mobile */
+  .news-image img, 
+  .compliance-icon img,
+  .feature-icon-enhanced img {
+    width: 100%;
+    height: auto;
+  }
+  
+  /* Reduce decorative elements on mobile */
+  .compliance-curve {
+    height: 32px;
+    margin-bottom: -1px;
+  }
+  
+  /* Optimize QR code for mobile */
+  .qr-card {
+    max-width: 200px; /* Reduced from 250px */
+    padding: var(--space-xs); /* Reduced from var(--space-md) */
+    margin: 0 auto;
+    backdrop-filter: blur(5px);
+  }
+  
+  /* Better mobile section titles */
+  .section-title {
+    font-size: var(--text-3xl);
+    line-height: 1.2;
+  }
+  
+  /* Improved mobile section descriptions */
+  .section-description {
+    font-size: var(--text-base);
+    line-height: 1.6;
+  }
+  
+  /* Better mobile testimonial layout */
+  .testimonial-text-no-photo {
+    font-size: var(--text-sm);
+    line-height: 1.6;
+  }
+  
+  /* Testimonial cards adjustments for mobile */
+  .testimonials-grid-no-photo {
+    grid-template-columns: 1fr; /* Single column for better width control */
+    gap: var(--space-sm); /* Reduced gap between cards */
+    padding: 0 var(--space-xs); /* Reduced side padding */
+    max-width: 100%; /* Prevent horizontal overflow */
+    margin: 0 auto;
+  }
+  
+  .testimonial-card-no-photo {
+    padding: var(--space-sm); /* Reduced padding */
+    border-radius: var(--radius-sm); /* Slightly reduced border radius */
+    backdrop-filter: blur(5px);
+    width: 100%; /* Ensure cards don't overflow */
+    box-sizing: border-box; /* Include padding in width calculation */
+    min-height: auto; /* Allow flexible height */
+  }
+  
+  .testimonial-text-no-photo {
+    font-size: var(--text-base); /* Slightly increased from var(--text-sm) */
+    line-height: 1.5;
+    margin-bottom: var(--space-sm);
+    word-wrap: break-word; /* Prevent text overflow */
+  }
+  
+  .testimonial-header-no-photo {
+    margin-bottom: var(--space-sm); /* Reduced margin */
+  }
+  
+  .testimonial-info-no-photo h3 {
+    font-size: var(--text-lg); /* Slightly increased */
+    margin-bottom: 3px;
+  }
+  
+  .testimonial-info-no-photo h4 {
+    font-size: var(--text-sm); /* Slightly increased */
+  }
+  
+  .testimonial-stats-no-photo {
+    border-top: 1px solid rgba(255, 255, 255, 0.2);
+    padding-top: var(--space-sm); /* Reduced padding */
+  }
+  
+  .stat-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: var(--space-xs); /* Reduced margin */
+  }
+  
+  .stat-value {
+    font-size: var(--text-xl); /* Slightly increased */
+    margin-bottom: 0;
+  }
+  
+  .stat-label {
+    font-size: var(--text-xs); /* Slightly increased */
+    line-height: 1.2;
+  }
+  
+  /* Optimize stats for mobile */
+  .stats-grid {
+    grid-template-columns: repeat(2, 1fr); /* 2 cards per row */
+    gap: var(--space-sm); /* Reduced gap between cards */
+    padding: 0 var(--space-xs); /* Reduced side padding */
+    margin: 0 auto;
+    max-width: 100%; /* Prevent horizontal overflow */
+  }
+  
+  .stat-card {
+    padding: var(--space-sm); /* Reduced padding inside cards */
+    border-radius: var(--radius-sm); /* Slightly reduced border radius */
+    backdrop-filter: blur(5px); /* Maintain blur effect */
+    width: 100%; /* Ensure cards don't overflow */
+    box-sizing: border-box; /* Include padding in width calculation */
+  }
+  
+  .stat-circle {
+    width: 50px; /* Reduced circle size */
+    height: 50px;
+    margin: 0 auto var(--space-xs); /* Reduced margin */
+  }
+  
+  .stat-number {
+    font-size: 20px; /* Slightly reduced font size */
+  }
+  
+  .stat-unit {
+    font-size: 20px; /* Slightly reduced font size */
+  }
+  
+  .stat-title {
+    font-size: 9px; /* Slightly reduced font size */
+    line-height: 1.2;
+    margin-bottom: 0;
+    word-wrap: break-word; /* Prevent text overflow */
+  }
+  
+  /* Better mobile news cards */
+  .news-card {
+    height: 280px;
+  }
+  
+  .news-title {
+    font-size: var(--text-lg); /* Increased from var(--text-base) */
+    font-weight: var(--font-weight-bold);
+  }
+  
+  .news-description {
+    font-size: var(--text-sm); /* Increased from var(--text-xs) */
+    line-height: 1.5;
+  }
+  
+  /* Enhanced mobile typography scale */
+  .text-xs { font-size: 0.75rem; }      /* 12px */
+  .text-sm { font-size: 0.875rem; }     /* 14px */
+  .text-base { font-size: 1rem; }        /* 16px */
+  .text-lg { font-size: 1.125rem; }      /* 18px */
+  .text-xl { font-size: 1.25rem; }       /* 20px */
+  .text-2xl { font-size: 1.5rem; }       /* 24px */
+  .text-3xl { font-size: 1.75rem; }      /* 28px */
+  .text-4xl { font-size: 2rem; }         /* 32px */
+  .text-5xl { font-size: 2.25rem; }      /* 36px */
+  
+  /* Better word wrapping for mobile */
+  .word-wrap {
+    word-wrap: break-word;
+    word-break: break-word;
+    hyphens: auto;
+  }
+  
+  /* Improved list readability on mobile */
+  ul, ol {
+    padding-left: var(--space-md);
+    margin-bottom: var(--space-md);
+  }
+  
+  li {
+    margin-bottom: var(--space-xs);
+    line-height: 1.6;
+  }
+  
+  /* Better quote styling for mobile */
+  blockquote {
+    padding: var(--space-md);
+    margin: var(--space-md) 0;
+    font-size: var(--text-lg);
+    line-height: 1.5;
+  }
+  
+  /* Enhanced mobile link styling */
+  a {
+    -webkit-tap-highlight-color: rgba(69, 134, 223, 0.3);
+  }
+  
+  /* Better mobile highlight text */
+  .highlight {
+    font-weight: var(--font-weight-bold);
+  }
+  
+  /* Improved mobile benefit highlights */
+  .benefit-highlight {
+    font-size: var(--text-base);
+    line-height: 1.6;
+  }
+  
+  /* Better mobile benefit items */
+  .benefit-item {
+    font-size: var(--text-base);
+    line-height: 1.5;
+  }
+  
+  /* Enhanced mobile benefit checks */
+  .benefit-check {
+    width: 28px;
+    height: 28px;
+    font-size: 14px;
+  }
+  
+  /* Footer improvements for mobile */
+  .footer {
+    padding: var(--space-md) 0 var(--space-sm);
+  }
+  
+  .footer-content {
+    text-align: center;
+    margin-bottom: var(--space-md);
+    padding: 0 var(--space-sm);
+  }
+  
+  .footer-content h3 {
+    color: var(--white);
+    font-size: var(--text-xl);
+    margin-bottom: var(--space-xs);
+    font-weight: var(--font-weight-bold);
+  }
+  
+  .footer-content p {
+    color: rgba(255, 255, 255, 0.9);
+    font-size: var(--text-sm);
+    line-height: 1.5;
+    margin-bottom: var(--space-sm);
+  }
+  
+  .footer-content .btn-cta {
+    background: var(--accent-orange);
+    color: var(--white);
+    border: none;
+    padding: var(--space-sm) var(--space-md);
+    font-size: var(--text-base);
+    margin-bottom: var(--space-md);
+    display: inline-block;
+    border-radius: var(--radius-md);
+    font-weight: var(--font-weight-bold);
+    text-decoration: none;
+    transition: all 0.3s ease;
+  }
+  
+  .footer-content .btn-cta:hover {
+    background: var(--accent-orange-hover);
+    transform: translateY(-2px);
+  }
+  
+  .footer-image {
+    margin-top: var(--space-md);
+    text-align: center;
+  }
+  
+  .footer-image img {
+    max-width: 120px;
+    height: auto;
+    border-radius: 50%;
+    border: 3px solid rgba(255, 255, 255, 0.2);
+  }
+  
+  .social-icons {
+    margin-bottom: var(--space-sm);
+    gap: var(--space-sm); /* Increased gap between icons */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .social-icons a {
+    width: 40px;
+    height: 40px;
+    background: rgba(255, 255, 255, 0.15); /* Lighter background */
+    transition: all 0.3s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+  }
+  
+  .social-icons a:hover {
+    background: var(--primary-blue); /* Hover effect */
+    transform: translateY(-2px);
+  }
+  
+  .social-icons img {
+    width: 20px;
+    height: 20px;
+    filter: brightness(0) invert(1);
+  }
+  
+  .footer p {
+    font-size: var(--text-xs);
+    padding: 0 var(--space-sm);
+    line-height: 1.4; /* Improved line height */
+    margin: 0; /* Remove default margin */
+  }
+  
+  /* Additional mobile footer enhancements */
+  @media (max-width: 480px) {
+    .social-icons {
+      gap: var(--space-xs); /* Even smaller gap on very small screens */
+      padding: var(--space-2xs) var(--space-xs);
+    }
+    
+    .social-icons a {
+      width: 36px;
+      height: 36px;
+    }
+    
+    .social-icons img {
+      width: 18px;
+      height: 18px;
+    }
+    
+    .footer p {
+      font-size: 10px; /* Smaller text on very small screens */
+      padding: 0 var(--space-xs);
+    }
+    
+    .footer-content h3 {
+      font-size: var(--text-lg);
+    }
+    
+    
+    .footer-content p {
+      font-size: var(--text-xs);
+    }
+    
+    .footer-content .btn-cta {
+      font-size: var(--text-sm);
+      padding: var(--space-xs) var(--space-sm);
+    }
+    
+    .footer-image img {
+      max-width: 100px;
+    }
+  }
+}

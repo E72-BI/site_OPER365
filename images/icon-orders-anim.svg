@@ -1,0 +1,20 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" width="120" height="120" role="img" aria-label="Ícone de Ordens - animado">
+  <defs>
+    <linearGradient id="g2" x1="0" x2="1">
+      <stop offset="0%" stop-color="#E8C96A"/>
+      <stop offset="100%" stop-color="#F2CB57"/>
+    </linearGradient>
+  </defs>
+  <g fill="none" stroke="url(#g2)" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
+    <rect x="10" y="8" width="44" height="48" rx="4"/>
+    <path d="M18 20h28"/>
+    <path d="M18 30h28"/>
+    <path d="M18 40h18"/>
+  </g>
+  <!-- animated line pulses -->
+  <g>
+    <rect x="18" y="28" width="28" height="4" fill="#E8C96A" opacity="0.15">
+      <animate attributeName="opacity" values="0.15;0.6;0.15" dur="2s" repeatCount="indefinite"/>
+    </rect>
+  </g>
+</svg>

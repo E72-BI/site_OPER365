@@ -1,0 +1,18 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" width="120" height="120" role="img" aria-label="Ícone de Manutenção - animado">
+  <defs>
+    <linearGradient id="g1" x1="0" x2="1">
+      <stop offset="0%" stop-color="#3A6EA5"/>
+      <stop offset="100%" stop-color="#6FA3E0"/>
+    </linearGradient>
+  </defs>
+  <g fill="none" stroke="url(#g1)" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
+    <!-- simple wrench shape -->
+    <path d="M50 10 L58 18 L46 30"/>
+    <path d="M36 26 L46 36 L30 52 L20 42 L36 26 Z"/>
+    <path d="M14 48 L22 56"/>
+  </g>
+  <!-- subtle bobbing animation using SMIL -->
+  <g>
+    <animateTransform attributeName="transform" type="translate" values="0 0; 0 -3; 0 0" dur="2.4s" repeatCount="indefinite"/>
+  </g>
+</svg>
