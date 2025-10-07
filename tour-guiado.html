@@ -1,0 +1,453 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tour Guiado OPER - Mobilidade Industrial</title>
+    <link rel="stylesheet" href="css/styles-base.css">
+    <link rel="stylesheet" href="css/styles-mobile.css">
+    <link rel="stylesheet" href="css/menu.css">
+    <link rel="stylesheet" href="css/tour-guiado.css">
+    <link rel="stylesheet"
+        href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&family=Montserrat:wght@400;500;600;700&family=Open+Sans:wght@300;400;600;700&display=swap">
+</head>
+<body class="page-tour-guiado">
+    <div id="menu-placeholder"></div>
+
+    <div id="tourProgress" class="tour-progress">
+        <div class="tour-progress-bar" id="progressBar"></div>
+    </div>
+
+    <section class="guided-tour-container" id="guidedTour">
+        <div class="tour-main-content" id="desktopContent">
+            <div class="tour-showcase">
+                <nav class="tour-navigation" id="desktopNavigation">
+                    <h3 class="tour-nav-title">Tour Guiado</h3>
+                    <ul class="tour-steps">
+                        <li class="tour-step active" data-step="1">
+                            <span class="tour-step-number">1</span>
+                            <span class="tour-step-title">Login e Acesso</span>
+                        </li>
+                        <li class="tour-step" data-step="2">
+                            <span class="tour-step-number">2</span>
+                            <span class="tour-step-title">Dashboard Inteligente</span>
+                        </li>
+                        <li class="tour-step" data-step="3">
+                            <span class="tour-step-number">3</span>
+                            <span class="tour-step-title">Ordens de Serviço</span>
+                        </li>
+                        <li class="tour-step" data-step="4">
+                            <span class="tour-step-number">4</span>
+                            <span class="tour-step-title">Checklists Digital</span>
+                        </li>
+                        <li class="tour-step" data-step="5">
+                            <span class="tour-step-number">5</span>
+                            <span class="tour-step-title">Inventário Inteligente</span>
+                        </li>
+                        <li class="tour-step" data-step="6">
+                            <span class="tour-step-number">6</span>
+                            <span class="tour-step-title">Relatórios e Análises</span>
+                        </li>
+                        <li class="tour-step" data-step="7">
+                            <span class="tour-step-number">7</span>
+                            <span class="tour-step-title">Modo Offline</span>
+                        </li>
+                    </ul>
+                </nav>
+
+                <div class="mobile-showcase">
+                    <div class="mobile-frame">
+                        <div class="mobile-screen">
+                            <div class="mobile-header">
+                                <div class="mobile-title">OPER Mobile</div>
+                                <div class="mobile-menu"></div>
+                            </div>
+                            <div class="mobile-content">
+                                <img id="mockImage" src="images/tela_01.png" alt="Tela do fluxo" class="mock-image">
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Overlay de informações sobre a imagem (mobile) -->
+                    <div class="mobile-step-overlay">
+                        <div class="mobile-step-number-overlay" id="mobileStepNumberOverlay">01 – Login</div>
+                        <h2 class="mobile-step-title-overlay" id="mobileStepTitleOverlay">Login e Acesso Rápido</h2>
+                        <p class="mobile-step-description-overlay" id="mobileStepDescOverlay">
+                            Acesse a plataforma OPER de forma segura e rápida.
+                        </p>
+                    </div>
+
+
+
+
+                    <div class="mobile-info-card" id="mobileInfoCard">
+                        <h2 class="mobile-info-title" id="mobileInfoTitle">Login e Acesso</h2>
+                        <h3 class="mobile-info-subtitle" id="mobileInfoSubtitle">Login e Acesso Rápido</h3>
+                        <p class="mobile-info-description" id="mobileInfoDescription">
+                            Nosso sistema de login foi projetado para oferecer máxima segurança sem comprometer a experiência do usuário.
+                        </p>
+                    </div>
+
+                    <div class="tour-controls" id="desktopControls">
+                        <button class="tour-control-btn" id="prevBtn" onclick="changeStep(-1)">
+                            <span>←</span> Anterior
+                        </button>
+                        <div class="mock-toggle" id="mockToggle" style="display:none;">
+                            <button class="mock-dot active" data-variant="0" onclick="setMockVariant(0)">1</button>
+                            <button class="mock-dot" data-variant="1" onclick="setMockVariant(1)">2</button>
+                        </div>
+                        <button class="tour-control-btn" id="nextBtn" onclick="changeStep(1)">
+                            Próximo <span>→</span>
+                        </button>
+                    </div>
+                    <!-- Voltar (apenas mobile) — link centralizado abaixo dos botões -->
+                    <a href="recursos.html" class="mobile-voltar-btn" id="mobileVoltarBtnBottom" aria-label="Voltar para as Funcionalidades">
+                        Voltar para as Funcionalidades
+                    </a>
+                </div>
+
+                <div class="tour-description">
+                    <h2 class="tour-step-title-main" id="stepTitle">Login e Acesso Rápido</h2>
+                    <h3 class="tour-step-subtitle" id="stepSubtitle">Segurança e praticidade na palma da mão</h3>
+                    <p class="tour-step-description" id="stepDescription">
+                        Acesse a plataforma OPER de forma segura e rápida. Nosso sistema de login foi projetado para oferecer máxima segurança sem comprometer a experiência do usuário.
+                    </p>
+                    <ul class="tour-features" id="stepFeatures">
+                        <li class="tour-feature-item">Autenticação segura com criptografia</li>
+                        <li class="tour-feature-item">Acesso multi-empresa</li>
+                        <li class="tour-feature-item">Lembrar credenciais para acesso rápido</li>
+                        <li class="tour-feature-item">Recuperação de senha simplificada</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <div class="whatsapp-float" id="whatsappFloat">
+        <a href="https://wa.me/5582981457117?text=Quero%20saber%20mais%20sobre%20a%20OPER!" target="_blank" aria-label="Fale conosco no WhatsApp" rel="noopener noreferrer" class="zap-anchor">
+            <div class="zap-tooltip" role="tooltip">
+                Fale conosco no WhatsApp
+                <div class="zap-tooltip-arrow"></div>
+            </div>
+            <div class="zap-glow"></div>
+            <div class="zap-button">
+                <svg class="zap-icon" width="24" height="24" viewBox="0 0 24 24" aria-hidden="true">
+                    <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z" fill="currentColor"/>
+                </svg>
+            </div>
+            <div class="zap-pulse"></div>
+        </a>
+    </div>
+
+    <script src="js/script-harmonizado.js"></script>
+    
+    <script>
+        // Variáveis de estado
+        let currentStep = 1;
+        const totalSteps = 7;
+        let isMobileView = false;
+        let currentVariant = 0;   // 0 => 'a' (tela_XX.png), 1 => 'b' (tela_XX_b.png)
+        let hasVariant = false;   // se existe 'tela_XX_b.png' para o passo atual
+
+        const stepData = {
+            1: {
+                title: "Login e Acesso Rápido",
+                subtitle: "Segurança e praticidade na palma da mão",
+                description: "Nosso sistema de login foi projetado para oferecer máxima segurança sem comprometer a experiência do usuário.",
+                features: [
+                    "Autenticação segura com criptografia",
+                    "Acesso multi-empresa",
+                    "Lembrar credenciais para acesso rápido",
+                    "Recuperação de senha simplificada"
+                ]
+            },
+            2: {
+                title: "Dashboard Inteligente",
+                subtitle: "Visão completa da operação em tempo real",
+                description: "Tenha acesso a todas as informações importantes da sua operação em um único lugar. Nosso dashboard oferece insights rápidos e tomada de decisão eficiente.",
+                features: [
+                    "Indicadores de performance em tempo real",
+                    "Visão geral de tarefas e atividades",
+                    "Status de equipamentos e ativos",
+                    "Notificações e alertas automáticos"
+                ]
+            },
+            3: {
+                title: "Ordens de Serviço",
+                subtitle: "Gestão completa do fluxo de trabalho",
+                description: "Crie, atribua e acompanhe ordens de serviço com eficiência. Nosso sistema garante que nenhuma tarefa seja esquecida e que todos os prazos sejam cumpridos.",
+                features: [
+                    "Criação rápida de ordens de serviço",
+                    "Atribuição automática por equipe",
+                    "Priorização de tarefas críticas",
+                    "Acompanhamento em tempo real"
+                ]
+            },
+            4: {
+                title: "Checklists Digital",
+                subtitle: "Padronização e conformidade garantida",
+                description: "Transforme seus processos manuais em checklists digitais inteligentes. Garanta a conformidade e padronização em todas as operações.",
+                features: [
+                    "Modelos personalizáveis de checklists",
+                    "Preenchimento offline com sincronização",
+                    "Fotos e anexos como evidência",
+                    "Validação automática de itens críticos"
+                ]
+            },
+            5: {
+                title: "Inventário Inteligente",
+                subtitle: "Controle total dos seus ativos",
+                description: "Controle seus ativos, insumos e equipamentos de ponta a ponta, com rastreabilidade e dados sempre atualizados no inventário.",
+                features: [
+                    "Registro automatizado de bens",
+                    "Rastreabilidade completa de movimentações",
+                    "Controle de estoque em tempo real",
+                    "Histórico auditável de uso"
+                ]
+            },
+            6: {
+                title: "Relatórios e Análises",
+                subtitle: "Insights para tomada de decisão",
+                description: "Gere relatórios completos e análises detalhadas sobre sua operação. Tenha dados precisos para auditorias e melhorias contínuas.",
+                features: [
+                    "Relatórios automáticos e agendados",
+                    "Análise de tendências e performance",
+                    "Dados prontos para auditoria",
+                    "Exportação em múltiplos formatos"
+                ]
+            },
+            7: {
+                title: "Modo Offline",
+                subtitle: "Trabalhe em qualquer lugar, a qualquer hora",
+                description: "Nossa plataforma funciona perfeitamente offline. Continue trabalhando mesmo sem conexão e sincronize tudo quando houver internet.",
+                features: [
+                    "Trabalho offline sem limitações",
+                    "Sincronização automática de dados",
+                    "Integridade dos dados garantida",
+                    "Continuidade da operação em qualquer lugar"
+                ]
+            }
+        };
+
+        // Util
+        function isMobile() {
+            return window.innerWidth <= 768;
+        }
+
+        function initializeExperience() {
+            if (isMobile()) {
+                showMobileExperience();
+            } else {
+                showDesktopExperience();
+            }
+        }
+
+        function showMobileExperience() {
+            isMobileView = true;
+            document.getElementById('desktopNavigation').style.display = 'block';
+            document.getElementById('desktopContent').style.display = 'flex';
+            updateTourUI();
+        }
+
+        function showDesktopExperience() {
+            isMobileView = false;
+            document.getElementById('desktopNavigation').style.display = 'block';
+            document.getElementById('desktopContent').style.display = 'flex';
+            document.getElementById('desktopControls').style.display = 'flex';
+            document.getElementById('tourProgress').style.display = 'block';
+            updateTourUI();
+        }
+
+        const isVariantStep = (s) => s === 3 || s === 4;
+
+        // changeStep(): navegação 1,2,3a,3b,4a,4b,5,6,7
+        function changeStep(direction) {
+            if (direction !== 1 && direction !== -1) return;
+
+            // Próximo: em 3a/4a -> vira 'b'; em 3b/4b -> avança para próximo passo (como 'a')
+            if (direction === 1) {
+                if (isVariantStep(currentStep) && hasVariant && currentVariant === 0) {
+                    currentVariant = 1;
+                    updateTourUI(); // mesma etapa, apenas alterna imagem
+                    return;
+                }
+                // sai de 'b' ou passos sem variante
+                if (currentStep + 1 > totalSteps) return;
+                currentStep += 1;
+                currentVariant = 0; // sempre começa como 'a' no novo passo
+                updateTourUI();
+                return;
+            }
+
+            // Anterior: em 3b/4b -> volta para 'a'; em 3a/4a -> volta para passo anterior
+            if (direction === -1) {
+                if (isVariantStep(currentStep) && hasVariant && currentVariant === 1) {
+                    currentVariant = 0;
+                    updateTourUI(); // mesma etapa, apenas alterna imagem
+                    return;
+                }
+                if (currentStep - 1 < 1) return;
+                currentStep -= 1;
+                currentVariant = 0; // ao voltar, começa como 'a'
+                updateTourUI();
+            }
+        }
+
+        function setMobileInfoCard(data) {
+            const titles = [
+                'Login e Acesso',
+                'Dashboard Inteligente',
+                'Ordens de Serviço',
+                'Checklists Digital',
+                'Inventário Inteligente',
+                'Relatórios e Análises',
+                'Modo Offline'
+            ];
+            const titleEl = document.getElementById('mobileInfoTitle');
+            const subtitleEl = document.getElementById('mobileInfoSubtitle');
+            const descEl = document.getElementById('mobileInfoDescription');
+
+            if (titleEl && subtitleEl && descEl) {
+                titleEl.textContent = titles[currentStep - 1] || data.title;
+                subtitleEl.textContent = data.title;
+                descEl.textContent = data.description;
+            }
+        }
+
+        // updateTourUI(): mantém textos, progresso e estados dos botões e bolas
+        function updateTourUI() {
+            const progress = (currentStep / totalSteps) * 100;
+            document.getElementById('progressBar').style.width = progress + '%';
+
+            document.querySelectorAll('.tour-step').forEach(step => {
+                step.classList.toggle('active', parseInt(step.dataset.step) === currentStep);
+            });
+
+            updateMockupImage();
+
+            const data = stepData[currentStep];
+            document.getElementById('stepTitle').textContent = data.title;
+            document.getElementById('stepSubtitle').textContent = data.subtitle;
+            document.getElementById('stepDescription').textContent = data.description;
+
+            const featuresContainer = document.getElementById('stepFeatures');
+            featuresContainer.innerHTML = '';
+            data.features.forEach(feature => {
+                const li = document.createElement('li');
+                li.className = 'tour-feature-item';
+                li.textContent = feature;
+                featuresContainer.appendChild(li);
+            });
+
+            // Estado dos botões
+            const prevBtn = document.getElementById('prevBtn');
+            const nextBtn = document.getElementById('nextBtn');
+            prevBtn.disabled = (currentStep === 1) && (currentVariant === 0);
+            const isLast = (currentStep === totalSteps) && (currentVariant === 0 || !hasVariant);
+            nextBtn.disabled = isLast;
+
+            nextBtn.innerHTML = (currentStep === totalSteps) ? 'Finalizar <span>✓</span>' : 'Próximo <span>→</span>';
+
+            // Atualiza overlay mobile e card
+            const stepTitles = ['Login', 'Dashboard', 'Ordens', 'Checklists', 'Inventário', 'Relatórios', 'Offline'];
+            const stepNumber = String(currentStep).padStart(2, '0');
+            const overlayNumber = document.getElementById('mobileStepNumberOverlay');
+            const overlayTitle = document.getElementById('mobileStepTitleOverlay');
+            const overlayDesc = document.getElementById('mobileStepDescOverlay');
+
+            if (overlayNumber) overlayNumber.textContent = `${stepNumber} – ${stepTitles[currentStep - 1]}`;
+            if (overlayTitle) overlayTitle.textContent = data.title;
+            if (overlayDesc) overlayDesc.textContent = data.description;
+
+            setMobileInfoCard(data);
+            renderMockToggleVisibility(); // garante estado correto das bolas
+        }
+
+        // renderMockToggleVisibility(): mostra/oculta as bolas conforme regras
+        function renderMockToggleVisibility() {
+            const toggleEl = document.getElementById('mockToggle');
+            if (!toggleEl) return;
+            if (isVariantStep(currentStep) && hasVariant) {
+                toggleEl.style.display = 'inline-flex';
+                document.querySelectorAll('.mock-dot').forEach((dot, index) => {
+                    dot.classList.toggle('active', index === currentVariant);
+                });
+            } else {
+                toggleEl.style.display = 'none';
+                currentVariant = 0;
+            }
+        }
+
+        // updateMockupImage(): aplica sufixo '_b' quando necessário
+        function updateMockupImage() {
+            const stepStr = String(currentStep).padStart(2, '0');
+            const variantSuffix = currentVariant === 1 ? '_b' : '';
+            const imagePath = `images/tela_${stepStr}${variantSuffix}.png`;
+            const mockImage = document.getElementById('mockImage');
+            mockImage.src = imagePath;
+
+            checkImageVariant(stepStr);
+        }
+
+        // checkImageVariant(): detecta se há arquivo '_b' nas etapas 3/4
+        function checkImageVariant(stepStr) {
+            if (!isVariantStep(currentStep)) {
+                hasVariant = false;
+                renderMockToggleVisibility();
+                return;
+            }
+            const variantImage = new Image();
+            variantImage.onload = function() {
+                hasVariant = true;
+                renderMockToggleVisibility();
+            };
+            variantImage.onerror = function() {
+                hasVariant = false;
+                renderMockToggleVisibility();
+            };
+            variantImage.src = `images/tela_${stepStr}_b.png`;
+        }
+
+        // setMockVariant(): alterna manualmente entre 'a' e 'b' nos passos 3/4
+        function setMockVariant(variant) {
+            if (!isVariantStep(currentStep) || !hasVariant) return;
+            currentVariant = variant === 1 ? 1 : 0;
+            document.querySelectorAll('.mock-dot').forEach((dot, index) => {
+                dot.classList.toggle('active', index === currentVariant);
+            });
+            updateMockupImage();
+        }
+
+        document.addEventListener('DOMContentLoaded', function() {
+            initializeExperience();
+            
+            document.querySelectorAll('.tour-step').forEach(step => {
+                step.addEventListener('click', function() {
+                    currentStep = parseInt(this.dataset.step);
+                    currentVariant = 0; // ao clicar em uma etapa, começa em 'a'
+                    updateTourUI();
+                });
+            });
+            
+            updateTourUI();
+            
+            document.addEventListener('keydown', function(e) {
+                if (e.key === 'ArrowLeft') {
+                    changeStep(-1);
+                } else if (e.key === 'ArrowRight') {
+                    changeStep(1);
+                }
+            });
+            
+            window.addEventListener('resize', function() {
+                if (isMobile() && !isMobileView) {
+                    showMobileExperience();
+                } else if (!isMobile() && isMobileView) {
+                    showDesktopExperience();
+                }
+            });
+        });
+    </script>
+    <script src="js/menu-loader.js"></script>
+</body>
+</html>

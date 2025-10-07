@@ -1,0 +1,484 @@
+/* Reset e base */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* Fonte moderna (opcional: carregue via Google Fonts no HTML se quiser) */
+body {
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+  color: #0f172a;
+  /* REMOVIDO: padding-top será aplicado apenas onde necessário */
+}
+
+/* Menu principal - FIXO */
+.site-menu {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 1000;
+  background: rgba(255, 255, 255, 0.95);
+  backdrop-filter: blur(10px); /* Efeito glassmorphism suave */
+  -webkit-backdrop-filter: blur(10px);
+  border-bottom: 1px solid rgba(226, 232, 240, 0.6);
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.06);
+  transition: box-shadow 0.3s ease;
+}
+
+.site-menu.scrolled {
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+}
+
+.site-menu__container {
+  max-width: 1200px;
+  margin: 0 auto;
+  height: 60px; /* Altura mínima otimizada */
+  padding: 0 20px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  position: relative;
+}
+
+/* Logo - AUMENTADA EM 20% E RESPONSIVA */
+.site-menu__brand {
+  display: inline-flex;
+  align-items: center;
+  text-decoration: none;
+  flex-shrink: 0;
+}
+
+.site-menu__logo {
+  height: 38px; /* Aumentado de 32px para 38px (+20%) */
+  width: auto;
+  max-width: 100%;
+  object-fit: contain;
+  image-rendering: -webkit-optimize-contrast; /* Melhora qualidade no WebKit */
+  image-rendering: crisp-edges; /* Melhora qualidade em outros navegadores */
+  transition: transform 0.2s ease;
+}
+
+.site-menu__logo:hover {
+  transform: scale(1.03);
+}
+
+/* Botão mobile */
+.site-menu__toggle {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 40px;
+  height: 40px;
+  border: none;
+  background: transparent;
+  cursor: pointer;
+  z-index: 1001;
+  padding: 0;
+}
+.site-menu__toggle-bar {
+  display: block;
+  width: 22px;
+  height: 2px;
+  background: #334155;
+  margin: 2px 0;
+  border-radius: 2px;
+  transition: all 0.3s ease;
+}
+.site-menu__toggle-label {
+  font-size: 11px;
+  font-weight: 600;
+  margin-top: 4px;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  color: #64748b;
+}
+
+.site-menu__toggle[aria-expanded="true"] .site-menu__toggle-bar:nth-child(1) {
+  transform: translateY(6px) rotate(45deg);
+  background: #2563eb;
+}
+.site-menu__toggle[aria-expanded="true"] .site-menu__toggle-bar:nth-child(2) {
+  opacity: 0;
+}
+.site-menu__toggle[aria-expanded="true"] .site-menu__toggle-bar:nth-child(3) {
+  transform: translateY(-6px) rotate(-45deg);
+  background: #2563eb;
+}
+
+/* Lista de navegação - COM FUNDO ELEGANTE NO MOBILE */
+.site-menu__list {
+  list-style: none;
+  margin: 0;
+  padding: 20px;
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 60px; /* Ajustado para nova altura */
+  background: rgba(255, 255, 255, 0.98); /* Fundo com alta transparência */
+  backdrop-filter: blur(20px); /* Efeito glassmorphism mais intenso */
+  -webkit-backdrop-filter: blur(20px);
+  border-bottom: 1px solid rgba(226, 232, 240, 0.8);
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.15); /* Sombra mais pronunciada */
+  display: none;
+  flex-direction: column;
+  gap: 8px;
+  z-index: 1000;
+  border-radius: 0 0 20px 20px; /* Bordas mais arredondadas */
+  animation: slideDown 0.4s cubic-bezier(0.22, 0.61, 0.36, 1);
+  /* Gradiente sutil para mais elegância */
+  background-image: linear-gradient(
+    180deg, 
+    rgba(255, 255, 255, 0.98) 0%, 
+    rgba(248, 250, 252, 0.95) 100%
+  );
+}
+
+.site-menu__list.is-open {
+  display: flex;
+}
+
+@keyframes slideDown {
+  from {
+    opacity: 0;
+    transform: translateY(-15px);
+    backdrop-filter: blur(0px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+    backdrop-filter: blur(20px);
+  }
+}
+
+/* Itens do menu - MELHOR CONTRASTE NO MOBILE */
+.site-menu__item {
+  width: 100%;
+}
+.site-menu__link {
+  display: flex;
+  align-items: center;
+  padding: 16px 20px; /* Padding ligeiramente maior para melhor toque */
+  border-radius: 12px;
+  color: #475569;
+  text-decoration: none;
+  font-weight: 500;
+  transition: all 0.25s ease;
+  gap: 12px;
+  position: relative;
+  background: rgba(255, 255, 255, 0.6); /* Fundo sutil nos links */
+  margin-bottom: 4px;
+}
+
+.site-menu__link:hover,
+.site-menu__link:focus {
+  color: #2563eb;
+  background: rgba(37, 99, 235, 0.08); /* Fundo azul sutil no hover */
+  transform: translateX(4px);
+  box-shadow: 0 2px 8px rgba(37, 99, 235, 0.15);
+}
+
+/* Ícones SVG */
+.site-menu__icon {
+  display: inline-block;
+  width: 20px;
+  height: 20px;
+  flex-shrink: 0;
+  color: currentColor;
+  stroke: currentColor;
+  fill: none;
+  transition: transform 0.2s ease;
+}
+.site-menu__link:hover .site-menu__icon {
+  transform: scale(1.15);
+}
+
+/* Link ativo */
+.site-menu__link.active {
+  color: #2563eb;
+  font-weight: 600;
+  background: rgba(37, 99, 235, 0.12);
+  box-shadow: 0 2px 8px rgba(37, 99, 235, 0.2);
+}
+.site-menu__link.active .site-menu__icon {
+  color: #2563eb;
+}
+
+/* Tablet - Tamanho intermediário */
+@media (min-width: 480px) and (max-width: 767px) {
+  .site-menu__container {
+    height: 65px; /* Ligeiramente maior para tablets */
+    padding: 0 20px;
+  }
+  
+  .site-menu__logo {
+    height: 43px; /* Aumentado de 36px para 43px (+20%) */
+  }
+  
+  .site-menu__list {
+    top: 65px;
+    padding: 24px;
+    border-radius: 0 0 24px 24px;
+  }
+}
+
+/* Desktop */
+@media (min-width: 768px) {
+  /* Container otimizado no desktop */
+  .site-menu__container {
+    height: 70px; /* Altura otimizada */
+    padding: 0 24px;
+  }
+  
+  /* Logo aumentada em 20% no desktop */
+  .site-menu__logo {
+    height: 54px; /* Aumentado de 45px para 54px (+20%) */
+    max-height: 54px;
+  }
+  
+  .site-menu__toggle {
+    display: none;
+  }
+  .site-menu__list {
+    position: static;
+    display: flex !important;
+    flex-direction: row;
+    align-items: center;
+    gap: 8px;
+    padding: 0;
+    background: transparent !important; /* Remove fundo no desktop */
+    backdrop-filter: none !important;
+    -webkit-backdrop-filter: none !important;
+    background-image: none !important;
+    box-shadow: none;
+    border: none;
+    border-radius: 0;
+    margin-left: auto;
+  }
+  .site-menu__item {
+    width: auto;
+  }
+  .site-menu__link {
+    padding: 10px 16px;
+    width: auto;
+    border-radius: 10px;
+    transform: none;
+    background: transparent !important; /* Remove fundo dos links no desktop */
+    margin-bottom: 0;
+  }
+  .site-menu__link:hover {
+    transform: none;
+    background: #f8fafc !important; /* Fundo sutil no desktop */
+    box-shadow: none;
+  }
+
+  /* Efeito de borda inferior animada */
+  .site-menu__link {
+    position: relative;
+  }
+  .site-menu__link::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    width: 0;
+    height: 3px;
+    background: linear-gradient(90deg, #2563eb, #60a5fa);
+    border-radius: 2px;
+    transition: all 0.3s ease;
+    transform: translateX(-50%);
+  }
+  .site-menu__link:hover::after,
+  .site-menu__link.active::after {
+    width: 70%;
+  }
+
+  /* Botão CTA */
+  .site-menu__item--cta .site-menu__link {
+    background: linear-gradient(135deg, #2563eb, #3b82f6) !important;
+    color: white !important;
+    font-weight: 600;
+    border-radius: 12px;
+    padding: 10px 22px;
+    box-shadow: 0 4px 12px rgba(37, 99, 235, 0.25);
+    position: relative;
+    overflow: hidden;
+    margin-left: 12px;
+  }
+  .site-menu__item--cta .site-menu__link::before {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -60%;
+    width: 20px;
+    height: 200%;
+    background: rgba(255, 255, 255, 0.3);
+    transform: rotate(25deg);
+    transition: all 0.6s ease;
+  }
+  .site-menu__item--cta .site-menu__link:hover::before {
+    left: 120%;
+  }
+  .site-menu__item--cta .site-menu__link:hover {
+    box-shadow: 0 6px 16px rgba(37, 99, 235, 0.35);
+    transform: translateY(-2px);
+  }
+}
+
+/* Desktop grande - Logo ainda maior */
+@media (min-width: 1200px) {
+  .site-menu__container {
+    height: 75px;
+    padding: 0 32px;
+  }
+  
+  .site-menu__logo {
+    height: 60px; /* Aumentado de 50px para 60px (+20%) */
+  }
+}
+
+/* Mobile pequeno */
+@media (max-width: 479px) {
+  .site-menu__container {
+    height: 55px;
+    padding: 0 16px;
+  }
+  
+  .site-menu__logo {
+    height: 34px; /* Aumentado de 28px para 34px (+20%) */
+  }
+  
+  .site-menu__list {
+    top: 55px;
+    padding: 18px 16px;
+    gap: 6px;
+    border-top: 1px solid rgba(226, 232, 240, 0.8);
+    border-radius: 0 0 16px 16px;
+  }
+  
+  .site-menu__link {
+    padding: 14px 16px;
+    font-size: 15px;
+  }
+  
+  .site-menu__overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.4); /* Overlay mais sutil */
+    backdrop-filter: blur(4px);
+    -webkit-backdrop-filter: blur(4px);
+    z-index: 999;
+    display: none;
+    animation: fadeIn 0.3s ease;
+  }
+  
+  .site-menu__list.is-open ~ .site-menu__overlay {
+    display: block;
+  }
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+/* COMPENSAÇÃO PRECISA PARA O CONTEÚDO - SEM ESPAÇOS EXTRAS */
+/* Aplicamos padding-top apenas aos elementos que vêm imediatamente após o menu */
+
+/* Seletores específicos para o primeiro elemento após o menu */
+#menu-placeholder + section,
+#menu-placeholder + .hero,
+#menu-placeholder + .container,
+#menu-placeholder + div:first-of-type,
+body > section:first-of-type,
+body > .hero:first-of-type,
+body > .container:first-of-type {
+  padding-top: 60px !important;
+  margin-top: 0 !important;
+}
+
+@media (min-width: 480px) and (max-width: 767px) {
+  #menu-placeholder + section,
+  #menu-placeholder + .hero,
+  #menu-placeholder + .container,
+  #menu-placeholder + div:first-of-type,
+  body > section:first-of-type,
+  body > .hero:first-of-type,
+  body > .container:first-of-type {
+    padding-top: 65px !important;
+    margin-top: 0 !important;
+  }
+}
+
+@media (min-width: 768px) {
+  #menu-placeholder + section,
+  #menu-placeholder + .hero,
+  #menu-placeholder + .container,
+  #menu-placeholder + div:first-of-type,
+  body > section:first-of-type,
+  body > .hero:first-of-type,
+  body > .container:first-of-type {
+    padding-top: 70px !important;
+    margin-top: 0 !important;
+  }
+}
+
+@media (min-width: 1200px) {
+  #menu-placeholder + section,
+  #menu-placeholder + .hero,
+  #menu-placeholder + .container,
+  #menu-placeholder + div:first-of-type,
+  body > section:first-of-type,
+  body > .hero:first-of-type,
+  body > .container:first-of-type {
+    padding-top: 75px !important;
+    margin-top: 0 !important;
+  }
+}
+
+@media (max-width: 479px) {
+  #menu-placeholder + section,
+  #menu-placeholder + .hero,
+  #menu-placeholder + .container,
+  #menu-placeholder + div:first-of-type,
+  body > section:first-of-type,
+  body > .hero:first-of-type,
+  body > .container:first-of-type {
+    padding-top: 55px !important;
+    margin-top: 0 !important;
+  }
+}
+
+/* Garantir que elementos subsequentes não tenham margin-top extra */
+section + section,
+.hero + section,
+.container + section {
+  margin-top: 0 !important;
+}
+
+/* Reset específico para elementos que podem ter margin-top conflitante */
+.hero {
+  margin-top: 0 !important;
+}
+
+.hero .container {
+  padding-top: 0 !important;
+  margin-top: 0 !important;
+}
+
+/* Acessibilidade */
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation-duration: 0.01ms !important;
+    transition-duration: 0.01ms !important;
+  }
+}

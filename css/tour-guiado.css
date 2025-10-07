@@ -1,0 +1,480 @@
+/* Complementos específicos do Tour Guiado, alinhados ao tema global */
+/* Complementos extraídos de oper-tour-guiado.html para eliminar estilos inline */
+
+/* Seção hero */
+.tour-hero { background: linear-gradient(135deg, #4586DF 0%, #3A6EA5 100%); color: white; padding: 80px 0 60px; position: relative; overflow: hidden; }
+.tour-hero::before { content: ''; position: absolute; top: 0; left: 0; right: 0; bottom: 0; background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><defs><pattern id="grain" width="100" height="100" patternUnits="userSpaceOnUse"><circle cx="25" cy="25" r="1" fill="rgba(255,255,255,0.1)"/><circle cx="75" cy="75" r="1" fill="rgba(255,255,255,0.1)"/><circle cx="50" cy="10" r="0.5" fill="rgba(255,255,255,0.05)"/><circle cx="10" cy="60" r="0.5" fill="rgba(255,255,255,0.05)"/><circle cx="90" cy="40" r="0.5" fill="rgba(255,255,255,0.05)"/></pattern></defs><rect width="100" height="100" fill="url(%23grain)"/></svg>'); opacity: 0.3; }
+.tour-hero-content { position: relative; z-index: 2; text-align: center; max-width: 800px; margin: 0 auto; }
+.tour-hero h1 { font-size: clamp(2.5rem, 5vw, 4rem); margin-bottom: 1.5rem; font-weight: 700; line-height: 1.1; }
+.tour-hero p { font-size: 0.95rem; margin-bottom: 2rem; opacity: 0.9; line-height: 1; }
+
+/* Estrutura principal */
+.guided-tour-container { background: #f8f9fa; padding: 60px 0; min-height: 100vh; position: relative; }
+.tour-main-content { display: flex; justify-content: center; align-items: flex-start; min-height: 80vh; padding: 40px 32px; }
+.tour-showcase { display: grid; grid-template-columns: 200px 1fr 300px; gap: 12px; align-items: flex-start; max-width: 1200px; width: 95%; margin: 0 auto; padding: 0 12px; }
+
+/* Navegação lateral */
+.tour-navigation { background: white; padding: 16px 12px; border-radius: 12px; box-shadow: 0 2px 8px rgba(0,0,0,0.06); z-index: 100; max-width: 300px; }
+.tour-nav-title { font-size: 1rem; font-weight: 700; color: #2c3e50; margin-bottom: 12px; padding-bottom: 10px; border-bottom: 2px solid #4586DF; }
+.tour-steps { list-style: none; padding: 0; margin: 0; }
+.tour-step { padding: 0; border-bottom: 1px solid rgba(0,0,0,0.05); cursor: pointer; transition: all 0.3s ease; position: relative; }
+.tour-step:last-child { border-bottom: none; }
+.tour-step.active { background: rgba(69, 134, 223, 0.1); margin: 0 -15px; padding: 8px 15px; border-radius: 8px; }
+.tour-step.active::before { content: ''; position: absolute; left: -8px; top: 50%; transform: translateY(-50%); width: 3px; height: 24px; background: #4586DF; border-radius: 2px; }
+.tour-step-number { display: inline-block; width: 28px; height: 28px; background: #4586DF; color: white; border-radius: 50%; text-align: center; line-height: 28px; font-weight: 600; font-size: 13px; margin-right: 12px; }
+.tour-step.active .tour-step-number { background: #2c3e50; }
+.tour-step-title { font-weight: 600; color: #2c3e50; font-size: 13px; line-height: 1.15; }
+.tour-step.active .tour-step-title { color: #4586DF; }
+
+/* Mockup e imagem */
+.mobile-showcase { position: relative; display: flex; flex-direction: column; justify-content: center; align-items: center; padding: 0 24px; }
+.mobile-frame { width: auto; height: auto; background: transparent; border-radius: 0; padding: 0; box-shadow: none; position: relative; }
+.mobile-screen { width: auto; height: auto; background: transparent; border-radius: 0; overflow: visible; position: static; }
+
+.mobile-header { background: #4586DF; color: white; padding: 15px 20px; display: none; justify-content: space-between; align-items: center; }
+.mobile-title { font-weight: 600; font-size: 16px; }
+.mobile-menu { width: 20px; height: 20px; background: rgba(255,255,255,0.3); border-radius: 3px; }
+
+.mobile-content { padding: 0; height: calc(100% - 60px); overflow: hidden; display: flex; align-items: center; justify-content: center; }
+.mock-image { width: 45%; height: auto; object-fit: contain; display: block; margin: 0 auto; border-radius: 0; }
+
+/* Botões/controles do mockup */
+.mobile-showcase .tour-controls { justify-content: center; margin-top: 12px; }
+
+/* Seletor 1/2 para variações — oculto por padrão */
+.mock-toggle { display: none; gap: 10px; }
+.mock-dot {
+  width: 28px; height: 28px; border-radius: 50%;
+  border: 2px solid #4586DF; background: #fff; color: #4586DF;
+  font-weight: 600; font-size: 14px; display: inline-flex; align-items: center; justify-content: center;
+}
+.mock-dot.active { background: #4586DF; color: #fff; }
+
+
+/* Texto e descrição com espaçamento reduzido */
+.tour-description { padding: 12px; }
+.tour-step-title-main { margin-bottom: 12px; }
+.tour-step-subtitle { margin-bottom: 14px; }
+.tour-step-description { margin-bottom: 16px; line-height: 1.6; }
+
+/* Barra de progresso */
+.tour-progress { background: rgba(69, 134, 223, 0.2); }
+.tour-progress-bar { background: var(--primary-blue); }
+
+/* Responsivo: mantém ordem e compactação */
+@media (max-width: 1024px) {
+    .tour-navigation {
+        order: -1;
+        max-width: 100%;
+        padding: 20px;
+        margin-bottom: 24px;
+        border-radius: var(--radius-2xl);
+        box-shadow: var(--shadow-md);
+    }
+}
+
+/* Escopo da página para evitar conflitos globais */
+.page-tour-guiado .tour-progress {
+  position: fixed;
+  top: 64px; /* abaixo do menu fixo */
+  left: 0;
+  right: 0;
+  height: 4px;
+  background: rgba(69, 134, 223, 0.15);
+  display: none;
+  z-index: 900;
+}
+.page-tour-guiado .tour-progress-bar {
+  height: 100%;
+  width: 0;
+  background: var(--primary-blue);
+  transition: width 0.3s ease;
+}
+
+/* Showcase e navegação */
+.page-tour-guiado .tour-main-content {
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  min-height: 80vh;
+  padding: 40px 32px;
+}
+.page-tour-guiado .tour-showcase {
+  display: grid;
+  grid-template-columns: 200px 1fr 300px;
+  gap: 12px;
+  align-items: flex-start;
+  max-width: 1200px;
+  width: 95%;
+  margin: 0 auto;
+  padding: 0 12px;
+}
+.page-tour-guiado .tour-navigation {
+  background: #fff;
+  padding: 16px 12px;
+  border-radius: 12px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+  z-index: 100;
+  max-width: 300px;
+}
+.page-tour-guiado .tour-nav-title {
+  font-size: 1rem;
+  font-weight: 700;
+  color: #2c3e50;
+  margin-bottom: 12px;
+  padding-bottom: 10px;
+  border-bottom: 2px solid var(--primary-blue);
+}
+.page-tour-guiado .tour-steps { list-style: none; padding: 0; margin: 0; }
+.page-tour-guiado .tour-step {
+  padding: 0;
+  border-bottom: 1px solid rgba(0,0,0,0.05);
+  cursor: pointer;
+  transition: var(--transition-fast);
+  position: relative;
+}
+.page-tour-guiado .tour-step:last-child { border-bottom: none; }
+.page-tour-guiado .tour-step.active {
+  background: rgba(69, 134, 223, 0.1);
+  margin: 0 -15px;
+  padding: 8px 15px;
+  border-radius: 8px;
+}
+.page-tour-guiado .tour-step.active::before {
+  content: '';
+  position: absolute;
+  left: -8px;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 3px;
+  height: 24px;
+  background: var(--primary-blue);
+  border-radius: 2px;
+}
+.page-tour-guiado .tour-step-number {
+  display: inline-block;
+  width: 28px; height: 28px;
+  background: var(--primary-blue);
+  color: var(--white);
+  border-radius: 50%;
+  text-align: center;
+  line-height: 28px;
+  font-weight: 600;
+  font-size: 13px;
+  margin-right: 12px;
+}
+.page-tour-guiado .tour-step.active .tour-step-number { background: #2c3e50; }
+.page-tour-guiado .tour-step-title {
+  font-weight: 600;
+  color: #2c3e50;
+  font-size: 13px;
+  line-height: 1.15;
+}
+.page-tour-guiado .tour-step.active .tour-step-title { color: var(--primary-blue); }
+
+/* Mobile mockup e imagem */
+.page-tour-guiado .mobile-showcase { position: relative; display: flex; flex-direction: column; align-items: center; padding: 0 24px; }
+.page-tour-guiado .mobile-frame { width: auto; height: auto; background: transparent; border-radius: 0; padding: 0; box-shadow: none; position: relative; }
+.page-tour-guiado .mobile-screen { width: auto; height: auto; background: transparent; border-radius: 0; overflow: visible; position: static; }
+.page-tour-guiado .mobile-header { background: var(--primary-blue); color: #fff; padding: 15px 20px; display: none; justify-content: space-between; align-items: center; }
+.page-tour-guiado .mobile-title { font-weight: 600; font-size: 16px; }
+.page-tour-guiado .mobile-menu { width: 20px; height: 20px; background: rgba(255,255,255,0.3); border-radius: 3px; }
+.page-tour-guiado .mobile-content { padding: 0; height: calc(100% - 60px); overflow: hidden; display: flex; align-items: center; justify-content: center; }
+.page-tour-guiado .mock-image { width: 45%; height: auto; object-fit: contain; display: block; margin: 0 auto; border-radius: 0; }
+
+/* Overlay informativo (mobile) */
+.page-tour-guiado .mobile-step-overlay {
+  display: none;
+  position: absolute;
+  left: 50%;
+  bottom: 12px;
+  transform: translateX(-50%);
+  background: rgba(17, 24, 39, 0.85);
+  color: #fff;
+  padding: 10px 14px;
+  border-radius: 12px;
+  box-shadow: var(--shadow-lg);
+  text-align: center;
+}
+.page-tour-guiado .mobile-step-number-overlay { font-size: 12px; opacity: 0.9; margin-bottom: 4px; }
+.page-tour-guiado .mobile-step-title-overlay { font-size: 14px; font-weight: 600; margin-bottom: 4px; }
+.page-tour-guiado .mobile-step-description-overlay { font-size: 12px; opacity: 0.85; }
+
+/* Card informativo ao lado do mockup (desktop) */
+.page-tour-guiado .mobile-info-card {
+  background: #fff;
+  border-radius: var(--radius-2xl);
+  box-shadow: var(--shadow-lg);
+  padding: 16px 18px;
+}
+.page-tour-guiado .mobile-info-title { font-size: 1rem; font-weight: 700; color: #2c3e50; margin-bottom: 6px; }
+.page-tour-guiado .mobile-info-subtitle { font-size: 0.95rem; font-weight: 600; color: var(--primary-blue); margin-bottom: 6px; }
+.page-tour-guiado .mobile-info-description { font-size: 0.9rem; color: var(--text-gray); line-height: 1.6; }
+
+/* Controles do tour */
+.page-tour-guiado .tour-controls {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 16px;
+  margin-top: 14px;
+}
+.page-tour-guiado .tour-controls .mock-toggle {
+  display: none;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  margin: 0 4px;
+}
+.page-tour-guiado .tour-controls .mock-dot {
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  border: 2px solid #4586DF;
+  background: #fff;
+  color: #4586DF;
+  font-weight: 600;
+  font-size: 14px;
+  line-height: 1;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+.page-tour-guiado .tour-controls .mock-dot.active,
+.page-tour-guiado .tour-controls .mock-dot:hover {
+  background: #4586DF;
+  color: #fff;
+  border-color: #4586DF;
+}
+.page-tour-guiado .tour-control-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 10px 14px;
+  border-radius: 10px;
+  border: 1px solid var(--light-gray);
+  background: #fff;
+  color: #222;
+  cursor: pointer;
+  transition: var(--transition-fast);
+  box-shadow: var(--shadow-sm);
+}
+.page-tour-guiado .tour-control-btn:hover { background: #f8f9fa; transform: translateY(-1px); }
+.page-tour-guiado .tour-control-btn:disabled { opacity: 0.5; cursor: default; transform: none; }
+
+/* Link voltar (mobile) */
+.page-tour-guiado .mobile-voltar-btn {
+  display: none;
+  margin-top: 12px;
+  text-align: center;
+  padding: 8px 12px;
+  border-radius: 10px;
+  background: #f8f9fa;
+  border: 1px solid var(--light-gray);
+  color: #222;
+  text-decoration: none;
+}
+
+/* Descrição e lista de features */
+.page-tour-guiado .tour-description { padding: 12px; }
+.page-tour-guiado .tour-step-title-main { margin-bottom: 12px; }
+.page-tour-guiado .tour-step-subtitle { margin-bottom: 14px; color: var(--primary-blue); }
+.page-tour-guiado .tour-step-description { margin-bottom: 16px; line-height: 1.6; }
+.page-tour-guiado .tour-features { padding-left: var(--space-sm); }
+.page-tour-guiado .tour-feature-item { margin-bottom: 8px; }
+
+/* Ocultações padrão no desktop para evitar vazamentos */
+.page-tour-guiado .mobile-showcase::after { content: none; }
+.page-tour-guiado .mobile-step-overlay { display: none; }
+.page-tour-guiado .mobile-info-card,
+.page-tour-guiado .mobile-back-btn,
+.page-tour-guiado .mobile-voltar-btn { display: none; }
+/* Ajustes de layout desktop */
+.page-tour-guiado .tour-main-content { padding: 40px 32px; }
+.page-tour-guiado .tour-description { padding: 12px; }
+
+/* Responsivo */
+@media (max-width: 1024px) {
+  .page-tour-guiado .tour-navigation {
+    order: -1;
+    max-width: 100%;
+    padding: 20px;
+    margin-bottom: 24px;
+    border-radius: var(--radius-2xl);
+    box-shadow: var(--shadow-md);
+  }
+}
+@media (max-width: 768px) {
+  .page-tour-guiado .guided-tour-container {
+    padding: 0;
+    background: #fff;
+  }
+  .page-tour-guiado .tour-main-content {
+    padding: 0;
+    min-height: 100vh;
+  }
+  /* layout de vitrine no mobile */
+  .page-tour-guiado .tour-showcase {
+    grid-template-columns: 1fr;
+    width: 100%;
+    max-width: 100%;
+    padding: 0;
+  }
+  /* esconder navegação lateral e descrição no mobile */
+  .page-tour-guiado .tour-navigation { display: none !important; }
+  .page-tour-guiado .tour-description { display: none !important; }
+  /* mock ampliado como na imagem de referência */
+  .page-tour-guiado .mobile-showcase {
+    position: relative;
+    width: 100%;
+    padding: 0;
+    min-height: 100vh;
+    background: #fff;
+  }
+  .page-tour-guiado .mock-image {
+    width: 70%;
+    max-width: 576px;
+    height: auto;
+    object-fit: contain;
+    object-position: top;
+    display: block;
+    margin: 0 auto;
+    image-rendering: auto;
+  }
+  /* tarja preta e overlay de texto */
+  .page-tour-guiado .mobile-showcase::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    width: 100%;
+    height: 240px;
+    background: rgba(0,0,0,0.9);
+    pointer-events: none;
+    z-index: 1;
+  }
+  .page-tour-guiado .mobile-step-overlay {
+    position: absolute;
+    bottom: 118px;
+    left: 0;
+    right: 0;
+    padding: 0 16px 8px;
+    color: #fff;
+    display: block;
+    z-index: 2;
+    text-align: left;
+    background: transparent;
+    border-radius: 0;
+    box-shadow: none;
+    transform: none;
+  }
+  .page-tour-guiado .mobile-step-number-overlay {
+    font-size: 0.8rem;
+    font-weight: 600;
+    color: var(--primary-blue);
+    margin-bottom: 6px;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+  }
+  .page-tour-guiado .mobile-step-title-overlay {
+    font-size: 1.25rem;
+    font-weight: 700;
+    margin-bottom: 4px;
+    line-height: 1.14;
+    color: #fff;
+  }
+  .page-tour-guiado .mobile-step-description-overlay {
+    font-size: 0.84rem;
+    line-height: 1.32;
+    margin: 0;
+    opacity: 0.95;
+    max-width: 100%;
+    color: rgba(255,255,255,0.88);
+  }
+  /* botões centralizados dentro da área da tarja */
+  .page-tour-guiado .tour-controls {
+    display: flex !important;
+    position: fixed;
+    bottom: 72px;
+    left: 50%;
+    transform: translateX(-50%);
+    justify-content: center;
+    align-items: center;
+    gap: 18px;
+    z-index: 3;
+    padding: 0;
+  }
+  .page-tour-guiado .tour-controls .mock-toggle { display: none; }
+  .page-tour-guiado .tour-control-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 6px;
+    padding: 6px 12px;
+    min-height: 36px;
+    min-width: 96px;
+    border-radius: 24px;
+    font-size: 12px;
+    line-height: 1;
+    background: rgba(255,255,255,0.95);
+    backdrop-filter: blur(10px);
+    border: none;
+    color: #2c3e50;
+    font-weight: 600;
+    box-shadow: 0 3px 10px rgba(0,0,0,0.12);
+    transition: all 0.2s ease;
+    touch-action: manipulation;
+  }
+  .page-tour-guiado .tour-control-btn:hover:not(:disabled) {
+    transform: translateY(-1px);
+    box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+  }
+  .page-tour-guiado .tour-control-btn:disabled {
+    opacity: 0.4;
+    cursor: not-allowed;
+    transform: none;
+    box-shadow: none;
+  }
+  /* barra de progresso visível no topo no mobile */
+  .page-tour-guiado .tour-progress {
+    display: block !important;
+    top: 0;
+    height: 3px;
+    z-index: 1004;
+  }
+  /* elementos que não devem aparecer no mobile */
+  .page-tour-guiado .mock-toggle { display: none; }
+  .page-tour-guiado .mobile-info-card { display: none !important; }
+  .page-tour-guiado .mobile-back-btn { display: none !important; }
+  /* link “Voltar para as Funcionalidades” — canto inferior esquerdo */
+  .page-tour-guiado .mobile-voltar-btn {
+    display: inline-flex !important;
+    position: fixed;
+    bottom: 16px;
+    left: 16px;
+    transform: none;
+    z-index: 3;
+    background: transparent;
+    color: var(--primary-blue);
+    border: none;
+    padding: 0;
+    border-radius: 0;
+    font-weight: 600;
+    font-size: 14px;
+    gap: 6px;
+    box-shadow: none;
+    text-decoration: none;
+  }
+  .page-tour-guiado .mobile-voltar-btn::before { content: '←'; }
+  /* dimensões do mock e containers no mobile */
+  .page-tour-guiado .mobile-frame,
+  .page-tour-guiado .mobile-screen,
+  .page-tour-guiado .mobile-content {
+    width: 100%;
+    padding: 0;
+    margin: 0;
+  }
+}
