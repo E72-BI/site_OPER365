@@ -295,6 +295,12 @@
 .page-tour-guiado .tour-main-content { padding: 40px 32px; }
 .page-tour-guiado .tour-description { padding: 12px; }
 
+/* Overrides: remover espaço entre cabeçalho e conteúdo + aumentar mockup */
+.page-tour-guiado .tour-hero { padding-bottom: 0 !important; }
+.page-tour-guiado .guided-tour-container { padding-top: 0 !important; }
+.page-tour-guiado .tour-main-content { padding-top: 0 !important; }
+.page-tour-guiado .mock-image { width: 50% !important; } /* +10% do 45% no desktop */
+
 /* Responsivo */
 @media (max-width: 1024px) {
   .page-tour-guiado .tour-navigation {
@@ -334,14 +340,12 @@
     background: #fff;
   }
   .page-tour-guiado .mock-image {
-    width: 70%;
+    width: 77% !important;   /* +10% do 70% no mobile */
     max-width: 576px;
     height: auto;
     object-fit: contain;
     object-position: top;
-    display: block;
     margin: 0 auto;
-    image-rendering: auto;
   }
   /* tarja preta e overlay de texto */
   .page-tour-guiado .mobile-showcase::after {
