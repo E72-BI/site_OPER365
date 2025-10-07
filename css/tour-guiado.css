@@ -299,7 +299,7 @@
 .page-tour-guiado .tour-hero { padding-bottom: 0 !important; }
 .page-tour-guiado .guided-tour-container { padding-top: 0 !important; }
 .page-tour-guiado .tour-main-content { padding-top: 0 !important; }
-.page-tour-guiado .mock-image { width: 50% !important; } /* +10% do 45% no desktop */
+.page-tour-guiado .mock-image { width: 40% !important; } /* -10% do atual 45% no desktop */
 
 /* Responsivo */
 @media (max-width: 1024px) {
@@ -376,7 +376,7 @@
     background: #fff;
   }
   .page-tour-guiado .mock-image {
-    width: 77% !important;   /* +10% do 70% no mobile */
+    width: 62% !important;   /* -10% do atual 69% no mobile */
     max-width: 576px;
     height: auto;
     object-fit: contain;
@@ -391,14 +391,14 @@
     left: 0;
     right: 0;
     width: 100%;
-    height: 240px;
+    height: 185px;
     background: rgba(0,0,0,0.9);
     pointer-events: none;
     z-index: 1;
   }
   .page-tour-guiado .mobile-step-overlay {
     position: absolute;
-    bottom: 118px;
+    bottom: 80px;
     left: 0;
     right: 0;
     padding: 0 16px 8px;
