@@ -20,22 +20,7 @@
     text-align: center;
     margin-bottom: var(--space-md);
   }
-  /* Hide desktop image on mobile */
-  .hero-image .desktop-image {
-    display: none;
-  }
-  
-  /* Show mobile image on mobile */
-  .hero-image .mobile-image {
-    display: block;
-    width: 100% !important;
-    max-width: 100% !important;
-    height: auto !important;
-    object-position: center bottom;
-    object-fit: cover;
-    margin: 0;
-    padding: 0;
-  }
+
   
   /* Enhanced mobile typography */
   body {
@@ -89,26 +74,49 @@
     letter-spacing: 0.01em;
   }
   
-  /* Better mobile section spacing */
+  /* Hero em tela cheia e conteúdo centralizado no mobile */
   .hero {
-    padding: var(--space-md) 0 0; /* Remove bottom padding to glue image to next section */
-    margin-top: 120px; /* Aumentado para dar mais espaço abaixo do header no mobile */
+    height: 100vh !important;
+    min-height: 100vh !important;
+    box-sizing: border-box;
+    margin-top: 0 !important;          /* evita ultrapassar 100vh */
+    padding: var(--space-md) var(--space-sm) !important; /* respiro em cima e embaixo */
+    overflow: hidden !important;        /* não deixa a próxima seção aparecer parcialmente */
   }
   
   .hero .container {
-    flex-direction: column-reverse; /* INVERSÃO: Imagem primeiro, conteúdo depois */
+    height: 100%;
+    display: flex !important;
+    flex-direction: column !important;  /* imagem + conteúdo em coluna */
+    justify-content: center !important; /* centrado vertical */
+    align-items: center !important;     /* centrado horizontal */
+    gap: var(--space-md);
+    text-align: center;
   }
   
   .hero-image {
+    order: 1 !important;
+    margin: 0 !important;               /* remove margens negativas */
+    padding: 0 !important;
     text-align: center;
     justify-content: center;
-    align-items: flex-end;
-    margin: 0 0 -30px 0; /* Increased negative margin to pull image further down */
-    padding: 0;
-    order: 1; /* Garante que a imagem apareça primeiro */
+    align-items: center;
+  }
+  
+  /* Garante exibição da imagem mobile e largura total */
+  .hero-image .desktop-image { display: none !important; }
+  .hero-image .mobile-image {
+    display: block !important;
+    width: 100% !important;
+    max-width: 100% !important;
+    height: auto !important;
+    object-fit: contain !important;
+    object-position: center center !important;
+    margin: 0 auto !important;
   }
   
   .hero-content {
+    order: 2 !important;
     padding-bottom: var(--space-lg);
     background: rgba(255, 255, 255, 0.85);
     backdrop-filter: blur(5px);
@@ -116,7 +124,6 @@
     padding: var(--space-md);
     margin: 0;
     box-shadow: none;
-    order: 2; /* Garante que o conteúdo apareça depois da imagem */
   }
   
   .hero-content .subtitle {
@@ -139,22 +146,9 @@
     display: block;
   }
   
-  /* Mobile: aumenta espaçamento do botão e reduz imagem da hero */
+  /* Botão com espaçamento confortável dentro da Hero */
   .hero-content .btn-primary {
-    margin-bottom: 64px !important; /* mais distância do botão para a imagem */
-  }
-
-  .hero-image {
-    margin-top: 40px !important; /* empurra a imagem mais para baixo */
-  }
-
-  .hero-image img {
-    width: 70% !important;        /* reduz ~30% para ficar menor que antes */
-    max-width: 70% !important;
-    height: auto !important;
-    margin: 0 auto !important;     /* mantém centralizada e responsiva */
-    object-fit: contain !important;
-    object-position: center bottom !important;
+    margin-bottom: var(--space-lg) !important;
   }
   
   .hero-content .title {
@@ -162,25 +156,19 @@
     line-height: 1.2;
   }
   
-  /* Imagem adicional exclusiva para mobile - abaixo do botão */
-  .hero-bottom-image {
-    display: block !important; /* FORÇA exibição apenas no mobile */
-    margin-top: 48px !important; /* afasta a imagem abaixo do botão */
-    text-align: center;
-    width: 100%;
+  /* Seção intermediária: imagem que aparece só após rolar */
+  .hero-next-image {
+    padding: 0 !important;
+    margin: 0 !important;
   }
-  
-  .mobile-bottom-image {
-    display: block !important; /* FORÇA exibição apenas no mobile */
-    width: 80% !important;
+  .hero-next-image .mobile-bottom-image {
+    width: 80% !important;              /* reduzida ~20% */
     max-width: 80% !important;
     height: auto !important;
-    margin: 0 auto !important; /* centraliza */
+    display: block;
+    margin: 0 auto !important;          /* centralizada */
     object-fit: contain;
-    object-position: center bottom;
-    padding: 0;
-    border-radius: 0;
-    box-shadow: none;
+    object-position: center top;
   }
   
   /* Ajustes específicos para mobile pequeno */
@@ -209,15 +197,7 @@
       margin-top: var(--space-xs); /* Pequeno espaçamento no topo */
     }
     
-    .hero-bottom-image {
-      display: block !important; /* Visível em mobile pequeno */
-      margin-top: var(--space-md); /* Espaçamento menor em telas pequenas */
-    }
-    
-    .mobile-bottom-image {
-      display: block !important; /* Visível em mobile pequeno */
-      width: 100%;
-    }
+
   }
   
   /* Ajustes para tablet em modo retrato */
@@ -242,48 +222,13 @@
       padding: var(--space-md) var(--space-lg);
     }
     
-    .hero-bottom-image {
-      display: block !important; /* Visível em tablets */
-      margin-top: var(--space-xl); /* Espaçamento maior em tablets */
-    }
-    
-    .mobile-bottom-image {
-      display: block !important; /* Visível em tablets */
-      width: 100%;
-    }
+
   }
   
-  /* Garantir que no desktop o layout original seja mantido */
-  @media (min-width: 768px) {
-    .hero .container {
-      flex-direction: row !important; /* Força layout original no desktop */
-    }
-    
-    .hero-image {
-      order: unset !important; /* Remove order no desktop */
-    }
-    
-    .hero-content {
-      order: unset !important; /* Remove order no desktop */
-    }
-    
-    .hero-image img {
-      width: 93% !important; /* Mantém tamanho original no desktop */
-      max-width: 112% !important; /* Mantém tamanho original no desktop */
-      margin: 0 0 -1px -20px !important; /* Restaura margin original do desktop */
-    }
-    
-    /* OCULTA COMPLETAMENTE A NOVA IMAGEM NO DESKTOP */
-    .hero-bottom-image {
-      display: none !important; /* Força ocultação no desktop */
-      visibility: hidden !important; /* Dupla garantia */
-    }
-    
-    .mobile-bottom-image {
-      display: none !important; /* Força ocultação no desktop */
-      visibility: hidden !important; /* Dupla garantia */
-    }
-  }
+/* Oculta a seção intermediária no desktop */
+@media (min-width: 768px) {
+  .hero-next-image { display: none !important; }
+}
   
   /* Remove borders from sections */
   .compliance-section {
