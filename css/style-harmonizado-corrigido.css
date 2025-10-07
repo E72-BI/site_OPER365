@@ -1536,6 +1536,22 @@ blockquote {
   margin-bottom: var(--space-xs);
 }
 
+.news-readmore {
+  margin-top: var(--space-2xs);
+}
+
+.news-readmore a {
+  display: inline-block;
+  color: var(--gold);
+  font-size: var(--text-sm);
+  font-weight: var(--font-weight-semibold);
+  text-decoration: underline;
+}
+
+.news-readmore a:hover {
+  color: var(--gold); /* mantém o tom no hover */
+}
+
 .news-cta {
   display: inline-block;
   color: var(--white);
