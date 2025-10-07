@@ -141,7 +141,7 @@
   
   /* Mobile: aumenta espaçamento do botão e reduz imagem da hero */
   .hero-content .btn-primary {
-    margin-bottom: 48px !important; /* mais distância do botão para a imagem */
+    margin-bottom: 64px !important; /* mais distância do botão para a imagem */
   }
 
   .hero-image {
@@ -165,7 +165,7 @@
   /* Imagem adicional exclusiva para mobile - abaixo do botão */
   .hero-bottom-image {
     display: block !important; /* FORÇA exibição apenas no mobile */
-    margin-top: var(--space-lg);
+    margin-top: 48px !important; /* afasta a imagem abaixo do botão */
     text-align: center;
     width: 100%;
   }
