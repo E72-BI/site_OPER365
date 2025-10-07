@@ -1876,13 +1876,12 @@ blockquote {
 
 
 
-/* Imagem adicional mobile - OCULTA POR PADRÃO (DESKTOP) */
-.hero-bottom-image {
-  display: none !important; /* Oculta por padrão no desktop */
-}
-
-.mobile-bottom-image {
-  display: none !important; /* Oculta por padrão no desktop */
+/* Imagem adicional mobile - oculta apenas no desktop */
+@media (min-width: 768px) {
+    .hero-bottom-image,
+    .mobile-bottom-image {
+        display: none !important;
+    }
 }
 
 /* Responsive Styles - Harmonized */

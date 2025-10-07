@@ -313,13 +313,49 @@
   }
 }
 @media (max-width: 768px) {
+  .page-tour-guiado .tour-hero,
+  .page-tour-guiado .guided-tour-container,
+  .page-tour-guiado .tour-main-content {
+    /* Flexbox para centralizar conteúdo */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    /* Layout e overflow para evitar truncamento */
+    box-sizing: border-box;
+    overflow: hidden;
+
+    /* Fallback inicial */
+    height: 100vh;
+    min-height: 100vh;
+
+    /* Fallback com variável dinâmica (JS define --vh) */
+    height: calc(var(--vh, 1vh) * 100);
+
+    /* Espaçamento padrão */
+    padding: var(--space-md) var(--space-sm);
+  }
   .page-tour-guiado .guided-tour-container {
     padding: 0;
     background: #fff;
   }
+  /* Conteúdo rolável e espaço para botões fixos no rodapé (evita sobreposição) */
   .page-tour-guiado .tour-main-content {
     padding: 0;
     min-height: 100vh;
+    overflow: auto;
+    padding-bottom: 96px; /* ajuste se seus botões ocuparem mais/menos altura */
+  }
+
+  /* Preferir 100dvh quando suportado */
+  @supports (height: 100dvh) {
+    .page-tour-guiado .tour-hero,
+    .page-tour-guiado .guided-tour-container,
+    .page-tour-guiado .tour-main-content {
+      height: 100dvh;
+      min-height: 100dvh;
+    }
   }
   /* layout de vitrine no mobile */
   .page-tour-guiado .tour-showcase {

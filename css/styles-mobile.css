@@ -76,22 +76,42 @@
   
   /* Hero em tela cheia e conteúdo centralizado no mobile */
   .hero {
-    height: 100vh !important;
-    min-height: 100vh !important;
+    /* Flexbox para centralização total */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    /* Espaçamento e layout */
+    padding: var(--space-md) var(--space-sm);
     box-sizing: border-box;
-    margin-top: 0 !important;          /* evita ultrapassar 100vh */
-    padding: var(--space-md) var(--space-sm) !important; /* respiro em cima e embaixo */
-    overflow: hidden !important;        /* não deixa a próxima seção aparecer parcialmente */
+    overflow: hidden;
+
+    /* Fallback inicial */
+    height: 100vh;
+    min-height: 100vh;
+
+    /* Fallback com variável dinâmica (JS define --vh) */
+    height: calc(var(--vh, 1vh) * 100);
+    margin-top: 0 !important;
   }
   
   .hero .container {
-    height: 100%;
-    display: flex !important;
-    flex-direction: column !important;  /* imagem + conteúdo em coluna */
-    justify-content: center !important; /* centrado vertical */
-    align-items: center !important;     /* centrado horizontal */
+    width: 100%;
+    display: flex;
+    flex-direction: column !important;
+    justify-content: center;
+    align-items: center;
     gap: var(--space-md);
     text-align: center;
+  }
+
+  /* Preferir 100dvh quando suportado */
+  @supports (height: 100dvh) {
+    .hero {
+      height: 100dvh;
+      min-height: 100dvh;
+    }
   }
   
   .hero-image {
@@ -146,9 +166,18 @@
     display: block;
   }
   
-  /* Botão com espaçamento confortável dentro da Hero */
+  /* Botão da Hero: uma única linha, centrado e sem quebra */
   .hero-content .btn-primary {
     margin-bottom: var(--space-lg) !important;
+    white-space: nowrap !important;
+    word-break: keep-all !important;
+    display: inline-flex !important;
+    align-items: center;
+    justify-content: center;
+    padding: var(--space-md) var(--space-lg) !important; /* menos padding para caber bem */
+    font-size: clamp(var(--text-sm), 4.5vw, var(--text-base)) !important;
+    max-width: 100%;
+    width: auto;
   }
   
   .hero-content .title {
@@ -156,31 +185,79 @@
     line-height: 1.2;
   }
   
-  /* Seção intermediária: imagem que aparece só após rolar */
+  /* Seção intermediária (mulher) visível e centralizada no mobile */
   .hero-next-image {
     padding: 0 !important;
-    margin: 0 !important;
+    margin: 0 !important; /* cola na próxima seção */
   }
   .hero-next-image .mobile-bottom-image {
-    width: 80% !important;              /* reduzida ~20% */
+    display: block !important;      /* sobrepõe o hide global */
+    width: 80% !important;          /* ~20% menor */
     max-width: 80% !important;
     height: auto !important;
-    display: block;
-    margin: 0 auto !important;          /* centralizada */
+    margin: 0 auto !important;      /* centraliza */
     object-fit: contain;
     object-position: center top;
   }
   
+}
+
+/* Regras específicas para DESKTOP */
+@media (min-width: 768px) {
+  /* Remove efeito de página cheia no desktop e volta layout padrão */
+  .hero {
+    height: auto !important;
+    min-height: 0 !important;
+    overflow: visible !important;
+    padding: var(--space-md) 0 0 !important;
+    margin-top: 30px !important;
+  }
+
+  .hero .container {
+    flex-direction: row !important;
+    align-items: flex-start;
+    text-align: left;
+    gap: var(--space-sm);
+    min-height: 360px;
+  }
+
+  /* Visibilidade correta das imagens no desktop */
+  .hero-image .desktop-image { 
+    display: block !important; 
+  }
+  .hero-image .mobile-image { 
+    display: none !important; 
+  }
+
+  /* Usa dimensões de desktop para a imagem da Hero */
+  .hero-image img {
+    width: 93% !important;
+    height: auto !important;
+    object-fit: cover !important;
+    object-position: left bottom !important;
+    margin-left: -20px !important;
+    margin-bottom: -1px !important;
+  }
+
+  /* Oculta a seção intermediária no desktop */
+  .hero-next-image { 
+    display: none !important; 
+  }
+}
+
+/* Volta ao contexto mobile */
+@media (max-width: 768px) {
+  
   /* Ajustes específicos para mobile pequeno */
   @media (max-width: 479px) {
     .hero .container {
-      flex-direction: column-reverse; /* Mantém inversão em telas muito pequenas */
+      flex-direction: column !important; /* antes: column-reverse */
       gap: var(--space-sm);
     }
     
     .hero-image {
-      order: 1;
-      margin-bottom: -20px; /* Ajuste para telas menores */
+      order: 1 !important;
+      margin-bottom: 0 !important; /* Ajuste para telas menores */
     }
     
     .hero-image img {
@@ -189,7 +266,7 @@
     }
     
     .hero-content {
-      order: 2;
+      order: 2 !important;
       padding: var(--space-sm);
     }
     
@@ -203,13 +280,13 @@
   /* Ajustes para tablet em modo retrato */
   @media (min-width: 480px) and (max-width: 767px) {
     .hero .container {
-      flex-direction: column-reverse; /* Mantém inversão em tablets */
+      flex-direction: column !important; /* antes: column-reverse */
       gap: var(--space-md);
     }
     
     .hero-image {
-      order: 1;
-      margin-bottom: -25px;
+      order: 1 !important;
+      margin-bottom: 0 !important;
     }
     
     .hero-image img {
@@ -218,17 +295,12 @@
     }
     
     .hero-content {
-      order: 2;
+      order: 2 !important;
       padding: var(--space-md) var(--space-lg);
     }
     
 
   }
-  
-/* Oculta a seção intermediária no desktop */
-@media (min-width: 768px) {
-  .hero-next-image { display: none !important; }
-}
   
   /* Remove borders from sections */
   .compliance-section {

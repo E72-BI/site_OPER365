@@ -1,3 +1,23 @@
+// Top-level: dynamic viewport height for mobile browsers
+(function () {
+    function setViewportHeightVar() {
+        // Mede a altura real da viewport (considera barras de endereço)
+        const vh = window.innerHeight * 0.01;
+        document.documentElement.style.setProperty('--vh', `${vh}px`);
+    }
+
+    // Inicializa ao carregar
+    setViewportHeightVar();
+
+    // Atualiza em eventos comuns que afetam a viewport
+    window.addEventListener('resize', setViewportHeightVar, { passive: true });
+    window.addEventListener('orientationchange', setViewportHeightVar);
+    window.addEventListener('pageshow', setViewportHeightVar);
+    document.addEventListener('visibilitychange', function () {
+        if (!document.hidden) setViewportHeightVar();
+    });
+})();
+
 // Menu Toggle
 document.addEventListener('DOMContentLoaded', function() {
     const menuToggle = document.querySelector('.menu-toggle');
