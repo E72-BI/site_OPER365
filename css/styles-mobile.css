@@ -28,9 +28,9 @@
   /* Show mobile image on mobile */
   .hero-image .mobile-image {
     display: block;
-    width: 100%;
-    max-width: 100%;
-    height: auto;
+    width: 100% !important;
+    max-width: 100% !important;
+    height: auto !important;
     object-position: center bottom;
     object-fit: cover;
     margin: 0;
@@ -92,7 +92,7 @@
   /* Better mobile section spacing */
   .hero {
     padding: var(--space-md) 0 0; /* Remove bottom padding to glue image to next section */
-    margin-top: 80px;
+    margin-top: 120px; /* Aumentado para dar mais espaço abaixo do header no mobile */
   }
   
   .hero .container {
@@ -139,6 +139,24 @@
     display: block;
   }
   
+  /* Mobile: aumenta espaçamento do botão e reduz imagem da hero */
+  .hero-content .btn-primary {
+    margin-bottom: 48px !important; /* mais distância do botão para a imagem */
+  }
+
+  .hero-image {
+    margin-top: 40px !important; /* empurra a imagem mais para baixo */
+  }
+
+  .hero-image img {
+    width: 70% !important;        /* reduz ~30% para ficar menor que antes */
+    max-width: 70% !important;
+    height: auto !important;
+    margin: 0 auto !important;     /* mantém centralizada e responsiva */
+    object-fit: contain !important;
+    object-position: center bottom !important;
+  }
+  
   .hero-content .title {
     font-size: var(--text-3xl); /* Reduced from default mobile size */
     line-height: 1.2;
@@ -154,12 +172,12 @@
   
   .mobile-bottom-image {
     display: block !important; /* FORÇA exibição apenas no mobile */
-    width: 100%;
-    max-width: 100%;
-    height: auto;
-    object-fit: cover;
+    width: 80% !important;
+    max-width: 80% !important;
+    height: auto !important;
+    margin: 0 auto !important; /* centraliza */
+    object-fit: contain;
     object-position: center bottom;
-    margin: 0;
     padding: 0;
     border-radius: 0;
     box-shadow: none;
@@ -331,6 +349,8 @@
       margin-top: 0 !important;
       padding-top: 0 !important;
     }
+    
+
   }
   
   .faq-section {
