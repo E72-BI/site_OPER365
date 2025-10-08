@@ -499,7 +499,7 @@
   }
 
   .page-tour-guiado .tour-navigation {
-    top: 120px !important; /* sticky alinhado ao novo offset do container */
+    top: 10px !important; /* sticky alinhado ao novo offset do container */
   }
 }
 
