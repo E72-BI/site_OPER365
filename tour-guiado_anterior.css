@@ -9,12 +9,12 @@
 .tour-hero p { font-size: 0.95rem; margin-bottom: 2rem; opacity: 0.9; line-height: 1; }
 
 /* Estrutura principal */
-.guided-tour-container { background: #fff4d6; padding: 25px 0; min-height: 100vh; position: relative; }
-.tour-main-content { display: flex; justify-content: center; align-items: flex-start; min-height: 80vh; padding: 20px 32px; }
+.guided-tour-container { background: #f8f9fa; padding: 60px 0; min-height: 100vh; position: relative; }
+.tour-main-content { display: flex; justify-content: center; align-items: flex-start; min-height: 80vh; padding: 40px 32px; }
 .tour-showcase { display: grid; grid-template-columns: 200px 1fr 300px; gap: 12px; align-items: flex-start; max-width: 1200px; width: 95%; margin: 0 auto; padding: 0 12px; }
 
 /* Navegação lateral */
-.tour-navigation { background: transparent; padding: 16px 12px; border-radius: 12px; box-shadow: none; z-index: 100; max-width: 300px; }
+.tour-navigation { background: white; padding: 16px 12px; border-radius: 12px; box-shadow: 0 2px 8px rgba(0,0,0,0.06); z-index: 100; max-width: 300px; }
 .tour-nav-title { font-size: 1rem; font-weight: 700; color: #2c3e50; margin-bottom: 12px; padding-bottom: 10px; border-bottom: 2px solid #4586DF; }
 .tour-steps { list-style: none; padding: 0; margin: 0; }
 .tour-step { padding: 0; border-bottom: 1px solid rgba(0,0,0,0.05); cursor: pointer; transition: all 0.3s ease; position: relative; }
@@ -36,7 +36,7 @@
 .mobile-menu { width: 20px; height: 20px; background: rgba(255,255,255,0.3); border-radius: 3px; }
 
 .mobile-content { padding: 0; height: calc(100% - 60px); overflow: hidden; display: flex; align-items: center; justify-content: center; }
-.mock-image { width: 49.5%; height: auto; object-fit: contain; display: block; margin: 0 auto; border-radius: 0; } /* Increased by 10% from 45% to 49.5% */
+.mock-image { width: 45%; height: auto; object-fit: contain; display: block; margin: 0 auto; border-radius: 0; }
 
 /* Botões/controles do mockup */
 .mobile-showcase .tour-controls { justify-content: center; margin-top: 12px; }
@@ -97,7 +97,7 @@
   justify-content: center;
   align-items: flex-start;
   min-height: 80vh;
-  padding: 35px 32px; /* Slightly increased padding */
+  padding: 40px 32px;
 }
 .page-tour-guiado .tour-showcase {
   display: grid;
@@ -110,10 +110,10 @@
   padding: 0 12px;
 }
 .page-tour-guiado .tour-navigation {
-  background: transparent;
+  background: #fff;
   padding: 16px 12px;
   border-radius: 12px;
-  box-shadow: none;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.06);
   z-index: 100;
   max-width: 300px;
 }
@@ -180,7 +180,7 @@
 .page-tour-guiado .mobile-title { font-weight: 600; font-size: 16px; }
 .page-tour-guiado .mobile-menu { width: 20px; height: 20px; background: rgba(255,255,255,0.3); border-radius: 3px; }
 .page-tour-guiado .mobile-content { padding: 0; height: calc(100% - 60px); overflow: hidden; display: flex; align-items: center; justify-content: center; }
-.page-tour-guiado .mock-image { width: 49.5%; height: auto; object-fit: contain; display: block; margin: 0 auto; border-radius: 0; } /* Increased by 10% */
+.page-tour-guiado .mock-image { width: 45%; height: auto; object-fit: contain; display: block; margin: 0 auto; border-radius: 0; }
 
 /* Overlay informativo (mobile) */
 .page-tour-guiado .mobile-step-overlay {
@@ -195,7 +195,6 @@
   border-radius: 12px;
   box-shadow: var(--shadow-lg);
   text-align: center;
-  width: 90%;
 }
 .page-tour-guiado .mobile-step-number-overlay { font-size: 12px; opacity: 0.9; margin-bottom: 4px; }
 .page-tour-guiado .mobile-step-title-overlay { font-size: 14px; font-weight: 600; margin-bottom: 4px; }
@@ -203,28 +202,23 @@
 
 /* Card informativo ao lado do mockup (desktop) */
 .page-tour-guiado .mobile-info-card {
-  background: transparent;
+  background: #fff;
   border-radius: var(--radius-2xl);
-  box-shadow: none;
+  box-shadow: var(--shadow-lg);
   padding: 16px 18px;
 }
 .page-tour-guiado .mobile-info-title { font-size: 1rem; font-weight: 700; color: #2c3e50; margin-bottom: 6px; }
 .page-tour-guiado .mobile-info-subtitle { font-size: 0.95rem; font-weight: 600; color: var(--primary-blue); margin-bottom: 6px; }
 .page-tour-guiado .mobile-info-description { font-size: 0.9rem; color: var(--text-gray); line-height: 1.6; }
 
-/* Controles do tour - Desktop */
+/* Controles do tour */
 .page-tour-guiado .tour-controls {
   display: flex;
   justify-content: center;
   align-items: center;
   gap: 16px;
-  margin-top: 20px;
+  margin-top: 14px;
 }
-
-.page-tour-guiado .desktop-controls {
-  display: flex; /* Mostrar no desktop */
-}
-
 .page-tour-guiado .tour-controls .mock-toggle {
   display: none;
   align-items: center;
@@ -232,19 +226,12 @@
   gap: 10px;
   margin: 0 4px;
 }
-
-/* Mostrar toggle para passos 3 e 4 */
-.page-tour-guiado[data-step="3"] .mock-toggle,
-.page-tour-guiado[data-step="4"] .mock-toggle {
-  display: flex !important;
-}
-
 .page-tour-guiado .tour-controls .mock-dot {
   width: 28px;
   height: 28px;
   border-radius: 50%;
   border: 2px solid #4586DF;
-  background: transparent;
+  background: #fff;
   color: #4586DF;
   font-weight: 600;
   font-size: 14px;
@@ -268,23 +255,14 @@
   padding: 10px 14px;
   border-radius: 10px;
   border: 1px solid var(--light-gray);
-  background: transparent;
+  background: #fff;
   color: #222;
   cursor: pointer;
   transition: var(--transition-fast);
-  box-shadow: none;
-  font-size: 14px;
-  font-weight: 500;
+  box-shadow: var(--shadow-sm);
 }
-.page-tour-guiado .tour-control-btn:hover { 
-  background: rgba(248, 249, 250, 0.5); 
-  transform: translateY(-1px); 
-}
-.page-tour-guiado .tour-control-btn:disabled { 
-  opacity: 0.5; 
-  cursor: default; 
-  transform: none; 
-}
+.page-tour-guiado .tour-control-btn:hover { background: #f8f9fa; transform: translateY(-1px); }
+.page-tour-guiado .tour-control-btn:disabled { opacity: 0.5; cursor: default; transform: none; }
 
 /* Link voltar (mobile) */
 .page-tour-guiado .mobile-voltar-btn {
@@ -293,7 +271,7 @@
   text-align: center;
   padding: 8px 12px;
   border-radius: 10px;
-  background: transparent;
+  background: #f8f9fa;
   border: 1px solid var(--light-gray);
   color: #222;
   text-decoration: none;
@@ -314,151 +292,8 @@
 .page-tour-guiado .mobile-back-btn,
 .page-tour-guiado .mobile-voltar-btn { display: none; }
 /* Ajustes de layout desktop */
-.page-tour-guiado .tour-main-content { padding: 35px 32px; } /* Slightly increased padding */
+.page-tour-guiado .tour-main-content { padding: 40px 32px; }
 .page-tour-guiado .tour-description { padding: 12px; }
-
-/* Overrides: remover espaço entre cabeçalho e conteúdo + aumentar mockup */
-.page-tour-guiado .tour-hero { padding-bottom: 0 !important; }
-.page-tour-guiado .guided-tour-container { padding-top: 0 !important; margin-top: 0 !important; }
-.page-tour-guiado .tour-main-content { padding-top: 0 !important; margin-top: 0 !important; }
-
-/* Reformulação Desktop: layout em duas colunas, tipografia reduzida e sem scroll */
-@media (min-width: 1024px) {
-  /* Mantém afastamento do topo e sem scroll */
-  .page-tour-guiado .guided-tour-container {
-    padding: 35px 0; /* Slightly increased padding */
-    padding-top: 0 !important;
-    margin-top: 0 !important;
-    min-height: 0;
-  }
-  .page-tour-guiado .tour-main-content {
-    height: calc(100vh - 115px); /* Adjusted height */
-    padding: 30px 24px; /* Slightly increased padding */
-    padding-top: 0 !important;
-    margin-top: 0 !important;
-    overflow: hidden;
-    justify-content: center;
-  }
-
-  /* Grid em três colunas: Etapas | Mockup | Descrição - DESCRIÇÃO MAIS PRÓXIMA */
-  .page-tour-guiado .tour-showcase {
-    margin: 0 auto;
-    max-width: 1200px;
-    width: 95%;
-    grid-template-columns: 180px 380px 280px;
-    column-gap: 8px;
-    row-gap: 12px;
-    justify-content: center;
-    align-items: flex-start;
-    padding: 0 12px;
-    transform: none;
-  }
-
-  /* Coluna 1 (Etapas): padding voltado ao centro e entrelinha menor */
-  .page-tour-guiado .tour-navigation {
-    align-self: flex-start;
-    max-height: calc(100vh - 135px);
-    overflow: hidden;
-    padding: 12px 8px;
-    position: sticky;
-    top: 95px;
-  }
-  .page-tour-guiado .tour-column-nav {
-    justify-self: end;
-    margin-right: 0;
-    padding-right: 0;
-    padding-left: 0;
-  }
-  .page-tour-guiado .tour-steps { margin: 0; }
-  .page-tour-guiado .tour-step {
-    padding: 0;
-    border-bottom: 1px solid rgba(0,0,0,0.05);
-  }
-  .page-tour-guiado .tour-step-number {
-    width: 24px; height: 24px; line-height: 24px;
-    font-size: 12px; margin-right: 8px;
-  }
-  .page-tour-guiado .tour-step-title {
-    font-size: 12px;
-    line-height: 1.1;
-  }
-
-  /* Coluna 2 (Mockup): centralizado e equilibrado */
-  .page-tour-guiado .mobile-showcase {
-    padding: 0 16px;
-    align-items: center;
-  }
-  .page-tour-guiado .tour-column-mock {
-    align-items: center;
-    justify-self: center;
-    margin: 0;
-  }
-  .page-tour-guiado .mock-image {
-    width: 49.5% !important; /* Increased by 10% from 45% to 49.5% */
-    max-width: 462px; /* Increased by 10% from 420px to 462px */
-  }
-
-  /* Coluna 3 (Descrição): padding voltado ao centro visual - MAIS PRÓXIMA DO MOCKUP */
-  .page-tour-guiado .tour-description {
-    background: transparent;
-    border: 1px solid #e9eef5;
-    border-radius: 16px;
-    box-shadow: none;
-    padding: 10px;
-    margin-left: -5px;
-    max-width: 280px;
-  }
-  .page-tour-guiado .tour-column-desc {
-    justify-self: start;
-    margin-left: -5px;
-    padding: 10px;
-  }
-
-  /* Hierarquia tipográfica clara e compacta */
-  .page-tour-guiado .tour-step-title-main {
-    font-size: 1.5rem;
-    line-height: 1.2;
-    margin-bottom: 8px;
-    color: #111827;
-  }
-  .page-tour-guiado .tour-step-subtitle {
-    font-size: 1rem;
-    line-height: 1.25;
-    margin-bottom: 10px;
-    color: var(--primary-blue);
-  }
-  .page-tour-guiado .tour-step-description {
-    font-size: 0.9rem;
-    line-height: 1.5;
-    margin-bottom: 12px;
-    color: #4B5563;
-  }
-
-  /* Lista com espaçamento adequado e elementos gráficos discretos */
-  .page-tour-guiado .tour-features {
-    list-style: none;
-    padding: 0;
-    margin: 6px 0 0;
-  }
-  .page-tour-guiado .tour-feature-item {
-    position: relative;
-    padding-left: 12px;
-    margin-bottom: 6px;
-    font-size: 0.9rem;
-    line-height: 1.4;
-    color: #1F2937;
-  }
-  .page-tour-guiado .tour-feature-item::before {
-    content: '';
-    position: absolute;
-    left: 0;
-    top: 0.55em;
-    width: 5px; height: 5px;
-    border-radius: 50%;
-    background: #4586DF;
-    box-shadow: 0 0 0 2px rgba(69,134,223,0.15);
-  }
-}
 
 /* Responsivo */
 @media (max-width: 1024px) {
@@ -471,77 +306,32 @@
     box-shadow: var(--shadow-md);
   }
 }
-
-/* Desktop-only adjustments: add top margin and increase mockup size */
-@media (min-width: 769px) {
-  .page-tour-guiado .guided-tour-container,
-  .page-tour-guiado .tour-main-content {
-    margin-top: 96px !important; /* desce o bloco abaixo do cabeçalho */
-  }
-
-  .page-tour-guiado .mock-image {
-    width: 54.5%;
-  }
-
-  .page-tour-guiado #tourProgress.tour-progress {
-    padding-top: 140px !important; /* desce mais o bloco abaixo do cabeçalho */
-  }
-}
-
-/* Desktop: descer o conteúdo para ficar abaixo do cabeçalho */
-@media (min-width: 1024px) {
-  .page-tour-guiado .guided-tour-container {
-    padding-top: 120px !important; /* offset igual à altura do cabeçalho */
-  }
-
-  .page-tour-guiado .tour-main-content {
-    padding-top: 0 !important; /* mantemos o espaço vindo do container */
-  }
-
-  .page-tour-guiado .tour-navigation {
-    top: 120px !important; /* sticky alinhado ao novo offset do container */
-  }
-}
-
-/* Mobile: tarja sobre o mockup com botões e link sempre visíveis */
 @media (max-width: 768px) {
-  /* Container principal no mobile */
   .page-tour-guiado .guided-tour-container {
     padding: 0;
-    background: #fff4d6; /* mantém a cor atual do site */
-    min-height: 100vh;
+    background: #fff;
   }
   .page-tour-guiado .tour-main-content {
     padding: 0;
     min-height: 100vh;
   }
-
-  /* Vitrine em uma coluna */
+  /* layout de vitrine no mobile */
   .page-tour-guiado .tour-showcase {
     grid-template-columns: 1fr;
     width: 100%;
     max-width: 100%;
     padding: 0;
   }
-
-  /* Ocultar navegação lateral e descrição no mobile */
+  /* esconder navegação lateral e descrição no mobile */
   .page-tour-guiado .tour-navigation { display: none !important; }
   .page-tour-guiado .tour-description { display: none !important; }
-
-  /* Mock + container da vitrine */
+  /* mock ampliado como na imagem de referência */
   .page-tour-guiado .mobile-showcase {
     position: relative;
     width: 100%;
     padding: 0;
     min-height: 100vh;
-    background: transparent; /* deixa o fundo do site visível */
-  }
-  .page-tour-guiado .mobile-frame,
-  .page-tour-guiado .mobile-screen,
-  .page-tour-guiado .mobile-content {
-    width: 100%;
-    padding: 0;
-    margin: 0;
+    background: #fff;
   }
   .page-tour-guiado .mock-image {
     width: 70%;
@@ -553,25 +343,24 @@
     margin: 0 auto;
     image-rendering: auto;
   }
-
-  /* Tarja preta sobre o mockup */
+  /* tarja preta e overlay de texto */
   .page-tour-guiado .mobile-showcase::after {
     content: '';
     position: absolute;
     bottom: 0;
-    left: 0; right: 0;
+    left: 0;
+    right: 0;
     width: 100%;
     height: 240px;
     background: rgba(0,0,0,0.9);
     pointer-events: none;
     z-index: 1;
   }
-
-  /* Overlay de texto dentro da tarja */
   .page-tour-guiado .mobile-step-overlay {
     position: absolute;
-    bottom: 118px; /* posiciona o texto dentro da tarja */
-    left: 0; right: 0;
+    bottom: 118px;
+    left: 0;
+    right: 0;
     padding: 0 16px 8px;
     color: #fff;
     display: block;
@@ -605,8 +394,7 @@
     max-width: 100%;
     color: rgba(255,255,255,0.88);
   }
-
-  /* Botões centralizados dentro da tarja */
+  /* botões centralizados dentro da área da tarja */
   .page-tour-guiado .tour-controls {
     display: flex !important;
     position: fixed;
@@ -650,26 +438,24 @@
     transform: none;
     box-shadow: none;
   }
-
-  /* Barra de progresso visível no topo no mobile */
+  /* barra de progresso visível no topo no mobile */
   .page-tour-guiado .tour-progress {
     display: block !important;
     top: 0;
     height: 3px;
     z-index: 1004;
   }
-
-  /* Elementos não usados no mobile */
+  /* elementos que não devem aparecer no mobile */
   .page-tour-guiado .mock-toggle { display: none; }
   .page-tour-guiado .mobile-info-card { display: none !important; }
   .page-tour-guiado .mobile-back-btn { display: none !important; }
-
-  /* Link "Voltar para as Funcionalidades" — canto inferior esquerdo */
+  /* link “Voltar para as Funcionalidades” — canto inferior esquerdo */
   .page-tour-guiado .mobile-voltar-btn {
     display: inline-flex !important;
     position: fixed;
     bottom: 16px;
     left: 16px;
+    transform: none;
     z-index: 3;
     background: transparent;
     color: var(--primary-blue);
@@ -683,4 +469,12 @@
     text-decoration: none;
   }
   .page-tour-guiado .mobile-voltar-btn::before { content: '←'; }
+  /* dimensões do mock e containers no mobile */
+  .page-tour-guiado .mobile-frame,
+  .page-tour-guiado .mobile-screen,
+  .page-tour-guiado .mobile-content {
+    width: 100%;
+    padding: 0;
+    margin: 0;
+  }
 }

@@ -21,7 +21,7 @@
     <section class="guided-tour-container" id="guidedTour">
         <div class="tour-main-content" id="desktopContent">
             <div class="tour-showcase">
-                <nav class="tour-navigation" id="desktopNavigation">
+                <nav class="tour-navigation tour-column-nav" id="desktopNavigation">
                     <h3 class="tour-nav-title">Tour Guiado</h3>
                     <ul class="tour-steps">
                         <li class="tour-step active" data-step="1">
@@ -55,7 +55,7 @@
                     </ul>
                 </nav>
 
-                <div class="mobile-showcase">
+                <div class="mobile-showcase tour-column-mock">
                     <div class="mobile-frame">
                         <div class="mobile-screen">
                             <div class="mobile-header">
@@ -68,17 +68,48 @@
                         </div>
                     </div>
 
-                    <!-- Overlay de informações sobre a imagem (mobile) -->
-                    <div class="mobile-step-overlay">
-                        <div class="mobile-step-number-overlay" id="mobileStepNumberOverlay">01 – Login</div>
-                        <h2 class="mobile-step-title-overlay" id="mobileStepTitleOverlay">Login e Acesso Rápido</h2>
-                        <p class="mobile-step-description-overlay" id="mobileStepDescOverlay">
-                            Acesse a plataforma OPER de forma segura e rápida.
-                        </p>
+                    <!-- Controles de navegação para desktop - embaixo do mockup -->
+                    <div class="tour-controls desktop-controls" id="desktopControlsMain">
+                        <button class="tour-control-btn" id="prevBtnDesktop" onclick="changeStep(-1)">
+                            <span>←</span> Anterior
+                        </button>
+                        <div class="mock-toggle" id="mockToggleDesktop" style="display:none;">
+                            <button class="mock-dot active" data-variant="0" onclick="setMockVariant(0)">1</button>
+                            <button class="mock-dot" data-variant="1" onclick="setMockVariant(1)">2</button>
+                        </div>
+                        <button class="tour-control-btn" id="nextBtnDesktop" onclick="changeStep(1)">
+                            Próximo <span>→</span>
+                        </button>
                     </div>
 
-
-
+                    <!-- Overlay de informações sobre a imagem (mobile) -->
+                    <div class="mobile-step-overlay" id="mobileStepOverlay">
+                        <div class="text-content">
+                            <div class="mobile-step-number-overlay" id="mobileStepNumberOverlay">01 – Login</div>
+                            <h2 class="mobile-step-title-overlay" id="mobileStepTitleOverlay">Login e Acesso Rápido</h2>
+                            <p class="mobile-step-description-overlay" id="mobileStepDescOverlay">
+                                Acesse a plataforma OPER de forma segura e rápida.
+                            </p>
+                        </div>
+                        
+                        <div class="tour-controls mobile-controls" id="mobileControls">
+                            <button class="tour-control-btn" id="prevBtn" onclick="changeStep(-1)">
+                                <span>←</span> Anterior
+                            </button>
+                            <div class="mock-toggle" id="mockToggle" style="display:none;">
+                                <button class="mock-dot active" data-variant="0" onclick="setMockVariant(0)">1</button>
+                                <button class="mock-dot" data-variant="1" onclick="setMockVariant(1)">2</button>
+                            </div>
+                            <button class="tour-control-btn" id="nextBtn" onclick="changeStep(1)">
+                                Próximo <span>→</span>
+                            </button>
+                        </div>
+                        
+                        <!-- Link voltar dentro do container -->
+                        <a href="recursos.html" class="mobile-voltar-btn" id="mobileVoltarBtnBottom" aria-label="Voltar para as Funcionalidades">
+                            Voltar para as Funcionalidades
+                        </a>
+                    </div>
 
                     <div class="mobile-info-card" id="mobileInfoCard">
                         <h2 class="mobile-info-title" id="mobileInfoTitle">Login e Acesso</h2>
@@ -87,26 +118,9 @@
                             Nosso sistema de login foi projetado para oferecer máxima segurança sem comprometer a experiência do usuário.
                         </p>
                     </div>
-
-                    <div class="tour-controls" id="desktopControls">
-                        <button class="tour-control-btn" id="prevBtn" onclick="changeStep(-1)">
-                            <span>←</span> Anterior
-                        </button>
-                        <div class="mock-toggle" id="mockToggle" style="display:none;">
-                            <button class="mock-dot active" data-variant="0" onclick="setMockVariant(0)">1</button>
-                            <button class="mock-dot" data-variant="1" onclick="setMockVariant(1)">2</button>
-                        </div>
-                        <button class="tour-control-btn" id="nextBtn" onclick="changeStep(1)">
-                            Próximo <span>→</span>
-                        </button>
-                    </div>
-                    <!-- Voltar (apenas mobile) — link centralizado abaixo dos botões -->
-                    <a href="recursos.html" class="mobile-voltar-btn" id="mobileVoltarBtnBottom" aria-label="Voltar para as Funcionalidades">
-                        Voltar para as Funcionalidades
-                    </a>
                 </div>
 
-                <div class="tour-description">
+                <div class="tour-description tour-column-desc">
                     <h2 class="tour-step-title-main" id="stepTitle">Login e Acesso Rápido</h2>
                     <h3 class="tour-step-subtitle" id="stepSubtitle">Segurança e praticidade na palma da mão</h3>
                     <p class="tour-step-description" id="stepDescription">
@@ -142,12 +156,34 @@
     <script src="js/script-harmonizado.js"></script>
     
     <script>
+        // Ajuste dinâmico da altura da viewport para dispositivos móveis
+        function setViewportHeight() {
+            const vh = window.innerHeight * 0.01;
+            document.documentElement.style.setProperty('--vh', `${vh}px`);
+        }
+
+        // Executar no carregamento e redimensionamento
+        window.addEventListener('load', setViewportHeight);
+        window.addEventListener('resize', setViewportHeight);
+        window.addEventListener('orientationchange', () => {
+            setTimeout(setViewportHeight, 100);
+        });
+
         // Variáveis de estado
         let currentStep = 1;
         const totalSteps = 7;
         let isMobileView = false;
         let currentVariant = 0;   // 0 => 'a' (tela_XX.png), 1 => 'b' (tela_XX_b.png)
         let hasVariant = false;   // se existe 'tela_XX_b.png' para o passo atual
+
+        // Função para atualizar o atributo data-step no body para controlar a visibilidade do toggle
+        function updateStepAttribute() {
+            document.body.setAttribute('data-step', currentStep);
+            const pageElement = document.querySelector('.page-tour-guiado');
+            if (pageElement) {
+                pageElement.setAttribute('data-step', currentStep);
+            }
+        }
 
         const stepData = {
             1: {
@@ -323,6 +359,7 @@
                 step.classList.toggle('active', parseInt(step.dataset.step) === currentStep);
             });
 
+            updateStepAttribute();
             updateMockupImage();
 
             const data = stepData[currentStep];
@@ -339,14 +376,23 @@
                 featuresContainer.appendChild(li);
             });
 
-            // Estado dos botões
+            // Estado dos botões (mobile e desktop)
             const prevBtn = document.getElementById('prevBtn');
             const nextBtn = document.getElementById('nextBtn');
-            prevBtn.disabled = (currentStep === 1) && (currentVariant === 0);
+            const prevBtnDesktop = document.getElementById('prevBtnDesktop');
+            const nextBtnDesktop = document.getElementById('nextBtnDesktop');
+            
+            const isFirst = (currentStep === 1) && (currentVariant === 0);
             const isLast = (currentStep === totalSteps) && (currentVariant === 0 || !hasVariant);
-            nextBtn.disabled = isLast;
+            
+            if (prevBtn) prevBtn.disabled = isFirst;
+            if (nextBtn) nextBtn.disabled = isLast;
+            if (prevBtnDesktop) prevBtnDesktop.disabled = isFirst;
+            if (nextBtnDesktop) nextBtnDesktop.disabled = isLast;
 
-            nextBtn.innerHTML = (currentStep === totalSteps) ? 'Finalizar <span>✓</span>' : 'Próximo <span>→</span>';
+            const nextText = (currentStep === totalSteps) ? 'Finalizar <span>✓</span>' : 'Próximo <span>→</span>';
+            if (nextBtn) nextBtn.innerHTML = nextText;
+            if (nextBtnDesktop) nextBtnDesktop.innerHTML = nextText;
 
             // Atualiza overlay mobile e card
             const stepTitles = ['Login', 'Dashboard', 'Ordens', 'Checklists', 'Inventário', 'Relatórios', 'Offline'];
@@ -366,14 +412,18 @@
         // renderMockToggleVisibility(): mostra/oculta as bolas conforme regras
         function renderMockToggleVisibility() {
             const toggleEl = document.getElementById('mockToggle');
-            if (!toggleEl) return;
+            const toggleElDesktop = document.getElementById('mockToggleDesktop');
+            
             if (isVariantStep(currentStep) && hasVariant) {
-                toggleEl.style.display = 'inline-flex';
+                if (toggleEl) toggleEl.style.display = 'inline-flex';
+                if (toggleElDesktop) toggleElDesktop.style.display = 'inline-flex';
+                
                 document.querySelectorAll('.mock-dot').forEach((dot, index) => {
                     dot.classList.toggle('active', index === currentVariant);
                 });
             } else {
-                toggleEl.style.display = 'none';
+                if (toggleEl) toggleEl.style.display = 'none';
+                if (toggleElDesktop) toggleElDesktop.style.display = 'none';
                 currentVariant = 0;
             }
         }
@@ -429,6 +479,7 @@
                 });
             });
             
+            updateStepAttribute();
             updateTourUI();
             
             document.addEventListener('keydown', function(e) {
@@ -440,6 +491,7 @@
             });
             
             window.addEventListener('resize', function() {
+                setViewportHeight();
                 if (isMobile() && !isMobileView) {
                     showMobileExperience();
                 } else if (!isMobile() && isMobileView) {
