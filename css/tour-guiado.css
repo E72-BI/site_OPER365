@@ -474,32 +474,35 @@
 
 /* Desktop-only adjustments: add top margin and increase mockup size */
 @media (min-width: 769px) {
-  .page-tour-guiado .guided-tour-container,
-  .page-tour-guiado .tour-main-content {
-    margin-top: 96px !important; /* desce o bloco abaixo do cabeçalho */
-  }
-
   .page-tour-guiado .mock-image {
     width: 54.5%;
   }
-
-  .page-tour-guiado #tourProgress.tour-progress {
-    padding-top: 140px !important; /* desce mais o bloco abaixo do cabeçalho */
-  }
 }
 
-/* Desktop: descer o conteúdo para ficar abaixo do cabeçalho */
+/* Desktop: aplicar um único offset e zerar extras */
 @media (min-width: 1024px) {
   .page-tour-guiado .guided-tour-container {
-    padding-top: 5px !important; /* offset igual à altura do cabeçalho */
+    padding-top: 95px !important; /* offset do cabeçalho */
   }
 
   .page-tour-guiado .tour-main-content {
-    padding-top: 0 !important; /* mantemos o espaço vindo do container */
+    padding-top: 0 !important;
+    margin-top: 0 !important;
   }
 
+  .page-tour-guiado .guided-tour-container,
+  .page-tour-guiado .tour-main-content {
+    margin-top: 0 !important; /* garante que não some com o padding do container */
+  }
+
+  /* sticky alinhado com o novo offset */
   .page-tour-guiado .tour-navigation {
-    top: 10px !important; /* sticky alinhado ao novo offset do container */
+    top: 95px !important;
+  }
+
+  /* não usar padding no progresso para tentar empurrar o layout */
+  .page-tour-guiado #tourProgress.tour-progress {
+    padding-top: 0 !important;
   }
 }
 
