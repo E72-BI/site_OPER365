@@ -236,18 +236,18 @@
             .hero .cta-row {
                 display: flex !important;          /* garante flex (override de grid) */
                 align-items: center;
-                justify-content: center;
+                justify-content: flex-start;       /* alinhar à esquerda */
                 position: relative;                /* referência para o "OU" absoluto */
                 column-gap: 0;                     /* gap passa a ser manual nos botões */
+                margin-left: 0;                    /* alinhar com o texto */
             }
             .hero .cta-row .cta-separator {
-                position: absolute;
-                left: 50%;
-                transform: translateX(calc(-50% - 30px)) !important; /* aproxima do Tour */
-                margin: 0 !important;
+                position: relative;
+                margin: 0 40px 0 2px !important; /* ainda mais próximo do tour */
                 display: inline-flex !important;
                 align-items: center !important;
                 line-height: 1;
+                transform: none !important;
             }
             /* Mantém espaçamento dos botões em torno do "OU" sem mover posições */
             .hero .cta-row .tour-button { 
