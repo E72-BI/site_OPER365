@@ -231,6 +231,33 @@
         }
     </style>
     <style>
+        @media (min-width: 768px) {
+            /* Desktop: manter botões e centralizar apenas o "OU" */
+            .hero .cta-row {
+                display: flex !important;          /* garante flex (override de grid) */
+                align-items: center;
+                justify-content: center;
+                position: relative;                /* referência para o "OU" absoluto */
+                column-gap: 0;                     /* gap passa a ser manual nos botões */
+            }
+            .hero .cta-row .cta-separator {
+                position: absolute;
+                left: 50%;
+                transform: translateX(calc(-50% - 30px)) !important; /* aproxima do Tour */
+                margin: 0 !important;
+                display: inline-flex !important;
+                align-items: center !important;
+                line-height: 1;
+            }
+            /* Mantém espaçamento dos botões em torno do "OU" sem mover posições */
+            .hero .cta-row .tour-button { 
+                margin-right: 24px;                /* espaço à direita do Tour */
+            }
+            .hero .cta-row .btn.btn-primary { 
+                margin-left: 24px;                 /* espaço à esquerda do Demo */
+            }
+        }
+
         @media (max-width: 768px) {
             /* Subir a hero até a linha vermelha */
             html body .hero {
