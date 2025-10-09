@@ -276,8 +276,8 @@
                         </div>
                         
                         <!-- Link voltar dentro do container -->
-                        <a href="recursos.html" class="mobile-voltar-btn" id="mobileVoltarBtnBottom" aria-label="Voltar para as Funcionalidades">
-                            Voltar para as Funcionalidades
+                        <a href="javascript:void(0)" class="mobile-voltar-btn" id="mobileVoltarBtnBottom" aria-label="Voltar">
+                            voltar
                         </a>
                     </div>
 
@@ -702,6 +702,22 @@
         }
 
         document.addEventListener('DOMContentLoaded', function() {
+            // Add event listener for the back button
+            const backButton = document.getElementById('mobileVoltarBtnBottom');
+            if (backButton) {
+                backButton.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    // Check if there's a referrer and it's not the same page
+                    if (document.referrer && document.referrer !== window.location.href) {
+                        // Go back to the previous page
+                        window.history.back();
+                    } else {
+                        // If no referrer or same page, go to index.html
+                        window.location.href = 'index.html';
+                    }
+                });
+            }
+            
             initializeExperience();
             
             document.querySelectorAll('.tour-step').forEach(step => {
