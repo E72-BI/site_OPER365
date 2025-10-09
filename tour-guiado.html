@@ -10,6 +10,173 @@
     <link rel="stylesheet" href="css/tour-guiado.css">
     <link rel="stylesheet"
         href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&family=Montserrat:wght@400;500;600;700&family=Open+Sans:wght@300;400;600;700&display=swap">
+    
+    <!-- CSS para altura dinâmica da viewport em dispositivos móveis -->
+    <style>
+        /* Variável CSS customizada para altura da viewport */
+        :root {
+            --vh: 1vh;
+        }
+        
+        /* Configuração para ocupar 100% da altura visível em dispositivos móveis */
+        @media (max-width: 768px) {
+            .page-tour-guiado .guided-tour-container {
+                /* Usa dvh com fallback para vh */
+                height: 100vh; /* Fallback para navegadores sem suporte a dvh */
+                height: 100dvh; /* Altura dinâmica da viewport */
+                height: calc(var(--vh, 1vh) * 100); /* Fallback com variável CSS */
+                min-height: 100vh;
+                min-height: 100dvh;
+                min-height: calc(var(--vh, 1vh) * 100);
+                
+                /* Flexbox para centralização */
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+                align-items: center;
+                
+                /* Remove padding que pode causar overflow */
+                padding: 0 !important;
+                margin: 0 !important;
+                
+                /* Garante que não haja scroll */
+                overflow: hidden;
+                
+                /* Posicionamento relativo para elementos filhos */
+                position: relative;
+            }
+            
+            .page-tour-guiado .tour-main-content {
+                /* Ocupa toda a altura disponível */
+                height: 100%;
+                width: 100%;
+                
+                /* Flexbox para centralização do conteúdo */
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+                align-items: center;
+                
+                /* Remove padding e margin */
+                padding: 0 !important;
+                margin: 0 !important;
+                
+                /* Permite scroll interno se necessário */
+                overflow-y: auto;
+                overflow-x: hidden;
+            }
+            
+            .page-tour-guiado .mobile-showcase {
+                /* Centralização do mockup */
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+                align-items: center;
+                
+                /* Ocupa toda a altura disponível */
+                height: 100%;
+                width: 100%;
+                
+                /* Remove padding */
+                padding: 0 !important;
+                
+                /* Posicionamento relativo para overlay */
+                position: relative;
+            }
+            
+            /* Ajuste da imagem do mockup para centralização */
+            .page-tour-guiado .mock-image {
+                /* Centralização da imagem */
+                display: block;
+                margin: auto;
+                
+                /* Tamanho responsivo */
+                width: 70%;
+                max-width: 576px;
+                height: auto;
+                
+                /* Garante que a imagem não cause overflow */
+                max-height: 60vh;
+                max-height: 60dvh;
+                max-height: calc(var(--vh, 1vh) * 60);
+                
+                /* Qualidade da imagem */
+                object-fit: contain;
+                object-position: center;
+            }
+            
+            /* Ajuste da barra de progresso para não interferir na altura */
+            .page-tour-guiado .tour-progress {
+                position: fixed !important;
+                top: 0 !important;
+                left: 0 !important;
+                right: 0 !important;
+                height: 3px !important;
+                z-index: 1004 !important;
+                
+                /* Não afeta o layout */
+                margin: 0 !important;
+                padding: 0 !important;
+            }
+            
+            /* Ajuste dos controles para posicionamento fixo */
+            .page-tour-guiado .tour-controls {
+                position: fixed !important;
+                bottom: 72px !important;
+                left: 50% !important;
+                transform: translateX(-50%) !important;
+                z-index: 1003 !important;
+                
+                /* Não afeta o layout */
+                margin: 0 !important;
+            }
+            
+            /* Ajuste do overlay de texto */
+            .page-tour-guiado .mobile-step-overlay {
+                position: fixed !important;
+                bottom: 118px !important;
+                left: 0 !important;
+                right: 0 !important;
+                z-index: 1002 !important;
+                
+                /* Não afeta o layout */
+                margin: 0 !important;
+            }
+            
+            /* Ajuste da tarja preta */
+            .page-tour-guiado .mobile-showcase::after {
+                position: fixed !important;
+                bottom: 0 !important;
+                left: 0 !important;
+                right: 0 !important;
+                height: 240px !important;
+                z-index: 1001 !important;
+                
+                /* Não afeta o layout */
+                margin: 0 !important;
+            }
+            
+            /* Ajuste do link "Voltar" */
+            .page-tour-guiado .mobile-voltar-btn {
+                position: fixed !important;
+                bottom: 16px !important;
+                left: 16px !important;
+                z-index: 1004 !important;
+                
+                /* Não afeta o layout */
+                margin: 0 !important;
+            }
+        }
+        
+        /* Suporte para orientação landscape em dispositivos móveis */
+        @media (max-width: 768px) and (orientation: landscape) {
+            .page-tour-guiado .mock-image {
+                max-height: 50vh;
+                max-height: 50dvh;
+                max-height: calc(var(--vh, 1vh) * 50);
+            }
+        }
+    </style>
 </head>
 <body class="page-tour-guiado">
     <div id="menu-placeholder"></div>
@@ -156,17 +323,80 @@
     <script src="js/script-harmonizado.js"></script>
     
     <script>
-        // Ajuste dinâmico da altura da viewport para dispositivos móveis
+        // Função aprimorada para ajuste dinâmico da altura da viewport
         function setViewportHeight() {
+            // Calcula a altura real da viewport
             const vh = window.innerHeight * 0.01;
+            
+            // Define a variável CSS customizada
             document.documentElement.style.setProperty('--vh', `${vh}px`);
+            
+            // Para dispositivos móveis, ajusta a altura da seção principal
+            if (window.innerWidth <= 768) {
+                const guidedTourContainer = document.getElementById('guidedTour');
+                if (guidedTourContainer) {
+                    // Aplica a altura calculada diretamente
+                    guidedTourContainer.style.height = `${window.innerHeight}px`;
+                    guidedTourContainer.style.minHeight = `${window.innerHeight}px`;
+                }
+            }
         }
 
-        // Executar no carregamento e redimensionamento
-        window.addEventListener('load', setViewportHeight);
-        window.addEventListener('resize', setViewportHeight);
-        window.addEventListener('orientationchange', () => {
-            setTimeout(setViewportHeight, 100);
+        // Função para detectar mudanças na altura da viewport (barras de navegação)
+        function handleViewportChange() {
+            // Aguarda um pequeno delay para garantir que a mudança foi processada
+            setTimeout(() => {
+                setViewportHeight();
+            }, 100);
+        }
+
+        // Função para detectar se o navegador suporta dvh
+        function supportsDvh() {
+            try {
+                // Testa se o navegador suporta a unidade dvh
+                const testElement = document.createElement('div');
+                testElement.style.height = '100dvh';
+                return testElement.style.height === '100dvh';
+            } catch (e) {
+                return false;
+            }
+        }
+
+        // Inicialização
+        function initializeViewportHandling() {
+            // Define a altura inicial
+            setViewportHeight();
+            
+            // Se o navegador não suporta dvh, usa o fallback JavaScript
+            if (!supportsDvh()) {
+                console.log('Navegador não suporta dvh, usando fallback JavaScript');
+                
+                // Aplica o ajuste mais frequentemente para navegadores sem suporte
+                setInterval(setViewportHeight, 500);
+            }
+        }
+
+        // Event listeners para diferentes cenários de mudança de viewport
+        window.addEventListener('load', initializeViewportHandling);
+        window.addEventListener('resize', handleViewportChange);
+        window.addEventListener('orientationchange', handleViewportChange);
+        
+        // Para dispositivos iOS - detecta mudanças na barra de endereço
+        window.addEventListener('scroll', () => {
+            if (window.innerWidth <= 768) {
+                handleViewportChange();
+            }
+        });
+        
+        // Para Android - detecta mudanças no foco (teclado virtual, etc.)
+        window.addEventListener('focusin', handleViewportChange);
+        window.addEventListener('focusout', handleViewportChange);
+        
+        // Detecta mudanças na visibilidade da página
+        document.addEventListener('visibilitychange', () => {
+            if (!document.hidden) {
+                handleViewportChange();
+            }
         });
 
         // Variáveis de estado
