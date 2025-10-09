@@ -84,21 +84,21 @@
                 position: relative;
             }
             
-            /* Ajuste da imagem do mockup para centralização */
+            /* Ajuste da imagem do mockup para centralização - Ajustado para 80% da largura da tela */
             .page-tour-guiado .mock-image {
                 /* Centralização da imagem */
                 display: block;
                 margin: auto;
                 
-                /* Tamanho responsivo */
-                width: 70%;
-                max-width: 576px;
+                /* Tamanho responsivo - ajustado para 80% da largura da tela */
+                width: 80% !important;
+                max-width: 80vw !important;
                 height: auto;
                 
                 /* Garante que a imagem não cause overflow */
-                max-height: 60vh;
-                max-height: 60dvh;
-                max-height: calc(var(--vh, 1vh) * 60);
+                max-height: 70vh;
+                max-height: 70dvh;
+                max-height: calc(var(--vh, 1vh) * 70);
                 
                 /* Qualidade da imagem */
                 object-fit: contain;
@@ -171,9 +171,12 @@
         /* Suporte para orientação landscape em dispositivos móveis */
         @media (max-width: 768px) and (orientation: landscape) {
             .page-tour-guiado .mock-image {
-                max-height: 50vh;
-                max-height: 50dvh;
-                max-height: calc(var(--vh, 1vh) * 50);
+                max-height: 60vh;
+                max-height: 60dvh;
+                max-height: calc(var(--vh, 1vh) * 60);
+                /* Ajustado para 80% da largura da tela também no landscape */
+                width: 80% !important;
+                max-width: 80vw !important;
             }
         }
     </style>

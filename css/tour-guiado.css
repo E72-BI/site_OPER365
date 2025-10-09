@@ -547,8 +547,8 @@
     margin: 0;
   }
   .page-tour-guiado .mock-image {
-    width: 70%;
-    max-width: 576px;
+    width: 80%;
+    max-width: 80vw;
     height: auto;
     object-fit: contain;
     object-position: top;
