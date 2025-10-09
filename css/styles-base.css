@@ -1815,6 +1815,111 @@ blockquote {
   animation: zapPulse 2s ease-out infinite;
 }
 
+/* Tour Virtual Button — idêntico ao WhatsApp */
+
+
+/* Tour (CTA) — efeitos refinados e tamanhos */
+.tour-button.zap-anchor {
+  position: relative;
+  display: block;
+  text-decoration: none;
+}
+
+.tour-button .zap-tooltip {
+  position: absolute;
+  bottom: 100%;
+  right: 0;
+  margin-bottom: 8px;
+  background: var(--whatsapp-dark, #111827);
+  color: var(--white, #ffffff);
+  font-size: 13px;
+  padding: 6px 10px;
+  border-radius: 8px;
+  box-shadow: 0 10px 20px rgba(17, 24, 39, 0.3);
+  white-space: nowrap;
+  opacity: 0;
+  transform: translateX(20px);
+  pointer-events: none;
+  transition: opacity 0.25s ease, transform 0.25s ease;
+}
+
+.tour-button .zap-tooltip-arrow {
+  position: absolute;
+  bottom: 0;
+  right: 16px;
+  width: 8px;
+  height: 8px;
+  background: var(--whatsapp-dark, #111827);
+  transform: translateY(50%) rotate(45deg);
+}
+
+.tour-button.zap-anchor:hover .zap-tooltip {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+.tour-button .zap-glow {
+  position: absolute;
+  inset: 0;
+  background: rgba(26, 139, 199, 0.2);
+  border-radius: 9999px;
+  filter: blur(18px);
+  opacity: 0.3;
+  transform: scale(1);
+  transition: transform 0.3s ease, opacity 0.3s ease;
+}
+
+.tour-button.zap-anchor:hover .zap-glow {
+  transform: scale(1.3);
+  opacity: 0.5;
+}
+
+.tour-button .zap-button {
+  position: relative;
+  background: transparent;
+  border-radius: 9999px;
+  padding: 16px;
+  box-shadow: 0 8px 25px rgba(26, 139, 199, 0.3);
+  transition: box-shadow 0.3s ease, transform 0.1s ease;
+  transform: scale(1);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.tour-button.zap-anchor:hover .zap-button {
+  box-shadow: 0 15px 35px rgba(26, 139, 199, 0.4);
+  transform: scale(1.1);
+}
+
+.tour-button .zap-icon {
+  width: 24px;
+  height: 24px;
+  display: block;
+  object-fit: contain;
+}
+
+@keyframes tourPulse {
+  0%   { transform: scale(1);   opacity: 1; }
+  50%  { transform: scale(1.2); opacity: 0.7; }
+  100% { transform: scale(1.4); opacity: 0; }
+}
+
+.tour-button .zap-pulse {
+  position: absolute;
+  inset: 0;
+  border-radius: 9999px;
+  border: 2px solid rgba(26, 139, 199, 0.2);
+  animation: tourPulse 2s ease-out infinite;
+}
+
+/* Ripple override para o Tour com azul */
+.tour-button .ripple {
+  background: rgba(26, 139, 199, 0.2);
+}
+
+
+
 /* Responsivo */
 @media (max-width: 768px) {
   #whatsappFloat.whatsapp-float {
@@ -1834,6 +1939,17 @@ blockquote {
   #whatsappFloat .zap-tooltip {
     display: none;
   }
+
+  /* Responsivo para Tour Virtual */
+  #tourVirtualFloat.whatsapp-float { bottom: 80px; right: 15px; }
+  #tourVirtualFloat .zap-button { padding: 20px; }
+  #tourVirtualFloat .zap-icon { width: 28px; height: 28px; }
+  #tourVirtualFloat .zap-tooltip { display: none; }
+
+  /* Responsivo para Tour CTA */
+  .tour-button .zap-button { padding: 17px; }           /* +20% */
+  .tour-button .zap-icon { width: 77px; height: 77px; } /* +20% */
+  .tour-button .zap-tooltip { display: none; }
 }
 
 /* Acessibilidade: preservar animações do botão sob reduce-motion sem afetar o resto */

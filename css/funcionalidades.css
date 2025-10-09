@@ -88,10 +88,11 @@
 
 /* Indicador flutuante */
 .floating-tour-indicator {
-    position: fixed; bottom: 30px; left: 30px;
-    background: #4586DF; color: white; padding: 15px 20px;
-    border-radius: 50px; font-weight: 600;
-    box-shadow: 0 10px 30px rgba(69, 134, 223, 0.3);
-    z-index: 1000; animation: pulse 2s infinite;
+    position: fixed; bottom: 24px; left: 24px;
+    background: #4586DF; color: white; padding: 20px 28px;
+    border-radius: 50px; font-weight: 600; font-size: 1.05rem;
+    min-height: 48px; min-width: 150px;
+    box-shadow: 0 10px 30px rgba(69, 134, 223, 0.35);
+    z-index: 1000; animation: pulse 2s infinite; cursor: pointer;
 }
 @keyframes pulse { 0% { transform: scale(1); } 50% { transform: scale(1.05); } 100% { transform: scale(1); } }

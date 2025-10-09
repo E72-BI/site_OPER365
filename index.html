@@ -10,10 +10,151 @@
     <link rel="stylesheet" href="css/menu.css">
     <link rel="stylesheet"
         href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&family=Montserrat:wght@400;500;600;700&family=Open+Sans:wght@300;400;600;700&display=swap">
+    <style>
+        @media (max-width: 768px) {
+            #whatsappFloat.whatsapp-float { bottom: 15px; right: 15px; }
+            #whatsappFloat .zap-button { padding: 20px; }
+            #whatsappFloat .zap-icon { width: 28px; height: 28px; }
+            #whatsappFloat .zap-tooltip { display: none; }
+        }
+
+        /* CTA do Hero: Tour + OU + Agendar */
+        .cta-row {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+            margin-top: 16px;
+        }
+        .cta-separator {
+            font-weight: 700;
+            color: #2c3e50;
+        }
+
+        /* Tour (CTA) — leve aumento de tamanho para manter destaque */
+        .tour-button .zap-icon {
+            width: 92px;
+            height: 92px;
+            object-fit: contain;
+            display: block;
+        }
+        .tour-button .zap-button {
+            padding: 16px;
+        }
+
+        @media (max-width: 768px) {
+            /* Layout compacto no mobile */
+            .cta-row {
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                flex-wrap: nowrap;
+                gap: 6px;
+            }
+
+            /* Separador compacto para otimizar espaço */
+            .cta-row .cta-separator {
+                font-size: 12px;
+                margin: 0 4px;
+            }
+
+            /* Tour maior e sem posição fixa no mobile */
+            .tour-fixed { 
+                position: static !important; 
+                inset: auto !important; 
+            }
+            .tour-button {
+                flex: 1 1 auto;
+                min-width: 0;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                margin: 0;
+            }
+            .tour-button .zap-icon {
+                width: clamp(90px, 30vw, 120px);
+                height: clamp(90px, 30vw, 120px);
+            }
+            .tour-button .zap-button { 
+                padding: 18px; 
+            }
+            .tour-button .zap-glow,
+            .tour-button .zap-pulse,
+            .tour-button .zap-tooltip { 
+                display: none; 
+            }
+
+            /* Ajuste definitivo para mobile: Tour maior e Demo menor */
+            @media (max-width: 768px) {
+                .cta-row { 
+                    flex-wrap: nowrap; 
+                    align-items: center; 
+                    justify-content: center; 
+                    gap: 6px; 
+                }
+            
+                /* Tour — aumentar visivelmente e priorizar espaço */
+                .tour-fixed { position: static !important; }       /* remove posição fixa no mobile */
+                .tour-button { 
+                    flex: 1 1 auto; 
+                    min-width: 0; 
+                    display: flex; 
+                    justify-content: center; 
+                    align-items: center; 
+                }
+                .tour-button .zap-icon { 
+                    width: 120px !important;                        /* maior */
+                    height: 120px !important;                       /* maior */
+                }
+                .tour-button .zap-button { 
+                    padding: 20px !important;                       /* acompanha o ícone */
+                }
+            
+                /* Agendar Demo — reduzir ~20% e ficar mais estreito */
+                .cta-row .btn.btn-primary { 
+                    flex: 0 0 auto;
+                    font-size: 12px !important;                     /* menor */
+                    padding: 4px 8px !important;                    /* menor largura */
+                    line-height: 1.2;
+                    white-space: nowrap;
+                    min-width: 0;
+                }
+            
+                /* Separador compacto */
+                .cta-row .cta-separator { 
+                    font-size: 12px; 
+                    padding: 0 4px; 
+                }
+            }
+        }
+        @media (max-width: 768px) {
+            /* Centralização vertical dos três elementos */
+            .cta-row {
+                display: flex;
+                align-items: center !important;   /* garante alinhamento na vertical */
+                justify-content: center;
+            }
+
+            .tour-button,
+            .cta-row .cta-separator,
+            .cta-row .btn.btn-primary {
+                align-self: center !important;     /* força cada item ao centro vertical */
+                vertical-align: middle;            /* corrige baseline de inline/inline-block */
+            }
+
+            /* O "OU" como flex para centralizar seu texto */
+            .cta-row .cta-separator {
+                display: flex !important;
+                align-items: center !important;
+                line-height: 1;                    /* evita deslocamento por altura de linha */
+            }
+        }
+    </style>
 </head>
 
 <body>
     <div id="menu-placeholder"></div>
+
+
 
     <!-- Hero Section -->
     <section class="hero">
@@ -29,7 +170,23 @@
                     Automatize checklists, abra ordens de serviço pelo celular e comprove conformidade com relatórios auditáveis —
                     <span class="oper-highlight">tudo em uma única plataforma: OPER</span>.
                 </p>
-                <a href="https://wa.me/5582981457117?text=Quero%20uma%20demonstra%C3%A7%C3%A3o%20exclusiva" target="_blank" class="btn btn-primary">Agendar demonstração</a>
+                <div class="cta-row">
+                    <!-- Tour com efeitos e posição fixa na tela -->
+                    <a href="tour-guiado.html" class="tour-button zap-anchor tour-fixed" aria-label="Abrir Tour Virtual" rel="noopener noreferrer">
+                        <div class="zap-tooltip" role="tooltip">
+                            Abrir Tour Virtual
+                            <div class="zap-tooltip-arrow"></div>
+                        </div>
+                        <div class="zap-glow"></div>
+                        <div class="zap-button ripple-effect">
+                            <img src="images/tour_virtual_02.png" alt="Tour Virtual" class="zap-icon">
+                        </div>
+                        <div class="zap-pulse"></div>
+                    </a>
+
+                    <span class="cta-separator">OU</span>
+                    <a href="https://wa.me/5582981457117?text=Quero%20uma%20demonstra%C3%A7%C3%A3o%20exclusiva" target="_blank" class="btn btn-primary">Agendar Demo</a>
+                </div>
             </div>
         </div>
     </section>
@@ -445,24 +602,19 @@
     <!-- Botão flutuante de contato (modelo idêntico ao botaozap) -->
     <div class="whatsapp-float" id="whatsappFloat">
         <a href="https://wa.me/5582981457117?text=Quero%20saber%20mais%20sobre%20a%20OPER!" target="_blank" aria-label="Fale conosco no WhatsApp" rel="noopener noreferrer" class="zap-anchor">
-            <!-- Tooltip -->
             <div class="zap-tooltip" role="tooltip">
                 Fale conosco no WhatsApp
                 <div class="zap-tooltip-arrow"></div>
             </div>
 
-            <!-- Glow de fundo (hover aumenta intensidade) -->
             <div class="zap-glow"></div>
 
-            <!-- Botão principal (círculo verde) -->
             <div class="zap-button ripple-effect">
-                <!-- Ícone WhatsApp SVG (idêntico ao exemplo) -->
                 <svg class="zap-icon" width="24" height="24" viewBox="0 0 24 24" aria-hidden="true">
                     <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z" fill="currentColor"/>
                 </svg>
             </div>
 
-            <!-- Anel pulsante (escala e desvanece continuamente) -->
             <div class="zap-pulse"></div>
         </a>
     </div>
@@ -472,3 +624,55 @@
 </body>
 
 </html>
+<style>
+    @media (max-width: 768px) {
+        /* Tour sem padding para ganhar área útil */
+        .tour-button .zap-button { 
+            padding: 0 !important; 
+        }
+
+        /* Separador "OU" mais visível e centralizado */
+        .cta-row .cta-separator { 
+            display: flex !important; 
+            align-items: center !important;
+            line-height: 1;
+            font-weight: 700 !important; 
+            font-size: 14px !important; 
+            margin: 0 6px;
+        }
+
+        /* Agendar Demo +10% (fonte e padding) */
+        .cta-row .btn.btn-primary { 
+            font-size: 110% !important;
+            padding: calc(4px * 1.1) calc(8px * 1.1) !important;
+            line-height: 1.2;
+            white-space: nowrap;
+            flex: 0 0 auto;
+            min-width: 0;
+        }
+    }
+
+    @media (max-width: 768px) {
+        /* Alinhamento fino entre Tour, OU e Agendar Demo */
+        .cta-row { 
+            display: flex;
+            align-items: center; 
+            justify-content: center;
+        }
+        .cta-row .cta-separator { 
+            display: inline-flex; 
+            align-items: center; 
+            line-height: 1; 
+        }
+        .cta-row .tour-button { 
+            display: flex; 
+            align-items: center; 
+        }
+
+        /* Elevar Tour e OU ainda mais para alinhamento perfeito */
+        .cta-row .tour-button,
+        .cta-row .cta-separator {
+            transform: translateY(-12px) !important;  /* antes: -8px */
+        }
+    }
+</style>
