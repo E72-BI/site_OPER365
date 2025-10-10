@@ -18,7 +18,45 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 
     <style>
-        /* WhatsApp Float e CTA como no index.html */
+        /* Banner Parallax: altura fixa no desktop e proporcional no mobile */
+        .parallax-banner {
+            position: relative;
+            height: 600px;
+            min-height: 600px;
+            background-position: center center;
+            background-size: cover;
+            background-attachment: fixed; /* efeito parallax no desktop */
+            margin-top: -24px;            /* sobrepõe levemente a seção acima */
+            overflow: hidden;
+        }
+        .parallax-banner::after {
+            content: "";
+            position: absolute;
+            inset: 0;
+            background: rgba(0,0,0,0.15); /* leve máscara para legibilidade */
+        }
+        .parallax-banner .parallax-content {
+            position: relative;
+            z-index: 1;
+            height: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-direction: column;
+            text-align: center;
+            color: #fff;
+            padding: 0 16px;
+        }
+        @media (max-width: 768px) {
+            .parallax-banner {
+                height: 45vh;             /* proporcional ao viewport no mobile */
+                min-height: 45vh;
+                background-attachment: scroll; /* desempenho melhor no mobile */
+                margin-top: -12px;        /* mesma ideia de sobreposição, menor */
+            }
+        }
+
+        /* WhatsApp Float — ajustes mínimos locais iguais ao index */
         @media (max-width: 768px) {
             #whatsappFloat.whatsapp-float { bottom: 15px; right: 15px; }
             #whatsappFloat .zap-button { padding: 20px; }
@@ -65,6 +103,42 @@
                 max-width: 80% !important;
                 display: block;
                 margin: 0 auto;
+            }
+            /* Mobile: texto à esquerda e CTAs alinhados pelo centro */
+            .hero .hero-content {
+                text-align: left !important;
+            }
+            .hero .hero-content .subtitle,
+            .hero .hero-content .title,
+            .hero .hero-content .description {
+                text-align: left !important;
+                margin-left: 0 !important;
+                margin-right: 0 !important;
+            }
+
+            /* CTAs: centralização pelos centros e sem deslocamentos */
+            .hero .cta-row {
+                display: flex !important;
+                align-items: center !important;   /* alinha pelos centros */
+                justify-content: center !important;
+                gap: 10px !important;
+                flex-wrap: nowrap !important;
+                margin-top: 8px !important;
+            }
+            .hero .cta-row .cta-separator {
+                display: flex !important;
+                align-items: center !important;
+                line-height: 1 !important;
+                margin: 0 4px !important;
+                font-weight: 700 !important;
+                font-size: 14px !important;
+            }
+            /* Remove offsets para nivelar os centros dos itens */
+            .hero .cta-row .tour-button,
+            .hero .cta-row .cta-separator,
+            .hero .cta-row .btn.btn-primary {
+                transform: none !important;
+                align-self: center !important;
             }
         }
 
@@ -994,7 +1068,8 @@
     </section>
 
     <!-- Parallax Banner (novo, entre seções principais) -->
-    <section class="parallax-banner" style="background-image: url('temp_images/banner_parallax_01.png');">
+    <section class="parallax-banner">
+        <video class="parallax-video" src="images/Video_9.mp4" autoplay muted loop playsinline preload="auto" poster="images/hero_004.png"></video>
         <div class="parallax-content" data-parallax-speed="0.12">
             <h3 class="fw-bold mb-2">Planejamento visual e execução sem atrito</h3>
             <p class="text-muted mb-3">Calendário, ordens e checklists digitais com conformidade auditável</p>
