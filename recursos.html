@@ -49,6 +49,25 @@
             padding: 16px;
         }
 
+        /* Ajuste de largura da descrição da Hero (desktop/tablet) */
+        .hero .hero-content .description {
+            max-width: 460px;   /* ajuste fino da largura */
+            margin-left: 0;     /* mantém alinhado à esquerda */
+            margin-right: 0;
+        }
+        /* Mantém largura total no mobile */
+        @media (max-width: 768px) {
+            .hero .hero-content .description {
+                max-width: 100%;
+            }
+            .hero .hero-image .mobile-image {
+                width: 80% !important;
+                max-width: 80% !important;
+                display: block;
+                margin: 0 auto;
+            }
+        }
+
         /* Regras de harmonização mobile (idênticas ao index) */
         @media (max-width: 768px) {
             /* Remover margem/padding herdados e reduzir gap */
@@ -214,18 +233,21 @@
     <section class="hero">
         <div class="container">
             <div class="hero-image">
-                <img src="images/dispositivos.png" alt="OPER - Gestão de manutenção" class="desktop-image" loading="lazy" onerror="this.style.display='none'">
-                <img src="images/dispositivos.png" alt="OPER - Gestão de manutenção" class="mobile-image" loading="lazy" onerror="this.style.display='none'">
-            </div>
+            <img src="images/dispositivos.png" alt="OPER em múltiplos dispositivos" class="desktop-image" loading="lazy" onerror="this.style.display='none'">
+            <img src="images/dispositivo001.png" alt="OPER em múltiplos dispositivos" class="mobile-image" loading="lazy" onerror="this.style.display='none'">
+        </div>
             <div class="hero-content">
-                <h2 class="subtitle">Recursos OPER</h2>
-                <h2 class="title">Ferramentas completas<br> para operação real</h2>
-                <p class="description">
-                    Controle total da manutenção — planejamento, execução e análise. 
-                    <span class="oper-highlight">Tudo em uma única plataforma: OPER</span>.
-                </p>
+                <h2 class="subtitle">
+                <span style="color: var(--danger-color);">Tudo Aqui!</span>
+            </h2>
+            <p class="description">
+                Eleve o Tempo Médio Entre Falhas (MTBF), prolongando a vida útil dos ativos, e reduza o Tempo Médio para Reparo (MTTR), acelerando diagnósticos e respostas.
+            </p>
+            <p class="description">
+                Tudo em um só lugar: checklists inteligentes, ordens de serviço rastreáveis e relatórios auditáveis.
+            </p>
                 <div class="cta-row">
-                    <a href="tour-guiado.html" class="tour-button zap-anchor" aria-label="Abrir Tour Virtual" rel="noopener noreferrer">
+                    <a href="tour-guiado.html" class="tour-button zap-anchor tour-fixed" aria-label="Abrir Tour Virtual" rel="noopener noreferrer">
                         <div class="zap-tooltip" role="tooltip">
                             Abrir Tour Virtual
                             <div class="zap-tooltip-arrow"></div>
