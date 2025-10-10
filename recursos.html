@@ -3,848 +3,1230 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Recursos — OPER</title>
+    <title>Recursos e Ferramentas — OPER</title>
+    <meta name="description" content="Conheça todos os recursos do sistema de gestão de manutenção OPER - Gestão de ativos, workflow, auditoria, planejamento e muito mais.">
+    <!-- Fonte e estilos padronizados como index/tour -->
     <link rel="stylesheet" href="css/styles-base.css">
     <link rel="stylesheet" href="css/styles-mobile.css">
     <link rel="stylesheet" href="css/menu.css">
+    <link rel="stylesheet" href="css/mobile-enhancements-corrigido.css">
     <link rel="stylesheet"
-          href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&family=Montserrat:wght@400;500;600;700&family=Open+Sans:wght@300;400;600;700&display=swap">
+        href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&family=Montserrat:wght@400;500;600;700&family=Open+Sans:wght@300;400;600;700&display=swap">
+    <!-- Mantém Font Awesome (ícones usados nos cards) e Bootstrap CSS (grid existente) -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
     <style>
         :root {
-            --brand: #0d6efd;
-            --brand-2: #00b3ff;
-            --ink: #2c3e50;
-            --muted: #64748b;
-            --bg: #f7f9fc;
-            --card: #ffffff;
-            --radius: 14px;
-            --container: 1200px;
-            --shadow-sm: 0 4px 12px rgba(16,24,40,0.08);
-            --shadow-md: 0 10px 24px rgba(16,24,40,0.12);
-            --space-2xs: 6px;
-            --space-xs: 10px;
-            --space-sm: 14px;
-            --space-md: 20px;
-            --space-lg: 28px;
-            --space-xl: 40px;
+            --primary-color: #2563eb;
+            --primary-dark: #1d4ed8;
+            --secondary-color: #64748b;
+            --success-color: #10b981;
+            --warning-color: #f59e0b;
+            --danger-color: #ef4444;
+            --light-bg: #f8fafc;
+            --dark-text: #1e293b;
+            --border-color: #e2e8f0;
         }
 
-        body.page-recursos {
-            background: var(--bg);
-            color: var(--ink);
-            margin: 0;
+        /* Harmonização do Hero (mobile-first) como index.html */
+        @media (max-width: 768px) {
+            .hero {
+                height: 100dvh !important;
+                min-height: 100dvh !important;
+                display: flex !important;
+                align-items: flex-start !important;
+                justify-content: center !important;
+                padding-top: var(--space-xs) !important;
+                padding-bottom: 0 !important;
+                margin-top: 0 !important;
+                overflow: hidden !important;
+            }
+            .hero .container {
+                display: flex !important;
+                flex-direction: column !important;
+                justify-content: flex-start !important;
+                align-items: center !important;
+                text-align: center !important;
+                gap: var(--space-2xs) !important;
+                padding-top: 0 !important;
+            }
+            .cta-row {
+                display: flex !important;
+                align-items: center !important;
+                justify-content: center !important;
+                flex-wrap: nowrap !important;
+                gap: 10px !important;
+                margin-top: var(--space-xs) !important;
+                margin-bottom: 0 !important;
+                padding-bottom: 0 !important;
+            }
+            .cta-row .cta-separator {
+                display: flex !important;
+                align-items: center !important;
+                line-height: 1 !important;
+                font-weight: 700 !important;
+                font-size: 14px !important;
+                margin: 0 4px !important;
+            }
+            .cta-row .tour-button,
+            .cta-row .cta-separator,
+            .cta-row .btn.btn-primary {
+                transform: translateY(-12px) !important;
+                align-self: center !important;
+            }
+            .tour-button .zap-icon {
+                width: 90px !important;
+                height: 90px !important;
+                object-fit: contain;
+                display: block;
+            }
+            .tour-button .zap-button { padding: 0 !important; }
         }
 
-        .container {
-            width: 100%;
-            max-width: var(--container);
-            margin: 0 auto;
-            padding: 0 var(--space-md);
+        /* Cards (mantidos com sombra e hover) */
+        .card {
+            border: none;
+            border-radius: 16px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+            transition: all 0.3s ease;
+            height: 100%;
         }
-
-        /* Hero */
-        .hero {
-            position: relative;
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1);
+        }
+        .feature-icon {
+            width: 48px;
+            height: 48px;
+            background: linear-gradient(135deg, var(--primary-color), var(--primary-dark));
+            border-radius: 12px;
             display: flex;
             align-items: center;
             justify-content: center;
-            padding: var(--space-xl) 0;
-            background: linear-gradient(90deg, #0d6efd 0%, #00b3ff 100%);
-            color: #fff;
-            overflow: hidden;
+            color: white;
+            font-size: 20px;
+            flex-shrink: 0;
         }
-        .hero::after {
+
+        /* Parallax banner */
+        .parallax-banner {
+            position: relative;
+            min-height: 360px;
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed; /* efeito nativo */
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #0f172a;
+        }
+        .parallax-banner::after {
             content: "";
             position: absolute;
             inset: 0;
-            background: radial-gradient(1200px 300px at 20% 10%, rgba(255,255,255,0.16), transparent 60%),
-                        radial-gradient(1200px 300px at 80% 100%, rgba(255,255,255,0.12), transparent 60%);
-            pointer-events: none;
+            background: linear-gradient(to bottom, rgba(255,255,255,0.65), rgba(255,244,214,0.8));
         }
-        .hero-content {
+        .parallax-content {
             position: relative;
-            z-index: 1;
             text-align: center;
-            max-width: 1000px;
+            padding: 24px;
+            border-radius: 16px;
+            background: rgba(255,255,255,0.8);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.08);
         }
-        .hero-content .subtitle {
+
+        /* Suporte a parallax leve via transform (para elementos marcados) */
+        [data-parallax-speed] { will-change: transform; }
+
+        .section-padding { padding: 80px 0; }
+        .bg-light { background: var(--light-bg); }
+        .badge-custom {
+            background: rgba(37, 99, 235, 0.1);
+            color: var(--primary-color);
+            padding: 6px 12px;
+            border-radius: 20px;
+            font-size: 12px;
             font-weight: 600;
-            letter-spacing: .3px;
-            margin-bottom: var(--space-2xs);
-            opacity: .95;
-        }
-        .hero-content .title {
-            font-family: Montserrat, system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
-            font-size: clamp(28px, 5vw, 44px);
-            font-weight: 700;
-            line-height: 1.15;
-            margin: var(--space-2xs) 0 var(--space-sm);
-        }
-        .hero-content .description {
-            font-size: 16px;
-            line-height: 1.7;
-            color: #f1f5f9;
-            margin-bottom: var(--space-md);
-        }
-        .hero-content .oper-highlight {
-            font-weight: 700;
-            color: #fff;
-        }
-
-        .cta-row {
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
-            gap: var(--space-sm);
-            margin-top: var(--space-sm);
-        }
-        .cta-row .cta-separator {
-            font-weight: 700;
-            color: #e2e8f0;
-        }
-        .btn {
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
-            gap: 8px;
-            padding: 12px 18px;
-            border-radius: 999px;
-            font-weight: 600;
-            text-decoration: none;
-            transition: transform .18s ease, box-shadow .18s ease, background-color .18s ease;
-            white-space: nowrap;
-        }
-        .btn-primary {
-            background: #fff;
-            color: var(--brand);
-            box-shadow: var(--shadow-sm);
-        }
-        .btn-primary:hover {
-            transform: translateY(-1px);
-            box-shadow: var(--shadow-md);
-        }
-        .btn-secondary {
-            background: transparent;
-            color: #fff;
-            border: 1px solid rgba(255,255,255,.5);
-        }
-        .btn-secondary:hover {
-            transform: translateY(-1px);
-            background: rgba(255,255,255,.1);
-        }
-
-        /* Seções */
-        .section {
-            padding: var(--space-xl) 0;
-        }
-        .section .section-header {
-            text-align: center;
-            margin-bottom: var(--space-lg);
-        }
-        .section .section-title {
-            font-family: Montserrat, system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
-            font-size: clamp(24px, 4vw, 34px);
-            font-weight: 700;
-            margin: 0 0 var(--space-2xs);
-        }
-        .section .section-description {
-            color: var(--muted);
-            max-width: 900px;
-            margin: 0 auto;
-            line-height: 1.8;
-        }
-
-        /* Grades e cards */
-        .grid {
-            display: grid;
-            gap: var(--space-md);
-            grid-template-columns: repeat(12, 1fr);
-        }
-        .col-4 { grid-column: span 4; }
-        .col-6 { grid-column: span 6; }
-        .col-12 { grid-column: span 12; }
-
-        .card {
-            background: var(--card);
-            border-radius: var(--radius);
-            box-shadow: var(--shadow-sm);
-            padding: var(--space-md);
-        }
-        .card-header {
-            display: flex;
-            align-items: center;
-            gap: 12px;
-            margin-bottom: var(--space-sm);
-        }
-        .card-title {
-            font-weight: 700;
-            font-size: 18px;
-            margin: 0;
-        }
-        .card-description {
-            color: var(--muted);
-            line-height: 1.7;
-            margin-bottom: var(--space-sm);
-        }
-        .card-icon {
-            width: 44px;
-            height: 44px;
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
-            border-radius: 12px;
-            background: #eef6ff;
-        }
-        .card-icon img {
-            width: 26px;
-            height: 26px;
-            object-fit: contain;
-        }
-
-        /* Lista com checagem */
-        .check-list {
-            list-style: none;
-            padding: 0;
-            margin: 0;
-            display: grid;
-            gap: 8px;
-        }
-        .check-item {
-            display: grid;
-            grid-template-columns: 20px auto;
-            align-items: center;
-            gap: 10px;
-            color: var(--ink);
-        }
-        .check-icon {
-            width: 20px;
-            height: 20px;
-            border-radius: 50%;
-            background: #e8fbea;
-            color: #22c55e;
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
-            font-weight: 700;
-        }
-
-        /* Destaque de métricas */
-        .stats-grid {
-            display: grid;
-            gap: var(--space-md);
-            grid-template-columns: repeat(4, 1fr);
-        }
-        .stat {
-            background: var(--card);
-            border-radius: var(--radius);
-            padding: var(--space-md);
-            box-shadow: var(--shadow-sm);
-            text-align: center;
-        }
-        .stat-value {
-            font-family: Montserrat, system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
-            font-weight: 800;
-            font-size: 28px;
-            color: var(--brand);
-        }
-        .stat-desc {
-            color: var(--muted);
-            margin-top: 6px;
-        }
-
-        /* CTA final */
-        .cta-final {
-            background: linear-gradient(180deg, #ffffff 0%, #f7fbff 100%);
-            border-top: 1px solid #eef2f7;
-        }
-        .cta-actions {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            gap: var(--space-sm);
-            margin-top: var(--space-md);
-            flex-wrap: wrap;
-        }
-
-        /* Responsivo */
-        @media (max-width: 992px) {
-            .grid { grid-template-columns: repeat(6, 1fr); }
-            .col-4 { grid-column: span 6; }
-            .col-6 { grid-column: span 6; }
-            .stats-grid { grid-template-columns: repeat(2, 1fr); }
         }
         @media (max-width: 768px) {
-            .grid { grid-template-columns: repeat(1, 1fr); }
-            .col-4, .col-6, .col-12 { grid-column: span 1; }
-            .stats-grid { grid-template-columns: 1fr; }
-            .hero { padding: var(--space-lg) 0; }
-            .cta-row { gap: var(--space-xs); }
-        }
-
-        /* ===== Radial Overview (parallax + 7 blocos) ===== */
-        .radial-overview {
-            position: relative;
-            padding: var(--space-xl) 0;
-            color: var(--ink);
-            background:
-              linear-gradient(180deg, #ffffff 0%, #f7fbff 100%);
-        }
-        /* Parallax fixo com imagem de fundo */
-        .radial-overview.parallax-fixed {
-            background-image: url('temp_images/teamwork.jpg');
-            background-attachment: fixed;
-            background-position: center;
-            background-size: cover;
-        }
-        .radial-overlay { /* véu para contraste */
-            position: absolute; inset: 0;
-            background:
-              radial-gradient(800px 240px at 15% 15%, rgba(13,110,253,0.12), transparent 60%),
-              radial-gradient(800px 240px at 85% 85%, rgba(242,203,87,0.12), transparent 60%),
-              linear-gradient(180deg, rgba(255,255,255,0.85), rgba(255,255,255,0.85));
-            pointer-events: none;
-        }
-        .radial-header {
-            text-align: center;
-            margin-bottom: var(--space-lg);
-            position: relative;
-            z-index: 2;
-        }
-        .radial-title {
-            font-family: Montserrat, system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
-            font-weight: 800;
-            font-size: clamp(28px, 5vw, 44px);
-            margin: 0 0 var(--space-2xs);
-        }
-        .radial-sub {
-            color: var(--muted);
-            max-width: 900px;
-            margin: 0 auto var(--space-md);
-            line-height: 1.8;
-        }
-        .radial-cta {
-            display: inline-flex; gap: 12px; align-items: center; justify-content: center;
-        }
-
-        .radial-wheel {
-            --R: clamp(240px, 40vw, 360px);          /* raio do círculo */
-            --COUNT: 7;
-            width: min(900px, 92vw);
-            height: min(900px, 92vw);
-            margin: 0 auto;
-            position: relative;
-            z-index: 2;
-        }
-        .radial-center {
-            position: absolute; left: 50%; top: 50%;
-            transform: translate(-50%, -50%);
-            background: var(--card);
-            border-radius: 18px;
-            box-shadow: var(--shadow-md);
-            padding: var(--space-lg);
-            text-align: center;
-            max-width: 420px;
-        }
-        .radial-center h3 {
-            margin: 0 0 6px; font-size: 20px; font-weight: 800; color: var(--ink);
-        }
-        .radial-center p { margin: 0 0 12px; color: var(--muted); }
-        .radial-center .btn { padding: 10px 16px; }
-
-        .radial-item {
-            position: absolute;
-            left: 50%;
-            top: 50%;
-            transform:
-              translate(-50%, -50%)
-              rotate(calc(360deg / var(--COUNT) * var(--i)))
-              translate(var(--R))
-              rotate(calc(-360deg / var(--COUNT) * var(--i)));
-        }
-        .radial-card {
-            display: flex; align-items: center; gap: 10px;
-            background: var(--card);
-            border-radius: 14px;
-            padding: 12px 14px;
-            box-shadow: var(--shadow-sm);
-            min-width: 220px;
-            transition: transform .18s ease, box-shadow .18s ease;
-            text-decoration: none; color: inherit;
-        }
-        .radial-card:hover {
-            transform: translateY(-6px);
-            box-shadow: var(--shadow-md);
-        }
-        .radial-icon {
-            width: 44px; height: 44px;
-            border-radius: 12px;
-            display: inline-flex; align-items: center; justify-content: center;
-            background: linear-gradient(135deg, var(--brand) 0%, var(--brand-2) 100%);
-            color: #fff; box-shadow: var(--shadow-sm);
-        }
-        .radial-icon img {
-            width: 26px; height: 26px; object-fit: contain;
-            image-rendering: -webkit-optimize-contrast;
-        }
-        .radial-text h4 { margin: 0; font-size: 16px; font-weight: 700; color: var(--ink); }
-        .radial-text span { display: block; color: var(--muted); font-size: 13px; }
-
-        /* responsivo */
-        @media (max-width: 992px) {
-            .radial-card { min-width: 200px; }
-        }
-        @media (max-width: 768px) {
-            .radial-wheel { --R: clamp(180px, 36vw, 240px); }
-            .radial-card { min-width: 180px; }
-        }
-
-        /* Estilos para os cards de recursos */
-        .card {
-            border-radius: var(--radius-xl);
-            box-shadow: var(--shadow-lg);
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
-        }
-
-        .card:hover {
-            transform: translateY(-5px);
-            box-shadow: var(--shadow-xl);
+            .section-padding { padding: 60px 0; }
         }
     </style>
 </head>
-<body class="page-recursos">
+<body>
     <div id="menu-placeholder"></div>
-
-    <!-- Radial Overview com parallax de fundo -->
-    <section class="radial-overview parallax-fixed" id="overview">
-        <div class="radial-overlay"></div>
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg">
         <div class="container">
-            <div class="radial-header">
-                <h2 class="radial-title">Solução Completa de Gestão de Manutenção</h2>
-                <p class="radial-sub">
-                    Aumente a disponibilidade de ativos com soluções de nível empresarial.
-                    Gerencie equipes, tarefas e recursos de forma eficiente e centralizada.
-                </p>
-                <div class="radial-cta">
-                    <a href="#recursos" class="btn btn-primary">Conheça os Recursos</a>
-                    <a href="tour-guiado.html" class="btn btn-secondary">Ver Tour</a>
-                </div>
-            </div>
-
-            <div class="radial-wheel" role="navigation" aria-label="Mapa de recursos OPER (7 áreas)">
-                <div class="radial-center">
-                    <h3>OPER — Gestão de Manutenção</h3>
-                    <p>Plataforma integrada, mobile-first e auditável.</p>
-                    <a href="https://wa.me/5582981457117?text=Quero%20uma%20demonstra%C3%A7%C3%A3o%20exclusiva" target="_blank" class="btn btn-primary">Agendar Demonstração</a>
-                </div>
-
-                <!-- 1. Dashboard Inteligente -->
-                <a class="radial-item" style="--i:0" href="#dashboard" aria-label="Dashboard Inteligente">
-                    <div class="radial-card">
-                        <span class="radial-icon"><img src="images/icon-realtime.svg" alt=""></span>
-                        <div class="radial-text">
-                            <h4>Dashboard Inteligente</h4>
-                            <span>Monitoramento e insights</span>
-                        </div>
-                    </div>
-                </a>
-
-                <!-- 2. Ordens de Serviço -->
-                <a class="radial-item" style="--i:1" href="#ordens" aria-label="Ordens de Serviço">
-                    <div class="radial-card">
-                        <span class="radial-icon"><img src="images/icon-orders.svg" alt=""></span>
-                        <div class="radial-text">
-                            <h4>Ordens de Serviço</h4>
-                            <span>Criação e acompanhamento</span>
-                        </div>
-                    </div>
-                </a>
-
-                <!-- 3. Checklists Digitais -->
-                <a class="radial-item" style="--i:2" href="#checklists" aria-label="Checklists Digitais">
-                    <div class="radial-card">
-                        <span class="radial-icon"><img src="images/icon-maintenance.svg" alt=""></span>
-                        <div class="radial-text">
-                            <h4>Checklists Digitais</h4>
-                            <span>Padronização e evidências</span>
-                        </div>
-                    </div>
-                </a>
-
-                <!-- 4. Relatórios e Análises -->
-                <a class="radial-item" style="--i:3" href="#relatorios" aria-label="Relatórios e Análises">
-                    <div class="radial-card">
-                        <span class="radial-icon"><img src="images/7350737.png" alt=""></span>
-                        <div class="radial-text">
-                            <h4>Relatórios e Análises</h4>
-                            <span>Auditoria e melhoria</span>
-                        </div>
-                    </div>
-                </a>
-
-                <!-- 5. App Mobile -->
-                <a class="radial-item" style="--i:4" href="#app" aria-label="App Mobile">
-                    <div class="radial-card">
-                        <span class="radial-icon"><img src="images/6315999.png" alt=""></span>
-                        <div class="radial-text">
-                            <h4>App Mobile</h4>
-                            <span>Gestão no campo</span>
-                        </div>
-                    </div>
-                </a>
-
-                <!-- 6. Integrações e API -->
-                <a class="radial-item" style="--i:5" href="#integracoes" aria-label="Integrações e API">
-                    <div class="radial-card">
-                        <span class="radial-icon"><img src="images/807313.png" alt=""></span>
-                        <div class="radial-text">
-                            <h4>Integrações e API</h4>
-                            <span>ERPs, RH e automações</span>
-                        </div>
-                    </div>
-                </a>
-
-                <!-- 7. Segurança e Multi-site -->
-                <a class="radial-item" style="--i:6" href="#seguranca" aria-label="Segurança e Multi-site">
-                    <div class="radial-card">
-                        <span class="radial-icon"><img src="images/61.png" alt=""></span>
-                        <div class="radial-text">
-                            <h4>Segurança e Multi-site</h4>
-                            <span>Permissões e controle</span>
-                        </div>
-                    </div>
+            <a class="navbar-brand fw-bold" href="index.html">
+                <i class="fas fa-cogs text-primary me-2"></i>OPER
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link fw-medium" href="index.html">Início</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link fw-medium active" href="recursos.html">Recursos</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link fw-medium" href="#tour">Tour Guiado</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link fw-medium" href="#contato">Contato</a>
+                    </li>
+                </ul>
+                <a href="https://wa.me/5582981457117?text=Quero%20uma%20demonstra%C3%A7%C3%A3o%20exclusiva" class="btn btn-primary ms-3">
+                    Agendar Demo
                 </a>
             </div>
         </div>
-    </section>
+    </nav>
 
-    <!-- Hero -->
+    <!-- Hero Section (harmonizado ao padrão do site) -->
     <section class="hero">
         <div class="container">
+            <div class="hero-image">
+                <img src="images/hero_004.png" alt="OPER - Gestão de manutenção" class="desktop-image" loading="lazy" onerror="this.style.display='none'">
+                <img src="images/home_m_002.png" alt="OPER - Gestão de manutenção" class="mobile-image" loading="lazy" onerror="this.style.display='none'">
+            </div>
             <div class="hero-content">
-                <div class="subtitle">Solução Completa de Gestão de Manutenção</div>
-                <h1 class="title">Maximize a eficiência. Minimize falhas.</h1>
+                <h2 class="subtitle">Recursos OPER</h2>
+                <h2 class="title">Ferramentas completas<br> para operação real</h2>
                 <p class="description">
-                    O OPER é a plataforma de gestão de manutenção digital que conecta equipes, ativos e processos em um único ambiente.
-                    <br>Sem sensores IoT — mas com inteligência de dados, automação e controle total.
-                    <br><span class="oper-highlight">Centralize tarefas, reduza custos e amplie a disponibilidade</span> dos seus ativos com tecnologia projetada para decisões rápidas e precisas.
+                    Controle total da manutenção — planejamento, execução e análise. 
+                    <span class="oper-highlight">Tudo em uma única plataforma: OPER</span>.
                 </p>
                 <div class="cta-row">
-                    <a href="https://wa.me/5582981457117?text=Quero%20uma%20demonstra%C3%A7%C3%A3o%20exclusiva"
-                       target="_blank" rel="noopener noreferrer" class="btn btn-primary">Agendar Demonstração</a>
+                    <a href="tour-guiado.html" class="tour-button zap-anchor" aria-label="Abrir Tour Virtual" rel="noopener noreferrer">
+                        <div class="zap-tooltip" role="tooltip">
+                            Abrir Tour Virtual
+                            <div class="zap-tooltip-arrow"></div>
+                        </div>
+                        <div class="zap-glow"></div>
+                        <div class="zap-button ripple-effect">
+                            <img src="images/tour_virtual_02.png" alt="Tour Virtual" class="zap-icon">
+                        </div>
+                        <div class="zap-pulse"></div>
+                    </a>
                     <span class="cta-separator">OU</span>
-                    <a href="tour-guiado.html" class="btn btn-secondary">Ver Tour Guiado</a>
+                    <a href="https://wa.me/5582981457117?text=Quero%20uma%20demonstra%C3%A7%C3%A3o%20exclusiva" target="_blank" class="btn btn-primary">Agendar Demo</a>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Removido: seção Benefícios de uma Cultura Planejada -->
-    <!-- Removido: seção RH Ágil -->
-    <!-- A Hora da Virada (linha do tempo) -->
-    <section class="timeline-section">
+    <!-- Context Header -->
+    <section class="section-padding">
         <div class="container">
-            <div class="timeline-hero">
-                <h2>A Hora da <span class="strong">Virada</span>.</h2>
-            </div>
-            <!-- Trilha curvada como parallax suave -->
-            <svg class="timeline-svg" viewBox="0 0 1200 120" preserveAspectRatio="none" aria-hidden="true">
-                <path d="M0,60 C200,20 400,100 600,60 C800,20 1000,100 1200,60" fill="none" stroke="rgba(13,110,253,0.35)" stroke-width="6"/>
-            </svg>
-            <div class="timeline-steps">
-                <a href="#dashboard" class="timeline-step">
-                    <h3>Dashboard Inteligente</h3>
-                    <p>Indicadores em tempo real e insights.</p>
-                </a>
-                <a href="#ordens" class="timeline-step">
-                    <h3>Ordens de Serviço</h3>
-                    <p>Criação, atribuição e rastreabilidade.</p>
-                </a>
-                <a href="#checklists" class="timeline-step">
-                    <h3>Checklists Digitais</h3>
-                    <p>Padronização e conformidade.</p>
-                </a>
-                <a href="#relatorios" class="timeline-step">
-                    <h3>Relatórios e Análises</h3>
-                    <p>Dados, tendências e auditoria.</p>
-                </a>
-                <a href="#app" class="timeline-step">
-                    <h3>App Mobile</h3>
-                    <p>Operação offline e sincronização.</p>
-                </a>
-                <a href="#integracoes" class="timeline-step">
-                    <h3>Integrações e API</h3>
-                    <p>Conecte ao ERP e automações.</p>
-                </a>
-                <a href="#seguranca" class="timeline-step">
-                    <h3>Segurança & Multi‑site</h3>
-                    <p>Acesso por perfil e gestão de unidades.</p>
-                </a>
+            <div class="row">
+                <div class="col-lg-8 mx-auto text-center">
+                    <h2 class="display-5 fw-bold mb-4" style="background: linear-gradient(135deg, var(--primary-color), var(--primary-dark)); -webkit-background-clip: text; -webkit-text-fill-color: transparent;">
+                        Gestão de ativos, planejamento inteligente e execução impecável
+                    </h2>
+                    <p class="lead text-muted mb-4">
+                        Com a OPER, sua manutenção deixa de ser uma dor para se tornar vantagem competitiva — 
+                        sistema auditável e feita para operação real. Nossa plataforma foi desenvolvida 
+                        para empresas que buscam excelência operacional através da tecnologia, oferecendo 
+                        ferramentas completas para gestão inteligente de ativos físicos.
+                    </p>
+                    <div class="bg-light p-4 rounded-4">
+                        <p class="mb-0">
+                            Aplicações em <strong>hotéis</strong>, <strong>condomínios</strong>, <strong>escolas</strong>, 
+                            <strong>frotas</strong>, <strong>edifícios corporativos</strong> e mais — toda operação que 
+                            exija manutenção organizada, previsível e segura. Nossa solução se adapta perfeitamente 
+                            às necessidades específicas de cada setor, garantindo resultados comprovados.
+                        </p>
+                    </div>
+                </div>
             </div>
         </div>
     </section>
 
-    <!-- ... existing code ... -->
-    <!-- Gestão de Manutenção Inteligente -->
-    <section class="section">
+    <!-- Features Section -->
+    <section class="section-padding bg-light">
         <div class="container">
-            <div class="section-header">
-                <h2 class="section-title">Gestão de Manutenção Inteligente</h2>
-                <p class="section-description">
-                    O OPER oferece uma visão 360º da operação, unindo planejamento, execução e análise de resultados em um só fluxo digital.
-                    Planeje, execute, monitore e otimize — tudo em um só lugar.
-                </p>
+            <div class="row">
+                <div class="col-lg-8 mx-auto text-center mb-5">
+                    <h2 class="display-5 fw-bold mb-4">
+                        Recursos Poderosos para Sua Operação
+                    </h2>
+                    <p class="lead text-muted">
+                        Controle total da manutenção — do planejamento à execução e análise — com segurança, 
+                        confiabilidade e performance. Nossa plataforma oferece ferramentas completas para 
+                        transformar sua gestão de manutenção em uma vantagem estratégica competitiva.
+                    </p>
+                </div>
             </div>
-            <div class="grid">
-                <!-- Dashboard Inteligente -->
-                <div id="dashboard" class="card col-6">
-                    <div class="card-header">
-                        <div class="card-icon">
-                            <img src="images/icon-realtime.svg" alt="Dashboard Inteligente">
+            <div class="row g-4">
+                <div class="col-lg-6">
+                    <div class="card h-100">
+                        <div class="card-body">
+                            <div class="d-flex align-items-start mb-3">
+                                <div class="feature-icon me-3">
+                                    <i class="fas fa-cogs"></i>
+                                </div>
+                                <div class="flex-grow-1">
+                                    <div class="d-flex align-items-center gap-2 mb-2">
+                                        <h5 class="card-title fw-bold mb-0">Gestão de Ativos e Ciclo de Vida</h5>
+                                        <span class="badge-custom">Profissional</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <p class="card-text text-muted mb-3">
+                                Crie, acompanhe e otimize cada ativo — ar condicionado, elevadores, veículos de frota, cozinhas, mobiliário. 
+                                Sistema completo para gerenciar todo o ciclo de vida dos equipamentos desde a aquisição até o descarte.
+                            </p>
+                            <ul class="bullet-list text-muted small">
+                                <li>Registro completo: aquisição, local, garantia, manuais e histórico</li>
+                                <li>Hierarquia inteligente: local › sistema › equipamento › componente</li>
+                                <li>Decisões de substituição baseadas em dados de performance</li>
+                                <li>Compatível com práticas de gestão de ativos internacionais</li>
+                                <li>Documentação digital integrada e acessível em qualquer dispositivo</li>
+                            </ul>
                         </div>
-                        <h3 class="card-title">Dashboard Inteligente</h3>
                     </div>
-                    <p class="card-description">
-                        Visualize sua operação em tempo real com indicadores claros e gráficos interativos.
-                        Acompanhe performance, produtividade e alertas críticos — sempre com base em dados confiáveis.
-                    </p>
-                    <ul class="check-list">
-                        <li class="check-item"><span class="check-icon">✓</span>Indicadores de performance atualizados</li>
-                        <li class="check-item"><span class="check-icon">✓</span>Painéis interativos e personalizáveis</li>
-                        <li class="check-item"><span class="check-icon">✓</span>Notificações automáticas e insights de operação</li>
-                        <li class="check-item"><span class="check-icon">✓</span>Acesso rápido às tarefas prioritárias</li>
-                    </ul>
                 </div>
 
-                <!-- Gestão de Ordens de Serviço -->
-                <div id="ordens" class="card col-6">
-                    <div class="card-header">
-                        <div class="card-icon">
-                            <img src="images/icon-orders.svg" alt="Gestão de Ordens de Serviço">
+                <div class="col-lg-6">
+                    <div class="card h-100">
+                        <div class="card-body">
+                            <div class="d-flex align-items-start mb-3">
+                                <div class="feature-icon me-3">
+                                    <i class="fas fa-check-circle"></i>
+                                </div>
+                                <div class="flex-grow-1">
+                                    <h5 class="card-title fw-bold mb-0">Aprovação de Tarefas & Workflow Personalizado</h5>
+                                </div>
+                            </div>
+                            <p class="card-text text-muted mb-3">
+                                Fluxos de aprovação configuráveis para ordens e checklists com total rastreabilidade. 
+                                Automatize processos de aprovação conforme a complexidade, valor ou criticidade da tarefa.
+                            </p>
+                            <ul class="bullet-list text-muted small">
+                                <li>Níveis de aprovação por função, local ou valor da tarefa</li>
+                                <li>Notificações automáticas via email, push e in-app</li>
+                                <li>Histórico completo de aprovações pronto para auditoria</li>
+                                <li>Configuração de regras de negócio personalizáveis</li>
+                                <li>Integração com sistemas de assinatura digital</li>
+                            </ul>
                         </div>
-                        <h3 class="card-title">Gestão de Ordens de Serviço</h3>
                     </div>
-                    <p class="card-description">
-                        Crie, delegue e acompanhe ordens de serviço com total rastreabilidade. Cada tarefa é registrada, monitorada e analisada em tempo real.
-                    </p>
-                    <ul class="check-list">
-                        <li class="check-item"><span class="check-icon">✓</span>Criação ágil de O.S.</li>
-                        <li class="check-item"><span class="check-icon">✓</span>Atribuição automática por equipe ou setor</li>
-                        <li class="check-item"><span class="check-icon">✓</span>Histórico detalhado e filtrável</li>
-                        <li class="check-item"><span class="check-icon">✓</span>Acompanhamento de prazos e status</li>
-                    </ul>
                 </div>
 
-                <!-- Checklists Inteligentes -->
-                <div id="checklists" class="card col-6">
-                    <div class="card-header">
-                        <div class="card-icon">
-                            <img src="images/icon-maintenance.svg" alt="Checklists Inteligentes">
+                <div class="col-lg-6">
+                    <div class="card h-100">
+                        <div class="card-body">
+                            <div class="d-flex align-items-start mb-3">
+                                <div class="feature-icon me-3">
+                                    <i class="fas fa-shield-alt"></i>
+                                </div>
+                                <div class="flex-grow-1">
+                                    <h5 class="card-title fw-bold mb-0">Auditoria de Conformidade & Logs de Segurança</h5>
+                                </div>
+                            </div>
+                            <p class="card-text text-muted mb-3">
+                                Quem fez, quando, onde — registros completos para conformidade legal, regulatória e política interna. 
+                                Sistema robusto de rastreabilidade e segurança da informação.
+                            </p>
+                            <ul class="bullet-list text-muted small">
+                                <li>Logs automáticos e imutáveis de todas as ações do sistema</li>
+                                <li>Checklists digitais que garantem conformidade operacional</li>
+                                <li>Referência para práticas de segurança corporativas</li>
+                                <li>Relatórios de auditoria gerados automaticamente</li>
+                                <li>Controle de acesso baseado em papéis (RBAC)</li>
+                            </ul>
                         </div>
-                        <h3 class="card-title">Checklists Inteligentes</h3>
                     </div>
-                    <p class="card-description">
-                        Padronize inspeções e processos operacionais. Elimine papel e garanta conformidade com
-                        checklists digitais adaptáveis a cada tipo de manutenção.
-                    </p>
-                    <ul class="check-list">
-                        <li class="check-item"><span class="check-icon">✓</span>Modelos customizáveis</li>
-                        <li class="check-item"><span class="check-icon">✓</span>Operação offline com sincronização automática</li>
-                        <li class="check-item"><span class="check-icon">✓</span>Evidências por foto e anexo</li>
-                        <li class="check-item"><span class="check-icon">✓</span>Validação automática de etapas críticas</li>
-                    </ul>
                 </div>
 
-                <!-- Relatórios e Análises -->
-                <div id="relatorios" class="card col-6">
-                    <div class="card-header">
-                        <div class="card-icon">
-                            <img src="images/7350737.png" alt="Relatórios e Análises">
+                <div class="col-lg-6">
+                    <div class="card h-100">
+                        <div class="card-body">
+                            <div class="d-flex align-items-start mb-3">
+                                <div class="feature-icon me-3">
+                                    <i class="fas fa-calendar-alt"></i>
+                                </div>
+                                <div class="flex-grow-1">
+                                    <h5 class="card-title fw-bold mb-0">Calendário / Gantt de Planejamento</h5>
+                                </div>
+                            </div>
+                            <p class="card-text text-muted mb-3">
+                                Visualize tarefas, OS e manutenções preventivas por equipe, local ou frota. 
+                                Interface intuitiva para planejamento visual e controle de cronogramas.
+                            </p>
+                            <ul class="bullet-list text-muted small">
+                                <li>Drag & drop para replanejar prioridades rapidamente</li>
+                                <li>Ajustes dinâmicos para imprevistos e atrasos</li>
+                                <li>Visão diária / semanal / mensal / anual</li>
+                                <li>Coloração automática por status e prioridade</li>
+                                <li>Exportação para formatos de projeto (MS Project, Excel)</li>
+                            </ul>
                         </div>
-                        <h3 class="card-title">Relatórios e Análises</h3>
                     </div>
-                    <p class="card-description">
-                        Transforme dados em inteligência de manutenção. Gere relatórios automáticos, acompanhe tendências
-                        e encontre oportunidades de melhoria contínua.
-                    </p>
-                    <ul class="check-list">
-                        <li class="check-item"><span class="check-icon">✓</span>Relatórios em tempo real</li>
-                        <li class="check-item"><span class="check-icon">✓</span>Análises comparativas e de performance</li>
-                        <li class="check-item"><span class="check-icon">✓</span>Exportação em múltiplos formatos</li>
-                        <li class="check-item"><span class="check-icon">✓</span>Dados prontos para auditorias</li>
-                    </ul>
                 </div>
 
-                <!-- App Mobile OPER -->
-                <div id="app" class="card col-6">
-                    <div class="card-header">
-                        <div class="card-icon">
-                            <img src="images/6315999.png" alt="App Mobile OPER">
+                <div class="col-lg-6">
+                    <div class="card h-100">
+                        <div class="card-body">
+                            <div class="d-flex align-items-start mb-3">
+                                <div class="feature-icon me-3">
+                                    <i class="fas fa-users"></i>
+                                </div>
+                                <div class="flex-grow-1">
+                                    <h5 class="card-title fw-bold mb-0">Permissões Customizáveis & Multi-Localidades</h5>
+                                </div>
+                            </div>
+                            <p class="card-text text-muted mb-3">
+                                Controle granular de acesso por local, equipe e função. Sistema flexível para 
+                                gerenciar operações multi-site com visão consolidada e detalhada.
+                            </p>
+                            <ul class="bullet-list text-muted small">
+                                <li>Perfis de acesso com leitura, edição, aprovação, visualização</li>
+                                <li>Multi-site: consolidação com visão local detalhada</li>
+                                <li>Gerenciamento de equipes e escalas de trabalho</li>
+                                <li>Controle de acesso por geolocalização</li>
+                                <li>Hierarquia organizacional customizável</li>
+                            </ul>
                         </div>
-                        <h3 class="card-title">App Mobile OPER</h3>
                     </div>
-                    <p class="card-description">
-                        A gestão vai até onde sua equipe estiver. Nosso aplicativo mobile foi desenvolvido para funcionar
-                        offline e sincronizar automaticamente assim que houver conexão.
-                    </p>
-                    <ul class="check-list">
-                        <li class="check-item"><span class="check-icon">✓</span>Operação sem internet</li>
-                        <li class="check-item"><span class="check-icon">✓</span>Interface ágil e responsiva</li>
-                        <li class="check-item"><span class="check-icon">✓</span>Notificações push em tempo real</li>
-                    </ul>
                 </div>
 
-                <!-- Integrações e API -->
-                <div id="integracoes" class="card col-6">
-                    <div class="card-header">
-                        <div class="card-icon">
-                            <img src="images/807313.png" alt="Integrações e API">
+                <div class="col-lg-6">
+                    <div class="card h-100">
+                        <div class="card-body">
+                            <div class="d-flex align-items-start mb-3">
+                                <div class="feature-icon me-3">
+                                    <i class="fas fa-chart-line"></i>
+                                </div>
+                                <div class="flex-grow-1">
+                                    <div class="d-flex align-items-center gap-2 mb-2">
+                                        <h5 class="card-title fw-bold mb-0">Relatórios, Análises & Métricas de Performance</h5>
+                                        <span class="badge-custom">Avançado</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <p class="card-text text-muted mb-3">
+                                Transforme dados operacionais em decisões estratégicas — mesmo sem sensores IoT. 
+                                Sistema analítico avançado com previsão e análise de dados.
+                            </p>
+                            <ul class="bullet-list text-muted small">
+                                <li>Métricas essenciais: MTTR, MTBF, backlog, custo por ativo</li>
+                                <li>Relatórios customizados e comparativos entre períodos</li>
+                                <li>Análise de falhas por padrões de uso e histórico</li>
+                                <li>Dashboards interativos em tempo real</li>
+                                <li>Exportação automática para BI e sistemas corporativos</li>
+                            </ul>
                         </div>
-                        <h3 class="card-title">Integrações e API</h3>
                     </div>
-                    <p class="card-description">
-                        O OPER se adapta à sua estrutura tecnológica. Nossa API REST documentada permite conectar
-                        facilmente ERPs, sistemas de RH e automações corporativas.
-                    </p>
-                    <ul class="check-list">
-                        <li class="check-item"><span class="check-icon">✓</span>Integração simples e segura</li>
-                        <li class="check-item"><span class="check-icon">✓</span>Webhooks para fluxos automatizados</li>
-                        <li class="check-item"><span class="check-icon">✓</span>Conexão com sistemas internos</li>
-                    </ul>
                 </div>
 
-                <!-- Controle de Acesso e Segurança -->
-                <div id="seguranca" class="card col-6">
-                    <div class="card-header">
-                        <div class="card-icon">
-                            <img src="images/67.png" alt="Controle de Acesso e Segurança">
+                <div class="col-lg-6">
+                    <div class="card h-100">
+                        <div class="card-body">
+                            <div class="d-flex align-items-start mb-3">
+                                <div class="feature-icon me-3">
+                                    <i class="fas fa-mobile-alt"></i>
+                                </div>
+                                <div class="flex-grow-1">
+                                    <h5 class="card-title fw-bold mb-0">App Móvel Simplificado & Operação Offline</h5>
+                                </div>
+                            </div>
+                            <p class="card-text text-muted mb-3">
+                                Equipes sempre conectadas ao trabalho — no hotel, no condomínio, nas escolas ou na frota. 
+                                Aplicativo nativo projetado para operação em campo.
+                            </p>
+                            <ul class="bullet-list text-muted small">
+                                <li>Acesso rápido às tarefas do dia com um toque</li>
+                                <li>Checklists digitais, fotos e evidências pelo celular</li>
+                                <li>Funciona completamente offline — sincroniza ao voltar conexão</li>
+                                <li>Notificações push e alertas em tempo real</li>
+                                <li>Interface otimizada para uso com luvas e condições adversas</li>
+                            </ul>
                         </div>
-                        <h3 class="card-title">Controle de Acesso e Segurança</h3>
                     </div>
-                    <p class="card-description">
-                        Garanta que cada colaborador tenha acesso apenas ao que é relevante para sua função.
-                    </p>
-                    <ul class="check-list">
-                        <li class="check-item"><span class="check-icon">✓</span>Perfis de acesso customizados</li>
-                        <li class="check-item"><span class="check-icon">✓</span>Rastreamento de ações por usuário</li>
-                        <li class="check-item"><span class="check-icon">✓</span>Segurança e conformidade total</li>
-                    </ul>
                 </div>
 
-                <!-- Gestão Multi-site -->
-                <div id="multi-site" class="card col-6">
-                    <div class="card-header">
-                        <div class="card-icon">
-                            <img src="images/61.png" alt="Gestão Multi-site">
+                <div class="col-lg-6">
+                    <div class="card h-100">
+                        <div class="card-body">
+                            <div class="d-flex align-items-start mb-3">
+                                <div class="feature-icon me-3">
+                                    <i class="fas fa-boxes"></i>
+                                </div>
+                                <div class="flex-grow-1">
+                                    <h5 class="card-title fw-bold mb-0">Inventário, Peças & Reposição Inteligente</h5>
+                                </div>
+                            </div>
+                            <p class="card-text text-muted mb-3">
+                                Nunca falte peça no momento crítico — controle e reposição com previsibilidade. 
+                                Sistema inteligente de gestão de estoque e cadeia de suprimentos.
+                            </p>
+                            <ul class="bullet-list text-muted small">
+                                <li>Controle de estoque por local ou unidade operacional</li>
+                                <li>Alertas automáticos de nível mínimo e reposição</li>
+                                <li>Previsão de demanda baseada em histórico de uso</li>
+                                <li>Integração com fornecedores e pedidos automáticos</li>
+                                <li>Rastreamento de lote e validade de materiais</li>
+                            </ul>
                         </div>
-                        <h3 class="card-title">Gestão Multi-site</h3>
                     </div>
-                    <p class="card-description">
-                        Administre múltiplas unidades e padronize processos. O OPER consolida dados de diferentes locais,
-                        facilitando comparações e melhorias operacionais.
-                    </p>
                 </div>
 
-                <!-- Auditoria e Rastreabilidade -->
-                <div class="card col-6">
-                    <div class="card-header">
-                        <div class="card-icon">
-                            <img src="images/1150587.png" alt="Auditoria e Rastreabilidade">
+                <div class="col-lg-6">
+                    <div class="card h-100">
+                        <div class="card-body">
+                            <div class="d-flex align-items-start mb-3">
+                                <div class="feature-icon me-3">
+                                    <i class="fas fa-plug"></i>
+                                </div>
+                                <div class="flex-grow-1">
+                                    <h5 class="card-title fw-bold mb-0">Integrações & API / Ecossistema Corporativo</h5>
+                                </div>
+                            </div>
+                            <p class="card-text text-muted mb-3">
+                                Conecte-se aos sistemas que você já usa — ERP, RH, financeiro, BI. 
+                                Plataforma aberta com APIs robustas e conectores pré-configurados.
+                            </p>
+                            <ul class="bullet-list text-muted small">
+                                <li>APIs REST completas e documentação técnica</li>
+                                <li>Webhooks para eventos e automações personalizadas</li>
+                                <li>Integrações nativas com RH/financeiro/contabilidade</li>
+                                <li>Conectores para sistemas escolares e frotistas</li>
+                                <li>Importação/Exportação preparada para ferramentas de BI</li>
+                            </ul>
                         </div>
-                        <h3 class="card-title">Auditoria e Rastreabilidade</h3>
                     </div>
-                    <p class="card-description">
-                        Tenha histórico completo de cada ação — quem fez, quando e o que alterou. Transparência e
-                        conformidade automatizadas.
-                    </p>
                 </div>
+            </div>
 
-                <!-- Planejamento e Mão de Obra Otimizados -->
-                <div class="card col-6">
-                    <div class="card-header">
-                        <div class="card-icon">
-                            <img src="images/206058.png" alt="Planejamento e Mão de Obra Otimizados">
+            <!-- Security & Performance Card -->
+            <div class="security-card mt-5">
+                <div class="row align-items-center">
+                    <div class="col-lg-1">
+                        <div class="feature-icon">
+                            <i class="fas fa-shield-alt"></i>
                         </div>
-                        <h3 class="card-title">Planejamento e Mão de Obra Otimizados</h3>
                     </div>
-                    <p class="card-description">
-                        Atribua tarefas com base em habilidades, disponibilidade e prioridade. Elimine gargalos, evite
-                        sobrecarga e maximize o desempenho da equipe.
-                    </p>
-                    <ul class="check-list">
-                        <li class="check-item"><span class="check-icon">✓</span>Atribuição inteligente de tarefas</li>
-                        <li class="check-item"><span class="check-icon">✓</span>Planejamento de capacidade</li>
-                        <li class="check-item"><span class="check-icon">✓</span>Balanceamento automático de carga de trabalho</li>
-                        <li class="check-item"><span class="check-icon">✓</span>Controle de horas e produtividade</li>
-                    </ul>
+                    <div class="col-lg-11">
+                        <h4 class="fw-bold mb-2">Segurança & Garantia de Performance</h4>
+                        <p class="text-muted mb-3">
+                            Operação confiável e segura faz parte do nosso DNA. Comprometidos com a excelência em segurança e disponibilidade.
+                        </p>
+                        <div class="row">
+                            <div class="col-md-6">
+                                <ul class="bullet-list text-muted small">
+                                    <li>Criptografia AES-256 em trânsito e repouso</li>
+                                    <li>Práticas de segurança corporativas em planejamento</li>
+                                </ul>
+                            </div>
+                            <div class="col-md-6">
+                                <ul class="bullet-list text-muted small">
+                                    <li>Altíssima disponibilidade (99.9% uptime SLA)</li>
+                                    <li>Backups diários e redundância geográfica</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Resultados -->
-    <section class="section">
+    <!-- Impact Quotes Section -->
+    <section class="section-padding">
         <div class="container">
-            <div class="section-header">
-                <h2 class="section-title">Resultados alcançados com o OPER</h2>
-                <p class="section-description">O impacto direto na operação e no time de manutenção.</p>
-            </div>
-            <div class="stats-grid">
-                <div class="stat">
-                    <div class="stat-value">+40%</div>
-                    <div class="stat-desc">produtividade operacional</div>
-                </div>
-                <div class="stat">
-                    <div class="stat-value">–30%</div>
-                    <div class="stat-desc">custos de manutenção</div>
-                </div>
-                <div class="stat">
-                    <div class="stat-value">–65%</div>
-                    <div class="stat-desc">tempo de planejamento</div>
-                </div>
-                <div class="stat">
-                    <div class="stat-value">+85%</div>
-                    <div class="stat-desc">satisfação da equipe</div>
+            <div class="row">
+                <div class="col-lg-10 mx-auto">
+                    <div class="row g-3 mb-5">
+                        <div class="col-md-6">
+                            <div class="quote-card text-center">
+                                <p class="mb-0 fst-italic text-muted">
+                                    "Tour Guiado: descubra como suas equipes irão ver o dia a dia pela OPER"
+                                </p>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="quote-card text-center">
+                                <p class="mb-0 fst-italic text-muted">
+                                    "Todos os detalhes em uma tela — ordens, ativos, agenda, performance"
+                                </p>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="quote-card text-center">
+                                <p class="mb-0 fst-italic text-muted">
+                                    "Sua operação entra em modo previsível, não apenas corretivo"
+                                </p>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="quote-card text-center">
+                                <p class="mb-0 fst-italic text-muted">
+                                    "Segurança de dados + certificação = tranquilidade para decisões estratégicas"
+                                </p>
+                            </div>
+                        </div>
+                        <div class="col-md-6 offset-md-3">
+                            <div class="quote-card text-center">
+                                <p class="mb-0 fst-italic text-muted">
+                                    "Aplicável a hotéis, escolas, frota, condomínios — seu setor, seus ativos, seu controle"
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="text-center">
+                        <a href="#tour" class="btn btn-outline-primary me-3">Ver Tour Guiado</a>
+                        <a href="https://wa.me/5582981457117?text=Quero%20uma%20demonstra%C3%A7%C3%A3o%20exclusiva" class="btn btn-primary">Agendar Demonstração</a>
+                    </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- CTA Final -->
-    <section class="section cta-final">
+    <!-- Positioning Section -->
+    <section class="section-padding bg-light">
         <div class="container">
-            <div class="section-header">
-                <h2 class="section-title">Pronto para Transformar Sua Operação?</h2>
-                <p class="section-description">
-                    O OPER leva a gestão de manutenção para outro nível. Descubra como empresas em todo o Brasil estão
-                    automatizando processos, reduzindo custos e aumentando a confiabilidade de seus ativos.
-                </p>
-            </div>
-            <div class="cta-actions">
-                <a href="https://wa.me/5582981457117?text=Quero%20uma%20demonstra%C3%A7%C3%A3o%20exclusiva"
-                   target="_blank" rel="noopener noreferrer" class="btn btn-primary">👉 Agende uma Demonstração Exclusiva</a>
-                <a href="https://wa.me/5582981457117?text=Quero%20saber%20mais%20sobre%20a%20OPER!"
-                   target="_blank" rel="noopener noreferrer" class="btn btn-secondary">💬 Fale conosco no WhatsApp</a>
-                <a href="tour-guiado.html" class="btn btn-secondary">(Ver o OPER em funcionamento — Tour Guiado)</a>
+            <div class="row">
+                <div class="col-lg-8 mx-auto text-center">
+                    <h2 class="display-5 fw-bold mb-4">
+                        A espinha dorsal digital da sua manutenção
+                    </h2>
+                    <p class="lead text-muted mb-4">
+                        A OPER centraliza ativos, fluxo de trabalho, registros históricos e métricas de desempenho em um único lugar. 
+                        Vai além de controlar ordens de serviço: ajuda a decidir melhor, antecipar problemas, comprovar valor e segurança — 
+                        moderno, operacional e pronto para o futuro.
+                    </p>
+                    <div class="row g-4 mt-5">
+                        <div class="col-md-4">
+                            <div class="text-center">
+                                <i class="fas fa-database text-primary mb-3" style="font-size: 3rem;"></i>
+                                <h5 class="fw-bold mb-2">Centralização</h5>
+                                <p class="text-muted small">
+                                    Todas as informações em um único sistema integrado e acessível
+                                </p>
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="text-center">
+                                <i class="fas fa-chart-line text-primary mb-3" style="font-size: 3rem;"></i>
+                                <h5 class="fw-bold mb-2">Análise</h5>
+                                <p class="text-muted small">
+                                    Insights para tomada de decisão estratégica baseada em dados
+                                </p>
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="text-center">
+                                <i class="fas fa-cogs text-primary mb-3" style="font-size: 3rem;"></i>
+                                <h5 class="fw-bold mb-2">Operação</h5>
+                                <p class="text-muted small">
+                                    Ferramentas práticas para execução eficiente no dia a dia
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
     </section>
 
-    <div class="whatsapp-float" id="whatsappFloat">
-        <a href="https://wa.me/5582981457117?text=Quero%20saber%20mais%20sobre%20a%20OPER!" target="_blank" aria-label="Fale conosco no WhatsApp" rel="noopener noreferrer" class="zap-anchor">
-            <div class="zap-tooltip" role="tooltip">
-                Fale conosco no WhatsApp
-                <div class="zap-tooltip-arrow"></div>
+    <!-- Benefits Section -->
+    <section class="section-padding">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-8 mx-auto text-center mb-5">
+                    <h2 class="display-5 fw-bold mb-4">
+                        Benefícios Tangíveis
+                    </h2>
+                </div>
             </div>
-            <div class="zap-glow"></div>
-            <div class="zap-button">
-                <svg class="zap-icon" width="24" height="24" viewBox="0 0 24 24" aria-hidden="true">
-                    <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z" fill="currentColor"/>
-                </svg>
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="benefit-item">
+                        <div class="d-flex align-items-start">
+                            <i class="fas fa-bullseye text-primary me-3 mt-1"></i>
+                            <div>
+                                <h5 class="fw-bold mb-2">Redução de Falhas Inesperadas</h5>
+                                <p class="text-muted mb-0">
+                                    Diminuição drástica de emergências através de manutenção preventiva inteligente e análise de falhas baseada em dados históricos.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="benefit-item">
+                        <div class="d-flex align-items-start">
+                            <i class="fas fa-bullseye text-primary me-3 mt-1"></i>
+                            <div>
+                                <h5 class="fw-bold mb-2">Controle Financeiro</h5>
+                                <p class="text-muted mb-0">
+                                    Melhor controle de orçamento com eliminação de 'gastos surpresa' através de planejamento estratégico e visão clara dos custos.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="benefit-item">
+                        <div class="d-flex align-items-start">
+                            <i class="fas fa-bullseye text-primary me-3 mt-1"></i>
+                            <div>
+                                <h5 class="fw-bold mb-2">Eficiência Operacional</h5>
+                                <p class="text-muted mb-0">
+                                    Otimização do tempo das equipes com menos retrabalho, deslocamento otimizado e alocação inteligente de recursos.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="benefit-item">
+                        <div class="d-flex align-items-start">
+                            <i class="fas fa-bullseye text-primary me-3 mt-1"></i>
+                            <div>
+                                <h5 class="fw-bold mb-2">Responsabilidade & Compliance</h5>
+                                <p class="text-muted mb-0">
+                                    Mais controle e responsabilidade total — quem fez, quando, se aprovado, se conforme. Histórico completo para auditorias.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="benefit-item">
+                        <div class="d-flex align-items-start">
+                            <i class="fas fa-bullseye text-primary me-3 mt-1"></i>
+                            <div>
+                                <h5 class="fw-bold mb-2">Segurança Operacional</h5>
+                                <p class="text-muted mb-0">
+                                    Ambiente mais seguro para pessoas e ativos com checklists de segurança automatizados e conformidade regulatória.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="benefit-item">
+                        <div class="d-flex align-items-start">
+                            <i class="fas fa-bullseye text-primary me-3 mt-1"></i>
+                            <div>
+                                <h5 class="fw-bold mb-2">Transparência Gerencial</h5>
+                                <p class="text-muted mb-0">
+                                    Transparência total para gestores com relatórios detalhados, dashboards em tempo real e métricas de performance claras.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
-            <div class="zap-pulse"></div>
-        </a>
+        </div>
+    </section>
+
+    <!-- Demo Section -->
+    <section class="section-padding bg-light">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-8 mx-auto text-center mb-5">
+                    <h2 class="display-5 fw-bold mb-4">
+                        Veja a OPER em Ação
+                    </h2>
+                    <p class="lead text-muted">
+                        Assista uma demonstração ao vivo de como nossa plataforma pode transformar sua gestão de manutenção. 
+                        Experimente a interface intuitiva e as ferramentas poderosas que tornam a operação diária mais eficiente.
+                    </p>
+                </div>
+            </div>
+            <div class="row g-4">
+                <div class="col-lg-6">
+                    <div class="card">
+                        <div class="card-body">
+                            <div class="d-flex align-items-center mb-3">
+                                <div class="feature-icon me-3">
+                                    <i class="fas fa-chart-line"></i>
+                                </div>
+                                <div>
+                                    <h5 class="card-title fw-bold mb-1">Painel de Atividades em Tempo Real</h5>
+                                    <span class="badge bg-success text-white">Online • Monitoramento Ativo</span>
+                                </div>
+                            </div>
+                            
+                            <div class="activity-warning">
+                                <div class="d-flex justify-content-between align-items-start">
+                                    <div>
+                                        <h6 class="fw-bold mb-1">Ordem de Serviço #1234</h6>
+                                        <p class="text-muted small mb-2">Manutenção preventiva - Ar condicionado - Sala 201</p>
+                                        <div class="d-flex gap-2">
+                                            <span class="badge bg-warning text-dark">Alta</span>
+                                            <small class="text-muted">João Silva</small>
+                                        </div>
+                                    </div>
+                                    <small class="text-muted">Hoje, 14:00</small>
+                                </div>
+                            </div>
+
+                            <div class="activity-progress">
+                                <div class="d-flex justify-content-between align-items-start">
+                                    <div>
+                                        <h6 class="fw-bold mb-1">Checklist em Andamento</h6>
+                                        <p class="text-muted small mb-2">Inspeção de segurança mensal - Bloco A</p>
+                                        <div class="d-flex gap-2">
+                                            <span class="badge bg-primary">Média</span>
+                                            <small class="text-muted">Maria Santos</small>
+                                        </div>
+                                    </div>
+                                    <small class="text-primary fw-bold">85% completo</small>
+                                </div>
+                            </div>
+
+                            <div class="activity-critical">
+                                <div class="d-flex justify-content-between align-items-start">
+                                    <div>
+                                        <h6 class="fw-bold mb-1">Alerta Crítico</h6>
+                                        <p class="text-muted small mb-2">Elevador social - Parada inesperada</p>
+                                        <div class="d-flex gap-2">
+                                            <span class="badge bg-danger">Crítica</span>
+                                            <small class="text-muted">Equipe de Emergência</small>
+                                        </div>
+                                    </div>
+                                    <small class="text-danger fw-bold">Imediato</small>
+                                </div>
+                            </div>
+
+                            <div class="activity-success">
+                                <div class="d-flex justify-content-between align-items-start">
+                                    <div>
+                                        <h6 class="fw-bold mb-1">Relatório Diário</h6>
+                                        <p class="text-muted small mb-2">12 tarefas concluídas hoje</p>
+                                        <div class="d-flex gap-2">
+                                            <span class="badge bg-secondary">Normal</span>
+                                        </div>
+                                    </div>
+                                    <small class="text-success fw-bold">100% taxa</small>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-lg-6">
+                    <div class="card">
+                        <div class="card-body">
+                            <div class="d-flex align-items-center mb-3">
+                                <div class="feature-icon me-3">
+                                    <i class="fas fa-calendar-alt"></i>
+                                </div>
+                                <h5 class="card-title fw-bold mb-0">Agendar Demonstração</h5>
+                            </div>
+                            <p class="text-muted mb-4">
+                                Pronto para transformar sua operação? Veja em tempo real como o OPER acelera processos, 
+                                reduz falhas e aumenta a produtividade das suas equipes. Nossa equipe especializada 
+                                mostrará como adaptar a plataforma às suas necessidades específicas.
+                            </p>
+                            <div class="mb-4">
+                                <div class="d-flex align-items-center mb-2">
+                                    <i class="fas fa-check-circle text-success me-2"></i>
+                                    <small>Demonstração personalizada para seu setor</small>
+                                </div>
+                                <div class="d-flex align-items-center mb-2">
+                                    <i class="fas fa-check-circle text-success me-2"></i>
+                                    <small>Tirar dúvidas com especialistas em manutenção</small>
+                                </div>
+                                <div class="d-flex align-items-center mb-2">
+                                    <i class="fas fa-check-circle text-success me-2"></i>
+                                    <small>Plano de implementação detalhado</small>
+                                </div>
+                            </div>
+                            <div class="d-grid gap-2">
+                                <a href="https://wa.me/5582981457117?text=Quero%20uma%20demonstra%C3%A7%C3%A3o%20exclusiva" class="btn btn-primary">
+                                    Comece Agora
+                                </a>
+                                <a href="https://wa.me/5582981457117" class="btn btn-outline-primary">
+                                    Fale conosco no WhatsApp
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Parallax Banner (novo, entre seções principais) -->
+    <section class="parallax-banner" style="background-image: url('images/home_img01.png');">
+        <div class="parallax-content" data-parallax-speed="0.12">
+            <h3 class="fw-bold mb-2">Planejamento visual e execução sem atrito</h3>
+            <p class="text-muted mb-3">Calendário, ordens e checklists digitais com conformidade auditável</p>
+            <a href="tour-guiado.html" class="btn btn-outline-primary">Ver Tour Guiado</a>
+        </div>
+    </section>
+
+    <!-- Impact Quotes Section -->
+    <section class="section-padding">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-10 mx-auto">
+                    <div class="row g-3 mb-5">
+                        <div class="col-md-6">
+                            <div class="quote-card text-center">
+                                <p class="mb-0 fst-italic text-muted">
+                                    "Tour Guiado: descubra como suas equipes irão ver o dia a dia pela OPER"
+                                </p>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="quote-card text-center">
+                                <p class="mb-0 fst-italic text-muted">
+                                    "Todos os detalhes em uma tela — ordens, ativos, agenda, performance"
+                                </p>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="quote-card text-center">
+                                <p class="mb-0 fst-italic text-muted">
+                                    "Sua operação entra em modo previsível, não apenas corretivo"
+                                </p>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="quote-card text-center">
+                                <p class="mb-0 fst-italic text-muted">
+                                    "Segurança de dados + certificação = tranquilidade para decisões estratégicas"
+                                </p>
+                            </div>
+                        </div>
+                        <div class="col-md-6 offset-md-3">
+                            <div class="quote-card text-center">
+                                <p class="mb-0 fst-italic text-muted">
+                                    "Aplicável a hotéis, escolas, frota, condomínios — seu setor, seus ativos, seu controle"
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="text-center">
+                        <a href="#tour" class="btn btn-outline-primary me-3">Ver Tour Guiado</a>
+                        <a href="https://wa.me/5582981457117?text=Quero%20uma%20demonstra%C3%A7%C3%A3o%20exclusiva" class="btn btn-primary">Agendar Demonstração</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Positioning Section -->
+    <section class="section-padding bg-light">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-8 mx-auto text-center">
+                    <h2 class="display-5 fw-bold mb-4">
+                        A espinha dorsal digital da sua manutenção
+                    </h2>
+                    <p class="lead text-muted mb-4">
+                        A OPER centraliza ativos, fluxo de trabalho, registros históricos e métricas de desempenho em um único lugar. 
+                        Vai além de controlar ordens de serviço: ajuda a decidir melhor, antecipar problemas, comprovar valor e segurança — 
+                        moderno, operacional e pronto para o futuro.
+                    </p>
+                    <div class="row g-4 mt-5">
+                        <div class="col-md-4">
+                            <div class="text-center">
+                                <i class="fas fa-database text-primary mb-3" style="font-size: 3rem;"></i>
+                                <h5 class="fw-bold mb-2">Centralização</h5>
+                                <p class="text-muted small">
+                                    Todas as informações em um único sistema integrado e acessível
+                                </p>
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="text-center">
+                                <i class="fas fa-chart-line text-primary mb-3" style="font-size: 3rem;"></i>
+                                <h5 class="fw-bold mb-2">Análise</h5>
+                                <p class="text-muted small">
+                                    Insights para tomada de decisão estratégica baseada em dados
+                                </p>
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="text-center">
+                                <i class="fas fa-cogs text-primary mb-3" style="font-size: 3rem;"></i>
+                                <h5 class="fw-bold mb-2">Operação</h5>
+                                <p class="text-muted small">
+                                    Ferramentas práticas para execução eficiente no dia a dia
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Benefits Section -->
+    <section class="section-padding">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-8 mx-auto text-center mb-5">
+                    <h2 class="display-5 fw-bold mb-4">
+                        Benefícios Tangíveis
+                    </h2>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="benefit-item">
+                        <div class="d-flex align-items-start">
+                            <i class="fas fa-bullseye text-primary me-3 mt-1"></i>
+                            <div>
+                                <h5 class="fw-bold mb-2">Redução de Falhas Inesperadas</h5>
+                                <p class="text-muted mb-0">
+                                    Diminuição drástica de emergências através de manutenção preventiva inteligente e análise de falhas baseada em dados históricos.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="benefit-item">
+                        <div class="d-flex align-items-start">
+                            <i class="fas fa-bullseye text-primary me-3 mt-1"></i>
+                            <div>
+                                <h5 class="fw-bold mb-2">Controle Financeiro</h5>
+                                <p class="text-muted mb-0">
+                                    Melhor controle de orçamento com eliminação de 'gastos surpresa' através de planejamento estratégico e visão clara dos custos.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="benefit-item">
+                        <div class="d-flex align-items-start">
+                            <i class="fas fa-bullseye text-primary me-3 mt-1"></i>
+                            <div>
+                                <h5 class="fw-bold mb-2">Eficiência Operacional</h5>
+                                <p class="text-muted mb-0">
+                                    Otimização do tempo das equipes com menos retrabalho, deslocamento otimizado e alocação inteligente de recursos.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="benefit-item">
+                        <div class="d-flex align-items-start">
+                            <i class="fas fa-bullseye text-primary me-3 mt-1"></i>
+                            <div>
+                                <h5 class="fw-bold mb-2">Responsabilidade & Compliance</h5>
+                                <p class="text-muted mb-0">
+                                    Mais controle e responsabilidade total — quem fez, quando, se aprovado, se conforme. Histórico completo para auditorias.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="benefit-item">
+                        <div class="d-flex align-items-start">
+                            <i class="fas fa-bullseye text-primary me-3 mt-1"></i>
+                            <div>
+                                <h5 class="fw-bold mb-2">Segurança Operacional</h5>
+                                <p class="text-muted mb-0">
+                                    Ambiente mais seguro para pessoas e ativos com checklists de segurança automatizados e conformidade regulatória.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="benefit-item">
+                        <div class="d-flex align-items-start">
+                            <i class="fas fa-bullseye text-primary me-3 mt-1"></i>
+                            <div>
+                                <h5 class="fw-bold mb-2">Transparência Gerencial</h5>
+                                <p class="text-muted mb-0">
+                                    Transparência total para gestores com relatórios detalhados, dashboards em tempo real e métricas de performance claras.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Demo Section -->
+    <section class="section-padding bg-light">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-8 mx-auto text-center mb-5">
+                    <h2 class="display-5 fw-bold mb-4">
+                        Veja a OPER em Ação
+                    </h2>
+                    <p class="lead text-muted">
+                        Assista uma demonstração ao vivo de como nossa plataforma pode transformar sua gestão de manutenção. 
+                        Experimente a interface intuitiva e as ferramentas poderosas que tornam a operação diária mais eficiente.
+                    </p>
+                </div>
+            </div>
+            <div class="row g-4">
+                <div class="col-lg-6">
+                    <div class="card">
+                        <div class="card-body">
+                            <div class="d-flex align-items-center mb-3">
+                                <div class="feature-icon me-3">
+                                    <i class="fas fa-chart-line"></i>
+                                </div>
+                                <div>
+                                    <h5 class="card-title fw-bold mb-1">Painel de Atividades em Tempo Real</h5>
+                                    <span class="badge bg-success text-white">Online • Monitoramento Ativo</span>
+                                </div>
+                            </div>
+                            
+                            <div class="activity-warning">
+                                <div class="d-flex justify-content-between align-items-start">
+                                    <div>
+                                        <h6 class="fw-bold mb-1">Ordem de Serviço #1234</h6>
+                                        <p class="text-muted small mb-2">Manutenção preventiva - Ar condicionado - Sala 201</p>
+                                        <div class="d-flex gap-2">
+                                            <span class="badge bg-warning text-dark">Alta</span>
+                                            <small class="text-muted">João Silva</small>
+                                        </div>
+                                    </div>
+                                    <small class="text-muted">Hoje, 14:00</small>
+                                </div>
+                            </div>
+
+                            <div class="activity-progress">
+                                <div class="d-flex justify-content-between align-items-start">
+                                    <div>
+                                        <h6 class="fw-bold mb-1">Checklist em Andamento</h6>
+                                        <p class="text-muted small mb-2">Inspeção de segurança mensal - Bloco A</p>
+                                        <div class="d-flex gap-2">
+                                            <span class="badge bg-primary">Média</span>
+                                            <small class="text-muted">Maria Santos</small>
+                                        </div>
+                                    </div>
+                                    <small class="text-primary fw-bold">85% completo</small>
+                                </div>
+                            </div>
+
+                            <div class="activity-critical">
+                                <div class="d-flex justify-content-between align-items-start">
+                                    <div>
+                                        <h6 class="fw-bold mb-1">Alerta Crítico</h6>
+                                        <p class="text-muted small mb-2">Elevador social - Parada inesperada</p>
+                                        <div class="d-flex gap-2">
+                                            <span class="badge bg-danger">Crítica</span>
+                                            <small class="text-muted">Equipe de Emergência</small>
+                                        </div>
+                                    </div>
+                                    <small class="text-danger fw-bold">Imediato</small>
+                                </div>
+                            </div>
+
+                            <div class="activity-success">
+                                <div class="d-flex justify-content-between align-items-start">
+                                    <div>
+                                        <h6 class="fw-bold mb-1">Relatório Diário</h6>
+                                        <p class="text-muted small mb-2">12 tarefas concluídas hoje</p>
+                                        <div class="d-flex gap-2">
+                                            <span class="badge bg-secondary">Normal</span>
+                                        </div>
+                                    </div>
+                                    <small class="text-success fw-bold">100% taxa</small>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-lg-6">
+                    <div class="card">
+                        <div class="card-body">
+                            <div class="d-flex align-items-center mb-3">
+                                <div class="feature-icon me-3">
+                                    <i class="fas fa-calendar-alt"></i>
+                                </div>
+                                <h5 class="card-title fw-bold mb-0">Agendar Demonstração</h5>
+                            </div>
+                            <p class="text-muted mb-4">
+                                Pronto para transformar sua operação? Veja em tempo real como o OPER acelera processos, 
+                                reduz falhas e aumenta a produtividade das suas equipes. Nossa equipe especializada 
+                                mostrará como adaptar a plataforma às suas necessidades específicas.
+                            </p>
+                            <div class="mb-4">
+                                <div class="d-flex align-items-center mb-2">
+                                    <i class="fas fa-check-circle text-success me-2"></i>
+                                    <small>Demonstração personalizada para seu setor</small>
+                                </div>
+                                <div class="d-flex align-items-center mb-2">
+                                    <i class="fas fa-check-circle text-success me-2"></i>
+                                    <small>Tirar dúvidas com especialistas em manutenção</small>
+                                </div>
+                                <div class="d-flex align-items-center mb-2">
+                                    <i class="fas fa-check-circle text-success me-2"></i>
+                                    <small>Plano de implementação detalhado</small>
+                                </div>
+                            </div>
+                            <div class="d-grid gap-2">
+                                <a href="https://wa.me/5582981457117?text=Quero%20uma%20demonstra%C3%A7%C3%A3o%20exclusiva" class="btn btn-primary">
+                                    Comece Agora
+                                </a>
+                                <a href="https://wa.me/5582981457117" class="btn btn-outline-primary">
+                                    Fale conosco no WhatsApp
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Final CTA Section -->
+    <div class="container">
+        <div class="cta-gradient text-center" data-parallax-speed="0.06">
+            <h2 class="display-4 fw-bold mb-4">
+                Pronto para Transformar Sua Operação?
+            </h2>
+            <p class="lead mb-4">
+                Junte-se a milhares de empresas que já confiam na OPER para sua gestão de manutenção. 
+                Dê o primeiro passo para uma operação mais eficiente, segura e inteligente.
+            </p>
+            <div class="d-flex flex-column flex-sm-row gap-3 justify-content-center">
+                <a href="https://wa.me/5582981457117?text=Quero%20uma%20demonstra%C3%A7%C3%A3o%20exclusiva" class="btn btn-light btn-lg">
+                    Agendar Demonstração
+                </a>
+                <a href="#tour" class="btn btn-outline-light btn-lg">
+                    Ver Tour Guiado
+                </a>
+            </div>
+        </div>
     </div>
 
-    <script src="js/menu-loader.js"></script>
+    <!-- Footer -->
+    <footer class="bg-dark text-white py-5 mt-5">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-6">
+                    <h5 class="fw-bold">OPER</h5>
+                    <p class="text-muted">Sistema de Gestão de Manutenção</p>
+                </div>
+                <div class="col-lg-6 text-lg-end">
+                    <p class="text-muted mb-0">© 2024 OPER. Todos os direitos reservados.</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Add scroll effect to navbar
+        window.addEventListener('scroll', function() {
+            const navbar = document.querySelector('.navbar');
+            if (window.scrollY > 100) {
+                navbar.style.boxShadow = '0 2px 10px rgba(0, 0, 0, 0.1)';
+            } else {
+                navbar.style.boxShadow = '0 1px 3px rgba(0, 0, 0, 0.1)';
+            }
+        });
+    </script>
 </body>
 </html>

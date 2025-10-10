@@ -1,0 +1,850 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Recursos — OPER</title>
+    <link rel="stylesheet" href="css/styles-base.css">
+    <link rel="stylesheet" href="css/styles-mobile.css">
+    <link rel="stylesheet" href="css/menu.css">
+    <link rel="stylesheet"
+          href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&family=Montserrat:wght@400;500;600;700&family=Open+Sans:wght@300;400;600;700&display=swap">
+    <style>
+        :root {
+            --brand: #0d6efd;
+            --brand-2: #00b3ff;
+            --ink: #2c3e50;
+            --muted: #64748b;
+            --bg: #f7f9fc;
+            --card: #ffffff;
+            --radius: 14px;
+            --container: 1200px;
+            --shadow-sm: 0 4px 12px rgba(16,24,40,0.08);
+            --shadow-md: 0 10px 24px rgba(16,24,40,0.12);
+            --space-2xs: 6px;
+            --space-xs: 10px;
+            --space-sm: 14px;
+            --space-md: 20px;
+            --space-lg: 28px;
+            --space-xl: 40px;
+        }
+
+        body.page-recursos {
+            background: var(--bg);
+            color: var(--ink);
+            margin: 0;
+        }
+
+        .container {
+            width: 100%;
+            max-width: var(--container);
+            margin: 0 auto;
+            padding: 0 var(--space-md);
+        }
+
+        /* Hero */
+        .hero {
+            position: relative;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: var(--space-xl) 0;
+            background: linear-gradient(90deg, #0d6efd 0%, #00b3ff 100%);
+            color: #fff;
+            overflow: hidden;
+        }
+        .hero::after {
+            content: "";
+            position: absolute;
+            inset: 0;
+            background: radial-gradient(1200px 300px at 20% 10%, rgba(255,255,255,0.16), transparent 60%),
+                        radial-gradient(1200px 300px at 80% 100%, rgba(255,255,255,0.12), transparent 60%);
+            pointer-events: none;
+        }
+        .hero-content {
+            position: relative;
+            z-index: 1;
+            text-align: center;
+            max-width: 1000px;
+        }
+        .hero-content .subtitle {
+            font-weight: 600;
+            letter-spacing: .3px;
+            margin-bottom: var(--space-2xs);
+            opacity: .95;
+        }
+        .hero-content .title {
+            font-family: Montserrat, system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+            font-size: clamp(28px, 5vw, 44px);
+            font-weight: 700;
+            line-height: 1.15;
+            margin: var(--space-2xs) 0 var(--space-sm);
+        }
+        .hero-content .description {
+            font-size: 16px;
+            line-height: 1.7;
+            color: #f1f5f9;
+            margin-bottom: var(--space-md);
+        }
+        .hero-content .oper-highlight {
+            font-weight: 700;
+            color: #fff;
+        }
+
+        .cta-row {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: var(--space-sm);
+            margin-top: var(--space-sm);
+        }
+        .cta-row .cta-separator {
+            font-weight: 700;
+            color: #e2e8f0;
+        }
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            padding: 12px 18px;
+            border-radius: 999px;
+            font-weight: 600;
+            text-decoration: none;
+            transition: transform .18s ease, box-shadow .18s ease, background-color .18s ease;
+            white-space: nowrap;
+        }
+        .btn-primary {
+            background: #fff;
+            color: var(--brand);
+            box-shadow: var(--shadow-sm);
+        }
+        .btn-primary:hover {
+            transform: translateY(-1px);
+            box-shadow: var(--shadow-md);
+        }
+        .btn-secondary {
+            background: transparent;
+            color: #fff;
+            border: 1px solid rgba(255,255,255,.5);
+        }
+        .btn-secondary:hover {
+            transform: translateY(-1px);
+            background: rgba(255,255,255,.1);
+        }
+
+        /* Seções */
+        .section {
+            padding: var(--space-xl) 0;
+        }
+        .section .section-header {
+            text-align: center;
+            margin-bottom: var(--space-lg);
+        }
+        .section .section-title {
+            font-family: Montserrat, system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+            font-size: clamp(24px, 4vw, 34px);
+            font-weight: 700;
+            margin: 0 0 var(--space-2xs);
+        }
+        .section .section-description {
+            color: var(--muted);
+            max-width: 900px;
+            margin: 0 auto;
+            line-height: 1.8;
+        }
+
+        /* Grades e cards */
+        .grid {
+            display: grid;
+            gap: var(--space-md);
+            grid-template-columns: repeat(12, 1fr);
+        }
+        .col-4 { grid-column: span 4; }
+        .col-6 { grid-column: span 6; }
+        .col-12 { grid-column: span 12; }
+
+        .card {
+            background: var(--card);
+            border-radius: var(--radius);
+            box-shadow: var(--shadow-sm);
+            padding: var(--space-md);
+        }
+        .card-header {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            margin-bottom: var(--space-sm);
+        }
+        .card-title {
+            font-weight: 700;
+            font-size: 18px;
+            margin: 0;
+        }
+        .card-description {
+            color: var(--muted);
+            line-height: 1.7;
+            margin-bottom: var(--space-sm);
+        }
+        .card-icon {
+            width: 44px;
+            height: 44px;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 12px;
+            background: #eef6ff;
+        }
+        .card-icon img {
+            width: 26px;
+            height: 26px;
+            object-fit: contain;
+        }
+
+        /* Lista com checagem */
+        .check-list {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            display: grid;
+            gap: 8px;
+        }
+        .check-item {
+            display: grid;
+            grid-template-columns: 20px auto;
+            align-items: center;
+            gap: 10px;
+            color: var(--ink);
+        }
+        .check-icon {
+            width: 20px;
+            height: 20px;
+            border-radius: 50%;
+            background: #e8fbea;
+            color: #22c55e;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 700;
+        }
+
+        /* Destaque de métricas */
+        .stats-grid {
+            display: grid;
+            gap: var(--space-md);
+            grid-template-columns: repeat(4, 1fr);
+        }
+        .stat {
+            background: var(--card);
+            border-radius: var(--radius);
+            padding: var(--space-md);
+            box-shadow: var(--shadow-sm);
+            text-align: center;
+        }
+        .stat-value {
+            font-family: Montserrat, system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+            font-weight: 800;
+            font-size: 28px;
+            color: var(--brand);
+        }
+        .stat-desc {
+            color: var(--muted);
+            margin-top: 6px;
+        }
+
+        /* CTA final */
+        .cta-final {
+            background: linear-gradient(180deg, #ffffff 0%, #f7fbff 100%);
+            border-top: 1px solid #eef2f7;
+        }
+        .cta-actions {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: var(--space-sm);
+            margin-top: var(--space-md);
+            flex-wrap: wrap;
+        }
+
+        /* Responsivo */
+        @media (max-width: 992px) {
+            .grid { grid-template-columns: repeat(6, 1fr); }
+            .col-4 { grid-column: span 6; }
+            .col-6 { grid-column: span 6; }
+            .stats-grid { grid-template-columns: repeat(2, 1fr); }
+        }
+        @media (max-width: 768px) {
+            .grid { grid-template-columns: repeat(1, 1fr); }
+            .col-4, .col-6, .col-12 { grid-column: span 1; }
+            .stats-grid { grid-template-columns: 1fr; }
+            .hero { padding: var(--space-lg) 0; }
+            .cta-row { gap: var(--space-xs); }
+        }
+
+        /* ===== Radial Overview (parallax + 7 blocos) ===== */
+        .radial-overview {
+            position: relative;
+            padding: var(--space-xl) 0;
+            color: var(--ink);
+            background:
+              linear-gradient(180deg, #ffffff 0%, #f7fbff 100%);
+        }
+        /* Parallax fixo com imagem de fundo */
+        .radial-overview.parallax-fixed {
+            background-image: url('temp_images/teamwork.jpg');
+            background-attachment: fixed;
+            background-position: center;
+            background-size: cover;
+        }
+        .radial-overlay { /* véu para contraste */
+            position: absolute; inset: 0;
+            background:
+              radial-gradient(800px 240px at 15% 15%, rgba(13,110,253,0.12), transparent 60%),
+              radial-gradient(800px 240px at 85% 85%, rgba(242,203,87,0.12), transparent 60%),
+              linear-gradient(180deg, rgba(255,255,255,0.85), rgba(255,255,255,0.85));
+            pointer-events: none;
+        }
+        .radial-header {
+            text-align: center;
+            margin-bottom: var(--space-lg);
+            position: relative;
+            z-index: 2;
+        }
+        .radial-title {
+            font-family: Montserrat, system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+            font-weight: 800;
+            font-size: clamp(28px, 5vw, 44px);
+            margin: 0 0 var(--space-2xs);
+        }
+        .radial-sub {
+            color: var(--muted);
+            max-width: 900px;
+            margin: 0 auto var(--space-md);
+            line-height: 1.8;
+        }
+        .radial-cta {
+            display: inline-flex; gap: 12px; align-items: center; justify-content: center;
+        }
+
+        .radial-wheel {
+            --R: clamp(240px, 40vw, 360px);          /* raio do círculo */
+            --COUNT: 7;
+            width: min(900px, 92vw);
+            height: min(900px, 92vw);
+            margin: 0 auto;
+            position: relative;
+            z-index: 2;
+        }
+        .radial-center {
+            position: absolute; left: 50%; top: 50%;
+            transform: translate(-50%, -50%);
+            background: var(--card);
+            border-radius: 18px;
+            box-shadow: var(--shadow-md);
+            padding: var(--space-lg);
+            text-align: center;
+            max-width: 420px;
+        }
+        .radial-center h3 {
+            margin: 0 0 6px; font-size: 20px; font-weight: 800; color: var(--ink);
+        }
+        .radial-center p { margin: 0 0 12px; color: var(--muted); }
+        .radial-center .btn { padding: 10px 16px; }
+
+        .radial-item {
+            position: absolute;
+            left: 50%;
+            top: 50%;
+            transform:
+              translate(-50%, -50%)
+              rotate(calc(360deg / var(--COUNT) * var(--i)))
+              translate(var(--R))
+              rotate(calc(-360deg / var(--COUNT) * var(--i)));
+        }
+        .radial-card {
+            display: flex; align-items: center; gap: 10px;
+            background: var(--card);
+            border-radius: 14px;
+            padding: 12px 14px;
+            box-shadow: var(--shadow-sm);
+            min-width: 220px;
+            transition: transform .18s ease, box-shadow .18s ease;
+            text-decoration: none; color: inherit;
+        }
+        .radial-card:hover {
+            transform: translateY(-6px);
+            box-shadow: var(--shadow-md);
+        }
+        .radial-icon {
+            width: 44px; height: 44px;
+            border-radius: 12px;
+            display: inline-flex; align-items: center; justify-content: center;
+            background: linear-gradient(135deg, var(--brand) 0%, var(--brand-2) 100%);
+            color: #fff; box-shadow: var(--shadow-sm);
+        }
+        .radial-icon img {
+            width: 26px; height: 26px; object-fit: contain;
+            image-rendering: -webkit-optimize-contrast;
+        }
+        .radial-text h4 { margin: 0; font-size: 16px; font-weight: 700; color: var(--ink); }
+        .radial-text span { display: block; color: var(--muted); font-size: 13px; }
+
+        /* responsivo */
+        @media (max-width: 992px) {
+            .radial-card { min-width: 200px; }
+        }
+        @media (max-width: 768px) {
+            .radial-wheel { --R: clamp(180px, 36vw, 240px); }
+            .radial-card { min-width: 180px; }
+        }
+
+        /* Estilos para os cards de recursos */
+        .card {
+            border-radius: var(--radius-xl);
+            box-shadow: var(--shadow-lg);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--shadow-xl);
+        }
+    </style>
+</head>
+<body class="page-recursos">
+    <div id="menu-placeholder"></div>
+
+    <!-- Radial Overview com parallax de fundo -->
+    <section class="radial-overview parallax-fixed" id="overview">
+        <div class="radial-overlay"></div>
+        <div class="container">
+            <div class="radial-header">
+                <h2 class="radial-title">Solução Completa de Gestão de Manutenção</h2>
+                <p class="radial-sub">
+                    Aumente a disponibilidade de ativos com soluções de nível empresarial.
+                    Gerencie equipes, tarefas e recursos de forma eficiente e centralizada.
+                </p>
+                <div class="radial-cta">
+                    <a href="#recursos" class="btn btn-primary">Conheça os Recursos</a>
+                    <a href="tour-guiado.html" class="btn btn-secondary">Ver Tour</a>
+                </div>
+            </div>
+
+            <div class="radial-wheel" role="navigation" aria-label="Mapa de recursos OPER (7 áreas)">
+                <div class="radial-center">
+                    <h3>OPER — Gestão de Manutenção</h3>
+                    <p>Plataforma integrada, mobile-first e auditável.</p>
+                    <a href="https://wa.me/5582981457117?text=Quero%20uma%20demonstra%C3%A7%C3%A3o%20exclusiva" target="_blank" class="btn btn-primary">Agendar Demonstração</a>
+                </div>
+
+                <!-- 1. Dashboard Inteligente -->
+                <a class="radial-item" style="--i:0" href="#dashboard" aria-label="Dashboard Inteligente">
+                    <div class="radial-card">
+                        <span class="radial-icon"><img src="images/icon-realtime.svg" alt=""></span>
+                        <div class="radial-text">
+                            <h4>Dashboard Inteligente</h4>
+                            <span>Monitoramento e insights</span>
+                        </div>
+                    </div>
+                </a>
+
+                <!-- 2. Ordens de Serviço -->
+                <a class="radial-item" style="--i:1" href="#ordens" aria-label="Ordens de Serviço">
+                    <div class="radial-card">
+                        <span class="radial-icon"><img src="images/icon-orders.svg" alt=""></span>
+                        <div class="radial-text">
+                            <h4>Ordens de Serviço</h4>
+                            <span>Criação e acompanhamento</span>
+                        </div>
+                    </div>
+                </a>
+
+                <!-- 3. Checklists Digitais -->
+                <a class="radial-item" style="--i:2" href="#checklists" aria-label="Checklists Digitais">
+                    <div class="radial-card">
+                        <span class="radial-icon"><img src="images/icon-maintenance.svg" alt=""></span>
+                        <div class="radial-text">
+                            <h4>Checklists Digitais</h4>
+                            <span>Padronização e evidências</span>
+                        </div>
+                    </div>
+                </a>
+
+                <!-- 4. Relatórios e Análises -->
+                <a class="radial-item" style="--i:3" href="#relatorios" aria-label="Relatórios e Análises">
+                    <div class="radial-card">
+                        <span class="radial-icon"><img src="images/7350737.png" alt=""></span>
+                        <div class="radial-text">
+                            <h4>Relatórios e Análises</h4>
+                            <span>Auditoria e melhoria</span>
+                        </div>
+                    </div>
+                </a>
+
+                <!-- 5. App Mobile -->
+                <a class="radial-item" style="--i:4" href="#app" aria-label="App Mobile">
+                    <div class="radial-card">
+                        <span class="radial-icon"><img src="images/6315999.png" alt=""></span>
+                        <div class="radial-text">
+                            <h4>App Mobile</h4>
+                            <span>Gestão no campo</span>
+                        </div>
+                    </div>
+                </a>
+
+                <!-- 6. Integrações e API -->
+                <a class="radial-item" style="--i:5" href="#integracoes" aria-label="Integrações e API">
+                    <div class="radial-card">
+                        <span class="radial-icon"><img src="images/807313.png" alt=""></span>
+                        <div class="radial-text">
+                            <h4>Integrações e API</h4>
+                            <span>ERPs, RH e automações</span>
+                        </div>
+                    </div>
+                </a>
+
+                <!-- 7. Segurança e Multi-site -->
+                <a class="radial-item" style="--i:6" href="#seguranca" aria-label="Segurança e Multi-site">
+                    <div class="radial-card">
+                        <span class="radial-icon"><img src="images/61.png" alt=""></span>
+                        <div class="radial-text">
+                            <h4>Segurança e Multi-site</h4>
+                            <span>Permissões e controle</span>
+                        </div>
+                    </div>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Hero -->
+    <section class="hero">
+        <div class="container">
+            <div class="hero-content">
+                <div class="subtitle">Solução Completa de Gestão de Manutenção</div>
+                <h1 class="title">Maximize a eficiência. Minimize falhas.</h1>
+                <p class="description">
+                    O OPER é a plataforma de gestão de manutenção digital que conecta equipes, ativos e processos em um único ambiente.
+                    <br>Sem sensores IoT — mas com inteligência de dados, automação e controle total.
+                    <br><span class="oper-highlight">Centralize tarefas, reduza custos e amplie a disponibilidade</span> dos seus ativos com tecnologia projetada para decisões rápidas e precisas.
+                </p>
+                <div class="cta-row">
+                    <a href="https://wa.me/5582981457117?text=Quero%20uma%20demonstra%C3%A7%C3%A3o%20exclusiva"
+                       target="_blank" rel="noopener noreferrer" class="btn btn-primary">Agendar Demonstração</a>
+                    <span class="cta-separator">OU</span>
+                    <a href="tour-guiado.html" class="btn btn-secondary">Ver Tour Guiado</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Removido: seção Benefícios de uma Cultura Planejada -->
+    <!-- Removido: seção RH Ágil -->
+    <!-- A Hora da Virada (linha do tempo) -->
+    <section class="timeline-section">
+        <div class="container">
+            <div class="timeline-hero">
+                <h2>A Hora da <span class="strong">Virada</span>.</h2>
+            </div>
+            <!-- Trilha curvada como parallax suave -->
+            <svg class="timeline-svg" viewBox="0 0 1200 120" preserveAspectRatio="none" aria-hidden="true">
+                <path d="M0,60 C200,20 400,100 600,60 C800,20 1000,100 1200,60" fill="none" stroke="rgba(13,110,253,0.35)" stroke-width="6"/>
+            </svg>
+            <div class="timeline-steps">
+                <a href="#dashboard" class="timeline-step">
+                    <h3>Dashboard Inteligente</h3>
+                    <p>Indicadores em tempo real e insights.</p>
+                </a>
+                <a href="#ordens" class="timeline-step">
+                    <h3>Ordens de Serviço</h3>
+                    <p>Criação, atribuição e rastreabilidade.</p>
+                </a>
+                <a href="#checklists" class="timeline-step">
+                    <h3>Checklists Digitais</h3>
+                    <p>Padronização e conformidade.</p>
+                </a>
+                <a href="#relatorios" class="timeline-step">
+                    <h3>Relatórios e Análises</h3>
+                    <p>Dados, tendências e auditoria.</p>
+                </a>
+                <a href="#app" class="timeline-step">
+                    <h3>App Mobile</h3>
+                    <p>Operação offline e sincronização.</p>
+                </a>
+                <a href="#integracoes" class="timeline-step">
+                    <h3>Integrações e API</h3>
+                    <p>Conecte ao ERP e automações.</p>
+                </a>
+                <a href="#seguranca" class="timeline-step">
+                    <h3>Segurança & Multi‑site</h3>
+                    <p>Acesso por perfil e gestão de unidades.</p>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- ... existing code ... -->
+    <!-- Gestão de Manutenção Inteligente -->
+    <section class="section">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Gestão de Manutenção Inteligente</h2>
+                <p class="section-description">
+                    O OPER oferece uma visão 360º da operação, unindo planejamento, execução e análise de resultados em um só fluxo digital.
+                    Planeje, execute, monitore e otimize — tudo em um só lugar.
+                </p>
+            </div>
+            <div class="grid">
+                <!-- Dashboard Inteligente -->
+                <div id="dashboard" class="card col-6">
+                    <div class="card-header">
+                        <div class="card-icon">
+                            <img src="images/icon-realtime.svg" alt="Dashboard Inteligente">
+                        </div>
+                        <h3 class="card-title">Dashboard Inteligente</h3>
+                    </div>
+                    <p class="card-description">
+                        Visualize sua operação em tempo real com indicadores claros e gráficos interativos.
+                        Acompanhe performance, produtividade e alertas críticos — sempre com base em dados confiáveis.
+                    </p>
+                    <ul class="check-list">
+                        <li class="check-item"><span class="check-icon">✓</span>Indicadores de performance atualizados</li>
+                        <li class="check-item"><span class="check-icon">✓</span>Painéis interativos e personalizáveis</li>
+                        <li class="check-item"><span class="check-icon">✓</span>Notificações automáticas e insights de operação</li>
+                        <li class="check-item"><span class="check-icon">✓</span>Acesso rápido às tarefas prioritárias</li>
+                    </ul>
+                </div>
+
+                <!-- Gestão de Ordens de Serviço -->
+                <div id="ordens" class="card col-6">
+                    <div class="card-header">
+                        <div class="card-icon">
+                            <img src="images/icon-orders.svg" alt="Gestão de Ordens de Serviço">
+                        </div>
+                        <h3 class="card-title">Gestão de Ordens de Serviço</h3>
+                    </div>
+                    <p class="card-description">
+                        Crie, delegue e acompanhe ordens de serviço com total rastreabilidade. Cada tarefa é registrada, monitorada e analisada em tempo real.
+                    </p>
+                    <ul class="check-list">
+                        <li class="check-item"><span class="check-icon">✓</span>Criação ágil de O.S.</li>
+                        <li class="check-item"><span class="check-icon">✓</span>Atribuição automática por equipe ou setor</li>
+                        <li class="check-item"><span class="check-icon">✓</span>Histórico detalhado e filtrável</li>
+                        <li class="check-item"><span class="check-icon">✓</span>Acompanhamento de prazos e status</li>
+                    </ul>
+                </div>
+
+                <!-- Checklists Inteligentes -->
+                <div id="checklists" class="card col-6">
+                    <div class="card-header">
+                        <div class="card-icon">
+                            <img src="images/icon-maintenance.svg" alt="Checklists Inteligentes">
+                        </div>
+                        <h3 class="card-title">Checklists Inteligentes</h3>
+                    </div>
+                    <p class="card-description">
+                        Padronize inspeções e processos operacionais. Elimine papel e garanta conformidade com
+                        checklists digitais adaptáveis a cada tipo de manutenção.
+                    </p>
+                    <ul class="check-list">
+                        <li class="check-item"><span class="check-icon">✓</span>Modelos customizáveis</li>
+                        <li class="check-item"><span class="check-icon">✓</span>Operação offline com sincronização automática</li>
+                        <li class="check-item"><span class="check-icon">✓</span>Evidências por foto e anexo</li>
+                        <li class="check-item"><span class="check-icon">✓</span>Validação automática de etapas críticas</li>
+                    </ul>
+                </div>
+
+                <!-- Relatórios e Análises -->
+                <div id="relatorios" class="card col-6">
+                    <div class="card-header">
+                        <div class="card-icon">
+                            <img src="images/7350737.png" alt="Relatórios e Análises">
+                        </div>
+                        <h3 class="card-title">Relatórios e Análises</h3>
+                    </div>
+                    <p class="card-description">
+                        Transforme dados em inteligência de manutenção. Gere relatórios automáticos, acompanhe tendências
+                        e encontre oportunidades de melhoria contínua.
+                    </p>
+                    <ul class="check-list">
+                        <li class="check-item"><span class="check-icon">✓</span>Relatórios em tempo real</li>
+                        <li class="check-item"><span class="check-icon">✓</span>Análises comparativas e de performance</li>
+                        <li class="check-item"><span class="check-icon">✓</span>Exportação em múltiplos formatos</li>
+                        <li class="check-item"><span class="check-icon">✓</span>Dados prontos para auditorias</li>
+                    </ul>
+                </div>
+
+                <!-- App Mobile OPER -->
+                <div id="app" class="card col-6">
+                    <div class="card-header">
+                        <div class="card-icon">
+                            <img src="images/6315999.png" alt="App Mobile OPER">
+                        </div>
+                        <h3 class="card-title">App Mobile OPER</h3>
+                    </div>
+                    <p class="card-description">
+                        A gestão vai até onde sua equipe estiver. Nosso aplicativo mobile foi desenvolvido para funcionar
+                        offline e sincronizar automaticamente assim que houver conexão.
+                    </p>
+                    <ul class="check-list">
+                        <li class="check-item"><span class="check-icon">✓</span>Operação sem internet</li>
+                        <li class="check-item"><span class="check-icon">✓</span>Interface ágil e responsiva</li>
+                        <li class="check-item"><span class="check-icon">✓</span>Notificações push em tempo real</li>
+                    </ul>
+                </div>
+
+                <!-- Integrações e API -->
+                <div id="integracoes" class="card col-6">
+                    <div class="card-header">
+                        <div class="card-icon">
+                            <img src="images/807313.png" alt="Integrações e API">
+                        </div>
+                        <h3 class="card-title">Integrações e API</h3>
+                    </div>
+                    <p class="card-description">
+                        O OPER se adapta à sua estrutura tecnológica. Nossa API REST documentada permite conectar
+                        facilmente ERPs, sistemas de RH e automações corporativas.
+                    </p>
+                    <ul class="check-list">
+                        <li class="check-item"><span class="check-icon">✓</span>Integração simples e segura</li>
+                        <li class="check-item"><span class="check-icon">✓</span>Webhooks para fluxos automatizados</li>
+                        <li class="check-item"><span class="check-icon">✓</span>Conexão com sistemas internos</li>
+                    </ul>
+                </div>
+
+                <!-- Controle de Acesso e Segurança -->
+                <div id="seguranca" class="card col-6">
+                    <div class="card-header">
+                        <div class="card-icon">
+                            <img src="images/67.png" alt="Controle de Acesso e Segurança">
+                        </div>
+                        <h3 class="card-title">Controle de Acesso e Segurança</h3>
+                    </div>
+                    <p class="card-description">
+                        Garanta que cada colaborador tenha acesso apenas ao que é relevante para sua função.
+                    </p>
+                    <ul class="check-list">
+                        <li class="check-item"><span class="check-icon">✓</span>Perfis de acesso customizados</li>
+                        <li class="check-item"><span class="check-icon">✓</span>Rastreamento de ações por usuário</li>
+                        <li class="check-item"><span class="check-icon">✓</span>Segurança e conformidade total</li>
+                    </ul>
+                </div>
+
+                <!-- Gestão Multi-site -->
+                <div id="multi-site" class="card col-6">
+                    <div class="card-header">
+                        <div class="card-icon">
+                            <img src="images/61.png" alt="Gestão Multi-site">
+                        </div>
+                        <h3 class="card-title">Gestão Multi-site</h3>
+                    </div>
+                    <p class="card-description">
+                        Administre múltiplas unidades e padronize processos. O OPER consolida dados de diferentes locais,
+                        facilitando comparações e melhorias operacionais.
+                    </p>
+                </div>
+
+                <!-- Auditoria e Rastreabilidade -->
+                <div class="card col-6">
+                    <div class="card-header">
+                        <div class="card-icon">
+                            <img src="images/1150587.png" alt="Auditoria e Rastreabilidade">
+                        </div>
+                        <h3 class="card-title">Auditoria e Rastreabilidade</h3>
+                    </div>
+                    <p class="card-description">
+                        Tenha histórico completo de cada ação — quem fez, quando e o que alterou. Transparência e
+                        conformidade automatizadas.
+                    </p>
+                </div>
+
+                <!-- Planejamento e Mão de Obra Otimizados -->
+                <div class="card col-6">
+                    <div class="card-header">
+                        <div class="card-icon">
+                            <img src="images/206058.png" alt="Planejamento e Mão de Obra Otimizados">
+                        </div>
+                        <h3 class="card-title">Planejamento e Mão de Obra Otimizados</h3>
+                    </div>
+                    <p class="card-description">
+                        Atribua tarefas com base em habilidades, disponibilidade e prioridade. Elimine gargalos, evite
+                        sobrecarga e maximize o desempenho da equipe.
+                    </p>
+                    <ul class="check-list">
+                        <li class="check-item"><span class="check-icon">✓</span>Atribuição inteligente de tarefas</li>
+                        <li class="check-item"><span class="check-icon">✓</span>Planejamento de capacidade</li>
+                        <li class="check-item"><span class="check-icon">✓</span>Balanceamento automático de carga de trabalho</li>
+                        <li class="check-item"><span class="check-icon">✓</span>Controle de horas e produtividade</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Resultados -->
+    <section class="section">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Resultados alcançados com o OPER</h2>
+                <p class="section-description">O impacto direto na operação e no time de manutenção.</p>
+            </div>
+            <div class="stats-grid">
+                <div class="stat">
+                    <div class="stat-value">+40%</div>
+                    <div class="stat-desc">produtividade operacional</div>
+                </div>
+                <div class="stat">
+                    <div class="stat-value">–30%</div>
+                    <div class="stat-desc">custos de manutenção</div>
+                </div>
+                <div class="stat">
+                    <div class="stat-value">–65%</div>
+                    <div class="stat-desc">tempo de planejamento</div>
+                </div>
+                <div class="stat">
+                    <div class="stat-value">+85%</div>
+                    <div class="stat-desc">satisfação da equipe</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Final -->
+    <section class="section cta-final">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Pronto para Transformar Sua Operação?</h2>
+                <p class="section-description">
+                    O OPER leva a gestão de manutenção para outro nível. Descubra como empresas em todo o Brasil estão
+                    automatizando processos, reduzindo custos e aumentando a confiabilidade de seus ativos.
+                </p>
+            </div>
+            <div class="cta-actions">
+                <a href="https://wa.me/5582981457117?text=Quero%20uma%20demonstra%C3%A7%C3%A3o%20exclusiva"
+                   target="_blank" rel="noopener noreferrer" class="btn btn-primary">👉 Agende uma Demonstração Exclusiva</a>
+                <a href="https://wa.me/5582981457117?text=Quero%20saber%20mais%20sobre%20a%20OPER!"
+                   target="_blank" rel="noopener noreferrer" class="btn btn-secondary">💬 Fale conosco no WhatsApp</a>
+                <a href="tour-guiado.html" class="btn btn-secondary">(Ver o OPER em funcionamento — Tour Guiado)</a>
+            </div>
+        </div>
+    </section>
+
+    <div class="whatsapp-float" id="whatsappFloat">
+        <a href="https://wa.me/5582981457117?text=Quero%20saber%20mais%20sobre%20a%20OPER!" target="_blank" aria-label="Fale conosco no WhatsApp" rel="noopener noreferrer" class="zap-anchor">
+            <div class="zap-tooltip" role="tooltip">
+                Fale conosco no WhatsApp
+                <div class="zap-tooltip-arrow"></div>
+            </div>
+            <div class="zap-glow"></div>
+            <div class="zap-button">
+                <svg class="zap-icon" width="24" height="24" viewBox="0 0 24 24" aria-hidden="true">
+                    <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z" fill="currentColor"/>
+                </svg>
+            </div>
+            <div class="zap-pulse"></div>
+        </a>
+    </div>
+
+    <script src="js/menu-loader.js"></script>
+</body>
+</html>
