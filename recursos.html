@@ -10,6 +10,7 @@
     <link rel="stylesheet" href="css/styles-mobile.css">
     <link rel="stylesheet" href="css/menu.css">
     <link rel="stylesheet" href="css/mobile-enhancements-corrigido.css">
+    <link rel="stylesheet" href="css/recursos-harmonizado.css">
     <link rel="stylesheet"
         href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&family=Montserrat:wght@400;500;600;700&family=Open+Sans:wght@300;400;600;700&display=swap">
     <!-- Mantém Font Awesome (ícones usados nos cards) e Bootstrap CSS (grid existente) -->
@@ -17,137 +18,157 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 
     <style>
-        :root {
-            --primary-color: #2563eb;
-            --primary-dark: #1d4ed8;
-            --secondary-color: #64748b;
-            --success-color: #10b981;
-            --warning-color: #f59e0b;
-            --danger-color: #ef4444;
-            --light-bg: #f8fafc;
-            --dark-text: #1e293b;
-            --border-color: #e2e8f0;
-        }
-
-        /* Harmonização do Hero (mobile-first) como index.html */
-        @media (max-width: 768px) {
-            .hero {
-                height: 100dvh !important;
-                min-height: 100dvh !important;
-                display: flex !important;
-                align-items: flex-start !important;
-                justify-content: center !important;
-                padding-top: var(--space-xs) !important;
-                padding-bottom: 0 !important;
-                margin-top: 0 !important;
-                overflow: hidden !important;
-            }
-            .hero .container {
-                display: flex !important;
-                flex-direction: column !important;
-                justify-content: flex-start !important;
-                align-items: center !important;
-                text-align: center !important;
-                gap: var(--space-2xs) !important;
-                padding-top: 0 !important;
-            }
-            .cta-row {
-                display: flex !important;
-                align-items: center !important;
-                justify-content: center !important;
-                flex-wrap: nowrap !important;
-                gap: 10px !important;
-                margin-top: var(--space-xs) !important;
-                margin-bottom: 0 !important;
-                padding-bottom: 0 !important;
-            }
-            .cta-row .cta-separator {
-                display: flex !important;
-                align-items: center !important;
-                line-height: 1 !important;
-                font-weight: 700 !important;
-                font-size: 14px !important;
-                margin: 0 4px !important;
-            }
-            .cta-row .tour-button,
-            .cta-row .cta-separator,
-            .cta-row .btn.btn-primary {
-                transform: translateY(-12px) !important;
-                align-self: center !important;
-            }
-            .tour-button .zap-icon {
-                width: 90px !important;
-                height: 90px !important;
-                object-fit: contain;
-                display: block;
-            }
-            .tour-button .zap-button { padding: 0 !important; }
-        }
-
-        /* Cards (mantidos com sombra e hover) */
-        .card {
-            border: none;
-            border-radius: 16px;
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
-            transition: all 0.3s ease;
-            height: 100%;
-        }
-        .card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1);
-        }
-        .feature-icon {
-            width: 48px;
-            height: 48px;
-            background: linear-gradient(135deg, var(--primary-color), var(--primary-dark));
-            border-radius: 12px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: white;
-            font-size: 20px;
-            flex-shrink: 0;
-        }
-
-        /* Parallax banner */
-        .parallax-banner {
-            position: relative;
-            min-height: 360px;
-            background-size: cover;
-            background-position: center;
-            background-attachment: fixed; /* efeito nativo */
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: #0f172a;
-        }
-        .parallax-banner::after {
-            content: "";
-            position: absolute;
-            inset: 0;
-            background: linear-gradient(to bottom, rgba(255,255,255,0.65), rgba(255,244,214,0.8));
-        }
-        .parallax-content {
-            position: relative;
-            text-align: center;
-            padding: 24px;
-            border-radius: 16px;
-            background: rgba(255,255,255,0.8);
-            box-shadow: 0 10px 20px rgba(0,0,0,0.08);
-        }
-
-        /* Suporte a parallax leve via transform (para elementos marcados) */
-        [data-parallax-speed] { will-change: transform; }
-
-        /* Ajustes do botão flutuante no mobile e Tour (CTA) */
+        /* WhatsApp Float e CTA como no index.html */
         @media (max-width: 768px) {
             #whatsappFloat.whatsapp-float { bottom: 15px; right: 15px; }
             #whatsappFloat .zap-button { padding: 20px; }
             #whatsappFloat .zap-icon { width: 28px; height: 28px; }
             #whatsappFloat .zap-tooltip { display: none; }
+        }
 
-            .tour-button .zap-icon { width: 90px !important; height: 90px !important; }
-            .tour-button .zap-button { padding: 0 !important; }
+        /* CTA do Hero: Tour + OU + Agendar (idêntico ao index) */
+        .cta-row {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+            margin-top: 16px;
+        }
+        .cta-separator {
+            font-weight: 700;
+            color: #2c3e50;
+        }
+
+        /* Tour (CTA) */
+        .tour-button .zap-icon {
+            width: 92px;
+            height: 92px;
+            object-fit: contain;
+            display: block;
+        }
+        .tour-button .zap-button {
+            padding: 16px;
+        }
+
+        /* Regras de harmonização mobile (idênticas ao index) */
+        @media (max-width: 768px) {
+            /* Remover margem/padding herdados e reduzir gap */
+            body .hero { 
+                padding-top: 0 !important; 
+                margin-top: 0 !important; 
+            }
+            body .hero > .container { 
+                gap: 4px !important; 
+                padding-top: 0 !important; 
+                justify-content: flex-start !important;
+                align-items: center !important;
+                text-align: center !important;
+            }
+            body .hero .hero-image { 
+                margin-top: 0 !important; 
+                margin-bottom: 0 !important; 
+            }
+            body .hero .hero-content { 
+                margin: 0 !important; 
+                padding: 0 !important; 
+            }
+            body .hero .hero-content .subtitle { 
+                margin-top: 0 !important; 
+                margin-bottom: 4px !important; 
+            }
+            body .hero .hero-content .title { 
+                margin: 0 0 6px 0 !important; 
+            }
+            body .hero .hero-content .description { 
+                margin: 0 0 6px 0 !important; 
+            }
+        
+            /* CTA: centralizada, espaçamento uniforme e alinhamento vertical */
+            body .hero .cta-row {
+                display: flex !important;
+                align-items: center !important;
+                justify-content: center !important;
+                gap: 8px !important;
+                margin-top: 6px !important;
+                margin-bottom: 0 !important;
+                flex-wrap: nowrap !important;
+            }
+            body .hero .cta-row .cta-separator {
+                display: flex !important;
+                align-items: center !important;
+                line-height: 1 !important;
+                margin: 0 4px !important;
+                font-weight: 700 !important;
+                font-size: 14px !important;
+            }
+            body .hero .cta-row .tour-button,
+            body .hero .cta-row .cta-separator,
+            body .hero .cta-row .btn.btn-primary {
+                transform: translateY(-12px) !important;
+                align-self: center !important;
+            }
+        
+            /* Tour: sem posição fixa no mobile e tamanho consistente */
+            body .hero .tour-fixed { 
+                position: static !important; 
+                inset: auto !important; 
+            }
+            body .hero .tour-button .zap-icon { 
+                width: 90px !important; 
+                height: 90px !important; 
+            }
+            body .hero .tour-button .zap-button { 
+                padding: 0 !important; 
+            }
+        
+            /* Demo: largura contida e sem quebra */
+            body .hero .cta-row .btn.btn-primary {
+                flex: 0 0 auto !important;
+                white-space: nowrap !important;
+                padding: 6px 10px !important;
+                font-size: 13px !important;
+                line-height: 1.2 !important;
+                min-width: 0 !important;
+            }
+        }
+
+        /* Regras desktop como no index */
+        @media (min-width: 768px) {
+            .hero .cta-row {
+                display: flex !important;
+                align-items: center;
+                justify-content: flex-start;
+                position: relative;
+                column-gap: 0;
+                margin-left: -40px;
+            }
+            .hero .cta-row .cta-separator {
+                position: relative;
+                margin: 0 40px 0 2px !important;
+                display: inline-flex !important;
+                align-items: center !important;
+                line-height: 1;
+                transform: none !important;
+            }
+            .hero .cta-row .tour-button { margin-right: 24px; }
+            .hero .cta-row .btn.btn-primary { margin-left: 24px; }
+        }
+
+        @media (max-width: 768px) {
+            html body .hero {
+                margin-top: 0 !important;
+                padding-top: 0 !important;
+            }
+            html body .hero > .container {
+                padding-top: 0 !important;
+                gap: 4px !important;
+                justify-content: flex-start !important;
+                align-items: center !important;
+                text-align: center !important;
+            }
+            html body .hero .hero-image { margin-bottom: 2px !important; }
+            html body .hero .hero-image { transform: translateY(-14px) !important; }
+            html body .hero .hero-content > *:not(.cta-row) { transform: translateY(-14px) !important; }
+            html body .hero .cta-row { margin-top: 6px !important; }
         }
 
         .section-padding { padding: 80px 0; }
@@ -163,6 +184,27 @@
         @media (max-width: 768px) {
             .section-padding { padding: 60px 0; }
         }
+        /* Grid de 3 colunas para cards (desktop), 2 no tablet, 1 no mobile */
+        .cards-grid-3 > [class*="col-"] {
+            flex: 0 0 33.3333%;
+            max-width: 33.3333%;
+            display: flex;
+        }
+        .cards-grid-3 > [class*="col-"] > .card {
+            width: 100%;
+        }
+        @media (max-width: 991.98px) {
+            .cards-grid-3 > [class*="col-"] {
+                flex: 0 0 50%;
+                max-width: 50%;
+            }
+        }
+        @media (max-width: 575.98px) {
+            .cards-grid-3 > [class*="col-"] {
+                flex: 0 0 100%;
+                max-width: 100%;
+            }
+        }
     </style>
 </head>
 <body>
@@ -172,8 +214,8 @@
     <section class="hero">
         <div class="container">
             <div class="hero-image">
-                <img src="images/hero_004.png" alt="OPER - Gestão de manutenção" class="desktop-image" loading="lazy" onerror="this.style.display='none'">
-                <img src="images/home_m_002.png" alt="OPER - Gestão de manutenção" class="mobile-image" loading="lazy" onerror="this.style.display='none'">
+                <img src="images/dispositivos.png" alt="OPER - Gestão de manutenção" class="desktop-image" loading="lazy" onerror="this.style.display='none'">
+                <img src="images/dispositivos.png" alt="OPER - Gestão de manutenção" class="mobile-image" loading="lazy" onerror="this.style.display='none'">
             </div>
             <div class="hero-content">
                 <h2 class="subtitle">Recursos OPER</h2>
@@ -201,49 +243,49 @@
         </div>
     </section>
 
-    <!-- Banner Parallax (novo) -->
+    <!-- Banner Parallax (novo, seguindo padrão visual) -->
     <section class="parallax-banner" style="background-image: url('temp_images/teamwork.jpg');">
-        <div class="parallax-content" data-parallax-speed="0.25">
-            <h3 style="margin:0 0 8px;">Foque no que importa: operação confiável</h3>
-            <p style="margin:0 0 12px;">Padronize processos, reduza riscos e aumente a previsibilidade.</p>
+        <div class="parallax-content">
+            <h2 class="parallax-title">Operação previsível e sem sustos</h2>
+            <p class="parallax-text">Padronize processos, reduza riscos e aumente a confiabilidade com o OPER.</p>
             <a href="https://wa.me/5582981457117?text=Quero%20uma%20demonstra%C3%A7%C3%A3o%20exclusiva" target="_blank" class="btn btn-primary">Agendar Demo</a>
         </div>
     </section>
 
-    <!-- Mockups / Telas (novo: usa imagens de temp_images e images) -->
+    <!-- Mockups / Telas (novo) -->
     <section class="section-padding bg-light">
         <div class="container">
             <div class="row">
                 <div class="col-lg-8 mx-auto text-center mb-5">
-                    <h2 class="display-6 fw-bold">Veja como fica na prática</h2>
-                    <p class="text-muted">Estas são imagens ilustrativas — você pode substituí-las por telas reais da plataforma.</p>
+                    <h2 class="section-title">Veja como funciona na prática</h2>
+                    <p class="section-subtitle">Imagens ilustrativas — depois você pode trocar por telas reais da plataforma.</p>
                 </div>
             </div>
-            <div class="row g-4">
+            <div class="row g-4 cards-grid-3">
                 <div class="col-md-4">
-                    <div class="card h-100">
-                        <img src="temp_images/mobile_app.jpg" alt="App móvel — abertura de OS e checklists" class="card-img-top" loading="lazy" onerror="this.style.display='none'">
+                    <div class="card mockup-card h-100">
+                        <img src="temp_images/mobile_app.jpg" alt="App móvel — checklists e OS" class="card-img-top" loading="lazy" onerror="this.style.display='none'">
                         <div class="card-body">
                             <h5 class="card-title">App móvel</h5>
-                            <p class="card-text text-muted">Operação no celular: abra OS, execute checklists e registre evidências com agilidade.</p>
+                            <p class="card-text">Abra OS e execute checklists direto do celular com registro de evidências.</p>
                         </div>
                     </div>
                 </div>
                 <div class="col-md-4">
-                    <div class="card h-100">
-                        <img src="temp_images/dashboard_mockup.jpg" alt="Dashboard e visão em tempo real" class="card-img-top" loading="lazy" onerror="this.style.display='none'">
+                    <div class="card mockup-card h-100">
+                        <img src="temp_images/dashboard_mockup.jpg" alt="Dashboard e indicadores" class="card-img-top" loading="lazy" onerror="this.style.display='none'">
                         <div class="card-body">
                             <h5 class="card-title">Dashboard</h5>
-                            <p class="card-text text-muted">Indicadores de execução, risco e conformidade para decisões rápidas e confiáveis.</p>
+                            <p class="card-text">Indicadores de execução, risco e conformidade para decisões rápidas.</p>
                         </div>
                     </div>
                 </div>
                 <div class="col-md-4">
-                    <div class="card h-100">
+                    <div class="card mockup-card h-100">
                         <img src="temp_images/analytics.jpg" alt="Relatórios e analytics" class="card-img-top" loading="lazy" onerror="this.style.display='none'">
                         <div class="card-body">
                             <h5 class="card-title">Relatórios</h5>
-                            <p class="card-text text-muted">Análises e relatórios auditáveis sobre desempenho, custos e conformidade operacional.</p>
+                            <p class="card-text">Análises auditáveis de desempenho, custos e conformidade operacional.</p>
                         </div>
                     </div>
                 </div>
@@ -1269,19 +1311,22 @@
         </div>
     </div>
 
-    <!-- Botão flutuante do WhatsApp (padronizado) -->
-    <a id="whatsappFloat" href="https://wa.me/5582981457117?text=Quero%20uma%20demonstra%C3%A7%C3%A3o%20exclusiva"
-       class="whatsapp-float zap-anchor" target="_blank" rel="noopener noreferrer" aria-label="Falar no WhatsApp">
-        <div class="zap-tooltip" role="tooltip">
-            Falar no WhatsApp
-            <div class="zap-tooltip-arrow"></div>
-        </div>
-        <div class="zap-glow"></div>
-        <div class="zap-button ripple-effect">
-            <img src="images/zap_01.png" alt="WhatsApp" class="zap-icon">
-        </div>
-        <div class="zap-pulse"></div>
-    </a>
+    <!-- Botão flutuante do WhatsApp (idêntico ao index) -->
+<a id="whatsappFloat" href="https://wa.me/5582981457117?text=Quero%20uma%20demonstra%C3%A7%C3%A3o%20exclusiva"
+   class="whatsapp-float zap-anchor" target="_blank" rel="noopener noreferrer" aria-label="Falar no WhatsApp">
+    <div class="zap-tooltip" role="tooltip">
+        Falar no WhatsApp
+        <div class="zap-tooltip-arrow"></div>
+    </div>
+    <div class="zap-glow"></div>
+    <div class="zap-button ripple-effect">
+        <img src="images/zap_01.png" alt="WhatsApp" class="zap-icon">
+    </div>
+    <div class="zap-pulse"></div>
+</a>
+
+    <!-- Remoção da navbar local para usar o menu global carregado via menu.html -->
+    <!-- A navbar <nav class="navbar navbar-expand-lg">...</nav> foi retirada -->
 
     <!-- Footer -->
     <footer class="bg-dark text-white py-5 mt-5">
@@ -1298,20 +1343,28 @@
         </div>
     </footer>
 
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
-    <!-- Scripts (harmonizados) -->
+    <!-- Scripts de base e menu -->
     <script src="js/script-harmonizado.js"></script>
     <script src="js/menu-loader.js"></script>
+
+    <!-- Bootstrap bundle (mantido para grid) -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+
+    <!-- Parallax leve baseado no scroll -->
     <script>
-        // Parallax leve baseado na posição no viewport
         (function() {
-            const els = document.querySelectorAll('[data-parallax-speed]');
+            const banners = document.querySelectorAll('.parallax-banner');
+            const contents = document.querySelectorAll('.parallax-content');
             function update() {
-                els.forEach(el => {
-                    const speed = parseFloat(el.dataset.parallaxSpeed || '0.2');
+                const scrollY = window.scrollY || window.pageYOffset;
+                contents.forEach(el => {
                     const rect = el.getBoundingClientRect();
-                    const offset = (rect.top - window.innerHeight / 2) * speed * 0.2;
+                    const speed = 0.08;
+                    const offset = (rect.top - window.innerHeight / 2) * speed;
                     el.style.transform = `translateY(${offset}px)`;
+                });
+                banners.forEach(bg => {
+                    bg.style.backgroundPositionY = `${scrollY * 0.15}px`;
                 });
             }
             update();
