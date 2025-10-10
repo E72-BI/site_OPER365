@@ -18,43 +18,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 
     <style>
-        /* Banner Parallax: altura fixa no desktop e proporcional no mobile */
-        .parallax-banner {
-            position: relative;
-            height: 600px;
-            min-height: 600px;
-            background-position: center center;
-            background-size: cover;
-            background-attachment: fixed; /* efeito parallax no desktop */
-            margin-top: -24px;            /* sobrepõe levemente a seção acima */
-            overflow: hidden;
-        }
-        .parallax-banner::after {
-            content: "";
-            position: absolute;
-            inset: 0;
-            background: rgba(0,0,0,0.15); /* leve máscara para legibilidade */
-        }
-        .parallax-banner .parallax-content {
-            position: relative;
-            z-index: 1;
-            height: 100%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            flex-direction: column;
-            text-align: center;
-            color: #fff;
-            padding: 0 16px;
-        }
-        @media (max-width: 768px) {
-            .parallax-banner {
-                height: 45vh;             /* proporcional ao viewport no mobile */
-                min-height: 45vh;
-                background-attachment: scroll; /* desempenho melhor no mobile */
-                margin-top: -12px;        /* mesma ideia de sobreposição, menor */
-            }
-        }
+        /* Removido: .parallax-banner e derivados para usar o .app-section do styles-base.css */
 
         /* WhatsApp Float — ajustes mínimos locais iguais ao index */
         @media (max-width: 768px) {
@@ -339,12 +303,18 @@
         </div>
     </section>
 
-    <!-- Banner Parallax (novo, seguindo padrão visual) -->
-    <section class="parallax-banner" style="background-image: url('temp_images/teamwork.jpg');">
-        <div class="parallax-content">
-            <h2 class="parallax-title">Operação previsível e sem sustos</h2>
-            <p class="parallax-text">Padronize processos, reduza riscos e aumente a confiabilidade com o OPER.</p>
-            <a href="https://wa.me/5582981457117?text=Quero%20uma%20demonstra%C3%A7%C3%A3o%20exclusiva" target="_blank" class="btn btn-primary">Agendar Demo</a>
+    <!-- App Section com texto e fundo solicitados -->
+    <section class="app-section" style="background: linear-gradient(rgba(69, 134, 223, 0.9), rgba(69, 134, 223, 0.9)), url('images/condominio.png');">
+        <div class="container">
+            <h2 class="section-title">Operação previsível e sem sustos</h2>
+            <p class="section-description">
+                Padronize processos, reduza riscos e aumente a confiabilidade com o OPER.
+            </p>
+            <div class="app-qr-section">
+                <div class="qr-card">
+                    <img src="images/img_qr.png" alt="QR Code para baixar o app" class="qr-image-center">
+                </div>
+            </div>
         </div>
     </section>
 
@@ -1067,13 +1037,16 @@
         </div>
     </section>
 
-    <!-- Parallax Banner (novo, entre seções principais) -->
-    <section class="parallax-banner">
-        <video class="parallax-video" src="images/Video_9.mp4" autoplay muted loop playsinline preload="auto" poster="images/hero_004.png"></video>
-        <div class="parallax-content" data-parallax-speed="0.12">
-            <h3 class="fw-bold mb-2">Planejamento visual e execução sem atrito</h3>
-            <p class="text-muted mb-3">Calendário, ordens e checklists digitais com conformidade auditável</p>
-            <a href="tour-guiado.html" class="btn btn-outline-primary">Ver Tour Guiado</a>
+    <!-- App Section (banner limpo, sem parallax) -->
+    <section class="app-section">
+        <div class="container">
+            <h2 class="section-title">Planejamento visual e execução sem atrito</h2>
+            <p class="section-description">
+                Calendário, ordens e checklists digitais com conformidade auditável
+            </p>
+            <div class="text-center">
+                <a href="tour-guiado.html" class="btn btn-outline-primary">Ver Tour Guiado</a>
+            </div>
         </div>
     </section>
 
@@ -1447,27 +1420,6 @@
     <!-- Bootstrap bundle (mantido para grid) -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 
-    <!-- Parallax leve baseado no scroll -->
-    <script>
-        (function() {
-            const banners = document.querySelectorAll('.parallax-banner');
-            const contents = document.querySelectorAll('.parallax-content');
-            function update() {
-                const scrollY = window.scrollY || window.pageYOffset;
-                contents.forEach(el => {
-                    const rect = el.getBoundingClientRect();
-                    const speed = 0.08;
-                    const offset = (rect.top - window.innerHeight / 2) * speed;
-                    el.style.transform = `translateY(${offset}px)`;
-                });
-                banners.forEach(bg => {
-                    bg.style.backgroundPositionY = `${scrollY * 0.15}px`;
-                });
-            }
-            update();
-            window.addEventListener('scroll', update, { passive: true });
-            window.addEventListener('resize', update);
-        })();
-    </script>
+    <!-- Script removido: parallax desativado para manter consistência com o index -->
 </body>
 </html>
