@@ -4,7 +4,29 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Recursos e Ferramentas — OPER</title>
-    <meta name="description" content="Conheça todos os recursos do sistema de gestão de manutenção OPER - Gestão de ativos, workflow, auditoria, planejamento e muito mais.">
+    <meta name="description" content="CMMS inteligente e plataforma de manutenção digital com MTBF/MTTR, checklists, OS rastreáveis e relatórios auditáveis.">
+    <!-- Schema.org SEO: WebPage + SoftwareApplication -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "WebPage",
+      "name": "Recursos e Ferramentas — OPER",
+      "description": "CMMS inteligente e plataforma de manutenção digital com MTBF/MTTR, checklists, OS rastreáveis e relatórios auditáveis.",
+      "inLanguage": "pt-BR",
+      "isPartOf": { "@type": "WebSite", "name": "OPER" }
+    }
+    </script>
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "SoftwareApplication",
+      "name": "OPER — CMMS & EAM",
+      "applicationCategory": "BusinessApplication",
+      "operatingSystem": "Web, Android, iOS",
+      "description": "Sistema de gestão de manutenção com IA: planejamento, execução, analytics, compliance e operação offline.",
+      "publisher": { "@type": "Organization", "name": "OPER" }
+    }
+    </script>
     <!-- Fonte e estilos padronizados como index/tour -->
     <link rel="stylesheet" href="css/styles-base.css">
     <link rel="stylesheet" href="css/styles-mobile.css">
@@ -262,6 +284,110 @@
                 max-width: 100%;
             }
         }
+
+        /* Título do Hero igual ao card-title */
+        .hero .hero-content .title {
+            font-size: 1.75rem !important;        /* --text-3xl: 1.875rem mas ajustado */
+            font-weight: 700 !important;          /* fw-bold */
+            line-height: 1.2 !important;
+            margin-bottom: 0.5rem !important;     /* mb-2 */
+            color: #323336 !important;            /* Cor solicitada pelo usuário */
+        }
+
+        /* CTAs com botão Tour mais próximo do "OU" */
+        .hero .cta-row {
+            display: flex !important;
+            align-items: center !important;
+            justify-content: flex-start !important;
+            gap: 8px !important;                   /* Gap menor para aproximar */
+            margin-top: var(--space-xs) !important;
+            margin-bottom: 0 !important;
+            padding-bottom: 0 !important;
+            flex-wrap: nowrap !important;
+        }
+
+        .hero .cta-row .cta-separator {
+            display: flex !important;
+            align-items: center !important;
+            line-height: 1 !important;
+            font-weight: 700 !important;
+            font-size: 14px !important;
+            margin: 0 6px !important;              /* Margem menor para aproximar */
+        }
+
+        /* Alinhamento vertical perfeito - TODOS os elementos da CTA */
+        .hero .cta-row .tour-button,
+        .hero .cta-row .cta-separator,
+        .hero .cta-row .btn.btn-primary {
+            transform: translateY(-12px) !important;
+            align-self: center !important;
+        }
+
+        /* Tour: tamanho consistente */
+        .hero .tour-button .zap-icon {
+            width: 92px !important;
+            height: 92px !important;
+            object-fit: contain;
+            display: block;
+        }
+        .hero .tour-button .zap-button { 
+            padding: 0 !important; 
+        }
+
+        /* Corrigir problema da faixa branca - limitar overflow */
+        .hero .hero-content {
+            position: relative !important;
+            z-index: 2 !important;
+            overflow: visible !important;
+        }
+
+        .hero .container {
+            overflow: hidden !important;
+        }
+
+        /* BOTÃO WHATSAPP: USAR APENAS ESTILOS GLOBAIS - SEM CUSTOMIZAÇÃO */
+        /* Removemos todos os estilos customizados para usar apenas .btn.btn-primary global */
+        .hero .cta-row .btn.btn-primary {
+            /* Garantir que use apenas os estilos globais do sistema */
+            white-space: nowrap !important;
+            flex: 0 0 auto !important;
+            /* Todos os outros estilos vêm do CSS base (.btn.btn-primary) */
+        }
+
+        /* Mobile: ajustes */
+        @media (max-width: 768px) {
+            .hero .cta-row {
+                justify-content: flex-start !important;
+                gap: 6px !important;
+                margin-top: 6px !important;
+            }
+            
+            .hero .cta-row .cta-separator {
+                margin: 0 4px !important;
+            }
+            
+            /* Mobile: texto à esquerda */
+            .hero .hero-content {
+                text-align: left !important;
+            }
+            .hero .hero-content .subtitle,
+            .hero .hero-content .title,
+            .hero .hero-content .description {
+                text-align: left !important;
+                margin-left: 0 !important;
+                margin-right: 0 !important;
+            }
+
+            /* Mobile: botão WhatsApp igual ao index.html */
+            .hero .cta-row .btn.btn-primary {
+                flex: 0 0 auto !important;
+                white-space: nowrap !important;
+                padding: 6px 10px !important;
+                font-size: 13px !important;
+                line-height: 1.2 !important;
+                min-width: 0 !important;
+            }
+        }
     </style>
 </head>
 <body>
@@ -271,21 +397,21 @@
     <section class="hero">
         <div class="container">
             <div class="hero-image">
-            <img src="images/dispositivos.png" alt="OPER em múltiplos dispositivos" class="desktop-image" loading="lazy" onerror="this.style.display='none'">
-            <img src="images/dispositivo001.png" alt="OPER em múltiplos dispositivos" class="mobile-image" loading="lazy" onerror="this.style.display='none'">
-        </div>
+                <img src="images/dispositivos.png" alt="OPER em múltiplos dispositivos" class="desktop-image" loading="lazy" onerror="this.style.display='none'">
+                <img src="images/dispositivo001.png" alt="OPER em múltiplos dispositivos" class="mobile-image" loading="lazy" onerror="this.style.display='none'">
+            </div>
             <div class="hero-content">
-                <h2 class="subtitle">
-                <span style="color: var(--danger-color);">Tudo Aqui!</span>
-            </h2>
-            <p class="description">
-                Eleve o Tempo Médio Entre Falhas (MTBF), prolongando a vida útil dos ativos, e reduza o Tempo Médio para Reparo (MTTR), acelerando diagnósticos e respostas.
-            </p>
-            <p class="description">
-                Tudo em um só lugar: checklists inteligentes, ordens de serviço rastreáveis e relatórios auditáveis.
-            </p>
+                <h2 class="subtitle">Tudo Aqui!</h2>
+                <h1 class="title">CMMS Inteligente <br>& Manutenção Digital.</h1>
+                <p class="description">
+                    <span class="oper-highlight">Eleve o Tempo Médio Entre Falhas (MTBF)</span>, prolongue a vida útil dos seus ativos e <span class="oper-highlight">reduza o Tempo Médio para Reparo (MTTR)</span> com o a <span class="oper-highlight"> OPER</span>. 
+                </p>
+                <p class="description">
+                   Checklists inteligentes, ordens de serviço rastreáveis, histórico completo de falhas e relatórios auditáveis para gestão de manutenção digital eficiente.
+                </p>
                 <div class="cta-row">
-                    <a href="tour-guiado.html" class="tour-button zap-anchor tour-fixed" aria-label="Abrir Tour Virtual" rel="noopener noreferrer">
+                    <!-- Tour com efeitos alinhado na linha -->
+                    <a href="tour-guiado.html" class="tour-button zap-anchor" aria-label="Abrir Tour Virtual" rel="noopener noreferrer">
                         <div class="zap-tooltip" role="tooltip">
                             Abrir Tour Virtual
                             <div class="zap-tooltip-arrow"></div>
@@ -296,6 +422,7 @@
                         </div>
                         <div class="zap-pulse"></div>
                     </a>
+
                     <span class="cta-separator">OU</span>
                     <a href="https://wa.me/5582981457117?text=Quero%20uma%20demonstra%C3%A7%C3%A3o%20exclusiva" target="_blank" class="btn btn-primary">Agendar Demo</a>
                 </div>
@@ -303,57 +430,32 @@
         </div>
     </section>
 
-    <!-- App Section com texto e fundo solicitados -->
-    <section class="app-section" style="background: linear-gradient(rgba(34, 34, 34, 0.85), rgba(34, 34, 34, 0.85)), url('images/condominio.png');">
+    <!-- Seção 2 — Operação que Atende Todos os Setores -->
+    <section class="app-section" style="background: linear-gradient(rgba(34,34,34,0.85), rgba(34,34,34,0.85)), url('images/condominio.png');">
         <div class="container">
-            <h2 class="section-title">Operação previsível e sem sustos</h2>
+            <h2 class="section-title">Operação Previsível — Do Hotel ao Chão de Fábrica</h2>
             <p class="section-description">
-                Padronize processos, reduza riscos e aumente a confiabilidade com o OPER.
+                Padronize processos, minimize riscos e assegure conformidade técnica e regulatória para cada setor.
+                Em hotéis, condomínios, escolas, frotas, edifícios corporativos e operações industriais, o OPER entrega
+                organização, previsibilidade operacional e segurança sistêmica.
             </p>
-            <div class="app-qr-section">
-                <div class="qr-card">
-                    <img src="images/img_qr.png" alt="QR Code para baixar o app" class="qr-image-center">
-                </div>
-            </div>
+            <!-- CTA menor da seção -->
+            <a href="#ver-na-pratica" class="btn btn-light">Veja como funciona na prática</a>
         </div>
     </section>
 
-    <!-- Mockups / Telas (novo) -->
-    <section class="section-padding bg-light">
+    <!-- Seção 3 — Gestão de Manutenção Digital & Controle de Ativos -->
+    <section class="section-padding" id="visao-geral">
         <div class="container">
             <div class="row">
-                <div class="col-lg-8 mx-auto text-center mb-5">
-                    <h2 class="section-title">Veja como funciona na prática</h2>
-                    <p class="section-subtitle">Imagens ilustrativas — depois você pode trocar por telas reais da plataforma.</p>
-                </div>
-            </div>
-            <div class="row g-4 cards-grid-3">
-                <div class="col-md-4">
-                    <div class="card mockup-card h-100">
-                        <img src="temp_images/mobile_app.jpg" alt="App móvel — checklists e OS" class="card-img-top" loading="lazy" onerror="this.style.display='none'">
-                        <div class="card-body">
-                            <h5 class="card-title">App móvel</h5>
-                            <p class="card-text">Abra OS e execute checklists direto do celular com registro de evidências.</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-4">
-                    <div class="card mockup-card h-100">
-                        <img src="temp_images/dashboard_mockup.jpg" alt="Dashboard e indicadores" class="card-img-top" loading="lazy" onerror="this.style.display='none'">
-                        <div class="card-body">
-                            <h5 class="card-title">Dashboard</h5>
-                            <p class="card-text">Indicadores de execução, risco e conformidade para decisões rápidas.</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-4">
-                    <div class="card mockup-card h-100">
-                        <img src="temp_images/analytics.jpg" alt="Relatórios e analytics" class="card-img-top" loading="lazy" onerror="this.style.display='none'">
-                        <div class="card-body">
-                            <h5 class="card-title">Relatórios</h5>
-                            <p class="card-text">Análises auditáveis de desempenho, custos e conformidade operacional.</p>
-                        </div>
-                    </div>
+                <div class="col-lg-8 mx-auto text-center">
+                    <h2 class="display-5 fw-bold mb-4">Gestão de Manutenção Digital & Controle de Ativos</h2>
+                    <p class="lead text-muted mb-4">
+                        Transforme a manutenção reativa em um ativo estratégico.<br><br>
+                        O OPER é um sistema moderno de CMMS inteligente, concebido para operações que exigem alta rastreabilidade, eficiência operacional e rigor técnico. Consolidamos ativos, tarefas, métricas e decisões em uma plataforma única, pronta para crescer junto com suas exigências futuras.
+                    </p>
+                    <!-- CTA de engajamento -->
+                    <a href="tour-guiado.html" class="btn btn-primary">Tour Virtual</a>
                 </div>
             </div>
         </div>
@@ -386,292 +488,162 @@
         </div>
     </section>
 
-    <!-- Features Section -->
-    <section class="section-padding bg-light">
+    <!-- Seção 4 — Recursos Poderosos — Potencializando sua Operação -->
+    <section class="section-padding bg-light" id="recursos">
         <div class="container">
             <div class="row">
                 <div class="col-lg-8 mx-auto text-center mb-5">
-                    <h2 class="display-5 fw-bold mb-4">
-                        Recursos Poderosos para Sua Operação
-                    </h2>
-                    <p class="lead text-muted">
-                        Controle total da manutenção — do planejamento à execução e análise — com segurança, 
-                        confiabilidade e performance. Nossa plataforma oferece ferramentas completas para 
-                        transformar sua gestão de manutenção em uma vantagem estratégica competitiva.
-                    </p>
+                    <h2 class="display-5 fw-bold mb-4">Recursos Poderosos — Potencializando sua Operação</h2>
                 </div>
             </div>
+
             <div class="row g-4">
+                <!-- Gestão de Ativos & Ciclo de Vida (Asset Management / EAM) -->
                 <div class="col-lg-6">
                     <div class="card h-100">
                         <div class="card-body">
-                            <div class="d-flex align-items-start mb-3">
-                                <div class="feature-icon me-3">
-                                    <i class="fas fa-cogs"></i>
-                                </div>
-                                <div class="flex-grow-1">
-                                    <div class="d-flex align-items-center gap-2 mb-2">
-                                        <h5 class="card-title fw-bold mb-0">Gestão de Ativos e Ciclo de Vida</h5>
-                                        <span class="badge-custom">Profissional</span>
-                                    </div>
-                                </div>
-                            </div>
+                            <h3 class="card-title fw-bold mb-2">Gestão de Ativos & Ciclo de Vida (Asset Management / EAM)</h3>
                             <p class="card-text text-muted mb-3">
-                                Crie, acompanhe e otimize cada ativo — ar condicionado, elevadores, veículos de frota, cozinhas, mobiliário. 
-                                Sistema completo para gerenciar todo o ciclo de vida dos equipamentos desde a aquisição até o descarte.
+                                Monitore o ciclo completo — aquisição, performance, manutenção e descarte.
+                                Estruture hierarquias (local > sistema > equipamento > componente) e tome decisões com base em dados
+                                históricos e indicadores de desempenho do ativo.
                             </p>
-                            <ul class="bullet-list text-muted small">
-                                <li>Registro completo: aquisição, local, garantia, manuais e histórico</li>
-                                <li>Hierarquia inteligente: local › sistema › equipamento › componente</li>
-                                <li>Decisões de substituição baseadas em dados de performance</li>
-                                <li>Compatível com práticas de gestão de ativos internacionais</li>
-                                <li>Documentação digital integrada e acessível em qualquer dispositivo</li>
-                            </ul>
+                            <a href="#ativos" class="btn btn-link p-0">Saiba mais</a>
                         </div>
                     </div>
                 </div>
 
+                <!-- Fluxos de Aprovação & Workflow Inteligente -->
                 <div class="col-lg-6">
                     <div class="card h-100">
                         <div class="card-body">
-                            <div class="d-flex align-items-start mb-3">
-                                <div class="feature-icon me-3">
-                                    <i class="fas fa-check-circle"></i>
-                                </div>
-                                <div class="flex-grow-1">
-                                    <h5 class="card-title fw-bold mb-0">Aprovação de Tarefas & Workflow Personalizado</h5>
-                                </div>
-                            </div>
+                            <h3 class="card-title fw-bold mb-2">Fluxos de Aprovação & Workflow Inteligente</h3>
                             <p class="card-text text-muted mb-3">
-                                Fluxos de aprovação configuráveis para ordens e checklists com total rastreabilidade. 
-                                Automatize processos de aprovação conforme a complexidade, valor ou criticidade da tarefa.
+                                Configure processos de aprovação conforme valor, criticidade ou local.
+                                Tenha rastreabilidade total e logs imutáveis, prontos para auditorias e compliance técnico.
                             </p>
-                            <ul class="bullet-list text-muted small">
-                                <li>Níveis de aprovação por função, local ou valor da tarefa</li>
-                                <li>Notificações automáticas via email, push e in-app</li>
-                                <li>Histórico completo de aprovações pronto para auditoria</li>
-                                <li>Configuração de regras de negócio personalizáveis</li>
-                                <li>Integração com sistemas de assinatura digital</li>
-                            </ul>
+                            <a href="#workflow" class="btn btn-link p-0">Ver fluxo de aprovação</a>
                         </div>
                     </div>
                 </div>
 
+                <!-- Auditoria & Controle de Conformidade (Compliance Logs / ISO) -->
                 <div class="col-lg-6">
                     <div class="card h-100">
                         <div class="card-body">
-                            <div class="d-flex align-items-start mb-3">
-                                <div class="feature-icon me-3">
-                                    <i class="fas fa-shield-alt"></i>
-                                </div>
-                                <div class="flex-grow-1">
-                                    <h5 class="card-title fw-bold mb-0">Auditoria de Conformidade & Logs de Segurança</h5>
-                                </div>
-                            </div>
+                            <h3 class="card-title fw-bold mb-2">Auditoria & Controle de Conformidade (Compliance Logs / ISO)</h3>
                             <p class="card-text text-muted mb-3">
-                                Quem fez, quando, onde — registros completos para conformidade legal, regulatória e política interna. 
-                                Sistema robusto de rastreabilidade e segurança da informação.
+                                Registre "quem fez, quando e onde" com logs automáticos, controle de acesso por papéis (RBAC) e checklists digitais integrados.
                             </p>
-                            <ul class="bullet-list text-muted small">
-                                <li>Logs automáticos e imutáveis de todas as ações do sistema</li>
-                                <li>Checklists digitais que garantem conformidade operacional</li>
-                                <li>Referência para práticas de segurança corporativas</li>
-                                <li>Relatórios de auditoria gerados automaticamente</li>
-                                <li>Controle de acesso baseado em papéis (RBAC)</li>
-                            </ul>
+                            <a href="#compliance" class="btn btn-link p-0">Ver logs / compliance</a>
                         </div>
                     </div>
                 </div>
 
+                <!-- Planejamento Visual — Calendário & Gantt -->
                 <div class="col-lg-6">
                     <div class="card h-100">
                         <div class="card-body">
-                            <div class="d-flex align-items-start mb-3">
-                                <div class="feature-icon me-3">
-                                    <i class="fas fa-calendar-alt"></i>
-                                </div>
-                                <div class="flex-grow-1">
-                                    <h5 class="card-title fw-bold mb-0">Calendário / Gantt de Planejamento</h5>
-                                </div>
-                            </div>
+                            <h3 class="card-title fw-bold mb-2">Planejamento Visual — Calendário & Gantt</h3>
                             <p class="card-text text-muted mb-3">
-                                Visualize tarefas, OS e manutenções preventivas por equipe, local ou frota. 
-                                Interface intuitiva para planejamento visual e controle de cronogramas.
+                                Organize e visualize ordens de serviço, manutenções preventivas e escalas de equipe.
+                                Interface drag-and-drop, priorização automática e visões por dia, semana, mês e ano.
                             </p>
-                            <ul class="bullet-list text-muted small">
-                                <li>Drag & drop para replanejar prioridades rapidamente</li>
-                                <li>Ajustes dinâmicos para imprevistos e atrasos</li>
-                                <li>Visão diária / semanal / mensal / anual</li>
-                                <li>Coloração automática por status e prioridade</li>
-                                <li>Exportação para formatos de projeto (MS Project, Excel)</li>
-                            </ul>
+                            <a href="#gantt" class="btn btn-link p-0">Ver agenda visual</a>
                         </div>
                     </div>
                 </div>
 
+                <!-- Permissões Customizáveis & Operações Multi-Site -->
                 <div class="col-lg-6">
                     <div class="card h-100">
                         <div class="card-body">
-                            <div class="d-flex align-items-start mb-3">
-                                <div class="feature-icon me-3">
-                                    <i class="fas fa-users"></i>
-                                </div>
-                                <div class="flex-grow-1">
-                                    <h5 class="card-title fw-bold mb-0">Permissões Customizáveis & Multi-Localidades</h5>
-                                </div>
-                            </div>
+                            <h3 class="card-title fw-bold mb-2">Permissões Customizáveis & Operações Multi-Site</h3>
                             <p class="card-text text-muted mb-3">
-                                Controle granular de acesso por local, equipe e função. Sistema flexível para 
-                                gerenciar operações multi-site com visão consolidada e detalhada.
+                                Controle granular de acesso por usuário, equipe, unidade operacional e geolocalização.
+                                Gestão consolidada de operações espalhadas por múltiplas localidades.
                             </p>
-                            <ul class="bullet-list text-muted small">
-                                <li>Perfis de acesso com leitura, edição, aprovação, visualização</li>
-                                <li>Multi-site: consolidação com visão local detalhada</li>
-                                <li>Gerenciamento de equipes e escalas de trabalho</li>
-                                <li>Controle de acesso por geolocalização</li>
-                                <li>Hierarquia organizacional customizável</li>
-                            </ul>
+                            <a href="#permissoes" class="btn btn-link p-0">Ver controle por local</a>
                         </div>
                     </div>
                 </div>
 
+                <!-- Relatórios, Dashboards & Analytics (BI / KPIs / Insights) -->
                 <div class="col-lg-6">
                     <div class="card h-100">
                         <div class="card-body">
-                            <div class="d-flex align-items-start mb-3">
-                                <div class="feature-icon me-3">
-                                    <i class="fas fa-chart-line"></i>
-                                </div>
-                                <div class="flex-grow-1">
-                                    <div class="d-flex align-items-center gap-2 mb-2">
-                                        <h5 class="card-title fw-bold mb-0">Relatórios, Análises & Métricas de Performance</h5>
-                                        <span class="badge-custom">Avançado</span>
-                                    </div>
-                                </div>
-                            </div>
+                            <h3 class="card-title fw-bold mb-2">Relatórios, Dashboards & Analytics (BI / KPIs / Insights)</h3>
                             <p class="card-text text-muted mb-3">
-                                Transforme dados operacionais em decisões estratégicas — mesmo sem sensores IoT. 
-                                Sistema analítico avançado com previsão e análise de dados.
+                                Transforme dados operacionais em decisões estratégicas.
+                                Métricas essenciais — MTTR, MTBF, backlog, custo por ativo, análise de falhas por padrão — com integração direta a BI.
                             </p>
-                            <ul class="bullet-list text-muted small">
-                                <li>Métricas essenciais: MTTR, MTBF, backlog, custo por ativo</li>
-                                <li>Relatórios customizados e comparativos entre períodos</li>
-                                <li>Análise de falhas por padrões de uso e histórico</li>
-                                <li>Dashboards interativos em tempo real</li>
-                                <li>Exportação automática para BI e sistemas corporativos</li>
-                            </ul>
+                            <a href="#dashboards" class="btn btn-link p-0">Ver dashboards</a>
                         </div>
                     </div>
                 </div>
 
+                <!-- App Móvel & Operação Offline (Mobile CMMS) -->
                 <div class="col-lg-6">
                     <div class="card h-100">
                         <div class="card-body">
-                            <div class="d-flex align-items-start mb-3">
-                                <div class="feature-icon me-3">
-                                    <i class="fas fa-mobile-alt"></i>
-                                </div>
-                                <div class="flex-grow-1">
-                                    <h5 class="card-title fw-bold mb-0">App Móvel Simplificado & Operação Offline</h5>
-                                </div>
-                            </div>
+                            <h3 class="card-title fw-bold mb-2">App Móvel & Operação Offline (Mobile CMMS)</h3>
                             <p class="card-text text-muted mb-3">
-                                Equipes sempre conectadas ao trabalho — no hotel, no condomínio, nas escolas ou na frota. 
-                                Aplicativo nativo projetado para operação em campo.
+                                A equipe de campo acessa tarefas, checklists e evidências diretamente do celular, mesmo sem conexão.
+                                Sincronização automática e interface pensada para uso robusto.
                             </p>
-                            <ul class="bullet-list text-muted small">
-                                <li>Acesso rápido às tarefas do dia com um toque</li>
-                                <li>Checklists digitais, fotos e evidências pelo celular</li>
-                                <li>Funciona completamente offline — sincroniza ao voltar conexão</li>
-                                <li>Notificações push e alertas em tempo real</li>
-                                <li>Interface otimizada para uso com luvas e condições adversas</li>
-                            </ul>
+                            <a href="#app" class="btn btn-link p-0">Ver app móvel</a>
                         </div>
                     </div>
                 </div>
 
+                <!-- Gestão de Estoque & Reposição Inteligente (Supply Chain / MRO) -->
                 <div class="col-lg-6">
                     <div class="card h-100">
                         <div class="card-body">
-                            <div class="d-flex align-items-start mb-3">
-                                <div class="feature-icon me-3">
-                                    <i class="fas fa-boxes"></i>
-                                </div>
-                                <div class="flex-grow-1">
-                                    <h5 class="card-title fw-bold mb-0">Inventário, Peças & Reposição Inteligente</h5>
-                                </div>
-                            </div>
+                            <h3 class="card-title fw-bold mb-2">Gestão de Estoque & Reposição Inteligente (Supply Chain / MRO)</h3>
                             <p class="card-text text-muted mb-3">
-                                Nunca falte peça no momento crítico — controle e reposição com previsibilidade. 
-                                Sistema inteligente de gestão de estoque e cadeia de suprimentos.
+                                Evite rupturas críticas. Controle níveis mínimos, rastreamento de lote e validade,
+                                previsão de demanda e integração com fornecedores.
                             </p>
-                            <ul class="bullet-list text-muted small">
-                                <li>Controle de estoque por local ou unidade operacional</li>
-                                <li>Alertas automáticos de nível mínimo e reposição</li>
-                                <li>Previsão de demanda baseada em histórico de uso</li>
-                                <li>Integração com fornecedores e pedidos automáticos</li>
-                                <li>Rastreamento de lote e validade de materiais</li>
-                            </ul>
+                            <a href="#estoque" class="btn btn-link p-0">Ver controle de estoque</a>
                         </div>
                     </div>
                 </div>
 
+                <!-- Integrações & API Corporativa (Ecosistema / Integração ERP/BI) -->
                 <div class="col-lg-6">
                     <div class="card h-100">
                         <div class="card-body">
-                            <div class="d-flex align-items-start mb-3">
-                                <div class="feature-icon me-3">
-                                    <i class="fas fa-plug"></i>
-                                </div>
-                                <div class="flex-grow-1">
-                                    <h5 class="card-title fw-bold mb-0">Integrações & API / Ecossistema Corporativo</h5>
-                                </div>
-                            </div>
+                            <h3 class="card-title fw-bold mb-2">Integrações & API Corporativa (Ecosistema / Integração ERP/BI)</h3>
                             <p class="card-text text-muted mb-3">
-                                Conecte-se aos sistemas que você já usa — ERP, RH, financeiro, BI. 
-                                Plataforma aberta com APIs robustas e conectores pré-configurados.
+                                Conecte-se ao que já existe: ERP, RH, financeiro, BI, automação industrial.
+                                APIs REST, webhooks, conectores prontos e arquitetura extensível.
                             </p>
-                            <ul class="bullet-list text-muted small">
-                                <li>APIs REST completas e documentação técnica</li>
-                                <li>Webhooks para eventos e automações personalizadas</li>
-                                <li>Integrações nativas com RH/financeiro/contabilidade</li>
-                                <li>Conectores para sistemas escolares e frotistas</li>
-                                <li>Importação/Exportação preparada para ferramentas de BI</li>
-                            </ul>
+                            <a href="#integracoes" class="btn btn-link p-0">Ver integrações</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Segurança & Alta Disponibilidade (Segurança da Informação / SLA) -->
+                <div class="col-lg-6">
+                    <div class="card h-100">
+                        <div class="card-body">
+                            <h3 class="card-title fw-bold mb-2">Segurança & Alta Disponibilidade (Segurança da Informação / SLA)</h3>
+                            <p class="card-text text-muted mb-3">
+                                Criptografia AES-256, backups diários, redundância geográfica e SLA 99,9%.
+                                Infraestrutura alinhada a boas práticas e certificações (ISO 27001).
+                            </p>
+                            <a href="#seguranca" class="btn btn-link p-0">Ver segurança / SLA</a>
                         </div>
                     </div>
                 </div>
             </div>
 
-            <!-- Security & Performance Card -->
-            <div class="security-card mt-5">
-                <div class="row align-items-center">
-                    <div class="col-lg-1">
-                        <div class="feature-icon">
-                            <i class="fas fa-shield-alt"></i>
-                        </div>
-                    </div>
-                    <div class="col-lg-11">
-                        <h4 class="fw-bold mb-2">Segurança & Garantia de Performance</h4>
-                        <p class="text-muted mb-3">
-                            Operação confiável e segura faz parte do nosso DNA. Comprometidos com a excelência em segurança e disponibilidade.
-                        </p>
-                        <div class="row">
-                            <div class="col-md-6">
-                                <ul class="bullet-list text-muted small">
-                                    <li>Criptografia AES-256 em trânsito e repouso</li>
-                                    <li>Práticas de segurança corporativas em planejamento</li>
-                                </ul>
-                            </div>
-                            <div class="col-md-6">
-                                <ul class="bullet-list text-muted small">
-                                    <li>Altíssima disponibilidade (99.9% uptime SLA)</li>
-                                    <li>Backups diários e redundância geográfica</li>
-                                </ul>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+            <!-- CTA forte ao final da seção -->
+            <div class="text-center mt-4">
+                <a href="https://wa.me/5582981457117?text=Quero%20uma%20demonstra%C3%A7%C3%A3o%20exclusiva" class="btn btn-primary">
+                    Agendar Demonstração Personalizada
+                </a>
             </div>
         </div>
     </section>
@@ -727,259 +699,68 @@
         </div>
     </section>
 
-    <!-- Positioning Section -->
-    <section class="section-padding bg-light">
+    <!-- Seção 5 — A Espinha Dorsal Digital da Sua Manutenção -->
+    <section class="section-padding" id="espinha-dorsal">
         <div class="container">
             <div class="row">
                 <div class="col-lg-8 mx-auto text-center">
-                    <h2 class="display-5 fw-bold mb-4">
-                        A espinha dorsal digital da sua manutenção
-                    </h2>
+                    <h2 class="display-5 fw-bold mb-4">A Espinha Dorsal Digital da Sua Manutenção</h2>
                     <p class="lead text-muted mb-4">
-                        A OPER centraliza ativos, fluxo de trabalho, registros históricos e métricas de desempenho em um único lugar. 
-                        Vai além de controlar ordens de serviço: ajuda a decidir melhor, antecipar problemas, comprovar valor e segurança — 
-                        moderno, operacional e pronto para o futuro.
+                        O OPER centraliza ativos, fluxos de trabalho, históricos de performance e métricas num único núcleo digital.
+                        Mais do que um CMMS — é uma plataforma EAM / manutenção digital que ajuda a antecipar falhas, otimizar custos
+                        e demonstrar valor operacional, com eficiência e escalabilidade.
                     </p>
-                    <div class="row g-4 mt-5">
-                        <div class="col-md-4">
-                            <div class="text-center">
-                                <i class="fas fa-database text-primary mb-3" style="font-size: 3rem;"></i>
-                                <h5 class="fw-bold mb-2">Centralização</h5>
-                                <p class="text-muted small">
-                                    Todas as informações em um único sistema integrado e acessível
-                                </p>
-                            </div>
-                        </div>
-                        <div class="col-md-4">
-                            <div class="text-center">
-                                <i class="fas fa-chart-line text-primary mb-3" style="font-size: 3rem;"></i>
-                                <h5 class="fw-bold mb-2">Análise</h5>
-                                <p class="text-muted small">
-                                    Insights para tomada de decisão estratégica baseada em dados
-                                </p>
-                            </div>
-                        </div>
-                        <div class="col-md-4">
-                            <div class="text-center">
-                                <i class="fas fa-cogs text-primary mb-3" style="font-size: 3rem;"></i>
-                                <h5 class="fw-bold mb-2">Operação</h5>
-                                <p class="text-muted small">
-                                    Ferramentas práticas para execução eficiente no dia a dia
-                                </p>
-                            </div>
-                        </div>
-                    </div>
+                    <p class="text-muted">
+                        <strong>Camadas conceituais integradas:</strong><br>
+                        CMMS (foco em manutenção operacional) • EAM (gestão do ciclo de vida completo do ativo) • Analytics / BI / IA (capacidade preditiva, insights estratégicos)
+                    </p>
+                    <a href="tour-guiado.html" class="btn btn-primary">Tour Virtual</a>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Benefits Section -->
-    <section class="section-padding">
+    <!-- Seção 6 — Benefícios com Termos Semanticamente Relevantes -->
+    <section class="section-padding bg-light" id="beneficios">
         <div class="container">
             <div class="row">
-                <div class="col-lg-8 mx-auto text-center mb-5">
-                    <h2 class="display-5 fw-bold mb-4">
-                        Benefícios Tangíveis
-                    </h2>
+                <div class="col-lg-8 mx-auto text-center mb-4">
+                    <h2 class="display-5 fw-bold">Benefícios Reais que Você Vai Observar</h2>
                 </div>
             </div>
-            <div class="row">
-                <div class="col-lg-12">
-                    <div class="benefit-item">
-                        <div class="d-flex align-items-start">
-                            <i class="fas fa-bullseye text-primary me-3 mt-1"></i>
-                            <div>
-                                <h5 class="fw-bold mb-2">Redução de Falhas Inesperadas</h5>
-                                <p class="text-muted mb-0">
-                                    Diminuição drástica de emergências através de manutenção preventiva inteligente e análise de falhas baseada em dados históricos.
-                                </p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="benefit-item">
-                        <div class="d-flex align-items-start">
-                            <i class="fas fa-bullseye text-primary me-3 mt-1"></i>
-                            <div>
-                                <h5 class="fw-bold mb-2">Controle Financeiro</h5>
-                                <p class="text-muted mb-0">
-                                    Melhor controle de orçamento com eliminação de 'gastos surpresa' através de planejamento estratégico e visão clara dos custos.
-                                </p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="benefit-item">
-                        <div class="d-flex align-items-start">
-                            <i class="fas fa-bullseye text-primary me-3 mt-1"></i>
-                            <div>
-                                <h5 class="fw-bold mb-2">Eficiência Operacional</h5>
-                                <p class="text-muted mb-0">
-                                    Otimização do tempo das equipes com menos retrabalho, deslocamento otimizado e alocação inteligente de recursos.
-                                </p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="benefit-item">
-                        <div class="d-flex align-items-start">
-                            <i class="fas fa-bullseye text-primary me-3 mt-1"></i>
-                            <div>
-                                <h5 class="fw-bold mb-2">Responsabilidade & Compliance</h5>
-                                <p class="text-muted mb-0">
-                                    Mais controle e responsabilidade total — quem fez, quando, se aprovado, se conforme. Histórico completo para auditorias.
-                                </p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="benefit-item">
-                        <div class="d-flex align-items-start">
-                            <i class="fas fa-bullseye text-primary me-3 mt-1"></i>
-                            <div>
-                                <h5 class="fw-bold mb-2">Segurança Operacional</h5>
-                                <p class="text-muted mb-0">
-                                    Ambiente mais seguro para pessoas e ativos com checklists de segurança automatizados e conformidade regulatória.
-                                </p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="benefit-item">
-                        <div class="d-flex align-items-start">
-                            <i class="fas fa-bullseye text-primary me-3 mt-1"></i>
-                            <div>
-                                <h5 class="fw-bold mb-2">Transparência Gerencial</h5>
-                                <p class="text-muted mb-0">
-                                    Transparência total para gestores com relatórios detalhados, dashboards em tempo real e métricas de performance claras.
-                                </p>
-                            </div>
-                        </div>
-                    </div>
+            <div class="row justify-content-center">
+                <div class="col-lg-8">
+                    <ul class="list-unstyled lead text-muted">
+                        <li>• Menos paradas inesperadas graças à manutenção preventiva orientada por dados</li>
+                        <li>• Controle financeiro aprimorado com previsão orçamentária e visibilidade total</li>
+                        <li>• Maior eficiência operacional com menor retrabalho e otimização de recursos</li>
+                        <li>• Rastreabilidade e compliance completos — histórico e logs prontos para auditorias</li>
+                        <li>• Segurança operacional com checklists automatizados e conformidade técnica</li>
+                        <li>• Transparência gerencial com dashboards, relatórios e insights em tempo real</li>
+                    </ul>
+                    <a href="https://wa.me/5582981457117?text=Solicitar%20demonstra%C3%A7%C3%A3o" class="btn btn-primary">
+                        Solicitar Demonstração
+                    </a>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Demo Section -->
-    <section class="section-padding bg-light">
+    <!-- Seção 7 — Veja o OPER em Ação — Demonstração Personalizada -->
+    <section class="section-padding" id="ver-na-pratica">
         <div class="container">
             <div class="row">
-                <div class="col-lg-8 mx-auto text-center mb-5">
-                    <h2 class="display-5 fw-bold mb-4">
-                        Veja a OPER em Ação
-                    </h2>
-                    <p class="lead text-muted">
-                        Assista uma demonstração ao vivo de como nossa plataforma pode transformar sua gestão de manutenção. 
-                        Experimente a interface intuitiva e as ferramentas poderosas que tornam a operação diária mais eficiente.
+                <div class="col-lg-8 mx-auto text-center">
+                    <h2 class="display-5 fw-bold mb-4">Veja o OPER em Ação — Demonstração Personalizada</h2>
+                    <p class="lead text-muted mb-4">
+                        Visualize o painel em tempo real com ordens, alertas, checklists e métricas-chave.
+                        Solicite uma demonstração especializada para seu setor e descubra como o OPER pode elevar sua operação
+                        a um patamar digital, inteligente e escalável.
                     </p>
-                </div>
-            </div>
-            <div class="row g-4">
-                <div class="col-lg-6">
-                    <div class="card">
-                        <div class="card-body">
-                            <div class="d-flex align-items-center mb-3">
-                                <div class="feature-icon me-3">
-                                    <i class="fas fa-chart-line"></i>
-                                </div>
-                                <div>
-                                    <h5 class="card-title fw-bold mb-1">Painel de Atividades em Tempo Real</h5>
-                                    <span class="badge bg-success text-white">Online • Monitoramento Ativo</span>
-                                </div>
-                            </div>
-                            
-                            <div class="activity-warning">
-                                <div class="d-flex justify-content-between align-items-start">
-                                    <div>
-                                        <h6 class="fw-bold mb-1">Ordem de Serviço #1234</h6>
-                                        <p class="text-muted small mb-2">Manutenção preventiva - Ar condicionado - Sala 201</p>
-                                        <div class="d-flex gap-2">
-                                            <span class="badge bg-warning text-dark">Alta</span>
-                                            <small class="text-muted">João Silva</small>
-                                        </div>
-                                    </div>
-                                    <small class="text-muted">Hoje, 14:00</small>
-                                </div>
-                            </div>
-
-                            <div class="activity-progress">
-                                <div class="d-flex justify-content-between align-items-start">
-                                    <div>
-                                        <h6 class="fw-bold mb-1">Checklist em Andamento</h6>
-                                        <p class="text-muted small mb-2">Inspeção de segurança mensal - Bloco A</p>
-                                        <div class="d-flex gap-2">
-                                            <span class="badge bg-primary">Média</span>
-                                            <small class="text-muted">Maria Santos</small>
-                                        </div>
-                                    </div>
-                                    <small class="text-primary fw-bold">85% completo</small>
-                                </div>
-                            </div>
-
-                            <div class="activity-critical">
-                                <div class="d-flex justify-content-between align-items-start">
-                                    <div>
-                                        <h6 class="fw-bold mb-1">Alerta Crítico</h6>
-                                        <p class="text-muted small mb-2">Elevador social - Parada inesperada</p>
-                                        <div class="d-flex gap-2">
-                                            <span class="badge bg-danger">Crítica</span>
-                                            <small class="text-muted">Equipe de Emergência</small>
-                                        </div>
-                                    </div>
-                                    <small class="text-danger fw-bold">Imediato</small>
-                                </div>
-                            </div>
-
-                            <div class="activity-success">
-                                <div class="d-flex justify-content-between align-items-start">
-                                    <div>
-                                        <h6 class="fw-bold mb-1">Relatório Diário</h6>
-                                        <p class="text-muted small mb-2">12 tarefas concluídas hoje</p>
-                                        <div class="d-flex gap-2">
-                                            <span class="badge bg-secondary">Normal</span>
-                                        </div>
-                                    </div>
-                                    <small class="text-success fw-bold">100% taxa</small>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="col-lg-6">
-                    <div class="card">
-                        <div class="card-body">
-                            <div class="d-flex align-items-center mb-3">
-                                <div class="feature-icon me-3">
-                                    <i class="fas fa-calendar-alt"></i>
-                                </div>
-                                <h5 class="card-title fw-bold mb-0">Agendar Demonstração</h5>
-                            </div>
-                            <p class="text-muted mb-4">
-                                Pronto para transformar sua operação? Veja em tempo real como o OPER acelera processos, 
-                                reduz falhas e aumenta a produtividade das suas equipes. Nossa equipe especializada 
-                                mostrará como adaptar a plataforma às suas necessidades específicas.
-                            </p>
-                            <div class="mb-4">
-                                <div class="d-flex align-items-center mb-2">
-                                    <i class="fas fa-check-circle text-success me-2"></i>
-                                    <small>Demonstração personalizada para seu setor</small>
-                                </div>
-                                <div class="d-flex align-items-center mb-2">
-                                    <i class="fas fa-check-circle text-success me-2"></i>
-                                    <small>Tirar dúvidas com especialistas em manutenção</small>
-                                </div>
-                                <div class="d-flex align-items-center mb-2">
-                                    <i class="fas fa-check-circle text-success me-2"></i>
-                                    <small>Plano de implementação detalhado</small>
-                                </div>
-                            </div>
-                            <div class="d-grid gap-2">
-                                <a href="https://wa.me/5582981457117?text=Quero%20uma%20demonstra%C3%A7%C3%A3o%20exclusiva" class="btn btn-primary">
-                                    Comece Agora
-                                </a>
-                                <a href="https://wa.me/5582981457117" class="btn btn-outline-primary">
-                                    Fale conosco no WhatsApp
-                                </a>
-                            </div>
-                        </div>
+                    <div class="d-flex gap-3 justify-content-center flex-wrap">
+                        <a href="https://wa.me/5582981457117?text=Agendar%20demonstra%C3%A7%C3%A3o" class="btn btn-primary">Agendar Demonstração</a>
+                        <a href="tour-guiado.html" class="btn btn-outline-primary">Tour Virtual</a>
+                        <a href="https://wa.me/5582981457117" class="btn btn-success">Falar no WhatsApp</a>
                     </div>
                 </div>
             </div>
@@ -1360,40 +1141,47 @@
         </div>
     </section>
 
-    <!-- Final CTA Section -->
-    <div class="container">
-        <div class="cta-gradient text-center" data-parallax-speed="0.06">
-            <h2 class="display-4 fw-bold mb-4">
-                Pronto para Transformar Sua Operação?
-            </h2>
-            <p class="lead mb-4">
-                Junte-se a milhares de empresas que já confiam na OPER para sua gestão de manutenção. 
-                Dê o primeiro passo para uma operação mais eficiente, segura e inteligente.
-            </p>
-            <div class="d-flex flex-column flex-sm-row gap-3 justify-content-center">
-                <a href="https://wa.me/5582981457117?text=Quero%20uma%20demonstra%C3%A7%C3%A3o%20exclusiva" class="btn btn-light btn-lg">
-                    Agendar Demonstração
-                </a>
-                <a href="#tour" class="btn btn-outline-light btn-lg">
-                    Ver Tour Guiado
-                </a>
+    <!-- Seção 8 — Rodapé / Call Final -->
+    <section class="section-padding bg-light" id="call-final">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-8 mx-auto text-center">
+                    <h2 class="display-5 fw-bold mb-4">Pronto para Transformar Sua Operação?</h2>
+                    <p class="lead text-muted mb-4">
+                        Junte-se às empresas que já confiaram no OPER para elevar sua manutenção a um novo nível de eficiência, segurança e controle.
+                    </p>
+                    <div class="d-flex gap-3 justify-content-center flex-wrap">
+                        <a href="https://wa.me/5582981457117?text=Quero%20agendar%20uma%20demonstra%C3%A7%C3%A3o" class="btn btn-primary">
+                            Agendar Demonstração Agora
+                        </a>
+                        <a href="tour-guiado.html" class="btn btn-outline-primary">
+                            Iniciar Tour Virtual
+                        </a>
+                    </div>
+                </div>
             </div>
         </div>
-    </div>
+    </section>
 
     <!-- Botão flutuante do WhatsApp (idêntico ao index) -->
-<a id="whatsappFloat" href="https://wa.me/5582981457117?text=Quero%20uma%20demonstra%C3%A7%C3%A3o%20exclusiva"
-   class="whatsapp-float zap-anchor" target="_blank" rel="noopener noreferrer" aria-label="Falar no WhatsApp">
-    <div class="zap-tooltip" role="tooltip">
-        Falar no WhatsApp
-        <div class="zap-tooltip-arrow"></div>
+    <div class="whatsapp-float" id="whatsappFloat">
+        <a href="https://wa.me/5582981457117?text=Quero%20saber%20mais%20sobre%20a%20OPER!" target="_blank" aria-label="Fale conosco no WhatsApp" rel="noopener noreferrer" class="zap-anchor">
+            <div class="zap-tooltip" role="tooltip">
+                Fale conosco no WhatsApp
+                <div class="zap-tooltip-arrow"></div>
+            </div>
+
+            <div class="zap-glow"></div>
+
+            <div class="zap-button ripple-effect">
+                <svg class="zap-icon" width="24" height="24" viewBox="0 0 24 24" aria-hidden="true">
+                    <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z" fill="currentColor"/>
+                </svg>
+            </div>
+
+            <div class="zap-pulse"></div>
+        </a>
     </div>
-    <div class="zap-glow"></div>
-    <div class="zap-button ripple-effect">
-        <img src="images/zap_01.png" alt="WhatsApp" class="zap-icon">
-    </div>
-    <div class="zap-pulse"></div>
-</a>
 
     <!-- Remoção da navbar local para usar o menu global carregado via menu.html -->
     <!-- A navbar <nav class="navbar navbar-expand-lg">...</nav> foi retirada -->
