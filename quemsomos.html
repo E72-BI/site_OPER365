@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Quem Somos - OPER</title>
+    <title>Sobre a OPER - Quem Somos</title>
     <link rel="stylesheet" href="css/styles-base.css">
     <link rel="stylesheet" href="css/styles-mobile.css">
     <link rel="stylesheet" href="css/menu.css">
@@ -11,26 +11,210 @@
         href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&family=Montserrat:wght@400;500;600;700&family=Open+Sans:wght@300;400;600;700&display=swap">
     <style>
         /* Custom styles for quemsomos.html */
-        .company-description {
+        .section {
             padding: var(--space-2xl) 0;
+        }
+        
+        .section-title {
+            text-align: center;
+            margin-bottom: var(--space-xl);
+        }
+        
+        .section-description {
+            text-align: center;
+            max-width: 800px;
+            margin: 0 auto var(--space-xl);
+            font-size: var(--text-lg);
+            line-height: var(--line-height-relaxed);
+        }
+        
+        /* Hero Section - showing full background image */
+        .hero {
+            position: relative;
+            overflow: hidden;
+            min-height: 600px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background-color: #1e232d; /* Fallback color */
+        }
+        
+        .hero-image-container {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 0;
+            overflow: hidden;
+        }
+        
+        .hero-image {
+            max-width: 100%;
+            max-height: 100%;
+            object-fit: contain;
+            object-position: center;
+            animation: fadeIn 1s ease-in-out;
+        }
+        
+        .hero-content {
+            max-width: 800px;
+            padding: var(--space-3xl) var(--space-md);
+            position: relative;
+            z-index: 2;
+            animation: slideUp 1s ease-out;
+            background: rgba(0, 0, 0, 0.5); /* Semi-transparent dark overlay */
+            border-radius: var(--radius-md);
+            padding: var(--space-xl);
+            margin: var(--space-md);
+            text-align: center;
+            color: var(--white);
+            backdrop-filter: blur(5px); /* Subtle blur effect */
+        }
+        
+        .hero h1 {
+            font-size: clamp(2rem, 5vw, 3.5rem);
+            color: var(--white);
+            margin-bottom: var(--space-md);
+            text-shadow: 0 2px 8px rgba(0, 0, 0, 0.5);
+            letter-spacing: -0.02em;
+            line-height: 1.1;
+        }
+        
+        .hero p {
+            font-size: clamp(1.125rem, 3vw, 1.5rem);
+            color: var(--white);
+            font-weight: var(--font-weight-medium);
+            text-shadow: 0 1px 4px rgba(0, 0, 0, 0.5);
+            max-width: 600px;
+            margin: 0 auto var(--space-lg);
+            line-height: 1.4;
+        }
+        
+        /* Animations */
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+        
+        @keyframes slideUp {
+            from { 
+                transform: translateY(30px);
+                opacity: 0;
+            }
+            to { 
+                transform: translateY(0);
+                opacity: 1;
+            }
+        }
+        
+        /* Journey Section */
+        .journey-section {
             background: var(--white);
         }
         
-        .description-content {
+        .journey-content {
             max-width: 800px;
             margin: 0 auto;
+        }
+        
+        /* Mission, Vision, Purpose Sections */
+        .mission-section {
+            background: var(--bg-warm);
+        }
+        
+        .vision-section {
+            background: var(--white);
+        }
+        
+        .purpose-section {
+            background: linear-gradient(135deg, #2c3e50 0%, #34495e 100%);
+            color: var(--white);
+        }
+        
+        .purpose-section .section-title {
+            color: var(--white);
+        }
+        
+        .purpose-section .section-description {
+            color: rgba(255, 255, 255, 0.9);
+        }
+        
+        /* Values Section */
+        .values-section {
+            background: var(--white);
+        }
+        
+        .values-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: var(--space-lg);
+            margin-top: var(--space-xl);
+        }
+        
+        .value-card {
+            background: var(--white);
+            border-radius: var(--radius-xl);
+            padding: var(--space-lg);
+            box-shadow: var(--shadow-md);
+            text-align: center;
+            transition: var(--transition);
+            border: 1px solid rgba(0, 0, 0, 0.05);
+        }
+        
+        .value-card:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--shadow-lg);
+        }
+        
+        .value-icon {
+            font-size: 2.5rem;
+            margin-bottom: var(--space-md);
+        }
+        
+        .value-card h3 {
+            margin-bottom: var(--space-sm);
+        }
+        
+        /* Manifesto Section */
+        .manifesto-section {
+            background: linear-gradient(rgba(30, 35, 45, 0.95), rgba(30, 35, 45, 0.95));
+            color: var(--white);
             text-align: center;
         }
         
-        .description-content p {
-            font-size: var(--text-lg);
-            line-height: var(--line-height-relaxed);
-            color: var(--text-gray);
+        .manifesto-section .section-title {
+            color: var(--white);
         }
         
-        .clients-section {
-            padding: var(--space-2xl) 0;
-            background: var(--bg-warm);
+        .manifesto-content {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        
+        .manifesto-content p {
+            font-size: var(--text-lg);
+            line-height: var(--line-height-relaxed);
+            margin-bottom: var(--space-md);
+        }
+        
+        /* Recognition Section */
+        .recognition-section {
+            background: var(--white);
+        }
+        
+        .award-highlight {
+            text-align: center;
+            margin-bottom: var(--space-xl);
+        }
+        
+        .award-highlight h3 {
+            color: var(--accent-blue);
+            font-size: var(--text-2xl);
+            margin-bottom: var(--space-sm);
         }
         
         .clients-grid {
@@ -50,6 +234,7 @@
             border-radius: var(--radius-md);
             box-shadow: var(--shadow-md);
             transition: var(--transition);
+            height: 100px;
         }
         
         .client-logo:hover {
@@ -64,91 +249,51 @@
             object-fit: contain;
         }
         
-        .awards-section {
-            padding: var(--space-2xl) 0;
-            background: var(--white);
+        /* Future Section */
+        .future-section {
+            background: var(--bg-warm);
         }
         
-        .award-content {
-            max-width: 800px;
-            margin: 0 auto;
+        /* Invite Section */
+        .invite-section {
+            background: linear-gradient(135deg, #2c3e50 0%, #34495e 100%);
+            color: var(--white);
             text-align: center;
         }
         
-        .award-header {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            gap: var(--space-md);
-            margin-bottom: var(--space-lg);
-        }
-        
-        .award-logo {
-            max-width: 200px;
-            height: auto;
-        }
-        
-        .award-content h3 {
-            font-size: var(--text-3xl);
-            color: var(--dark-gray);
-            margin-bottom: 0;
-        }
-        
-        .award-content p {
-            margin-bottom: var(--space-md);
-            color: var(--text-gray);
-            line-height: var(--line-height-relaxed);
-        }
-        
-        .features-section {
-            padding: var(--space-2xl) 0;
-            background: linear-gradient(135deg, #2c3e50 0%, #34495e 50%, #2c3e50 100%);
+        .invite-section .section-title {
             color: var(--white);
         }
         
-        .features-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: var(--space-lg);
-            margin-top: var(--space-xl);
-        }
-        
-        .feature-card {
-            background: var(--white);
-            padding: var(--space-lg);
-            border-radius: var(--radius-xl);
-            text-align: center;
-            transition: var(--transition);
-            box-shadow: var(--shadow-md);
-        }
-        
-        .feature-card:hover {
-            transform: translateY(-10px);
-            box-shadow: var(--shadow-xl);
-        }
-        
-        .feature-image {
-            margin-bottom: var(--space-md);
-        }
-        
-        .feature-image img {
-            max-width: 100%;
-            height: auto;
-            border-radius: var(--radius-md);
-        }
-        
-        .feature-card h3 {
-            color: var(--dark-gray);
-            margin-bottom: var(--space-sm);
-        }
-        
-        .feature-card p {
-            color: var(--text-gray);
-            line-height: var(--line-height-relaxed);
+        .invite-content {
+            max-width: 800px;
+            margin: 0 auto;
         }
         
         /* Mobile responsiveness */
         @media (max-width: 768px) {
+            .hero {
+                min-height: 500px;
+            }
+            
+            .hero-content {
+                padding: var(--space-lg);
+                margin: var(--space-sm);
+                background: rgba(0, 0, 0, 0.6); /* Slightly darker overlay on mobile */
+            }
+            
+            .hero h1 {
+                font-size: clamp(1.75rem, 5vw, 2.5rem);
+            }
+            
+            .hero p {
+                font-size: clamp(1rem, 3vw, 1.25rem);
+            }
+            
+            .values-grid {
+                grid-template-columns: 1fr;
+            }
+            
             .clients-grid {
                 grid-template-columns: repeat(2, 1fr);
                 gap: var(--space-md);
@@ -157,13 +302,23 @@
             .client-logo {
                 padding: var(--space-sm);
             }
-            
-            .award-header {
-                flex-direction: column;
+        }
+        
+        @media (max-width: 480px) {
+            .hero {
+                min-height: 400px;
             }
             
-            .features-grid {
-                grid-template-columns: 1fr;
+            .hero-content {
+                padding: var(--space-md);
+            }
+            
+            .hero h1 {
+                font-size: clamp(1.5rem, 5vw, 2rem);
+            }
+            
+            .hero p {
+                font-size: clamp(0.875rem, 3vw, 1rem);
             }
         }
     </style>
@@ -173,31 +328,143 @@
 
     <!-- Hero Section -->
     <section class="hero">
-        <div class="container">
-            <div class="hero-content">
-                <h1 class="title">Quem somos?</h1>
-                <p class="description">
-                    Somos uma startup no segmento de hotelaria onde desenvolvemos soluções voltadas especificamente para atender as necessidades do setor de manutenção e operação.
-                </p>
-            </div>
+        <div class="hero-image-container">
+            <img src="images/quemsomos.png" alt="Sobre a OPER" class="hero-image">
+        </div>
+        <div class="hero-content">
+            <h1>SOBRE A OPER</h1>
+            <p>Juntos, transformamos manutenção em evolução.</p>
         </div>
     </section>
 
     <!-- Company Description Section -->
-    <section class="company-description">
+    <section class="section company-description">
         <div class="container">
-            <div class="description-content">
+            <div class="journey-content">
                 <p>
-                    Nosso objetivo é contribuir para otimizar a eficiência operacional dos estabelecimentos de hospedagem modernizando o gerenciamento da manutenção, elevando o nível de qualidade para proporcionar uma melhor gestão.
+                    A OPER nasceu com um propósito claro: unir tecnologia e parceria humana para elevar o padrão da manutenção e da operação.
+                </p>
+                <p>
+                    Começamos dentro da hotelaria, onde aprendemos que eficiência e cuidado são inseparáveis. Com o tempo, crescemos junto com nossos clientes — e hoje atendemos também condomínios, escolas, indústrias e facilities, sempre com o mesmo compromisso: ajudar pessoas e negócios a evoluírem de forma previsível, segura e sustentável.
+                </p>
+                <p>
+                    Mais do que uma plataforma, somos uma equipe dedicada a transformar desafios cotidianos em oportunidades de melhoria contínua.
                 </p>
             </div>
         </div>
     </section>
 
-    <!-- Client Logos Section -->
-    <section class="clients-section">
+    <!-- Our Journey Section -->
+    <section class="section journey-section">
         <div class="container">
-            <h2 class="section-title">Eles adotam nossa solução</h2>
+            <h2 class="section-title">Nossa trajetória</h2>
+            <div class="journey-content">
+                <p>
+                    Desde o início, acreditamos que inovação nasce da escuta. Foi ouvindo gestores, síndicos, mantenedores e equipes de operação que desenhamos soluções simples, eficientes e realmente aplicáveis.
+                </p>
+                <div class="award-highlight">
+                    <h3>🏆 Premiada no Programa Centelha 2020</h3>
+                    <p>Reconhecida nacionalmente como uma das startups mais inovadoras do Brasil.</p>
+                </div>
+                <p>
+                    Em 2020, esse compromisso foi reconhecido quando fomos premiados pelo Programa Centelha, promovido pelo Ministério da Ciência, Tecnologia e Inovação (MCTI), FINEP, CNPq, Confap e Fundação CERTI — uma conquista que validou nosso propósito: criar tecnologia que serve às pessoas, não o contrário.
+                </p>
+                <p>
+                    Hoje, seguimos evoluindo junto aos nossos parceiros, com o mesmo espírito de aprendizado e aprimoramento que marcou nossa origem.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Mission Section -->
+    <section class="section mission-section">
+        <div class="container">
+            <h2 class="section-title">Nossa missão</h2>
+            <p class="section-description">
+                Co-criar soluções que tornam a manutenção mais inteligente, rastreável e humana — fortalecendo a confiança entre tecnologia e operação. Queremos que cada cliente tenha controle total sobre suas rotinas, tempo para o que realmente importa e a tranquilidade de saber que está em conformidade com todas as exigências legais.
+            </p>
+        </div>
+    </section>
+
+    <!-- Vision Section -->
+    <section class="section vision-section">
+        <div class="container">
+            <h2 class="section-title">Nossa visão</h2>
+            <p class="section-description">
+                Ser a principal plataforma brasileira de manutenção inteligente e conformidade, reconhecida por transformar a relação entre gestores, equipes e tecnologia, promovendo uma cultura de prevenção e eficiência contínua.
+            </p>
+        </div>
+    </section>
+
+    <!-- Purpose Section -->
+    <section class="section purpose-section">
+        <div class="container">
+            <h2 class="section-title">Nosso propósito</h2>
+            <p class="section-description">
+                Democratizar o acesso à inteligência operacional, permitindo que organizações de todos os tamanhos alcancem previsibilidade, economia e sustentabilidade. Acreditamos que quando a manutenção funciona bem, tudo o resto flui — conforto, segurança e confiança.
+            </p>
+        </div>
+    </section>
+
+    <!-- Values Section -->
+    <section class="section values-section">
+        <div class="container">
+            <h2 class="section-title">Nossos valores</h2>
+            <div class="values-grid">
+                <div class="value-card">
+                    <div class="value-icon">🤝</div>
+                    <h3>Colaboração e parceria</h3>
+                    <p>Crescemos junto com nossos clientes, unindo conhecimento técnico e experiência de campo.</p>
+                </div>
+                <div class="value-card">
+                    <div class="value-icon">👁️</div>
+                    <h3>Transparência e respeito</h3>
+                    <p>Cada dado, cada interação e cada decisão são guiados pela clareza e pela ética.</p>
+                </div>
+                <div class="value-card">
+                    <div class="value-icon">💡</div>
+                    <h3>Inovação com propósito</h3>
+                    <p>Usamos tecnologia para simplificar o trabalho, reduzir riscos e gerar valor real.</p>
+                </div>
+                <div class="value-card">
+                    <div class="value-icon">⚙️</div>
+                    <h3>Eficiência e sustentabilidade</h3>
+                    <p>Ajudamos empresas a fazer mais com menos — preservando recursos e prolongando a vida útil dos ativos.</p>
+                </div>
+                <div class="value-card">
+                    <div class="value-icon">✅</div>
+                    <h3>Conformidade em primeiro lugar</h3>
+                    <p>Cumprir normas é proteger pessoas, patrimônio e reputação. É transformar responsabilidade em vantagem competitiva.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Manifesto Section -->
+    <section class="section manifesto-section">
+        <div class="container">
+            <h2 class="section-title">Manifesto OPER</h2>
+            <div class="manifesto-content">
+                <p>Acreditamos que manutenção não é custo — é cuidado.</p>
+                <p>Cada checklist completado, cada ordem de serviço registrada e cada equipamento monitorado é um passo em direção a um mundo mais confiável, eficiente e sustentável.</p>
+                <p>Nascemos para garantir que nada pare: nem seus equipamentos, nem seu progresso.</p>
+                <p>Porque manter funcionando é mais do que técnica — é compromisso com o futuro.</p>
+                <p><strong>OPER — inteligência em ação, evolução em parceria.</strong></p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Recognition and Trust Section -->
+    <section class="section recognition-section">
+        <div class="container">
+            <h2 class="section-title">Reconhecimento e confiança</h2>
+            <div class="award-highlight">
+                <h3>🏆 Premiada no Programa Centelha 2020</h3>
+                <p>Reconhecida nacionalmente como uma das startups mais inovadoras do Brasil.</p>
+            </div>
+            <p class="section-description">
+                Empreendimentos como Brisa Praia, Praia Bonita Jangadeiros, Hotel Brisa Tower, Maceió Mar e Ponta Verde Maceió confiam na OPER para manter suas operações sempre em conformidade e no mais alto padrão de qualidade.
+            </p>
             <div class="clients-grid">
                 <div class="client-logo">
                     <img src="images/clients/brisapraia.png" alt="Brisa Praia">
@@ -209,22 +476,10 @@
                     <img src="images/clients/hotel-brisasuites.png" alt="Hotel Brisa Suites">
                 </div>
                 <div class="client-logo">
-                    <img src="images/clients/costamar.png" alt="Costamar">
-                </div>
-                <div class="client-logo">
                     <img src="images/clients/hotel-brisa-tower.png" alt="Hotel Brisa Tower">
                 </div>
                 <div class="client-logo">
-                    <img src="images/clients/praia-bonita-jatiuca.png" alt="Praia Bonita Jatiuca">
-                </div>
-                <div class="client-logo">
-                    <img src="images/clients/praia-bonita-pajucara.png" alt="Praia Bonita Pajuçara">
-                </div>
-                <div class="client-logo">
-                    <img src="images/clients/maceiomar.png" alt="Maceiomar">
-                </div>
-                <div class="client-logo">
-                    <img src="images/clients/ponta-verde-frances.png" alt="Ponta Verde Francês">
+                    <img src="images/clients/maceiomar.png" alt="Maceió Mar">
                 </div>
                 <div class="client-logo">
                     <img src="images/clients/ponta-verde-maceio.png" alt="Ponta Verde Maceió">
@@ -233,69 +488,34 @@
         </div>
     </section>
 
-    <!-- Awards Section -->
-    <section class="awards-section">
+    <!-- Future Section -->
+    <section class="section future-section">
         <div class="container">
-            <h2 class="section-title">Premiações</h2>
-            <div class="award-content">
-                <div class="award-header">
-                    <img src="images/centelha-al.png" alt="Centelha AL logo" class="award-logo">
-                    <h3>Centelha 2020</h3>
-                </div>
-                <p>
-                    Entre milhares de propostas, fomos um dos selecionados e premiados como uma das soluções mais inovadoras do Programa Centelha 2020.
-                </p>
-                <p>
-                    O Programa Centelha visa estimular a criação de empreendimentos inovadores e disseminar a cultura empreendedora no Brasil. O programa oferece capacitações, suporte e incentivo para transformar ideias em negócios de sucesso. A iniciativa é promovida pelo Ministério da Ciência, Tecnologia e Inovações (MCTI) e pela Financiadora de Estudos e Projetos (Finep), em parceria com o Conselho Nacional de Desenvolvimento Científico e Tecnológico (CNPq) e o Conselho Nacional das Fundações Estaduais de Amparo à Pesquisa (Confap), e operada pela Fundação CERTI.
-                </p>
-            </div>
+            <h2 class="section-title">Nosso olhar para o futuro</h2>
+            <p class="section-description">
+                Seguimos expandindo nossa inteligência operacional com recursos de IA preditiva, relatórios automáticos de conformidade e integração com sensores IoT.
+            </p>
+            <p class="section-description">
+                Nosso objetivo é simples: antecipar falhas antes que elas aconteçam, reduzindo custos e aumentando a vida útil dos ativos.
+            </p>
+            <p class="section-description">
+                O futuro da manutenção é conectado, colaborativo e inteligente. E a OPER está pronta para liderar esse movimento — ao lado dos clientes que constroem esse futuro conosco.
+            </p>
         </div>
     </section>
 
-    <!-- Features Section -->
-    <section class="features-section">
+    <!-- Invite Section -->
+    <section class="section invite-section">
         <div class="container">
-            <h2 class="section-title">Nossos principais recursos</h2>
-            <p class="section-description">
-                Trazemos inovação e economia para Grandes, médios e pequenos estabelecimentos do ramo da hotelaria nos mais diferentes estados do país
-            </p>
-            <div class="features-grid">
-                <div class="feature-card">
-                    <div class="feature-image">
-                        <img src="images/resource-1.png" alt="Checklists inteligentes">
-                    </div>
-                    <h3>Checklists inteligentes</h3>
-                    <p>
-                        Com os nossos checklists informatizados você pode coletar dados e registrar diretamente no Oper365, gerando relatórios automaticamente e permitindo a consulta dos dados a qualquer hora e lugar. Sem prancheta e sem formulários impressos, pra sempre!
-                    </p>
-                </div>
-                <div class="feature-card">
-                    <div class="feature-image">
-                        <img src="images/resource-2.png" alt="Inspeção automatizada">
-                    </div>
-                    <h3>Inspeção informatizada</h3>
-                    <p>
-                        Inclua o seu plano de inspeção apenas uma vez, depois deixe o Oper365 fazer todo gerenciamento pra você! Os colaboradores resposáveis por cada atividade receberão lembretes para execução e acompanharão um roteiro para que nada fique de fora.
-                    </p>
-                </div>
-                <div class="feature-card">
-                    <div class="feature-image">
-                        <img src="images/resource-3.png" alt="Monitoramento em tempo real">
-                    </div>
-                    <h3>Monitoramento em tempo real</h3>
-                    <p>
-                        Através de nossos dashboards você acompanha em tempo real, todas as ordens de serviço que estão sendo abertas e executadas, onde os seu colaboradores estão trabalhando, acompanha todos os prazos e demandas. Tudo isso para que você possa focar no que realmente importa, a satisfação máxima do seu hóspede.
-                    </p>
-                </div>
-                <div class="feature-card">
-                    <div class="feature-image">
-                        <img src="images/resource-4.png" alt="Informatização dos protocolos para a Covid19">
-                    </div>
-                    <h3>Informatização dos protocolos para a Covid19</h3>
-                    <p>
-                        O Oper365 fornece esta função que é mais um reforço para que todos os materiais e procedimentos sejam realizados visando o enfrentamento à pandemia dentro do seu hotel. Com certeza seria mais segurança para colaboradores e hóspedes!
-                    </p>
-                </div>
+            <h2 class="section-title">Convite</h2>
+            <div class="invite-content">
+                <p class="section-description">
+                    Queremos te mostrar como a OPER pode transformar a rotina da sua equipe e a eficiência do seu negócio.
+                </p>
+                <p class="section-description">
+                    Agende uma demonstração exclusiva e veja, na prática, o que acontece quando tecnologia e parceria trabalham juntas.
+                </p>
+                <a href="https://wa.me/5582981457117?text=Quero%20agendar%20uma%20demonstra%C3%A7%C3%A3o%20exclusiva" target="_blank" class="btn btn-cta">Agendar Demonstração Agora</a>
             </div>
         </div>
     </section>
