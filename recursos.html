@@ -128,6 +128,24 @@
             }
         }
 
+        /* Seção app-section: imagem de fundo com altura completa */
+        .app-section {
+            background-size: 100% auto !important;  /* width: 100%, height: auto */
+            background-attachment: scroll !important; /* Remove o fixed para melhor controle */
+            background-repeat: no-repeat !important;
+            background-position: center top !important;
+            min-height: 600px; /* Altura mínima para garantir que o conteúdo seja visível */
+        }
+
+        /* Mobile: ajustar altura mínima */
+        @media (max-width: 768px) {
+            .app-section {
+                min-height: 300px;
+                background-size: 100% auto !important;
+                background-position: center top !important;
+            }
+        }
+
         /* Regras de harmonização mobile (idênticas ao index) */
         @media (max-width: 768px) {
             /* Remover margem/padding herdados e reduzir gap */
@@ -433,7 +451,7 @@
     <!-- Seção 2 — Operação que Atende Todos os Setores -->
     <section class="app-section" style="background: linear-gradient(rgba(34,34,34,0.85), rgba(34,34,34,0.85)), url('images/condominio.png');">
         <div class="container">
-            <h2 class="section-title">Operação Previsível — Do Hotel ao Chão de Fábrica</h2>
+            <h2 class="section-title">Operação Previsível — Do Hotel ao Conforto do seu Lar</h2>
             <p class="section-description">
                 Padronize processos, minimize riscos e assegure conformidade técnica e regulatória para cada setor.
                 Em hotéis, condomínios, escolas, frotas, edifícios corporativos e operações industriais, o OPER entrega
@@ -449,7 +467,7 @@
         <div class="container">
             <div class="row">
                 <div class="col-lg-8 mx-auto text-center">
-                    <h2 class="display-5 fw-bold mb-4">Gestão de Manutenção Digital & Controle de Ativos</h2>
+                    <h2 class="display-5 fw-bold mb-4">Controle de Ativos</h2>
                     <p class="lead text-muted mb-4">
                         Transforme a manutenção reativa em um ativo estratégico.<br><br>
                         O OPER é um sistema moderno de CMMS inteligente, concebido para operações que exigem alta rastreabilidade, eficiência operacional e rigor técnico. Consolidamos ativos, tarefas, métricas e decisões em uma plataforma única, pronta para crescer junto com suas exigências futuras.
@@ -469,181 +487,69 @@
                     <h2 class="display-5 fw-bold mb-4" style="background: linear-gradient(135deg, var(--primary-color), var(--primary-dark)); -webkit-background-clip: text; -webkit-text-fill-color: transparent;">
                         Gestão de ativos, planejamento inteligente e execução impecável
                     </h2>
-                    <p class="lead text-muted mb-4">
-                        Com a OPER, sua manutenção deixa de ser uma dor para se tornar vantagem competitiva — 
-                        sistema auditável e feita para operação real. Nossa plataforma foi desenvolvida 
-                        para empresas que buscam excelência operacional através da tecnologia, oferecendo 
-                        ferramentas completas para gestão inteligente de ativos físicos.
-                    </p>
-                    <div class="bg-light p-4 rounded-4">
-                        <p class="mb-0">
-                            Aplicações em <strong>hotéis</strong>, <strong>condomínios</strong>, <strong>escolas</strong>, 
-                            <strong>frotas</strong>, <strong>edifícios corporativos</strong> e mais — toda operação que 
-                            exija manutenção organizada, previsível e segura. Nossa solução se adapta perfeitamente 
-                            às necessidades específicas de cada setor, garantindo resultados comprovados.
-                        </p>
-                    </div>
                 </div>
             </div>
         </div>
     </section>
 
     <!-- Seção 4 — Recursos Poderosos — Potencializando sua Operação -->
-    <section class="section-padding bg-light" id="recursos">
+    <section class="compliance-section" role="region" aria-labelledby="recursos-title" id="recursos">
+        <!-- decorative curve that visually connects this section to the one above -->
+        <svg class="compliance-curve" width="100%" height="64" viewBox="0 0 1200 64" preserveAspectRatio="none" aria-hidden="true">
+            <path d="M0,64 C300,0 900,0 1200,64 L1200,0 L0,0 Z" fill="#FFF4D6"></path>
+        </svg>
         <div class="container">
-            <div class="row">
-                <div class="col-lg-8 mx-auto text-center mb-5">
-                    <h2 class="display-5 fw-bold mb-4">Recursos Poderosos — Potencializando sua Operação</h2>
-                </div>
-            </div>
+            <h2 id="recursos-title" class="section-title">Recursos Poderosos — <span class="highlight">Potencializando sua Operação</span></h2>
+            <p class="section-description">Ferramentas completas para gestão inteligente de ativos físicos. Do planejamento à execução, tudo integrado em uma única plataforma para máxima eficiência operacional.</p>
 
-            <div class="row g-4">
-                <!-- Gestão de Ativos & Ciclo de Vida (Asset Management / EAM) -->
-                <div class="col-lg-6">
-                    <div class="card h-100">
-                        <div class="card-body">
-                            <h3 class="card-title fw-bold mb-2">Gestão de Ativos & Ciclo de Vida (Asset Management / EAM)</h3>
-                            <p class="card-text text-muted mb-3">
-                                Monitore o ciclo completo — aquisição, performance, manutenção e descarte.
-                                Estruture hierarquias (local > sistema > equipamento > componente) e tome decisões com base em dados
-                                históricos e indicadores de desempenho do ativo.
-                            </p>
-                            <a href="#ativos" class="btn btn-link p-0">Saiba mais</a>
-                        </div>
+            <div class="compliance-grid" aria-hidden="false">
+                <div class="compliance-card">
+                    <div class="compliance-icon">
+                        <img src="images/icon-maintenance.svg" alt="Ícone de gestão de ativos">
                     </div>
+                    <h3>Gestão de Ativos & Ciclo de Vida</h3>
+                    <p>Monitore o ciclo completo — aquisição, performance, manutenção e descarte. Estruture hierarquias e tome decisões com base em dados históricos.</p>
                 </div>
 
-                <!-- Fluxos de Aprovação & Workflow Inteligente -->
-                <div class="col-lg-6">
-                    <div class="card h-100">
-                        <div class="card-body">
-                            <h3 class="card-title fw-bold mb-2">Fluxos de Aprovação & Workflow Inteligente</h3>
-                            <p class="card-text text-muted mb-3">
-                                Configure processos de aprovação conforme valor, criticidade ou local.
-                                Tenha rastreabilidade total e logs imutáveis, prontos para auditorias e compliance técnico.
-                            </p>
-                            <a href="#workflow" class="btn btn-link p-0">Ver fluxo de aprovação</a>
-                        </div>
+                <div class="compliance-card">
+                    <div class="compliance-icon">
+                        <img src="images/icon-orders.svg" alt="Ícone de workflow inteligente">
                     </div>
+                    <h3>Fluxos de Aprovação & Workflow</h3>
+                    <p>Configure processos de aprovação conforme valor, criticidade ou local. Rastreabilidade total e logs imutáveis, prontos para auditorias.</p>
                 </div>
 
-                <!-- Auditoria & Controle de Conformidade (Compliance Logs / ISO) -->
-                <div class="col-lg-6">
-                    <div class="card h-100">
-                        <div class="card-body">
-                            <h3 class="card-title fw-bold mb-2">Auditoria & Controle de Conformidade (Compliance Logs / ISO)</h3>
-                            <p class="card-text text-muted mb-3">
-                                Registre "quem fez, quando e onde" com logs automáticos, controle de acesso por papéis (RBAC) e checklists digitais integrados.
-                            </p>
-                            <a href="#compliance" class="btn btn-link p-0">Ver logs / compliance</a>
-                        </div>
+                <div class="compliance-card">
+                    <div class="compliance-icon">
+                        <img src="images/1150587.png" alt="Ícone de auditoria e conformidade">
                     </div>
+                    <h3>Auditoria & Controle de Conformidade</h3>
+                    <p>Registre "quem fez, quando e onde" com logs automáticos, controle de acesso por papéis (RBAC) e checklists digitais integrados.</p>
                 </div>
 
-                <!-- Planejamento Visual — Calendário & Gantt -->
-                <div class="col-lg-6">
-                    <div class="card h-100">
-                        <div class="card-body">
-                            <h3 class="card-title fw-bold mb-2">Planejamento Visual — Calendário & Gantt</h3>
-                            <p class="card-text text-muted mb-3">
-                                Organize e visualize ordens de serviço, manutenções preventivas e escalas de equipe.
-                                Interface drag-and-drop, priorização automática e visões por dia, semana, mês e ano.
-                            </p>
-                            <a href="#gantt" class="btn btn-link p-0">Ver agenda visual</a>
-                        </div>
+                <div class="compliance-card">
+                    <div class="compliance-icon">
+                        <img src="images/icon-realtime.svg" alt="Ícone de planejamento visual">
                     </div>
+                    <h3>Planejamento Visual — Calendário & Gantt</h3>
+                    <p>Organize e visualize ordens de serviço, manutenções preventivas e escalas. Interface drag-and-drop com priorização automática.</p>
                 </div>
 
-                <!-- Permissões Customizáveis & Operações Multi-Site -->
-                <div class="col-lg-6">
-                    <div class="card h-100">
-                        <div class="card-body">
-                            <h3 class="card-title fw-bold mb-2">Permissões Customizáveis & Operações Multi-Site</h3>
-                            <p class="card-text text-muted mb-3">
-                                Controle granular de acesso por usuário, equipe, unidade operacional e geolocalização.
-                                Gestão consolidada de operações espalhadas por múltiplas localidades.
-                            </p>
-                            <a href="#permissoes" class="btn btn-link p-0">Ver controle por local</a>
-                        </div>
+                <div class="compliance-card">
+                    <div class="compliance-icon">
+                        <img src="images/67.png" alt="Ícone de permissões customizáveis">
                     </div>
+                    <h3>Permissões Customizáveis & Multi-Site</h3>
+                    <p>Controle granular de acesso por usuário, equipe, unidade operacional e geolocalização. Gestão consolidada de múltiplas localidades.</p>
                 </div>
 
-                <!-- Relatórios, Dashboards & Analytics (BI / KPIs / Insights) -->
-                <div class="col-lg-6">
-                    <div class="card h-100">
-                        <div class="card-body">
-                            <h3 class="card-title fw-bold mb-2">Relatórios, Dashboards & Analytics (BI / KPIs / Insights)</h3>
-                            <p class="card-text text-muted mb-3">
-                                Transforme dados operacionais em decisões estratégicas.
-                                Métricas essenciais — MTTR, MTBF, backlog, custo por ativo, análise de falhas por padrão — com integração direta a BI.
-                            </p>
-                            <a href="#dashboards" class="btn btn-link p-0">Ver dashboards</a>
-                        </div>
+                <div class="compliance-card">
+                    <div class="compliance-icon">
+                        <img src="images/807313.png" alt="Ícone de relatórios e analytics">
                     </div>
+                    <h3>Relatórios, Dashboards & Analytics</h3>
+                    <p>Transforme dados operacionais em decisões estratégicas. Métricas essenciais — MTTR, MTBF, backlog, custo por ativo — com integração direta a BI.</p>
                 </div>
-
-                <!-- App Móvel & Operação Offline (Mobile CMMS) -->
-                <div class="col-lg-6">
-                    <div class="card h-100">
-                        <div class="card-body">
-                            <h3 class="card-title fw-bold mb-2">App Móvel & Operação Offline (Mobile CMMS)</h3>
-                            <p class="card-text text-muted mb-3">
-                                A equipe de campo acessa tarefas, checklists e evidências diretamente do celular, mesmo sem conexão.
-                                Sincronização automática e interface pensada para uso robusto.
-                            </p>
-                            <a href="#app" class="btn btn-link p-0">Ver app móvel</a>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Gestão de Estoque & Reposição Inteligente (Supply Chain / MRO) -->
-                <div class="col-lg-6">
-                    <div class="card h-100">
-                        <div class="card-body">
-                            <h3 class="card-title fw-bold mb-2">Gestão de Estoque & Reposição Inteligente (Supply Chain / MRO)</h3>
-                            <p class="card-text text-muted mb-3">
-                                Evite rupturas críticas. Controle níveis mínimos, rastreamento de lote e validade,
-                                previsão de demanda e integração com fornecedores.
-                            </p>
-                            <a href="#estoque" class="btn btn-link p-0">Ver controle de estoque</a>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Integrações & API Corporativa (Ecosistema / Integração ERP/BI) -->
-                <div class="col-lg-6">
-                    <div class="card h-100">
-                        <div class="card-body">
-                            <h3 class="card-title fw-bold mb-2">Integrações & API Corporativa (Ecosistema / Integração ERP/BI)</h3>
-                            <p class="card-text text-muted mb-3">
-                                Conecte-se ao que já existe: ERP, RH, financeiro, BI, automação industrial.
-                                APIs REST, webhooks, conectores prontos e arquitetura extensível.
-                            </p>
-                            <a href="#integracoes" class="btn btn-link p-0">Ver integrações</a>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Segurança & Alta Disponibilidade (Segurança da Informação / SLA) -->
-                <div class="col-lg-6">
-                    <div class="card h-100">
-                        <div class="card-body">
-                            <h3 class="card-title fw-bold mb-2">Segurança & Alta Disponibilidade (Segurança da Informação / SLA)</h3>
-                            <p class="card-text text-muted mb-3">
-                                Criptografia AES-256, backups diários, redundância geográfica e SLA 99,9%.
-                                Infraestrutura alinhada a boas práticas e certificações (ISO 27001).
-                            </p>
-                            <a href="#seguranca" class="btn btn-link p-0">Ver segurança / SLA</a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <!-- CTA forte ao final da seção -->
-            <div class="text-center mt-4">
-                <a href="https://wa.me/5582981457117?text=Quero%20uma%20demonstra%C3%A7%C3%A3o%20exclusiva" class="btn btn-primary">
-                    Agendar Demonstração Personalizada
-                </a>
             </div>
         </div>
     </section>
