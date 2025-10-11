@@ -32,7 +32,6 @@
     <link rel="stylesheet" href="css/styles-mobile.css">
     <link rel="stylesheet" href="css/menu.css">
     <link rel="stylesheet" href="css/mobile-enhancements-corrigido.css">
-    <link rel="stylesheet" href="css/recursos-harmonizado.css">
     <link rel="stylesheet"
         href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&family=Montserrat:wght@400;500;600;700&family=Open+Sans:wght@300;400;600;700&display=swap">
     <!-- Mantém Font Awesome (ícones usados nos cards) e Bootstrap CSS (grid existente) -->
@@ -40,8 +39,6 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 
     <style>
-        /* Removido: .parallax-banner e derivados para usar o .app-section do styles-base.css */
-
         /* WhatsApp Float — ajustes mínimos locais iguais ao index */
         @media (max-width: 768px) {
             #whatsappFloat.whatsapp-float { bottom: 15px; right: 15px; }
@@ -406,6 +403,354 @@
                 min-width: 0 !important;
             }
         }
+        
+        /* Gradient title for context header */
+        .gradient-title {
+            background: linear-gradient(135deg, var(--primary-blue), var(--primary-dark));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        
+        /* Parallax section */
+        .parallax-section {
+            background-image: url('images/manuntecao_001.png');
+            background-attachment: fixed;
+            background-position: center;
+            background-repeat: no-repeat;
+            background-size: cover;
+            min-height: 500px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+        }
+        
+        .parallax-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(34, 34, 34, 0.85);
+        }
+        
+        .parallax-content {
+            text-align: center;
+            color: white;
+            position: relative;
+            z-index: 2;
+            max-width: 800px;
+            padding: 20px;
+        }
+        
+        .parallax-content h2 {
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+            font-weight: 700;
+        }
+        
+        .parallax-content p {
+            font-size: 1.2rem;
+            margin-bottom: 30px;
+            line-height: 1.6;
+        }
+        
+        /* Reduce spacing between sections */
+        #visao-geral {
+            padding: 40px 0;
+        }
+        
+        #recursos {
+            padding-top: 40px;
+        }
+        
+        /* Mobile adjustments for parallax */
+        @media (max-width: 768px) {
+            .parallax-section {
+                background-attachment: scroll;
+                min-height: 400px;
+            }
+            
+            .parallax-content h2 {
+                font-size: 2rem;
+            }
+            
+            .parallax-content p {
+                font-size: 1rem;
+            }
+            
+            #visao-geral {
+                padding: 30px 0;
+            }
+            
+            #recursos {
+                padding-top: 30px;
+            }
+        }
+        
+        /* CTA Section - Harmonized */
+        .cta-section {
+          padding: var(--space-lg) 0;
+          background: var(--bg-warm);
+          color: var(--dark-gray);
+          position: relative;
+          overflow: hidden;
+          min-height: 600px;
+        }
+
+        .cta-section::before {
+          content: '';
+          position: absolute;
+          top: -50%;
+          left: -20%;
+          width: 100%;
+          height: 200%;
+          background: radial-gradient(circle, rgba(255, 255, 255, 0.1) 0%, transparent 70%);
+          z-index: 1;
+        }
+
+        .cta-content {
+          display: flex;
+          align-items: center;
+          justify-content: space-between;
+          position: relative;
+          z-index: 2;
+          height: 100%;
+          min-height: 500px;
+        }
+
+        .cta-image {
+          position: absolute;
+          bottom: 0;
+          left: 0;
+          z-index: 1;
+          width: 50%;
+          height: 100%;
+          display: flex;
+          align-items: flex-end;
+          justify-content: flex-start;
+        }
+
+        .cta-image img {
+            max-width: 130%;
+            height: auto;
+            display: block;
+            margin: 0 0 0 -50px;
+            transition: var(--transition);
+            border-radius: 0;
+            box-shadow: none;
+            border: none;
+            object-fit: contain;
+            object-position: left bottom;
+          }
+
+        .cta-image img:hover {
+          transform: translateY(-5px);
+        }
+
+        .cta-text {
+          position: relative;
+          z-index: 2;
+          margin-left: auto;
+          width: 55%;
+          display: flex;
+          flex-direction: column;
+          justify-content: center;
+          align-items: flex-start;
+          text-align: left;
+          padding: var(--space-xl);
+          margin-top: var(--space-lg);
+        }
+
+        .cta-text h2 {
+          font-family: var(--font-secondary);
+          font-size: var(--text-4xl);
+          font-weight: var(--font-weight-bold);
+          color: var(--primary-blue);
+          margin-bottom: var(--space-md);
+          line-height: var(--line-height-tight);
+          text-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+
+        .cta-text p {
+          color: rgba(0, 0, 0, 0.75);
+          margin-bottom: var(--space-xl);
+          font-size: var(--text-lg);
+          line-height: var(--line-height-relaxed);
+          max-width: 100%;
+        }
+        
+        /* Footer - Harmonized */
+        .footer {
+          background: var(--accent-dark);
+          color: var(--white);
+          padding: var(--space-md) 0 var(--space-sm);
+          text-align: center;
+          position: relative;
+          overflow: hidden;
+        }
+
+        .footer::before {
+          content: '';
+          position: absolute;
+          top: 0;
+          left: 0;
+          right: 0;
+          height: 4px;
+          background: linear-gradient(90deg, var(--primary-blue), var(--gold), var(--coral));
+        }
+
+        .footer-content {
+          display: none;
+        }
+
+        .social-icons {
+          margin-bottom: var(--space-sm);
+          gap: var(--space-sm);
+          display: flex;
+          justify-content: center;
+          align-items: center;
+        }
+
+        .social-icons a {
+          width: 40px;
+          height: 40px;
+          background: rgba(255, 255, 255, 0.15);
+          transition: all 0.3s ease;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          border-radius: 50%;
+        }
+
+        .social-icons a:hover {
+          background: var(--primary-blue);
+          transform: translateY(-2px);
+        }
+
+        .social-icons img {
+          width: 20px;
+          height: 20px;
+          filter: brightness(0) invert(1);
+        }
+
+        .footer p {
+          font-size: var(--text-xs);
+          line-height: 1.4;
+          margin: 0;
+        }
+        
+        @media (max-width: 768px) {
+            .cta-section {
+                padding: var(--space-xl) 0;
+                min-height: auto;
+            }
+            
+            .cta-content {
+                flex-direction: column;
+                gap: var(--space-lg);
+                min-height: auto;
+            }
+            
+            .cta-image {
+                position: relative;
+                width: 100%;
+                height: auto;
+                justify-content: center;
+                margin-bottom: var(--space-lg);
+            }
+            
+            .cta-image img {
+                max-width: 70%;
+                margin: 0 auto;
+                object-position: center bottom;
+            }
+            
+            .cta-text {
+                width: 100%;
+                padding: 0 var(--space-sm);
+                margin-top: 0;
+                align-items: center;
+                text-align: center;
+            }
+            
+            .cta-text h2 {
+                font-size: var(--text-2xl);
+                text-align: center;
+            }
+            
+            .cta-text p {
+                text-align: center;
+                font-size: var(--text-base);
+            }
+        }
+        
+        /* Final CTA Section */
+        .final-cta-section {
+            padding: var(--space-3xl) 0;
+            background: linear-gradient(135deg, #1a1a1a 0%, #2c2c2c 50%, #404040 100%);
+            position: relative;
+            overflow: hidden;
+            text-align: center;
+            color: var(--white);
+        }
+        
+        .final-cta-content {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 0 var(--space-md);
+        }
+        
+        .final-cta-content h2 {
+            font-size: var(--text-4xl);
+            font-weight: var(--font-weight-bold);
+            margin-bottom: var(--space-md);
+            color: var(--white);
+        }
+        
+        .final-cta-content p {
+            font-size: var(--text-lg);
+            line-height: var(--line-height-relaxed);
+            margin-bottom: var(--space-xl);
+            color: rgba(255, 255, 255, 0.9);
+        }
+        
+        .btn-final-cta {
+            background: var(--gold);
+            color: var(--dark-gray);
+            border: none;
+            padding: var(--space-md) var(--space-xl);
+            border-radius: var(--radius-lg);
+            font-size: var(--text-lg);
+            font-weight: var(--font-weight-bold);
+            text-decoration: none;
+            display: inline-block;
+            transition: all 0.3s ease;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+        
+        .btn-final-cta:hover {
+            background: var(--white);
+            transform: translateY(-2px);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
+        }
+        
+        @media (max-width: 768px) {
+            .final-cta-section {
+                padding: var(--space-xl) 0;
+            }
+            
+            .final-cta-content h2 {
+                font-size: var(--text-3xl);
+            }
+            
+            .final-cta-content p {
+                font-size: var(--text-base);
+            }
+        }
     </style>
 </head>
 <body>
@@ -420,7 +765,7 @@
             </div>
             <div class="hero-content">
                 <h2 class="subtitle">Tudo Aqui!</h2>
-                <h1 class="title">CMMS Inteligente <br>& Manutenção Digital.</h1>
+                <h1 class="title">CMMS Inteligente <br>& Manutenção Digital</h1>
                 <p class="description">
                     <span class="oper-highlight">Eleve o Tempo Médio Entre Falhas (MTBF)</span>, prolongue a vida útil dos seus ativos e <span class="oper-highlight">reduza o Tempo Médio para Reparo (MTTR)</span> com o a <span class="oper-highlight"> OPER</span>. 
                 </p>
@@ -451,7 +796,7 @@
     <!-- Seção 2 — Operação que Atende Todos os Setores -->
     <section class="app-section" style="background: linear-gradient(rgba(34,34,34,0.85), rgba(34,34,34,0.85)), url('images/condominio.png');">
         <div class="container">
-            <h2 class="section-title">Operação Previsível — Do Hotel ao Conforto do seu Lar</h2>
+            <h2 class="section-title">Operação Previsível — Do Hotel ao Chão de Fábrica</h2>
             <p class="section-description">
                 Padronize processos, minimize riscos e assegure conformidade técnica e regulatória para cada setor.
                 Em hotéis, condomínios, escolas, frotas, edifícios corporativos e operações industriais, o OPER entrega
@@ -479,15 +824,14 @@
         </div>
     </section>
 
-    <!-- Context Header -->
-    <section class="section-padding">
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-8 mx-auto text-center">
-                    <h2 class="display-5 fw-bold mb-4" style="background: linear-gradient(135deg, var(--primary-color), var(--primary-dark)); -webkit-background-clip: text; -webkit-text-fill-color: transparent;">
-                        Gestão de ativos, planejamento inteligente e execução impecável
-                    </h2>
-                </div>
+    <!-- Parallax Section - Veja o OPER em Ação -->
+    <section class="parallax-section">
+        <div class="parallax-content">
+            <h2>Veja o OPER em Ação</h2>
+            <p>Visualize o painel em tempo real com ordens, alertas, checklists e métricas-chave. Solicite uma demonstração especializada para seu setor e descubra como o OPER pode elevar sua operação a um patamar digital, inteligente e escalável.</p>
+            <div class="d-flex gap-3 justify-content-center flex-wrap">
+                <a href="https://wa.me/5582981457117?text=Agendar%20demonstra%C3%A7%C3%A3o" class="btn btn-primary">Agendar Demonstração</a>
+                <a href="tour-guiado.html" class="btn btn-outline-light">Tour Virtual</a>
             </div>
         </div>
     </section>
@@ -550,81 +894,56 @@
                     <h3>Relatórios, Dashboards & Analytics</h3>
                     <p>Transforme dados operacionais em decisões estratégicas. Métricas essenciais — MTTR, MTBF, backlog, custo por ativo — com integração direta a BI.</p>
                 </div>
-            </div>
-        </div>
-    </section>
 
-    <!-- Impact Quotes Section -->
-    <section class="section-padding">
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-10 mx-auto">
-                    <div class="row g-3 mb-5">
-                        <div class="col-md-6">
-                            <div class="quote-card text-center">
-                                <p class="mb-0 fst-italic text-muted">
-                                    "Tour Guiado: descubra como suas equipes irão ver o dia a dia pela OPER"
-                                </p>
+                <!-- NOVO CARD 2 -->
+                <div class="compliance-card">
+                    <div class="compliance-icon">
+                        <img src="images/icon-maintenance.svg" alt="Ícone de interface intuitiva">
+                    </div>
+                    <h3>Interface Intuitiva e Poderosa</h3>
+                    <p>Veja como nossa plataforma transforma a gestão de manutenção com uma interface moderna e funcional, projetada para operação real.<br><br>
+                   </p>
+
+<div class="row g-3">
+                        <div class="col-6">
+                            <div class="d-flex align-items-center">
+                                <i class="fas fa-mobile-alt text-primary me-2"></i>
+                                <small>App móvel nativo</small>
                             </div>
                         </div>
-                        <div class="col-md-6">
-                            <div class="quote-card text-center">
-                                <p class="mb-0 fst-italic text-muted">
-                                    "Todos os detalhes em uma tela — ordens, ativos, agenda, performance"
-                                </p>
+                        <div class="col-6">
+                            <div class="d-flex align-items-center">
+                                <i class="fas fa-desktop text-primary me-2"></i>
+                                <small>Dashboard completo</small>
                             </div>
                         </div>
-                        <div class="col-md-6">
-                            <div class="quote-card text-center">
-                                <p class="mb-0 fst-italic text-muted">
-                                    "Sua operação entra em modo previsível, não apenas corretivo"
-                                </p>
+                        <div class="col-6">
+                            <div class="d-flex align-items-center">
+                                <i class="fas fa-cloud text-primary me-2"></i>
+                                <small>Sincronização automática</small>
                             </div>
                         </div>
-                        <div class="col-md-6">
-                            <div class="quote-card text-center">
-                                <p class="mb-0 fst-italic text-muted">
-                                    "Segurança de dados + certificação = tranquilidade para decisões estratégicas"
-                                </p>
-                            </div>
-                        </div>
-                        <div class="col-md-6 offset-md-3">
-                            <div class="quote-card text-center">
-                                <p class="mb-0 fst-italic text-muted">
-                                    "Aplicável a hotéis, escolas, frota, condomínios — seu setor, seus ativos, seu controle"
-                                </p>
+                        <div class="col-6">
+                            <div class="d-flex align-items-center">
+                                <i class="fas fa-shield-alt text-primary me-2"></i>
+                                <small>Segurança avançada</small>
                             </div>
                         </div>
                     </div>
-                    <div class="text-center">
-                        <a href="#tour" class="btn btn-outline-primary me-3">Ver Tour Guiado</a>
-                        <a href="https://wa.me/5582981457117?text=Quero%20uma%20demonstra%C3%A7%C3%A3o%20exclusiva" class="btn btn-primary">Agendar Demonstração</a>
+                </div>
+
+                <!-- NOVO CARD 3 -->
+                <div class="compliance-card">
+                    <div class="compliance-icon">
+                        <img src="images/icon-realtime.svg" alt="Ícone de planejamento visual e execução">
                     </div>
+                    <h3>Planejamento visual e execução sem atrito</h3>
+                    <p>Calendário, ordens e checklists digitais com conformidade auditável</p>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Seção 5 — A Espinha Dorsal Digital da Sua Manutenção -->
-    <section class="section-padding" id="espinha-dorsal">
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-8 mx-auto text-center">
-                    <h2 class="display-5 fw-bold mb-4">A Espinha Dorsal Digital da Sua Manutenção</h2>
-                    <p class="lead text-muted mb-4">
-                        O OPER centraliza ativos, fluxos de trabalho, históricos de performance e métricas num único núcleo digital.
-                        Mais do que um CMMS — é uma plataforma EAM / manutenção digital que ajuda a antecipar falhas, otimizar custos
-                        e demonstrar valor operacional, com eficiência e escalabilidade.
-                    </p>
-                    <p class="text-muted">
-                        <strong>Camadas conceituais integradas:</strong><br>
-                        CMMS (foco em manutenção operacional) • EAM (gestão do ciclo de vida completo do ativo) • Analytics / BI / IA (capacidade preditiva, insights estratégicos)
-                    </p>
-                    <a href="tour-guiado.html" class="btn btn-primary">Tour Virtual</a>
-                </div>
-            </div>
-        </div>
-    </section>
 
     <!-- Seção 6 — Benefícios com Termos Semanticamente Relevantes -->
     <section class="section-padding bg-light" id="beneficios">
@@ -652,422 +971,30 @@
         </div>
     </section>
 
-    <!-- Seção 7 — Veja o OPER em Ação — Demonstração Personalizada -->
-    <section class="section-padding" id="ver-na-pratica">
+    <!-- Final CTA Section -->
+    <section class="final-cta-section">
         <div class="container">
-            <div class="row">
-                <div class="col-lg-8 mx-auto text-center">
-                    <h2 class="display-5 fw-bold mb-4">Veja o OPER em Ação — Demonstração Personalizada</h2>
-                    <p class="lead text-muted mb-4">
-                        Visualize o painel em tempo real com ordens, alertas, checklists e métricas-chave.
-                        Solicite uma demonstração especializada para seu setor e descubra como o OPER pode elevar sua operação
-                        a um patamar digital, inteligente e escalável.
-                    </p>
-                    <div class="d-flex gap-3 justify-content-center flex-wrap">
-                        <a href="https://wa.me/5582981457117?text=Agendar%20demonstra%C3%A7%C3%A3o" class="btn btn-primary">Agendar Demonstração</a>
-                        <a href="tour-guiado.html" class="btn btn-outline-primary">Tour Virtual</a>
-                        <a href="https://wa.me/5582981457117" class="btn btn-success">Falar no WhatsApp</a>
-                    </div>
-                </div>
+            <div class="final-cta-content">
+                <h2>Pronto para Transformar Sua Operação?</h2>
+                <p>Junte-se às empresas que já confiaram no OPER para elevar sua manutenção a um novo nível de eficiência, segurança e controle.</p>
+                <a href="https://wa.me/5582981457117?text=Quero%20agendar%20uma%20demonstra%C3%A7%C3%A3o" class="btn-final-cta">Agendar Demo</a>
             </div>
         </div>
     </section>
 
-    <!-- Banner com Mockups -->
-    <section class="section-padding">
+    <!-- Footer - igual ao index.html -->
+    <footer class="footer">
         <div class="container">
-            <div class="row align-items-center">
-                <div class="col-lg-6">
-                    <h2 class="display-5 fw-bold mb-4">Interface Intuitiva e Poderosa</h2>
-                    <p class="lead text-muted mb-4">
-                        Veja como nossa plataforma transforma a gestão de manutenção com uma interface 
-                        moderna e funcional, projetada para operação real.
-                    </p>
-                    <div class="row g-3">
-                        <div class="col-6">
-                            <div class="d-flex align-items-center">
-                                <i class="fas fa-mobile-alt text-primary me-2"></i>
-                                <small>App móvel nativo</small>
-                            </div>
-                        </div>
-                        <div class="col-6">
-                            <div class="d-flex align-items-center">
-                                <i class="fas fa-desktop text-primary me-2"></i>
-                                <small>Dashboard completo</small>
-                            </div>
-                        </div>
-                        <div class="col-6">
-                            <div class="d-flex align-items-center">
-                                <i class="fas fa-cloud text-primary me-2"></i>
-                                <small>Sincronização automática</small>
-                            </div>
-                        </div>
-                        <div class="col-6">
-                            <div class="d-flex align-items-center">
-                                <i class="fas fa-shield-alt text-primary me-2"></i>
-                                <small>Segurança avançada</small>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-6">
-                    <div class="row g-3">
-                        <div class="col-6">
-                            <img src="temp_images/mockup_mobile_01.png" alt="App móvel OPER" class="img-fluid rounded-3 shadow" loading="lazy" onerror="this.style.display='none'">
-                        </div>
-                        <div class="col-6">
-                            <img src="temp_images/mockup_dashboard_01.png" alt="Dashboard OPER" class="img-fluid rounded-3 shadow" loading="lazy" onerror="this.style.display='none'">
-                        </div>
-                    </div>
-                </div>
+            <div class="social-icons">
+                <a href="https://facebook.com/name" target="_blank"><img src="images/facebook-icon.png"
+                        alt="Facebook"></a>
+                <a href="https://twitter.com/name" target="_blank"><img src="images/twitter-icon.png" alt="Twitter"></a>
+                <a href="https://www.instagram.com/name" target="_blank"><img src="images/instagram-icon.png"
+                        alt="Instagram"></a>
             </div>
+            <p>&copy; 2025 OPER - Backup. Todos os direitos reservados.</p>
         </div>
-    </section>
-
-    <!-- App Section (banner limpo, sem parallax) -->
-    <section class="app-section">
-        <div class="container">
-            <h2 class="section-title">Planejamento visual e execução sem atrito</h2>
-            <p class="section-description">
-                Calendário, ordens e checklists digitais com conformidade auditável
-            </p>
-            <div class="text-center">
-                <a href="tour-guiado.html" class="btn btn-outline-primary">Ver Tour Guiado</a>
-            </div>
-        </div>
-    </section>
-
-    <!-- Impact Quotes Section -->
-    <section class="section-padding">
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-10 mx-auto">
-                    <div class="row g-3 mb-5">
-                        <div class="col-md-6">
-                            <div class="quote-card text-center">
-                                <p class="mb-0 fst-italic text-muted">
-                                    "Tour Guiado: descubra como suas equipes irão ver o dia a dia pela OPER"
-                                </p>
-                            </div>
-                        </div>
-                        <div class="col-md-6">
-                            <div class="quote-card text-center">
-                                <p class="mb-0 fst-italic text-muted">
-                                    "Todos os detalhes em uma tela — ordens, ativos, agenda, performance"
-                                </p>
-                            </div>
-                        </div>
-                        <div class="col-md-6">
-                            <div class="quote-card text-center">
-                                <p class="mb-0 fst-italic text-muted">
-                                    "Sua operação entra em modo previsível, não apenas corretivo"
-                                </p>
-                            </div>
-                        </div>
-                        <div class="col-md-6">
-                            <div class="quote-card text-center">
-                                <p class="mb-0 fst-italic text-muted">
-                                    "Segurança de dados + certificação = tranquilidade para decisões estratégicas"
-                                </p>
-                            </div>
-                        </div>
-                        <div class="col-md-6 offset-md-3">
-                            <div class="quote-card text-center">
-                                <p class="mb-0 fst-italic text-muted">
-                                    "Aplicável a hotéis, escolas, frota, condomínios — seu setor, seus ativos, seu controle"
-                                </p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="text-center">
-                        <a href="#tour" class="btn btn-outline-primary me-3">Ver Tour Guiado</a>
-                        <a href="https://wa.me/5582981457117?text=Quero%20uma%20demonstra%C3%A7%C3%A3o%20exclusiva" class="btn btn-primary">Agendar Demonstração</a>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Positioning Section -->
-    <section class="section-padding bg-light">
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-8 mx-auto text-center">
-                    <h2 class="display-5 fw-bold mb-4">
-                        A espinha dorsal digital da sua manutenção
-                    </h2>
-                    <p class="lead text-muted mb-4">
-                        A OPER centraliza ativos, fluxo de trabalho, registros históricos e métricas de desempenho em um único lugar. 
-                        Vai além de controlar ordens de serviço: ajuda a decidir melhor, antecipar problemas, comprovar valor e segurança — 
-                        moderno, operacional e pronto para o futuro.
-                    </p>
-                    <div class="row g-4 mt-5">
-                        <div class="col-md-4">
-                            <div class="text-center">
-                                <i class="fas fa-database text-primary mb-3" style="font-size: 3rem;"></i>
-                                <h5 class="fw-bold mb-2">Centralização</h5>
-                                <p class="text-muted small">
-                                    Todas as informações em um único sistema integrado e acessível
-                                </p>
-                            </div>
-                        </div>
-                        <div class="col-md-4">
-                            <div class="text-center">
-                                <i class="fas fa-chart-line text-primary mb-3" style="font-size: 3rem;"></i>
-                                <h5 class="fw-bold mb-2">Análise</h5>
-                                <p class="text-muted small">
-                                    Insights para tomada de decisão estratégica baseada em dados
-                                </p>
-                            </div>
-                        </div>
-                        <div class="col-md-4">
-                            <div class="text-center">
-                                <i class="fas fa-cogs text-primary mb-3" style="font-size: 3rem;"></i>
-                                <h5 class="fw-bold mb-2">Operação</h5>
-                                <p class="text-muted small">
-                                    Ferramentas práticas para execução eficiente no dia a dia
-                                </p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Benefits Section -->
-    <section class="section-padding">
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-8 mx-auto text-center mb-5">
-                    <h2 class="display-5 fw-bold mb-4">
-                        Benefícios Tangíveis
-                    </h2>
-                </div>
-            </div>
-            <div class="row">
-                <div class="col-lg-12">
-                    <div class="benefit-item">
-                        <div class="d-flex align-items-start">
-                            <i class="fas fa-bullseye text-primary me-3 mt-1"></i>
-                            <div>
-                                <h5 class="fw-bold mb-2">Redução de Falhas Inesperadas</h5>
-                                <p class="text-muted mb-0">
-                                    Diminuição drástica de emergências através de manutenção preventiva inteligente e análise de falhas baseada em dados históricos.
-                                </p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="benefit-item">
-                        <div class="d-flex align-items-start">
-                            <i class="fas fa-bullseye text-primary me-3 mt-1"></i>
-                            <div>
-                                <h5 class="fw-bold mb-2">Controle Financeiro</h5>
-                                <p class="text-muted mb-0">
-                                    Melhor controle de orçamento com eliminação de 'gastos surpresa' através de planejamento estratégico e visão clara dos custos.
-                                </p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="benefit-item">
-                        <div class="d-flex align-items-start">
-                            <i class="fas fa-bullseye text-primary me-3 mt-1"></i>
-                            <div>
-                                <h5 class="fw-bold mb-2">Eficiência Operacional</h5>
-                                <p class="text-muted mb-0">
-                                    Otimização do tempo das equipes com menos retrabalho, deslocamento otimizado e alocação inteligente de recursos.
-                                </p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="benefit-item">
-                        <div class="d-flex align-items-start">
-                            <i class="fas fa-bullseye text-primary me-3 mt-1"></i>
-                            <div>
-                                <h5 class="fw-bold mb-2">Responsabilidade & Compliance</h5>
-                                <p class="text-muted mb-0">
-                                    Mais controle e responsabilidade total — quem fez, quando, se aprovado, se conforme. Histórico completo para auditorias.
-                                </p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="benefit-item">
-                        <div class="d-flex align-items-start">
-                            <i class="fas fa-bullseye text-primary me-3 mt-1"></i>
-                            <div>
-                                <h5 class="fw-bold mb-2">Segurança Operacional</h5>
-                                <p class="text-muted mb-0">
-                                    Ambiente mais seguro para pessoas e ativos com checklists de segurança automatizados e conformidade regulatória.
-                                </p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="benefit-item">
-                        <div class="d-flex align-items-start">
-                            <i class="fas fa-bullseye text-primary me-3 mt-1"></i>
-                            <div>
-                                <h5 class="fw-bold mb-2">Transparência Gerencial</h5>
-                                <p class="text-muted mb-0">
-                                    Transparência total para gestores com relatórios detalhados, dashboards em tempo real e métricas de performance claras.
-                                </p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Demo Section -->
-    <section class="section-padding bg-light">
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-8 mx-auto text-center mb-5">
-                    <h2 class="display-5 fw-bold mb-4">
-                        Veja a OPER em Ação
-                    </h2>
-                    <p class="lead text-muted">
-                        Assista uma demonstração ao vivo de como nossa plataforma pode transformar sua gestão de manutenção. 
-                        Experimente a interface intuitiva e as ferramentas poderosas que tornam a operação diária mais eficiente.
-                    </p>
-                </div>
-            </div>
-            <div class="row g-4">
-                <div class="col-lg-6">
-                    <div class="card">
-                        <div class="card-body">
-                            <div class="d-flex align-items-center mb-3">
-                                <div class="feature-icon me-3">
-                                    <i class="fas fa-chart-line"></i>
-                                </div>
-                                <div>
-                                    <h5 class="card-title fw-bold mb-1">Painel de Atividades em Tempo Real</h5>
-                                    <span class="badge bg-success text-white">Online • Monitoramento Ativo</span>
-                                </div>
-                            </div>
-                            
-                            <div class="activity-warning">
-                                <div class="d-flex justify-content-between align-items-start">
-                                    <div>
-                                        <h6 class="fw-bold mb-1">Ordem de Serviço #1234</h6>
-                                        <p class="text-muted small mb-2">Manutenção preventiva - Ar condicionado - Sala 201</p>
-                                        <div class="d-flex gap-2">
-                                            <span class="badge bg-warning text-dark">Alta</span>
-                                            <small class="text-muted">João Silva</small>
-                                        </div>
-                                    </div>
-                                    <small class="text-muted">Hoje, 14:00</small>
-                                </div>
-                            </div>
-
-                            <div class="activity-progress">
-                                <div class="d-flex justify-content-between align-items-start">
-                                    <div>
-                                        <h6 class="fw-bold mb-1">Checklist em Andamento</h6>
-                                        <p class="text-muted small mb-2">Inspeção de segurança mensal - Bloco A</p>
-                                        <div class="d-flex gap-2">
-                                            <span class="badge bg-primary">Média</span>
-                                            <small class="text-muted">Maria Santos</small>
-                                        </div>
-                                    </div>
-                                    <small class="text-primary fw-bold">85% completo</small>
-                                </div>
-                            </div>
-
-                            <div class="activity-critical">
-                                <div class="d-flex justify-content-between align-items-start">
-                                    <div>
-                                        <h6 class="fw-bold mb-1">Alerta Crítico</h6>
-                                        <p class="text-muted small mb-2">Elevador social - Parada inesperada</p>
-                                        <div class="d-flex gap-2">
-                                            <span class="badge bg-danger">Crítica</span>
-                                            <small class="text-muted">Equipe de Emergência</small>
-                                        </div>
-                                    </div>
-                                    <small class="text-danger fw-bold">Imediato</small>
-                                </div>
-                            </div>
-
-                            <div class="activity-success">
-                                <div class="d-flex justify-content-between align-items-start">
-                                    <div>
-                                        <h6 class="fw-bold mb-1">Relatório Diário</h6>
-                                        <p class="text-muted small mb-2">12 tarefas concluídas hoje</p>
-                                        <div class="d-flex gap-2">
-                                            <span class="badge bg-secondary">Normal</span>
-                                        </div>
-                                    </div>
-                                    <small class="text-success fw-bold">100% taxa</small>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="col-lg-6">
-                    <div class="card">
-                        <div class="card-body">
-                            <div class="d-flex align-items-center mb-3">
-                                <div class="feature-icon me-3">
-                                    <i class="fas fa-calendar-alt"></i>
-                                </div>
-                                <h5 class="card-title fw-bold mb-0">Agendar Demonstração</h5>
-                            </div>
-                            <p class="text-muted mb-4">
-                                Pronto para transformar sua operação? Veja em tempo real como o OPER acelera processos, 
-                                reduz falhas e aumenta a produtividade das suas equipes. Nossa equipe especializada 
-                                mostrará como adaptar a plataforma às suas necessidades específicas.
-                            </p>
-                            <div class="mb-4">
-                                <div class="d-flex align-items-center mb-2">
-                                    <i class="fas fa-check-circle text-success me-2"></i>
-                                    <small>Demonstração personalizada para seu setor</small>
-                                </div>
-                                <div class="d-flex align-items-center mb-2">
-                                    <i class="fas fa-check-circle text-success me-2"></i>
-                                    <small>Tirar dúvidas com especialistas em manutenção</small>
-                                </div>
-                                <div class="d-flex align-items-center mb-2">
-                                    <i class="fas fa-check-circle text-success me-2"></i>
-                                    <small>Plano de implementação detalhado</small>
-                                </div>
-                            </div>
-                            <div class="d-grid gap-2">
-                                <a href="https://wa.me/5582981457117?text=Quero%20uma%20demonstra%C3%A7%C3%A3o%20exclusiva" class="btn btn-primary">
-                                    Comece Agora
-                                </a>
-                                <a href="https://wa.me/5582981457117" class="btn btn-outline-primary">
-                                    Fale conosco no WhatsApp
-                                </a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Seção 8 — Rodapé / Call Final -->
-    <section class="section-padding bg-light" id="call-final">
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-8 mx-auto text-center">
-                    <h2 class="display-5 fw-bold mb-4">Pronto para Transformar Sua Operação?</h2>
-                    <p class="lead text-muted mb-4">
-                        Junte-se às empresas que já confiaram no OPER para elevar sua manutenção a um novo nível de eficiência, segurança e controle.
-                    </p>
-                    <div class="d-flex gap-3 justify-content-center flex-wrap">
-                        <a href="https://wa.me/5582981457117?text=Quero%20agendar%20uma%20demonstra%C3%A7%C3%A3o" class="btn btn-primary">
-                            Agendar Demonstração Agora
-                        </a>
-                        <a href="tour-guiado.html" class="btn btn-outline-primary">
-                            Iniciar Tour Virtual
-                        </a>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
+    </footer>
 
     <!-- Botão flutuante do WhatsApp (idêntico ao index) -->
     <div class="whatsapp-float" id="whatsappFloat">
@@ -1089,31 +1016,11 @@
         </a>
     </div>
 
-    <!-- Remoção da navbar local para usar o menu global carregado via menu.html -->
-    <!-- A navbar <nav class="navbar navbar-expand-lg">...</nav> foi retirada -->
-
-    <!-- Footer -->
-    <footer class="bg-dark text-white py-5 mt-5">
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-6">
-                    <h5 class="fw-bold">OPER</h5>
-                    <p class="text-muted">Sistema de Gestão de Manutenção</p>
-                </div>
-                <div class="col-lg-6 text-lg-end">
-                    <p class="text-muted mb-0">© 2024 OPER. Todos os direitos reservados.</p>
-                </div>
-            </div>
-        </div>
-    </footer>
-
     <!-- Scripts de base e menu -->
     <script src="js/script-harmonizado.js"></script>
     <script src="js/menu-loader.js"></script>
 
     <!-- Bootstrap bundle (mantido para grid) -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
-
-    <!-- Script removido: parallax desativado para manter consistência com o index -->
 </body>
 </html>
