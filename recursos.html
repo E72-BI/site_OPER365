@@ -750,6 +750,183 @@
             .final-cta-content p {
                 font-size: var(--text-base);
             }
+            
+            .btn-final-cta {
+                width: 100%;
+                max-width: 300px;
+                margin: 0 auto;
+            }
+        }
+        
+        /* Mobile-first enhancements */
+        @media (max-width: 768px) {
+            /* Improve touch targets */
+            .btn {
+                min-height: 48px;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+            }
+            
+            /* Optimize card layouts for mobile */
+            .compliance-card {
+                margin-bottom: var(--space-md);
+            }
+            
+            /* Improve readability on small screens */
+            body {
+                font-size: 16px;
+                line-height: 1.6;
+            }
+            
+            h1, h2, h3 {
+                line-height: 1.2;
+            }
+            
+            /* Optimize spacing for mobile */
+            .section-padding {
+                padding: var(--space-xl) 0;
+            }
+            
+            /* Make CTAs more prominent on mobile */
+            .btn-primary, .btn-final-cta {
+                font-size: var(--text-base);
+                padding: var(--space-md) var(--space-lg);
+                width: 100%;
+                max-width: 300px;
+                margin: 0 auto;
+                display: block;
+                text-align: center;
+            }
+            
+            /* Center buttons on mobile */
+            .text-center .btn-primary,
+            .text-center .btn-final-cta {
+                margin: var(--space-md) auto;
+            }
+            
+            /* Improve hero section for mobile */
+            .hero {
+                padding: var(--space-sm) 0;
+            }
+            
+            .hero .container {
+                flex-direction: column-reverse;
+                gap: var(--space-sm);
+            }
+            
+            .hero-content {
+                text-align: center !important;
+                padding: 0 var(--space-sm);
+            }
+            
+            .hero-content .title {
+                font-size: var(--text-3xl);
+            }
+            
+            .hero-content .description {
+                font-size: var(--text-base);
+                text-align: center !important;
+            }
+            
+            /* Mobile CTA row adjustments */
+            .hero .cta-row {
+                justify-content: center !important;
+                flex-wrap: wrap;
+                gap: var(--space-sm);
+            }
+            
+            .tour-button .zap-icon {
+                width: 80px !important;
+                height: 80px !important;
+            }
+            
+            /* Optimize parallax section for mobile */
+            .parallax-section {
+                min-height: 350px;
+                padding: var(--space-md) 0;
+            }
+            
+            .parallax-content {
+                padding: var(--space-sm);
+            }
+            
+            .parallax-content h2 {
+                font-size: var(--text-2xl);
+            }
+            
+            .parallax-content p {
+                font-size: var(--text-base);
+            }
+            
+            /* Mobile button group stacking */
+            .d-flex.gap-3 {
+                flex-direction: column;
+                gap: var(--space-sm);
+            }
+            
+            .d-flex.gap-3 .btn {
+                width: 100%;
+                max-width: 300px;
+                margin: 0 auto;
+            }
+        }
+        
+        /* Desktop enhancements for decision makers */
+        @media (min-width: 1024px) {
+            /* Larger hero section for impact */
+            .hero {
+                min-height: 80vh;
+                display: flex;
+                align-items: center;
+            }
+            
+            .hero .container {
+                flex-direction: row;
+                align-items: center;
+                gap: var(--space-2xl);
+            }
+            
+            .hero-content {
+                flex: 1;
+                text-align: left !important;
+            }
+            
+            .hero-image {
+                flex: 1;
+                display: flex;
+                justify-content: flex-end;
+            }
+            
+            /* Enhanced visual impact for desktop */
+            .compliance-card:hover {
+                transform: translateY(-10px);
+                box-shadow: var(--shadow-xl);
+            }
+            
+            /* Desktop parallax enhancement */
+            .parallax-section {
+                min-height: 600px;
+            }
+            
+            /* Enhanced CTA section for desktop */
+            .cta-section {
+                min-height: 700px;
+            }
+            
+            /* Desktop button enhancements */
+            .btn-final-cta {
+                padding: var(--space-lg) var(--space-2xl);
+                font-size: var(--text-xl);
+            }
+        }
+        
+        /* High DPI screen optimizations */
+        @media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
+            img {
+                image-rendering: -webkit-optimize-contrast;
+                image-rendering: crisp-edges;
+            }
         }
     </style>
 </head>
@@ -963,9 +1140,11 @@
                         <li>• Segurança operacional com checklists automatizados e conformidade técnica</li>
                         <li>• Transparência gerencial com dashboards, relatórios e insights em tempo real</li>
                     </ul>
-                    <a href="https://wa.me/5582981457117?text=Solicitar%20demonstra%C3%A7%C3%A3o" class="btn btn-primary">
-                        Solicitar Demonstração
-                    </a>
+                    <div class="text-center">
+                        <a href="https://wa.me/5582981457117?text=Solicitar%20demonstra%C3%A7%C3%A3o" class="btn btn-primary">
+                            Solicitar Demonstração
+                        </a>
+                    </div>
                 </div>
             </div>
         </div>
@@ -977,7 +1156,7 @@
             <div class="final-cta-content">
                 <h2>Pronto para Transformar Sua Operação?</h2>
                 <p>Junte-se às empresas que já confiaram no OPER para elevar sua manutenção a um novo nível de eficiência, segurança e controle.</p>
-                <a href="https://wa.me/5582981457117?text=Quero%20agendar%20uma%20demonstra%C3%A7%C3%A3o" class="btn-final-cta">Agendar Demo</a>
+                <a href="https://wa.me/5582981457117?text=Quero%20agendar%20uma%20demonstra%C3%A7%C3%A3o" class="btn-final-cta">Agendar Demonstração Agora</a>
             </div>
         </div>
     </section>
