@@ -1,5 +1,10 @@
 /* Página de Recursos - Estilos Modernos */
 
+/* App Section */
+.recursos-app-section {
+    background: linear-gradient(rgba(34,34,34,0.85), rgba(34,34,34,0.85)), url('images/condominio.png');
+}
+
 /* Hero Section com gradiente tecnológico */
 .recursos-hero {
     background: linear-gradient(135deg, #4586DF 0%, #3A6EA5 50%, #2c3e50 100%);

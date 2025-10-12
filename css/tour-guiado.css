@@ -1,12 +1,19 @@
 /* Complementos específicos do Tour Guiado, alinhados ao tema global */
 /* Complementos extraídos de oper-tour-guiado.html para eliminar estilos inline */
 
+/* Hide mock toggle by default */
+.mock-toggle {
+    display: none;
+}
+
+/* Show mock toggle for specific steps */
+.page-tour-guiado[data-step="3"] .mock-toggle,
+.page-tour-guiado[data-step="4"] .mock-toggle {
+    display: flex !important;
+}
+
 /* Seção hero */
-.tour-hero { background: linear-gradient(135deg, #4586DF 0%, #3A6EA5 100%); color: white; padding: 80px 0 60px; position: relative; overflow: hidden; }
-.tour-hero::before { content: ''; position: absolute; top: 0; left: 0; right: 0; bottom: 0; background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><defs><pattern id="grain" width="100" height="100" patternUnits="userSpaceOnUse"><circle cx="25" cy="25" r="1" fill="rgba(255,255,255,0.1)"/><circle cx="75" cy="75" r="1" fill="rgba(255,255,255,0.1)"/><circle cx="50" cy="10" r="0.5" fill="rgba(255,255,255,0.05)"/><circle cx="10" cy="60" r="0.5" fill="rgba(255,255,255,0.05)"/><circle cx="90" cy="40" r="0.5" fill="rgba(255,255,255,0.05)"/></pattern></defs><rect width="100" height="100" fill="url(%23grain)"/></svg>'); opacity: 0.3; }
-.tour-hero-content { position: relative; z-index: 2; text-align: center; max-width: 800px; margin: 0 auto; }
-.tour-hero h1 { font-size: clamp(2.5rem, 5vw, 4rem); margin-bottom: 1.5rem; font-weight: 700; line-height: 1.1; }
-.tour-hero p { font-size: 0.95rem; margin-bottom: 2rem; opacity: 0.9; line-height: 1; }
+/* Hero styles moved to global-styles.css */
 
 /* Estrutura principal */
 .guided-tour-container { background: #fff4d6; padding: 25px 0; min-height: 100vh; position: relative; }

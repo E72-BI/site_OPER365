@@ -1,0 +1,820 @@
+/* Global Styles for OPER - Gestão de Manutenção */
+/* This file contains common styles used across all pages */
+
+/* CSS Variables - OPER Brand Palette */
+:root {
+  /* OPER Brand Colors - Harmonized Palette */
+  --primary-blue: #4586DF;
+  --light-blue: #B6D6F2;
+  --coral: #D97F85;
+  --gold: #F2CB57;
+  --dark-gray: #292D33;
+  --light-gray: #CCD3D9;
+  --white: #ffffff;
+  --text-gray: #666666;
+  --text-light: #999999;
+  
+  /* Harmonized accents */
+  --bg-warm: #FFF4D6; /* compliance background */
+  --accent-blue: #3A6EA5; /* slightly deeper, used for icons and strokes */
+  --muted-gold: #E8C96A;
+  --accent-coral: #E06B72; /* slightly brighter coral for highlights */
+  --accent-dark: #1E2328; /* darker shade for better contrast */
+  --accent-orange: #D6432D; /* CTA primary accent - deep coral shade */
+  --accent-orange-hover: #B8362A; /* CTA hover accent - darker coral */
+  
+  /* WhatsApp Colors */
+  --whatsapp-green: #22c55e;
+  --whatsapp-green-hover: #16a34a;
+  --whatsapp-dark: #111827;
+  
+  /* Typography Scale - Harmonized */
+  --font-primary: 'Roboto', sans-serif;
+  --font-secondary: 'Montserrat', sans-serif;
+  --font-accent: 'Open Sans', sans-serif;
+  
+  --text-xs: 0.75rem;      /* 12px */
+  --text-sm: 0.875rem;     /* 14px */
+  --text-base: 1rem;        /* 16px */
+  --text-lg: 1.125rem;      /* 18px */
+  --text-xl: 1.25rem;       /* 20px */
+  --text-2xl: 1.5rem;       /* 24px */
+  --text-3xl: 1.875rem;     /* 30px */
+  --text-4xl: 2.25rem;      /* 36px */
+  --text-5xl: 2.75rem;      /* 44px */
+  --text-6xl: 3.25rem;      /* 52px */
+  
+  /* Font Weights */
+  --font-weight-normal: 400;
+  --font-weight-medium: 500;
+  --font-weight-semibold: 600;
+  --font-weight-bold: 700;
+  
+  /* Line Heights - Harmonized */
+  --line-height-tight: 1.2;
+  --line-height-normal: 1.5;
+  --line-height-relaxed: 1.6;
+  --heading-line-height: 1.15;
+  --body-line-height: 1.6;
+  
+  /* Spacing Scale - Harmonized for better rhythm */
+  --space-3xs: 0.25rem;     /* 4px */
+  --space-2xs: 0.5rem;      /* 8px */
+  --space-xs: 0.75rem;      /* 12px */
+  --space-sm: 1rem;         /* 16px */
+  --space-md: 1.5rem;       /* 24px */
+  --space-lg: 2rem;         /* 32px */
+  --space-xl: 3rem;         /* 48px */
+  --space-2xl: 4rem;        /* 64px */
+  --space-3xl: 5rem;        /* 80px */
+  
+  /* Transitions - Unified */
+  --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  --transition-fast: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+  
+  /* Border Radius - Consistent */
+  --radius-sm: 0.375rem;
+  --radius-md: 0.5rem;
+  --radius-lg: 0.75rem;
+  --radius-xl: 1rem;
+  --radius-2xl: 1.5rem;
+  --radius-full: 9999px;
+  
+  /* Shadows - Harmonized */
+  --shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.1), 0 1px 2px rgba(0, 0, 0, 0.06);
+  --shadow-md: 0 4px 6px rgba(0, 0, 0, 0.1), 0 2px 4px rgba(0, 0, 0, 0.06);
+  --shadow-lg: 0 10px 15px rgba(0, 0, 0, 0.1), 0 4px 6px rgba(0, 0, 0, 0.05);
+  --shadow-xl: 0 20px 25px rgba(0, 0, 0, 0.1), 0 10px 10px rgba(0, 0, 0, 0.04);
+  --shadow-colored: 0 10px 15px rgba(69, 134, 223, 0.2);
+}
+
+/* Reset and Base Styles */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: var(--font-primary);
+  font-size: var(--text-base);
+  line-height: var(--body-line-height);
+  color: var(--dark-gray);
+  background: var(--white);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  overflow-x: hidden;
+}
+
+.container {
+  max-width: 960px;
+  margin: 0 auto;
+  padding: 0 var(--space-md);
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+ul {
+  list-style: none;
+}
+
+/* Typography System - Harmonized */
+h1, .h1,
+h2, .h2,
+h3, .h3,
+h4, .h4,
+h5, .h5,
+h6, .h6 {
+  font-family: var(--font-secondary);
+  color: var(--dark-gray);
+  margin-top: 0;
+  margin-bottom: var(--space-md);
+  line-height: var(--heading-line-height);
+  letter-spacing: -0.02em;
+}
+
+h1, .h1 { 
+  font-size: clamp(var(--text-4xl), 5vw, var(--text-6xl)); 
+  font-weight: var(--font-weight-bold); 
+}
+h2, .h2 { 
+  font-size: clamp(var(--text-3xl), 4vw, var(--text-5xl)); 
+  font-weight: var(--font-weight-bold); 
+}
+h3, .h3 { 
+  font-size: clamp(var(--text-2xl), 3vw, var(--text-4xl)); 
+  font-weight: var(--font-weight-semibold); 
+}
+h4, .h4 { 
+  font-size: clamp(var(--text-xl), 2.5vw, var(--text-3xl)); 
+  font-weight: var(--font-weight-semibold); 
+}
+h5, .h5 { 
+  font-size: var(--text-lg); 
+  font-weight: var(--font-weight-medium); 
+}
+h6, .h6 { 
+  font-size: var(--text-base); 
+  font-weight: var(--font-weight-medium); 
+  color: var(--text-light); 
+}
+
+p {
+  margin-bottom: var(--space-md);
+  line-height: var(--body-line-height);
+  color: var(--text-gray);
+}
+
+/* Typographic utility classes */
+.lead {
+  font-size: var(--text-lg);
+  font-weight: var(--font-weight-medium);
+  color: var(--dark-gray);
+  margin-bottom: var(--space-lg);
+}
+
+.muted, .text-muted {
+  color: var(--text-light);
+  font-size: var(--text-sm);
+}
+
+/* Global typographic refinements */
+strong, b {
+  font-weight: var(--font-weight-bold);
+  color: inherit;
+}
+
+em, i {
+  font-style: italic;
+  color: inherit;
+}
+
+a {
+  color: var(--primary-blue);
+  transition: var(--transition-fast);
+}
+
+a:not(.btn):hover {
+  color: var(--accent-blue);
+}
+
+/* Remove underline for buttons and navigation */
+.btn,
+.btn-primary,
+.btn-secondary,
+.btn-cta,
+.nav-menu a,
+.news-cta {
+  text-decoration: none;
+}
+
+/* Lists and small text */
+ul, ol {
+  padding-left: var(--space-lg);
+  margin-bottom: var(--space-md);
+}
+
+li {
+  margin-bottom: var(--space-xs);
+}
+
+small {
+  font-size: var(--text-sm);
+  color: var(--text-light);
+}
+
+/* Blockquote style */
+blockquote {
+  border-left: 4px solid var(--primary-blue);
+  padding: var(--space-md) var(--space-lg);
+  margin: var(--space-lg) 0;
+  color: var(--text-gray);
+  background: rgba(69, 134, 223, 0.05);
+  border-radius: 0 var(--radius-md) var(--radius-md) 0;
+}
+
+/* Ensure visual consistency for title/subtitle classes */
+.title, .hero-content .title {
+  margin: 0 0 var(--space-sm) 0;
+  color: var(--accent-blue); /* Changed to match button color */
+}
+
+.subtitle, .hero-content .subtitle {
+  display: block;
+  font-weight: var(--font-weight-bold);
+  color: var(--coral); /* Changed to red color */
+  letter-spacing: 0.6px;
+  margin-bottom: var(--space-xs);
+  font-size: clamp(var(--text-2xl), 3vw, var(--text-4xl)); /* Reduced slightly from previous size */
+  font-family: var(--font-secondary);
+  line-height: var(--heading-line-height);
+}
+
+/* Buttons - Harmonized */
+.btn {
+  display: inline-block;
+  padding: var(--space-sm) var(--space-lg);
+  border-radius: var(--radius-md);
+  font-weight: var(--font-weight-medium);
+  transition: var(--transition);
+  border: 2px solid transparent;
+  cursor: pointer;
+  font-family: var(--font-secondary);
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+  z-index: 1;
+  min-height: 44px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.btn::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(255, 255, 255, 0.2);
+  transform: translateX(-100%);
+  transition: transform 0.6s ease;
+  z-index: -1;
+}
+
+.btn:hover::before {
+  transform: translateX(0);
+}
+
+.btn-primary {
+  background: var(--accent-blue);
+  color: var(--white);
+  border-color: var(--accent-blue);
+  box-shadow: var(--shadow-md);
+}
+
+.btn-primary:hover {
+  background: var(--primary-blue);
+  border-color: var(--primary-blue);
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-lg);
+}
+
+.btn-secondary {
+  background: transparent;
+  color: var(--gold);
+  border-color: var(--gold);
+}
+
+.btn-secondary:hover {
+  background: var(--gold);
+  color: var(--dark-gray);
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-colored);
+}
+
+.btn-cta {
+  background: var(--primary-blue);
+  color: var(--white);
+  border: none;
+  border-color: var(--primary-blue);
+  box-shadow: 0 4px 15px rgba(69, 134, 223, 0.3);
+  padding: var(--space-md) var(--space-xl);
+  border-radius: var(--radius-lg);
+  font-size: var(--text-lg);
+  font-weight: var(--font-weight-bold);
+  text-decoration: none;
+  display: inline-block;
+  transition: all 0.3s ease;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.btn-cta:hover {
+  background: var(--accent-blue);
+  border-color: var(--accent-blue);
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(58, 110, 165, 0.4);
+  color: var(--white);
+}
+
+/* WhatsApp Button — Escopo isolado para evitar conflitos globais */
+.whatsapp-float {
+  position: fixed;
+  bottom: 24px;
+  right: 24px;
+  z-index: 1000;
+}
+
+.whatsapp-float .zap-anchor {
+  position: relative;
+  display: block;
+  text-decoration: none;
+}
+
+/* Tooltip acima do botão (visível ao hover) */
+.whatsapp-float .zap-tooltip {
+  position: absolute;
+  bottom: 100%;
+  right: 0;
+  margin-bottom: 8px;
+  background: var(--whatsapp-dark, #111827);
+  color: var(--white, #ffffff);
+  font-size: 13px;
+  padding: 6px 10px;
+  border-radius: 8px;
+  box-shadow: 0 10px 20px rgba(17, 24, 39, 0.3);
+  white-space: nowrap;
+  opacity: 0;
+  transform: translateX(20px);
+  pointer-events: none;
+  transition: opacity 0.25s ease, transform 0.25s ease;
+}
+
+.whatsapp-float .zap-tooltip-arrow {
+  position: absolute;
+  bottom: 0;
+  right: 16px;
+  width: 8px;
+  height: 8px;
+  background: var(--whatsapp-dark, #111827);
+  transform: translateY(50%) rotate(45deg);
+}
+
+.whatsapp-float .zap-anchor:hover .zap-tooltip {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+/* Glow de fundo (blur, intensidade varia no hover) */
+.whatsapp-float .zap-glow {
+  position: absolute;
+  inset: 0;
+  background: var(--whatsapp-green, #22c55e);
+  border-radius: 9999px;
+  filter: blur(18px);
+  opacity: 0.3;
+  transform: scale(1);
+  transition: transform 0.3s ease, opacity 0.3s ease;
+}
+
+.whatsapp-float .zap-anchor:hover .zap-glow {
+  transform: scale(1.3);
+  opacity: 0.5;
+}
+
+/* Botão principal (círculo verde com hover scale) */
+.whatsapp-float .zap-button {
+  position: relative;
+  background: var(--whatsapp-green, #22c55e);
+  border-radius: 9999px;
+  padding: 16px;
+  box-shadow: 0 8px 25px rgba(34, 197, 94, 0.3);
+  transition: box-shadow 0.3s ease, transform 0.1s ease;
+  transform: scale(1);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.whatsapp-float .zap-anchor:hover .zap-button {
+  box-shadow: 0 15px 35px rgba(34, 197, 94, 0.4);
+  transform: scale(1.1);
+}
+
+.whatsapp-float .zap-icon {
+  width: 24px;
+  height: 24px;
+  color: var(--white, #ffffff);
+  display: block;
+}
+
+/* Anel pulsante contínuo (escala e desvanece) */
+@keyframes zapPulse {
+  0%   { transform: scale(1);   opacity: 1; }
+  50%  { transform: scale(1.2); opacity: 0.7; }
+  100% { transform: scale(1.4); opacity: 0; }
+}
+
+.whatsapp-float .zap-pulse {
+  position: absolute;
+  inset: 0;
+  border-radius: 9999px;
+  border: 2px solid var(--whatsapp-green, #22c55e);
+  animation: zapPulse 2s ease-out infinite;
+}
+
+/* Tour Virtual Button — idêntico ao WhatsApp */
+.tour-button.zap-anchor {
+  position: relative;
+  display: block;
+  text-decoration: none;
+}
+
+.tour-button .zap-tooltip {
+  position: absolute;
+  bottom: 100%;
+  right: 0;
+  margin-bottom: 8px;
+  background: var(--whatsapp-dark, #111827);
+  color: var(--white, #ffffff);
+  font-size: 13px;
+  padding: 6px 10px;
+  border-radius: 8px;
+  box-shadow: 0 10px 20px rgba(17, 24, 39, 0.3);
+  white-space: nowrap;
+  opacity: 0;
+  transform: translateX(20px);
+  pointer-events: none;
+  transition: opacity 0.25s ease, transform 0.25s ease;
+}
+
+.tour-button .zap-tooltip-arrow {
+  position: absolute;
+  bottom: 0;
+  right: 16px;
+  width: 8px;
+  height: 8px;
+  background: var(--whatsapp-dark, #111827);
+  transform: translateY(50%) rotate(45deg);
+}
+
+.tour-button.zap-anchor:hover .zap-tooltip {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+.tour-button .zap-glow {
+  position: absolute;
+  inset: 0;
+  background: rgba(26, 139, 199, 0.2);
+  border-radius: 9999px;
+  filter: blur(18px);
+  opacity: 0.3;
+  transform: scale(1);
+  transition: transform 0.3s ease, opacity 0.3s ease;
+}
+
+.tour-button.zap-anchor:hover .zap-glow {
+  transform: scale(1.3);
+  opacity: 0.5;
+}
+
+.tour-button .zap-button {
+  position: relative;
+  background: transparent;
+  border-radius: 9999px;
+  padding: 16px;
+  box-shadow: 0 8px 25px rgba(26, 139, 199, 0.3);
+  transition: box-shadow 0.3s ease, transform 0.1s ease;
+  transform: scale(1);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.tour-button.zap-anchor:hover .zap-button {
+  box-shadow: 0 15px 35px rgba(26, 139, 199, 0.4);
+  transform: scale(1.1);
+}
+
+.tour-button .zap-icon {
+  width: 24px;
+  height: 24px;
+  display: block;
+  object-fit: contain;
+}
+
+@keyframes tourPulse {
+  0%   { transform: scale(1);   opacity: 1; }
+  50%  { transform: scale(1.2); opacity: 0.7; }
+  100% { transform: scale(1.4); opacity: 0; }
+}
+
+.tour-button .zap-pulse {
+  position: absolute;
+  inset: 0;
+  border-radius: 9999px;
+  border: 2px solid rgba(26, 139, 199, 0.2);
+  animation: tourPulse 2s ease-out infinite;
+}
+
+/* Ripple effect for WhatsApp button */
+.ripple-effect {
+  position: relative;
+  overflow: hidden;
+}
+
+.ripple-effect .ripple {
+  position: absolute;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.6);
+  transform: scale(0);
+  animation: ripple-animation 0.6s linear;
+  pointer-events: none;
+}
+
+@keyframes ripple-animation {
+  to {
+    transform: scale(4);
+    opacity: 0;
+  }
+}
+
+/* Section Title Styles */
+.section-title {
+  font-family: var(--font-secondary);
+  font-size: var(--text-4xl);
+  font-weight: var(--font-weight-bold);
+  color: var(--dark-gray);
+  margin-bottom: var(--space-md);
+  text-align: center;
+}
+
+.section-description {
+  font-size: var(--text-lg);
+  color: var(--text-gray);
+  text-align: center;
+  max-width: 800px;
+  margin: 0 auto var(--space-xl);
+  line-height: var(--line-height-relaxed);
+}
+
+/* Card Styles */
+.compliance-card,
+.feature-card-enhanced,
+.testimonial-card-no-photo,
+.stat-card,
+.news-card {
+  border-radius: var(--radius-xl);
+  transition: var(--transition);
+  box-shadow: var(--shadow-md);
+}
+
+.compliance-card:hover,
+.feature-card-enhanced:hover,
+.testimonial-card-no-photo:hover,
+.stat-card:hover,
+.news-card:hover {
+  transform: translateY(-8px);
+  box-shadow: var(--shadow-xl);
+}
+
+/* Grid Styles */
+.compliance-grid,
+.features-grid,
+.testimonials-grid-no-photo,
+.stats-grid,
+.news-grid {
+  display: grid;
+  gap: var(--space-lg);
+  margin-top: var(--space-xl);
+}
+
+/* Progress Bar */
+.tour-progress {
+  background: rgba(69, 134, 223, 0.2);
+}
+
+.tour-progress-bar {
+  background: var(--primary-blue);
+  height: 100%;
+  width: 0;
+  transition: width 0.3s ease;
+}
+
+/* Accordion Styles */
+.accordion-item {
+  margin-bottom: var(--space-xs);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: var(--radius-md);
+  overflow: hidden;
+  background: rgba(255, 255, 255, 0.05);
+}
+
+.accordion-header {
+  width: 100%;
+  padding: var(--space-sm);
+  background: rgba(255, 255, 255, 0.5);
+  border: none;
+  text-align: left;
+  font-size: var(--text-base);
+  font-weight: var(--font-weight-medium);
+  color: var(--dark-gray);
+  cursor: pointer;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  transition: var(--transition);
+  min-height: 44px;
+}
+
+.accordion-header:hover {
+  background: rgba(255, 255, 255, 0.15);
+}
+
+.accordion-header::after {
+  content: '+';
+  font-size: 24px;
+  color: var(--gold);
+  font-weight: bold;
+}
+
+.accordion-header.active::after {
+  content: '−';
+}
+
+.accordion-content {
+  padding: 0 var(--space-md);
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.35s ease, padding 0.35s ease;
+}
+
+.accordion-content.active {
+  padding: var(--space-sm);
+}
+
+.accordion-content p {
+  color: var(--dark-gray);
+  line-height: var(--line-height-relaxed);
+  font-size: var(--text-sm);
+}
+
+/* Responsive Styles */
+@media (max-width: 768px) {
+  .whatsapp-float {
+    bottom: 15px;
+    right: 15px;
+  }
+  
+  .whatsapp-float .zap-button {
+    padding: 20px;
+  }
+  
+  .whatsapp-float .zap-icon {
+    width: 28px;
+    height: 28px;
+  }
+  
+  .whatsapp-float .zap-tooltip {
+    display: none;
+  }
+
+  /* Responsivo para Tour Virtual */
+  #tourVirtualFloat.whatsapp-float { bottom: 80px; right: 15px; }
+  #tourVirtualFloat .zap-button { padding: 20px; }
+  #tourVirtualFloat .zap-icon { width: 28px; height: 28px; }
+  #tourVirtualFloat .zap-tooltip { display: none; }
+
+  /* Responsivo para Tour CTA */
+  .tour-button .zap-button { padding: 17px; }           /* +20% */
+  .tour-button .zap-icon { width: 77px; height: 77px; } /* +20% */
+  .tour-button .zap-tooltip { display: none; }
+  
+  /* Better mobile touch targets */
+  .btn {
+    min-height: 44px;
+    padding: var(--space-md) var(--space-xl);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  .btn-primary, .btn-cta {
+    padding: var(--space-md) var(--space-xl);
+  }
+  
+  /* Improved mobile typography */
+  body {
+    font-size: var(--text-base);
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+  
+  h1, .h1 {
+    font-size: var(--text-4xl);
+    line-height: 1.1;
+  }
+  
+  h2, .h2 {
+    font-size: var(--text-3xl);
+    line-height: 1.2;
+  }
+  
+  h3, .h3 {
+    font-size: var(--text-2xl);
+    line-height: 1.3;
+  }
+  
+  p {
+    font-size: var(--text-base);
+    line-height: 1.6;
+    margin-bottom: var(--space-sm);
+  }
+  
+  .section-title {
+    font-size: var(--text-3xl);
+    line-height: 1.2;
+  }
+  
+  .section-description {
+    font-size: var(--text-base);
+    line-height: 1.6;
+  }
+  
+  /* Better mobile list readability */
+  ul, ol {
+    padding-left: var(--space-md);
+    margin-bottom: var(--space-md);
+  }
+  
+  li {
+    margin-bottom: var(--space-xs);
+    line-height: 1.6;
+  }
+  
+  /* Better quote styling for mobile */
+  blockquote {
+    padding: var(--space-md);
+    margin: var(--space-md) 0;
+    font-size: var(--text-lg);
+    line-height: 1.5;
+  }
+  
+  /* Enhanced mobile focus states */
+  a:focus, 
+  button:focus, 
+  input:focus, 
+  textarea:focus {
+    outline: 2px solid var(--primary-blue);
+    outline-offset: 2px;
+  }
+}
+
+/* Acessibilidade: preservar animações do botão sob reduce-motion sem afetar o resto */
+@media (prefers-reduced-motion: reduce) {
+  /* Permitir pulsar contínuo e transições do botão dentro do escopo do WhatsApp */
+  .whatsapp-float .zap-pulse {
+    animation-duration: 2s !important;
+    animation-iteration-count: infinite !important;
+  }
+  .whatsapp-float .zap-glow {
+    transition: transform 0.3s ease, opacity 0.3s ease;
+  }
+  .whatsapp-float .zap-anchor:hover .zap-button {
+    transform: scale(1.1);
+    transition: transform 0.1s ease, box-shadow 0.3s ease;
+  }
+}

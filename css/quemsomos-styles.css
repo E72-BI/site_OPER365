@@ -1,0 +1,230 @@
+/* Quemsomos page-specific styles that were previously inline in quemsomos.html */
+
+/* Custom styles for quemsomos.html */
+.section {
+    padding: var(--space-2xl) 0;
+}
+
+.section-title {
+    text-align: center;
+    margin-bottom: var(--space-xl);
+}
+
+.section-description {
+    text-align: center;
+    max-width: 800px;
+    margin: 0 auto var(--space-xl);
+    font-size: var(--text-lg);
+    line-height: var(--line-height-relaxed);
+}
+
+/* Hero Section - Updated to match index.html layout */
+.hero {
+    padding: var(--space-md) 0 0;
+    background: var(--white);
+    margin-top: 30px;
+    margin-bottom: 0;
+    position: relative;
+    overflow: visible;
+    padding-bottom: 0;
+    z-index: 1;
+}
+
+.hero .container {
+    display: flex;
+    align-items: flex-start;
+    gap: var(--space-sm);
+    min-height: 360px;
+}
+
+.hero-content {
+    flex: 1;
+    padding-bottom: 24px;
+    margin-top: 24px;
+}
+
+.hero-image {
+    flex: 1;
+    text-align: left;
+    transform: scale(0.98);
+    transform-origin: left bottom;
+    display: flex;
+    align-items: flex-end;
+    justify-content: flex-start;
+    align-self: flex-end;
+}
+
+/* Hide mobile image on desktop */
+.hero-image .mobile-image {
+    display: none;
+}
+
+/* Show desktop image on desktop */
+.hero-image .desktop-image {
+    display: block;
+    width: 112%;
+    height: auto;
+    object-fit: cover;
+    object-position: left bottom;
+}
+
+.hero-image img {
+    display: block;
+    width: 93%;
+    height: auto;
+    border: none;
+    border-radius: 0;
+    box-shadow: none;
+    object-fit: cover;
+    object-position: left bottom;
+    margin-left: -20px;
+    margin-bottom: -1px;
+}
+
+/* Platform highlight styles */
+.hero-content .platform-highlight {
+    color: var(--accent-blue);
+}
+
+.hero-content .platform-brand {
+    font-weight: var(--font-weight-bold);
+}
+
+/* Azul no trecho e negrito em OPER (escopo da description na Hero) */
+.hero-content .description .platform-highlight,
+.hero-content .description .blue-text {
+    color: var(--accent-blue);
+}
+
+.hero-content .description .platform-brand,
+.hero-content .description .oper-highlight {
+    color: var(--accent-blue);
+    font-weight: var(--font-weight-bold);
+}
+
+/* Spacing adjustments between subtitle and title in hero */
+.hero-content .subtitle {
+    margin-bottom: 6px;
+}
+
+.hero-content .title {
+    margin-top: 0;
+}
+
+/* CTA do Hero: Tour + OU + Agendar */
+.cta-row {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    margin-top: 16px;
+}
+
+.cta-separator {
+    font-weight: 700;
+    color: #2c3e50;
+}
+
+/* Tour (CTA) */
+.tour-button .zap-icon {
+    width: 92px;
+    height: 92px;
+    object-fit: contain;
+    display: block;
+}
+
+.tour-button .zap-button {
+    padding: 16px;
+}
+
+/* Mobile-specific styles */
+@media (max-width: 768px) {
+    /* Mobile: harmonização da hero e CTA, com alta especificidade */
+    /* Remover margem/padding herdados e reduzir gap */
+    body .hero { 
+        padding-top: 0 !important; 
+        margin-top: 0 !important; 
+    }
+    
+    body .hero > .container { 
+        gap: 4px !important; 
+        padding-top: 0 !important; 
+        justify-content: flex-start !important;
+        align-items: center !important;
+        text-align: center !important;
+    }
+    
+    body .hero .hero-image { 
+        margin-top: 0 !important; 
+        margin-bottom: 0 !important; 
+    }
+    
+    body .hero .hero-content { 
+        margin: 0 !important; 
+        padding: 0 !important; 
+    }
+    
+    body .hero .hero-content .subtitle { 
+        margin-top: 0 !important; 
+        margin-bottom: 4px !important; 
+    }
+    
+    body .hero .hero-content .title { 
+        margin: 0 0 6px 0 !important; 
+    }
+    
+    body .hero .hero-content .description { 
+        margin: 0 0 6px 0 !important; 
+    }
+
+    /* CTA: centralizada, espaçamento uniforme e alinhamento vertical */
+    body .hero .cta-row {
+        display: flex !important;
+        align-items: center !important;
+        justify-content: center !important;
+        gap: 8px !important;
+        margin-top: 6px !important;
+        margin-bottom: 0 !important;
+        flex-wrap: nowrap !important;
+    }
+    
+    body .hero .cta-row .cta-separator {
+        display: flex !important;
+        align-items: center !important;
+        line-height: 1 !important;
+        margin: 0 4px !important;
+        font-weight: 700 !important;
+        font-size: 14px !important;
+    }
+    
+    body .hero .cta-row .tour-button,
+    body .hero .cta-row .cta-separator,
+    body .hero .cta-row .btn.btn-primary {
+        transform: translateY(-12px) !important;
+        align-self: center !important;
+    }
+
+    /* Tour: sem posição fixa no mobile e tamanho consistente */
+    body .hero .tour-fixed { 
+        position: static !important; 
+        inset: auto !important; 
+    }
+    
+    body .hero .tour-button .zap-icon { 
+        width: 90px !important; 
+        height: 90px !important; 
+    }
+    
+    body .hero .tour-button .zap-button { 
+        padding: 0 !important; 
+    }
+
+    /* Demo: largura contida e sem quebra */
+    body .hero .cta-row .btn.btn-primary {
+        flex: 0 0 auto !important;
+        white-space: nowrap !important;
+        padding: 6px 10px !important;
+        font-size: 13px !important;
+        line-height: 1.2 !important;
+        min-width: 0 !important;
+    }
+}

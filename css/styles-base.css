@@ -291,20 +291,6 @@ blockquote {
   transform: translateX(0);
 }
 
-.btn-primary {
-  background: var(--accent-blue);
-  color: var(--white);
-  border-color: var(--accent-blue);
-  box-shadow: var(--shadow-md);
-}
-
-.btn-primary:hover {
-  background: var(--primary-blue);
-  border-color: var(--primary-blue);
-  transform: translateY(-2px);
-  box-shadow: var(--shadow-lg);
-}
-
 .btn-secondary {
   background: transparent;
   color: var(--gold);
@@ -316,31 +302,6 @@ blockquote {
   color: var(--dark-gray);
   transform: translateY(-2px);
   box-shadow: var(--shadow-colored);
-}
-
-.btn-cta {
-  background: var(--primary-blue);
-  color: var(--white);
-  border: none;
-  border-color: var(--primary-blue);
-  box-shadow: 0 4px 15px rgba(69, 134, 223, 0.3);
-  padding: var(--space-md) var(--space-xl);
-  border-radius: var(--radius-lg);
-  font-size: var(--text-lg);
-  font-weight: var(--font-weight-bold);
-  text-decoration: none;
-  display: inline-block;
-  transition: all 0.3s ease;
-  text-transform: uppercase;
-  letter-spacing: 0.5px;
-}
-
-.btn-cta:hover {
-  background: var(--accent-blue);
-  border-color: var(--accent-blue);
-  transform: translateY(-2px);
-  box-shadow: 0 6px 20px rgba(58, 110, 165, 0.4);
-  color: var(--white);
 }
 
 /* Header - Clean and Modern */
@@ -478,11 +439,11 @@ blockquote {
   flex: 1;
   text-align: left;
   transform: scale(0.98);
-  transform-origin: left bottom;
+  transform-origin: left top;
   display: flex;
-  align-items: flex-end;
+  align-items: flex-start;
   justify-content: flex-start;
-  align-self: flex-end;
+  align-self: flex-start;
 }
 
 /* Hide mobile image on desktop */
@@ -496,7 +457,7 @@ blockquote {
   width: 112%;
   height: auto;
   object-fit: cover;
-  object-position: left bottom;
+  object-position: left top;
 }
 
 .hero-image img {
@@ -507,7 +468,7 @@ blockquote {
   border-radius: 0;
   box-shadow: none;
   object-fit: cover;
-  object-position: left bottom;
+  object-position: left top;
   margin-left: -20px;
   margin-bottom: -1px;
 }
@@ -631,26 +592,8 @@ blockquote {
   box-shadow: var(--shadow-lg);
 }
 
-.section-title {
-  font-family: var(--font-secondary);
-  font-size: var(--text-4xl);
-  font-weight: var(--font-weight-bold);
-  color: var(--dark-gray);
-  margin-bottom: var(--space-md);
-  text-align: center;
-}
-
 .features .section-title {
   color: var(--white);
-}
-
-.section-description {
-  font-size: var(--text-lg);
-  color: var(--text-gray);
-  text-align: center;
-  max-width: 800px;
-  margin: 0 auto var(--space-xl);
-  line-height: var(--line-height-relaxed);
 }
 
 .features .section-description {
@@ -1709,286 +1652,9 @@ blockquote {
   margin: 0;
 }
 
-/* WhatsApp Button — Escopo isolado para evitar conflitos globais */
-#whatsappFloat.whatsapp-float {
-  position: fixed;
-  bottom: 24px;
-  right: 24px;
-  z-index: 1000;
-}
-
-#whatsappFloat .zap-anchor {
-  position: relative;
-  display: block;
-  text-decoration: none;
-}
-
-/* Tooltip acima do botão (visível ao hover) */
-#whatsappFloat .zap-tooltip {
-  position: absolute;
-  bottom: 100%;
-  right: 0;
-  margin-bottom: 8px;
-  background: var(--whatsapp-dark, #111827);
-  color: var(--white, #ffffff);
-  font-size: 13px;
-  padding: 6px 10px;
-  border-radius: 8px;
-  box-shadow: 0 10px 20px rgba(17, 24, 39, 0.3);
-  white-space: nowrap;
-  opacity: 0;
-  transform: translateX(20px);
-  pointer-events: none;
-  transition: opacity 0.25s ease, transform 0.25s ease;
-}
-
-#whatsappFloat .zap-tooltip-arrow {
-  position: absolute;
-  bottom: 0;
-  right: 16px;
-  width: 8px;
-  height: 8px;
-  background: var(--whatsapp-dark, #111827);
-  transform: translateY(50%) rotate(45deg);
-}
-
-#whatsappFloat .zap-anchor:hover .zap-tooltip {
-  opacity: 1;
-  transform: translateX(0);
-}
-
-/* Glow de fundo (blur, intensidade varia no hover) */
-#whatsappFloat .zap-glow {
-  position: absolute;
-  inset: 0;
-  background: var(--whatsapp-green, #22c55e);
-  border-radius: 9999px;
-  filter: blur(18px);
-  opacity: 0.3;
-  transform: scale(1);
-  transition: transform 0.3s ease, opacity 0.3s ease;
-}
-
-#whatsappFloat .zap-anchor:hover .zap-glow {
-  transform: scale(1.3);
-  opacity: 0.5;
-}
-
-/* Botão principal (círculo verde com hover scale) */
-#whatsappFloat .zap-button {
-  position: relative;
-  background: var(--whatsapp-green, #22c55e);
-  border-radius: 9999px;
-  padding: 16px;
-  box-shadow: 0 8px 25px rgba(34, 197, 94, 0.3);
-  transition: box-shadow 0.3s ease, transform 0.1s ease;
-  transform: scale(1);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-#whatsappFloat .zap-anchor:hover .zap-button {
-  box-shadow: 0 15px 35px rgba(34, 197, 94, 0.4);
-  transform: scale(1.1);
-}
-
-#whatsappFloat .zap-icon {
-  width: 24px;
-  height: 24px;
-  color: var(--white, #ffffff);
-  display: block;
-}
-
-/* Anel pulsante contínuo (escala e desvanece) */
-@keyframes zapPulse {
-  0%   { transform: scale(1);   opacity: 1; }
-  50%  { transform: scale(1.2); opacity: 0.7; }
-  100% { transform: scale(1.4); opacity: 0; }
-}
-
-#whatsappFloat .zap-pulse {
-  position: absolute;
-  inset: 0;
-  border-radius: 9999px;
-  border: 2px solid var(--whatsapp-green, #22c55e);
-  animation: zapPulse 2s ease-out infinite;
-}
-
-/* Tour Virtual Button — idêntico ao WhatsApp */
-
-
-/* Tour (CTA) — efeitos refinados e tamanhos */
-.tour-button.zap-anchor {
-  position: relative;
-  display: block;
-  text-decoration: none;
-}
-
-.tour-button .zap-tooltip {
-  position: absolute;
-  bottom: 100%;
-  right: 0;
-  margin-bottom: 8px;
-  background: var(--whatsapp-dark, #111827);
-  color: var(--white, #ffffff);
-  font-size: 13px;
-  padding: 6px 10px;
-  border-radius: 8px;
-  box-shadow: 0 10px 20px rgba(17, 24, 39, 0.3);
-  white-space: nowrap;
-  opacity: 0;
-  transform: translateX(20px);
-  pointer-events: none;
-  transition: opacity 0.25s ease, transform 0.25s ease;
-}
-
-.tour-button .zap-tooltip-arrow {
-  position: absolute;
-  bottom: 0;
-  right: 16px;
-  width: 8px;
-  height: 8px;
-  background: var(--whatsapp-dark, #111827);
-  transform: translateY(50%) rotate(45deg);
-}
-
-.tour-button.zap-anchor:hover .zap-tooltip {
-  opacity: 1;
-  transform: translateX(0);
-}
-
-.tour-button .zap-glow {
-  position: absolute;
-  inset: 0;
-  background: rgba(26, 139, 199, 0.2);
-  border-radius: 9999px;
-  filter: blur(18px);
-  opacity: 0.3;
-  transform: scale(1);
-  transition: transform 0.3s ease, opacity 0.3s ease;
-}
-
-.tour-button.zap-anchor:hover .zap-glow {
-  transform: scale(1.3);
-  opacity: 0.5;
-}
-
-.tour-button .zap-button {
-  position: relative;
-  background: transparent;
-  border-radius: 9999px;
-  padding: 16px;
-  box-shadow: 0 8px 25px rgba(26, 139, 199, 0.3);
-  transition: box-shadow 0.3s ease, transform 0.1s ease;
-  transform: scale(1);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-.tour-button.zap-anchor:hover .zap-button {
-  box-shadow: 0 15px 35px rgba(26, 139, 199, 0.4);
-  transform: scale(1.1);
-}
-
-.tour-button .zap-icon {
-  width: 24px;
-  height: 24px;
-  display: block;
-  object-fit: contain;
-}
-
-@keyframes tourPulse {
-  0%   { transform: scale(1);   opacity: 1; }
-  50%  { transform: scale(1.2); opacity: 0.7; }
-  100% { transform: scale(1.4); opacity: 0; }
-}
-
-.tour-button .zap-pulse {
-  position: absolute;
-  inset: 0;
-  border-radius: 9999px;
-  border: 2px solid rgba(26, 139, 199, 0.2);
-  animation: tourPulse 2s ease-out infinite;
-}
-
-/* Ripple override para o Tour com azul */
-.tour-button .ripple {
-  background: rgba(26, 139, 199, 0.2);
-}
 
 
 
-/* Responsivo */
-@media (max-width: 768px) {
-  #whatsappFloat.whatsapp-float {
-    bottom: 15px;
-    right: 15px;
-  }
-  
-  #whatsappFloat .zap-button {
-    padding: 20px;
-  }
-  
-  #whatsappFloat .zap-icon {
-    width: 28px;
-    height: 28px;
-  }
-  
-  #whatsappFloat .zap-tooltip {
-    display: none;
-  }
-
-  /* Responsivo para Tour Virtual */
-  #tourVirtualFloat.whatsapp-float { bottom: 80px; right: 15px; }
-  #tourVirtualFloat .zap-button { padding: 20px; }
-  #tourVirtualFloat .zap-icon { width: 28px; height: 28px; }
-  #tourVirtualFloat .zap-tooltip { display: none; }
-
-  /* Responsivo para Tour CTA */
-  .tour-button .zap-button { padding: 17px; }           /* +20% */
-  .tour-button .zap-icon { width: 77px; height: 77px; } /* +20% */
-  .tour-button .zap-tooltip { display: none; }
-}
-
-/* Acessibilidade: preservar animações do botão sob reduce-motion sem afetar o resto */
-@media (prefers-reduced-motion: reduce) {
-  /* Permitir pulsar contínuo e transições do botão dentro do escopo do WhatsApp */
-  #whatsappFloat .zap-pulse {
-    animation-duration: 2s !important;
-    animation-iteration-count: infinite !important;
-  }
-  #whatsappFloat .zap-glow {
-    transition: transform 0.3s ease !important, opacity 0.3s ease !important;
-  }
-  #whatsappFloat .zap-anchor:hover .zap-button {
-    transform: scale(1.1) !important;
-    transition: transform 0.1s ease !important, box-shadow 0.3s ease !important;
-  }
-}
-
-/* Ripple effect for WhatsApp button */
-.ripple-effect {
-  position: relative;
-  overflow: hidden;
-}
-
-.ripple-effect .ripple {
-  position: absolute;
-  border-radius: 50%;
-  background: rgba(255, 255, 255, 0.6);
-  transform: scale(0);
-  animation: ripple-animation 0.6s linear;
-  pointer-events: none;
-}
-
-@keyframes ripple-animation {
-  to {
-    transform: scale(4);
-    opacity: 0;
-  }
-}
 
 
 

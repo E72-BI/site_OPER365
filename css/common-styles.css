@@ -1,0 +1,105 @@
+/* Common styles used across multiple pages */
+
+/* CTA Row Styles */
+.cta-row {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    margin-top: 16px;
+}
+
+.cta-separator {
+    font-weight: 700;
+    color: #2c3e50;
+}
+
+/* Tour Button Styles */
+.tour-button .zap-icon {
+    width: 92px;
+    height: 92px;
+    object-fit: contain;
+    display: block;
+}
+
+.tour-button .zap-button {
+    padding: 16px;
+}
+
+/* Mobile-specific common styles */
+@media (max-width: 768px) {
+    /* CTA Row Mobile Styles */
+    .cta-row {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 8px;
+        margin-top: 6px;
+        margin-bottom: 0;
+        flex-wrap: nowrap;
+    }
+    
+    .cta-row .cta-separator {
+        display: flex;
+        align-items: center;
+        line-height: 1;
+        margin: 0 4px;
+        font-weight: 700;
+        font-size: 14px;
+    }
+    
+    .cta-row .tour-button,
+    .cta-row .cta-separator,
+    .cta-row .btn.btn-primary {
+        transform: translateY(-12px);
+        align-self: center;
+    }
+    
+    /* Tour Button Mobile Styles */
+    .tour-button .zap-icon {
+        width: 90px;
+        height: 90px;
+    }
+    
+    .tour-button .zap-button {
+        padding: 0;
+    }
+    
+    /* Demo Button Mobile Styles */
+    .cta-row .btn.btn-primary {
+        flex: 0 0 auto;
+        white-space: nowrap;
+        padding: 6px 10px;
+        font-size: 13px;
+        line-height: 1.2;
+        min-width: 0;
+    }
+}
+
+/* Desktop-specific common styles */
+@media (min-width: 768px) {
+    .cta-row {
+        display: flex;
+        align-items: center;
+        justify-content: flex-start;
+        position: relative;
+        column-gap: 0;
+        margin-left: -40px;
+    }
+    
+    .cta-row .cta-separator {
+        position: relative;
+        margin: 0 40px 0 2px;
+        display: inline-flex;
+        align-items: center;
+        line-height: 1;
+        transform: none;
+    }
+    
+    .cta-row .tour-button {
+        margin-right: 24px;
+    }
+    
+    .cta-row .btn.btn-primary {
+        margin-left: 24px;
+    }
+}

@@ -159,7 +159,7 @@
     width: 100%; /* Largura máxima no mobile */
     max-width: 100%; /* Largura máxima no mobile */
     height: auto;
-    object-position: center bottom;
+    object-position: center top !important;
     object-fit: cover;
     margin: 0; /* Remove margin para ocupar toda largura */
     padding: 0;
@@ -603,11 +603,11 @@
     }
     /* Reaplique transições específicas necessárias */
     #whatsappFloat .zap-glow {
-      transition: transform 0.3s ease !important, opacity 0.3s ease !important;
+      transition: transform 0.3s ease, opacity 0.3s ease;
     }
     #whatsappFloat .zap-anchor:hover .zap-button {
-      transform: scale(1.1) !important;
-      transition: transform 0.1s ease !important, box-shadow 0.3s ease !important;
+      transform: scale(1.1);
+      transition: transform 0.1s ease, box-shadow 0.3s ease;
     }
   }
   
@@ -657,7 +657,7 @@
   /* Mobile-specific image optimizations */
   .hero-image img {
     object-fit: cover;
-    object-position: center top;
+    object-position: center top !important;
   }
   
   .faq-image, .cta-image img {

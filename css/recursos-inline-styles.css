@@ -1,0 +1,1003 @@
+/* Recursos page-specific styles that were previously inline in recursos.html */
+
+/* WhatsApp Float — ajustes mínimos locais iguais ao index */
+@media (max-width: 768px) {
+    #whatsappFloat.whatsapp-float { bottom: 15px; right: 15px; }
+    #whatsappFloat .zap-button { padding: 20px; }
+    #whatsappFloat .zap-icon { width: 28px; height: 28px; }
+    #whatsappFloat .zap-tooltip { display: none; }
+}
+
+/* CTA do Hero: Tour + OU + Agendar (idêntico ao index) */
+.cta-row {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    margin-top: 16px;
+}
+.cta-separator {
+    font-weight: 700;
+    color: #2c3e50;
+}
+
+/* Tour (CTA) */
+.tour-button .zap-icon {
+    width: 92px;
+    height: 92px;
+    object-fit: contain;
+    display: block;
+}
+.tour-button .zap-button {
+    padding: 16px;
+}
+
+/* Ajuste de largura da descrição da Hero (desktop/tablet) */
+.hero .hero-content .description {
+    max-width: 460px;   /* ajuste fino da largura */
+    margin-left: 0;     /* mantém alinhado à esquerda */
+    margin-right: 0;
+}
+/* Mantém largura total no mobile */
+@media (max-width: 768px) {
+    .hero .hero-content .description {
+        max-width: 100%;
+    }
+    .hero .hero-image .mobile-image {
+        width: 80% !important;
+        max-width: 80% !important;
+        display: block;
+        margin: 0 auto;
+    }
+    /* Mobile: texto à esquerda e CTAs alinhados pelo centro */
+    .hero .hero-content {
+        text-align: left !important;
+    }
+    .hero .hero-content .subtitle,
+    .hero .hero-content .title,
+    .hero .hero-content .description {
+        text-align: left !important;
+        margin-left: 0 !important;
+        margin-right: 0 !important;
+    }
+
+    /* CTAs: centralização pelos centros e sem deslocamentos */
+    .hero .cta-row {
+        display: flex !important;
+        align-items: center !important;   /* alinha pelos centros */
+        justify-content: center !important;
+        gap: 10px !important;
+        flex-wrap: nowrap !important;
+        margin-top: 8px !important;
+    }
+    .hero .cta-row .cta-separator {
+        display: flex !important;
+        align-items: center !important;
+        line-height: 1 !important;
+        margin: 0 4px !important;
+        font-weight: 700 !important;
+        font-size: 14px !important;
+    }
+    /* Remove offsets para nivelar os centros dos itens */
+    .hero .cta-row .tour-button,
+    .hero .cta-row .cta-separator,
+    .hero .cta-row .btn.btn-primary {
+        transform: none !important;
+        align-self: center !important;
+    }
+}
+
+/* Seção app-section: imagem de fundo com altura completa */
+.app-section {
+    background-size: 100% auto !important;  /* width: 100%, height: auto */
+    background-attachment: scroll !important; /* Remove o fixed para melhor controle */
+    background-repeat: no-repeat !important;
+    background-position: center top !important;
+    min-height: 600px; /* Altura mínima para garantir que o conteúdo seja visível */
+}
+
+/* Mobile: ajustar altura mínima */
+@media (max-width: 768px) {
+    .app-section {
+        min-height: 300px;
+        background-size: 100% auto !important;
+        background-position: center top !important;
+    }
+}
+
+/* Regras de harmonização mobile (idênticas ao index) */
+@media (max-width: 768px) {
+    /* Remover margem/padding herdados e reduzir gap */
+    body .hero { 
+        padding-top: 0 !important; 
+        margin-top: 0 !important; 
+    }
+    body .hero > .container { 
+        gap: 4px !important; 
+        padding-top: 0 !important; 
+        justify-content: flex-start !important;
+        align-items: center !important;
+        text-align: center !important;
+    }
+    body .hero .hero-image { 
+        margin-top: 0 !important; 
+        margin-bottom: 0 !important; 
+    }
+    body .hero .hero-content { 
+        margin: 0 !important; 
+        padding: 0 !important; 
+    }
+    body .hero .hero-content .subtitle { 
+        margin-top: 0 !important; 
+        margin-bottom: 4px !important; 
+    }
+    body .hero .hero-content .title { 
+        margin: 0 0 6px 0 !important; 
+    }
+    body .hero .hero-content .description { 
+        margin: 0 0 6px 0 !important; 
+    }
+
+    /* CTA: centralizada, espaçamento uniforme e alinhamento vertical */
+    body .hero .cta-row {
+        display: flex !important;
+        align-items: center !important;
+        justify-content: center !important;
+        gap: 8px !important;
+        margin-top: 6px !important;
+        margin-bottom: 0 !important;
+        flex-wrap: nowrap !important;
+    }
+    body .hero .cta-row .cta-separator {
+        display: flex !important;
+        align-items: center !important;
+        line-height: 1 !important;
+        margin: 0 4px !important;
+        font-weight: 700 !important;
+        font-size: 14px !important;
+    }
+    body .hero .cta-row .tour-button,
+    body .hero .cta-row .cta-separator,
+    body .hero .cta-row .btn.btn-primary {
+        transform: translateY(-12px) !important;
+        align-self: center !important;
+    }
+
+    /* Tour: sem posição fixa no mobile e tamanho consistente */
+    body .hero .tour-fixed { 
+        position: static !important; 
+        inset: auto !important; 
+    }
+    body .hero .tour-button .zap-icon { 
+        width: 90px !important; 
+        height: 90px !important; 
+    }
+    body .hero .tour-button .zap-button { 
+        padding: 0 !important; 
+    }
+
+    /* Demo: largura contida e sem quebra */
+    body .hero .cta-row .btn.btn-primary {
+        flex: 0 0 auto !important;
+        white-space: nowrap !important;
+        padding: 6px 10px !important;
+        font-size: 13px !important;
+        line-height: 1.2 !important;
+        min-width: 0 !important;
+    }
+}
+
+/* Regras desktop como no index */
+@media (min-width: 768px) {
+    .hero .cta-row {
+        display: flex !important;
+        align-items: center;
+        justify-content: flex-start;
+        position: relative;
+        column-gap: 0;
+        margin-left: -40px;
+    }
+    .hero .cta-row .cta-separator {
+        position: relative;
+        margin: 0 40px 0 2px !important;
+        display: inline-flex !important;
+        align-items: center !important;
+        line-height: 1;
+        transform: none !important;
+    }
+    .hero .cta-row .tour-button { margin-right: 24px; }
+    .hero .cta-row .btn.btn-primary { margin-left: 24px; }
+}
+
+@media (max-width: 768px) {
+    html body .hero {
+        margin-top: 0 !important;
+        padding-top: 0 !important;
+    }
+    html body .hero > .container {
+        padding-top: 0 !important;
+        gap: 4px !important;
+        justify-content: flex-start !important;
+        align-items: center !important;
+        text-align: center !important;
+    }
+    html body .hero .hero-image { margin-bottom: 2px !important; }
+    html body .hero .hero-image { transform: translateY(-14px) !important; }
+    html body .hero .hero-content > *:not(.cta-row) { transform: translateY(-14px) !important; }
+    html body .hero .cta-row { margin-top: 6px !important; }
+}
+
+.section-padding { padding: 80px 0; }
+.bg-light { background: var(--light-bg); }
+.badge-custom {
+    background: rgba(37, 99, 235, 0.1);
+    color: var(--primary-color);
+    padding: 6px 12px;
+    border-radius: 20px;
+    font-size: 12px;
+    font-weight: 600;
+}
+@media (max-width: 768px) {
+    .section-padding { padding: 60px 0; }
+}
+/* Grid de 3 colunas para cards (desktop), 2 no tablet, 1 no mobile */
+.cards-grid-3 > [class*="col-"] {
+    flex: 0 0 33.3333%;
+    max-width: 33.3333%;
+    display: flex;
+}
+.cards-grid-3 > [class*="col-"] > .card {
+    width: 100%;
+}
+@media (max-width: 991.98px) {
+    .cards-grid-3 > [class*="col-"] {
+        flex: 0 0 50%;
+        max-width: 50%;
+    }
+}
+@media (max-width: 575.98px) {
+    .cards-grid-3 > [class*="col-"] {
+        flex: 0 0 100%;
+        max-width: 100%;
+    }
+}
+
+/* Título do Hero igual ao card-title */
+.hero .hero-content .title {
+    font-size: 1.75rem !important;        /* --text-3xl: 1.875rem mas ajustado */
+    font-weight: 700 !important;          /* fw-bold */
+    line-height: 1.2 !important;
+    margin-bottom: 0.5rem !important;     /* mb-2 */
+    color: #323336 !important;            /* Cor solicitada pelo usuário */
+}
+
+/* CTAs com botão Tour mais próximo do "OU" */
+.hero .cta-row {
+    display: flex !important;
+    align-items: center !important;
+    justify-content: flex-start !important;
+    gap: 8px !important;                   /* Gap menor para aproximar */
+    margin-top: var(--space-xs) !important;
+    margin-bottom: 0 !important;
+    padding-bottom: 0 !important;
+    flex-wrap: nowrap !important;
+}
+
+.hero .cta-row .cta-separator {
+    display: flex !important;
+    align-items: center !important;
+    line-height: 1 !important;
+    font-weight: 700 !important;
+    font-size: 14px !important;
+    margin: 0 6px !important;              /* Margem menor para aproximar */
+}
+
+/* Alinhamento vertical perfeito - TODOS os elementos da CTA */
+.hero .cta-row .tour-button,
+.hero .cta-row .cta-separator,
+.hero .cta-row .btn.btn-primary {
+    transform: translateY(-12px) !important;
+    align-self: center !important;
+}
+
+/* Tour: tamanho consistente */
+.hero .tour-button .zap-icon {
+    width: 92px !important;
+    height: 92px !important;
+    object-fit: contain;
+    display: block;
+}
+.hero .tour-button .zap-button { 
+    padding: 0 !important; 
+}
+
+/* Corrigir problema da faixa branca - limitar overflow */
+.hero .hero-content {
+    position: relative !important;
+    z-index: 2 !important;
+    overflow: visible !important;
+}
+
+.hero .container {
+    overflow: hidden !important;
+}
+
+/* BOTÃO WHATSAPP: USAR APENAS ESTILOS GLOBAIS - SEM CUSTOMIZAÇÃO */
+/* Removemos todos os estilos customizados para usar apenas .btn.btn-primary global */
+.hero .cta-row .btn.btn-primary {
+    /* Garantir que use apenas os estilos globais do sistema */
+    white-space: nowrap !important;
+    flex: 0 0 auto !important;
+    /* Todos os outros estilos vêm do CSS base (.btn.btn-primary) */
+}
+
+/* Mobile: ajustes */
+@media (max-width: 768px) {
+    .hero .cta-row {
+        justify-content: flex-start !important;
+        gap: 6px !important;
+        margin-top: 6px !important;
+    }
+    
+    .hero .cta-row .cta-separator {
+        margin: 0 4px !important;
+    }
+    
+    /* Mobile: texto à esquerda */
+    .hero .hero-content {
+        text-align: left !important;
+    }
+    .hero .hero-content .subtitle,
+    .hero .hero-content .title,
+    .hero .hero-content .description {
+        text-align: left !important;
+        margin-left: 0 !important;
+        margin-right: 0 !important;
+    }
+
+    /* Mobile: botão WhatsApp igual ao index.html */
+    .hero .cta-row .btn.btn-primary {
+        flex: 0 0 auto !important;
+        white-space: nowrap !important;
+        padding: 6px 10px !important;
+        font-size: 13px !important;
+        line-height: 1.2 !important;
+        min-width: 0 !important;
+    }
+}
+
+/* Gradient title for context header */
+.gradient-title {
+    background: linear-gradient(135deg, var(--primary-blue), var(--primary-dark));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+/* Parallax section */
+.parallax-section {
+    background-image: url('images/manuntecao_001.png');
+    background-attachment: fixed;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    min-height: 500px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+}
+
+.parallax-section::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(34, 34, 34, 0.85);
+}
+
+.parallax-content {
+    text-align: center;
+    color: white;
+    position: relative;
+    z-index: 2;
+    max-width: 800px;
+    padding: 20px;
+}
+
+.parallax-content h2 {
+    font-size: 2.5rem;
+    margin-bottom: 20px;
+    font-weight: 700;
+}
+
+.parallax-content p {
+    font-size: 1.2rem;
+    margin-bottom: 30px;
+    line-height: 1.6;
+}
+
+/* Reduce spacing between sections */
+#visao-geral {
+    padding: 40px 0;
+}
+
+#recursos {
+    padding-top: 40px;
+}
+
+/* Mobile adjustments for parallax */
+@media (max-width: 768px) {
+    .parallax-section {
+        background-attachment: scroll;
+        min-height: 400px;
+    }
+    
+    .parallax-content h2 {
+        font-size: 2rem;
+    }
+    
+    .parallax-content p {
+        font-size: 1rem;
+    }
+    
+    #visao-geral {
+        padding: 30px 0;
+    }
+    
+    #recursos {
+        padding-top: 30px;
+    }
+}
+
+/* CTA Section - Harmonized */
+.cta-section {
+  padding: var(--space-lg) 0;
+  background: var(--bg-warm);
+  color: var(--dark-gray);
+  position: relative;
+  overflow: hidden;
+  min-height: 600px;
+}
+
+.cta-section::before {
+  content: '';
+  position: absolute;
+  top: -50%;
+  left: -20%;
+  width: 100%;
+  height: 200%;
+  background: radial-gradient(circle, rgba(255, 255, 255, 0.1) 0%, transparent 70%);
+  z-index: 1;
+}
+
+.cta-content {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  position: relative;
+  z-index: 2;
+  height: 100%;
+  min-height: 500px;
+}
+
+.cta-image {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  z-index: 1;
+  width: 50%;
+  height: 100%;
+  display: flex;
+  align-items: flex-end;
+  justify-content: flex-start;
+}
+
+.cta-image img {
+    max-width: 130%;
+    height: auto;
+    display: block;
+    margin: 0 0 0 -50px;
+    transition: var(--transition);
+    border-radius: 0;
+    box-shadow: none;
+    border: none;
+    object-fit: contain;
+    object-position: left bottom;
+  }
+
+.cta-image img:hover {
+  transform: translateY(-5px);
+}
+
+.cta-text {
+  position: relative;
+  z-index: 2;
+  margin-left: auto;
+  width: 55%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  text-align: left;
+  padding: var(--space-xl);
+  margin-top: var(--space-lg);
+}
+
+.cta-text h2 {
+  font-family: var(--font-secondary);
+  font-size: var(--text-4xl);
+  font-weight: var(--font-weight-bold);
+  color: var(--primary-blue);
+  margin-bottom: var(--space-md);
+  line-height: var(--line-height-tight);
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.cta-text p {
+  color: rgba(0, 0, 0, 0.75);
+  margin-bottom: var(--space-xl);
+  font-size: var(--text-lg);
+  line-height: var(--line-height-relaxed);
+  max-width: 100%;
+}
+
+/* Footer - Harmonized */
+.footer {
+  background: var(--accent-dark);
+  color: var(--white);
+  padding: var(--space-md) 0 var(--space-sm);
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+}
+
+.footer::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 4px;
+  background: linear-gradient(90deg, var(--primary-blue), var(--gold), var(--coral));
+}
+
+.footer-content {
+  display: none;
+}
+
+.social-icons {
+  margin-bottom: var(--space-sm);
+  gap: var(--space-sm);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.social-icons a {
+  width: 40px;
+  height: 40px;
+  background: rgba(255, 255, 255, 0.15);
+  transition: all 0.3s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+}
+
+.social-icons a:hover {
+  background: var(--primary-blue);
+  transform: translateY(-2px);
+}
+
+.social-icons img {
+  width: 20px;
+  height: 20px;
+  filter: brightness(0) invert(1);
+}
+
+.footer p {
+  font-size: var(--text-xs);
+  line-height: 1.4;
+  margin: 0;
+}
+
+@media (max-width: 768px) {
+    .cta-section {
+        padding: var(--space-xl) 0;
+        min-height: auto;
+    }
+    
+    .cta-content {
+        flex-direction: column;
+        gap: var(--space-lg);
+        min-height: auto;
+    }
+    
+    .cta-image {
+        position: relative;
+        width: 100%;
+        height: auto;
+        justify-content: center;
+        margin-bottom: var(--space-lg);
+    }
+    
+    .cta-image img {
+        max-width: 70%;
+        margin: 0 auto;
+        object-position: center bottom;
+    }
+    
+    .cta-text {
+        width: 100%;
+        padding: 0 var(--space-sm);
+        margin-top: 0;
+        align-items: center;
+        text-align: center;
+    }
+    
+    .cta-text h2 {
+        font-size: var(--text-2xl);
+        text-align: center;
+    }
+    
+    .cta-text p {
+        text-align: center;
+        font-size: var(--text-base);
+    }
+}
+
+/* Final CTA Section */
+.final-cta-section {
+    padding: var(--space-3xl) 0;
+    background: linear-gradient(135deg, #1a1a1a 0%, #2c2c2c 50%, #404040 100%);
+    position: relative;
+    overflow: hidden;
+    text-align: center;
+    color: var(--white);
+}
+
+.final-cta-content {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 0 var(--space-md);
+}
+
+.final-cta-content h2 {
+    font-size: var(--text-4xl);
+    font-weight: var(--font-weight-bold);
+    margin-bottom: var(--space-md);
+    color: var(--white);
+}
+
+.final-cta-content p {
+    font-size: var(--text-lg);
+    line-height: var(--line-height-relaxed);
+    margin-bottom: var(--space-xl);
+    color: rgba(255, 255, 255, 0.9);
+}
+
+.btn-final-cta {
+    background: var(--gold);
+    color: var(--dark-gray);
+    border: none;
+    padding: var(--space-md) var(--space-xl);
+    border-radius: var(--radius-lg);
+    font-size: var(--text-lg);
+    font-weight: var(--font-weight-bold);
+    text-decoration: none;
+    display: inline-block;
+    transition: all 0.3s ease;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.btn-final-cta:hover {
+    background: var(--white);
+    transform: translateY(-2px);
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
+}
+
+@media (max-width: 768px) {
+    .final-cta-section {
+        padding: var(--space-xl) 0;
+    }
+    
+    .final-cta-content h2 {
+        font-size: var(--text-3xl);
+    }
+    
+    .final-cta-content p {
+        font-size: var(--text-base);
+    }
+    
+    .btn-final-cta {
+        width: 100%;
+        max-width: 300px;
+        margin: 0 auto;
+    }
+}
+
+/* Mobile-first enhancements */
+@media (max-width: 768px) {
+    /* Improve touch targets */
+    .btn {
+        min-height: 48px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+    
+    /* Optimize card layouts for mobile */
+    .compliance-card {
+        margin-bottom: var(--space-md);
+    }
+    
+    /* Improve readability on small screens */
+    body {
+        font-size: 16px;
+        line-height: 1.6;
+    }
+    
+    h1, h2, h3 {
+        line-height: 1.2;
+    }
+    
+    /* Optimize spacing for mobile */
+    .section-padding {
+        padding: var(--space-xl) 0;
+    }
+    
+    /* Make CTAs more prominent on mobile */
+    .btn-primary, .btn-final-cta {
+        font-size: var(--text-base);
+        padding: var(--space-md) var(--space-lg);
+        width: 100%;
+        max-width: 300px;
+        margin: 0 auto;
+        display: block;
+        text-align: center;
+    }
+    
+    /* Center buttons on mobile */
+    .text-center .btn-primary,
+    .text-center .btn-final-cta {
+        margin: var(--space-md) auto;
+    }
+    
+    /* Improve hero section for mobile */
+    .hero {
+        padding: var(--space-sm) 0;
+    }
+    
+    .hero .container {
+        flex-direction: column-reverse;
+        gap: var(--space-sm);
+    }
+    
+    .hero-content {
+        text-align: center !important;
+        padding: 0 var(--space-sm);
+    }
+    
+    .hero-content .title {
+        font-size: var(--text-3xl);
+    }
+    
+    .hero-content .description {
+        font-size: var(--text-base);
+        text-align: center !important;
+    }
+    
+    /* Mobile CTA row adjustments */
+    .hero .cta-row {
+        justify-content: center !important;
+        flex-wrap: wrap;
+        gap: var(--space-sm);
+    }
+    
+    .tour-button .zap-icon {
+        width: 80px !important;
+        height: 80px !important;
+    }
+    
+    /* Optimize parallax section for mobile */
+    .parallax-section {
+        min-height: 350px;
+        padding: var(--space-md) 0;
+    }
+    
+    .parallax-content {
+        padding: var(--space-sm);
+    }
+    
+    .parallax-content h2 {
+        font-size: var(--text-2xl);
+    }
+    
+    .parallax-content p {
+        font-size: var(--text-base);
+    }
+    
+    /* Mobile button group stacking */
+    .d-flex.gap-3 {
+        flex-direction: column;
+        gap: var(--space-sm);
+    }
+    
+    .d-flex.gap-3 .btn {
+        width: 100%;
+        max-width: 300px;
+        margin: 0 auto;
+    }
+}
+
+/* Desktop enhancements for decision makers */
+@media (min-width: 1024px) {
+    /* Larger hero section for impact */
+    .hero {
+        min-height: 80vh;
+        display: flex;
+        align-items: center;
+    }
+    
+    .hero .container {
+        flex-direction: row;
+        align-items: center;
+        gap: var(--space-2xl);
+    }
+    
+    .hero-content {
+        flex: 1;
+        text-align: left !important;
+    }
+    
+    .hero-image {
+        flex: 1;
+        display: flex;
+        justify-content: flex-end;
+    }
+    
+    /* Enhanced visual impact for desktop */
+    .compliance-card:hover {
+        transform: translateY(-10px);
+        box-shadow: var(--shadow-xl);
+    }
+    
+    /* Desktop parallax enhancement */
+    .parallax-section {
+        min-height: 600px;
+    }
+    
+    /* Enhanced CTA section for desktop */
+    .cta-section {
+        min-height: 700px;
+    }
+    
+    /* Desktop button enhancements */
+    .btn-final-cta {
+        padding: var(--space-lg) var(--space-2xl);
+        font-size: var(--text-xl);
+    }
+}
+
+/* High DPI screen optimizations */
+@media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
+    img {
+        image-rendering: -webkit-optimize-contrast;
+        image-rendering: crisp-edges;
+    }
+}
+
+/* Enhanced mobile UX */
+@media (max-width: 768px) {
+    /* Consistent padding and margins */
+    .container {
+        padding-left: var(--space-sm);
+        padding-right: var(--space-sm);
+    }
+    
+    /* Improved text alignment */
+    .text-center {
+        text-align: center !important;
+    }
+    
+    .text-left {
+        text-align: left !important;
+    }
+    
+    .text-right {
+        text-align: right !important;
+    }
+    
+    /* Better heading hierarchy */
+    h1, .h1 {
+        font-size: var(--text-3xl);
+        line-height: 1.2;
+        margin-bottom: var(--space-sm);
+    }
+    
+    h2, .h2 {
+        font-size: var(--text-2xl);
+        line-height: 1.3;
+        margin-bottom: var(--space-sm);
+    }
+    
+    h3, .h3 {
+        font-size: var(--text-xl);
+        line-height: 1.4;
+        margin-bottom: var(--space-xs);
+    }
+    
+    /* Improved paragraph spacing */
+    p {
+        margin-bottom: var(--space-sm);
+        line-height: 1.6;
+    }
+    
+    /* Better list styling */
+    ul, ol {
+        padding-left: var(--space-md);
+        margin-bottom: var(--space-md);
+    }
+    
+    li {
+        margin-bottom: var(--space-xs);
+    }
+    
+    /* Enhanced card readability */
+    .compliance-card {
+        padding: var(--space-lg);
+        text-align: left;
+    }
+    
+    .compliance-card h3 {
+        text-align: left;
+        margin-bottom: var(--space-sm);
+    }
+    
+    .compliance-card p {
+        text-align: left;
+        margin-bottom: var(--space-md);
+    }
+    
+    /* Better section spacing */
+    .section-padding {
+        padding: var(--space-xl) var(--space-sm);
+    }
+    
+    /* Improved button consistency */
+    .btn {
+        width: 100%;
+        max-width: 300px;
+        margin: var(--space-xs) auto;
+        display: block;
+        text-align: center;
+    }
+    
+    /* Better form elements */
+    input, textarea, select {
+        width: 100%;
+        padding: var(--space-sm);
+        margin-bottom: var(--space-sm);
+        border-radius: var(--radius-md);
+    }
+    
+    /* Enhanced visual hierarchy */
+    .lead {
+        font-size: var(--text-lg);
+        font-weight: 500;
+        margin-bottom: var(--space-md);
+    }
+    
+    /* Better mobile navigation */
+    .nav-menu {
+        text-align: center;
+    }
+    
+    /* Improved mobile footer */
+    .footer {
+        padding: var(--space-lg) var(--space-sm);
+    }
+}

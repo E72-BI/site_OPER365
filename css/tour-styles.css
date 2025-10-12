@@ -1,0 +1,168 @@
+/* Tour page-specific styles that were previously inline in tour-guiado.html */
+
+/* CSS para altura dinâmica da viewport em dispositivos móveis */
+:root {
+    --vh: 1vh;
+}
+
+/* Configuração para ocupar 100% da altura visível em dispositivos móveis */
+@media (max-width: 768px) {
+    .page-tour-guiado .guided-tour-container {
+        /* Usa dvh com fallback para vh */
+        height: 100vh; /* Fallback para navegadores sem suporte a dvh */
+        height: 100dvh; /* Altura dinâmica da viewport */
+        height: calc(var(--vh, 1vh) * 100); /* Fallback com variável CSS */
+        min-height: 100vh;
+        min-height: 100dvh;
+        min-height: calc(var(--vh, 1vh) * 100);
+        
+        /* Flexbox para centralização */
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        
+        /* Remove padding que pode causar overflow */
+        padding: 0 !important;
+        margin: 0 !important;
+        
+        /* Garante que não haja scroll */
+        overflow: hidden;
+        
+        /* Posicionamento relativo para elementos filhos */
+        position: relative;
+    }
+    
+    .page-tour-guiado .tour-main-content {
+        /* Ocupa toda a altura disponível */
+        height: 100%;
+        width: 100%;
+        
+        /* Flexbox para centralização do conteúdo */
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        
+        /* Remove padding e margin */
+        padding: 0 !important;
+        margin: 0 !important;
+        
+        /* Permite scroll interno se necessário */
+        overflow-y: auto;
+        overflow-x: hidden;
+    }
+    
+    .page-tour-guiado .mobile-showcase {
+        /* Centralização do mockup */
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        
+        /* Ocupa toda a altura disponível */
+        height: 100%;
+        width: 100%;
+        
+        /* Remove padding */
+        padding: 0 !important;
+        
+        /* Posicionamento relativo para overlay */
+        position: relative;
+    }
+    
+    /* Ajuste da imagem do mockup para centralização - Ajustado para 80% da largura da tela */
+    .page-tour-guiado .mock-image {
+        /* Centralização da imagem */
+        display: block;
+        margin: auto;
+        
+        /* Tamanho responsivo - ajustado para 80% da largura da tela */
+        width: 80% !important;
+        max-width: 80vw !important;
+        height: auto;
+        
+        /* Garante que a imagem não cause overflow */
+        max-height: 70vh;
+        max-height: 70dvh;
+        max-height: calc(var(--vh, 1vh) * 70);
+        
+        /* Qualidade da imagem */
+        object-fit: contain;
+        object-position: center;
+    }
+    
+    /* Ajuste da barra de progresso para não interferir na altura */
+    .page-tour-guiado .tour-progress {
+        position: fixed !important;
+        top: 0 !important;
+        left: 0 !important;
+        right: 0 !important;
+        height: 3px !important;
+        z-index: 1004 !important;
+        
+        /* Não afeta o layout */
+        margin: 0 !important;
+        padding: 0 !important;
+    }
+    
+    /* Ajuste dos controles para posicionamento fixo */
+    .page-tour-guiado .tour-controls {
+        position: fixed !important;
+        bottom: 72px !important;
+        left: 50% !important;
+        transform: translateX(-50%) !important;
+        z-index: 1003 !important;
+        
+        /* Não afeta o layout */
+        margin: 0 !important;
+    }
+    
+    /* Ajuste do overlay de texto */
+    .page-tour-guiado .mobile-step-overlay {
+        position: fixed !important;
+        bottom: 118px !important;
+        left: 0 !important;
+        right: 0 !important;
+        z-index: 1002 !important;
+        
+        /* Não afeta o layout */
+        margin: 0 !important;
+    }
+    
+    /* Ajuste da tarja preta */
+    .page-tour-guiado .mobile-showcase::after {
+        position: fixed !important;
+        bottom: 0 !important;
+        left: 0 !important;
+        right: 0 !important;
+        height: 240px !important;
+        z-index: 1001 !important;
+        
+        /* Não afeta o layout */
+        margin: 0 !important;
+    }
+    
+    /* Ajuste do link "Voltar" */
+    .page-tour-guiado .mobile-voltar-btn {
+        position: fixed !important;
+        bottom: 16px !important;
+        left: 16px !important;
+        z-index: 1004 !important;
+        
+        /* Não afeta o layout */
+        margin: 0 !important;
+    }
+}
+
+/* Suporte para orientação landscape em dispositivos móveis */
+@media (max-width: 768px) and (orientation: landscape) {
+    .page-tour-guiado .mock-image {
+        max-height: 60vh;
+        max-height: 60dvh;
+        max-height: calc(var(--vh, 1vh) * 60);
+        /* Ajustado para 80% da largura da tela também no landscape */
+        width: 80% !important;
+        max-width: 80vw !important;
+    }
+}
