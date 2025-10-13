@@ -306,4 +306,60 @@
     .hero .cta-row .btn.btn-primary { 
         margin-left: 24px;                 /* espaço à esquerda do Demo */
     }
+    
+    /* Correção das margens laterais para desktop - restaura o layout original */
+    .container {
+        max-width: 960px;
+        margin: 0 auto;
+        padding: 0 var(--space-md);
+    }
+    
+    /* Restaura as margens laterais da seção do blog no desktop */
+    .news-section .container {
+        max-width: 960px;
+        margin: 0 auto;
+        padding: 0 var(--space-md);
+    }
+    
+    /* Garante que outras seções também mantenham as margens corretas */
+    .compliance-section .container,
+    .features .container,
+    .app-section .container,
+    .stats .container,
+    .testimonials-no-photo .container,
+    .faq-section .container,
+    .cta-section .container {
+        max-width: 960px;
+        margin: 0 auto;
+        padding: 0 var(--space-md);
+    }
+}
+
+/* Estilo para os links "Leia mais..." nos cards do blog */
+.news-link {
+    display: inline-block;
+    font-size: var(--text-sm);
+    font-weight: var(--font-weight-semibold);
+    text-decoration: none;
+    padding: 0;
+    border: none;
+    border-radius: 0;
+    background: transparent;
+    backdrop-filter: none;
+}
+
+.news-link a {
+    color: #007bff;
+    text-decoration: none;
+    transition: var(--transition);
+}
+
+.news-link a:hover {
+    color: #0056b3;
+    text-decoration: underline;
+}
+
+/* Alteração da cor de fundo da seção Blog Conexão */
+.news-section {
+    background: #1e2328 !important;
 }

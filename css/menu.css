@@ -32,7 +32,7 @@ body {
 }
 
 .site-menu__container {
-  max-width: 1200px;
+  max-width: 100%;
   margin: 0 auto;
   height: 60px; /* Altura mínima otimizada */
   padding: 0 20px;

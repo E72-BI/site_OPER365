@@ -247,6 +247,11 @@
 
 /* Volta ao contexto mobile */
 @media (max-width: 768px) {
+  .container {
+    padding: 0 var(--space-sm);
+    max-width: 100%; /* Ensure container doesn't exceed viewport */
+    box-sizing: border-box; /* Include padding in width calculation */
+  }
   
   /* Ajustes específicos para mobile pequeno */
   @media (max-width: 479px) {
@@ -423,22 +428,24 @@
   }
   
   .cta-image {
-    width: 150%;
+    width: 100%; /* Changed from 150% to 100% to prevent overflow */
     display: flex;
     justify-content: center;
     align-items: center;
-    margin-top: 0; /* Sem espaçamento entre botão e imagem */
+    margin-top: 0;
   }
   
   .cta-image img {
-    width: 120%;
-    max-width: 800px; /* Imagem maior */
+    max-width: 100%; /* Changed from 130% to 100% to prevent overflow */
     height: auto;
+    display: block;
+    margin: 0 auto; /* Changed from 0 0 0 -50px to 0 auto to center and prevent overflow */
+    transition: var(--transition);
     border-radius: 0;
-    border: none;
     box-shadow: none;
-    object-fit: cover;
-    margin: 0 auto;
+    border: none;
+    object-fit: contain;
+    object-position: center bottom;
   }
   
   .btn-cta {
@@ -485,6 +492,17 @@
     width: 100%;
     max-width: 100%;
     height: auto;
+  }
+  
+  /* FAQ Desktop image display rules */
+  .faq-image-column .desktop-image {
+    max-width: 100%; /* Changed from 150% to 100% to prevent overflow */
+    margin-left: 0; /* Changed from -25% to 0 to prevent overflow */
+  }
+  
+  .faq-image {
+    max-width: 100%; /* Changed from 150% to 100% to prevent overflow */
+    margin-left: 0; /* Changed from -25% to 0 to prevent overflow */
   }
   
   /* Image Section - Desktop and Mobile Specific */
@@ -723,6 +741,7 @@
     padding: 0 var(--space-xs); /* Reduced side padding */
     max-width: 100%; /* Prevent horizontal overflow */
     margin: 0 auto;
+    box-sizing: border-box; /* Ensure padding is included in width */
   }
   
   .testimonial-card-no-photo {
@@ -783,6 +802,7 @@
     padding: 0 var(--space-xs); /* Reduced side padding */
     margin: 0 auto;
     max-width: 100%; /* Prevent horizontal overflow */
+    box-sizing: border-box; /* Ensure padding is included in width */
   }
   
   .stat-card {

@@ -106,9 +106,10 @@ body {
 }
 
 .container {
-  max-width: 960px;
+  max-width: 100%;
   margin: 0 auto;
   padding: 0 var(--space-md);
+  box-sizing: border-box;
 }
 
 img {
@@ -1465,7 +1466,7 @@ blockquote {
 
 .news-grid {
   display: grid;
-  grid-template-columns: repeat(4, 1fr);
+  grid-template-columns: repeat(3, 1fr);
   gap: var(--space-lg);
   max-width: 1400px;
   margin: 0 auto;
@@ -1501,7 +1502,7 @@ blockquote {
   width: 100%;
   height: 100%;
   object-fit: cover;
-  object-position: center;
+  object-position: top;
   transition: transform 0.5s ease;
 }
 
@@ -2258,6 +2259,13 @@ blockquote {
   
   .news-description {
     font-size: var(--text-xs);
+  }
+  
+  /* Add mobile styles for news grid */
+  .news-grid {
+    max-width: 100%; /* Prevent horizontal overflow */
+    padding: 0 var(--space-xs); /* Add some padding */
+    box-sizing: border-box; /* Include padding in width calculation */
   }
   
   .app-section .section-description {

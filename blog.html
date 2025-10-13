@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blog OPER - Insights e Novidades em Manutenção</title>
+    <link rel="stylesheet" href="css/global-styles.css">
+    <link rel="stylesheet" href="css/styles-base.css">
+    <link rel="stylesheet" href="css/styles-mobile.css">
+    <link rel="stylesheet" href="css/menu.css">
+    <link rel="stylesheet" href="css/common-styles.css">
+    <link rel="stylesheet" href="css/blog-styles.css">
+    <link rel="stylesheet"
+        href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&family=Montserrat:wght@400;500;600;700&family=Open+Sans:wght@300;400;600;700&display=swap">
+</head>
+
+<body>
+    <div id="menu-placeholder"></div>
+
+    <header class="blog-header">
+        <div class="container">
+            <h1>Blog OPER</h1>
+            <p>Insights, dicas e novidades sobre gestão de manutenção para otimizar sua operação</p>
+        </div>
+    </header>
+
+    <main class="blog-container">
+        <section class="blog-posts">
+            <div class="blog-grid" id="blogGrid">
+                <!-- Blog posts will be dynamically inserted here -->
+            </div>
+        </section>
+
+        <section class="kpi-section">
+            <div class="container">
+                <h2 class="section-title">Indicadores-Chave de Manutenção</h2>
+                <div class="kpi-grid">
+                    <div class="kpi-card">
+                        <div class="kpi-icon">⏱️</div>
+                        <h3 class="kpi-title">MTBF</h3>
+                        <p class="kpi-description">Tempo Médio Entre Falhas - indica a confiabilidade dos seus equipamentos e ajuda a planejar manutenções preventivas.</p>
+                    </div>
+                    <div class="kpi-card">
+                        <div class="kpi-icon">🛠️</div>
+                        <h3 class="kpi-title">MTTR</h3>
+                        <p class="kpi-description">Tempo Médio para Reparo - mede a eficiência da sua equipe de manutenção em resolver problemas rapidamente.</p>
+                    </div>
+                    <div class="kpi-card">
+                        <div class="kpi-icon">📊</div>
+                        <h3 class="kpi-title">Disponibilidade</h3>
+                        <p class="kpi-description">Percentual de tempo que os equipamentos estão operacionais e prontos para uso quando necessários.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <h3>AGENDE UMA DEMONSTRAÇÃO EXCLUSIVA!</h3>
+                <p>Chega de planilhas soltas e surpresas na fiscalização. Veja ao vivo como o OPER te ajuda a garantir conformidade, eficiência e tranquilidade.</p>
+                <a href="https://wa.me/5582981457117?text=Quero%20uma%20demonstra%C3%A7%C3%A3o%20exclusiva%20da%20OPER" target="_blank" class="btn btn-cta">Quero ver como funciona</a>
+                <div class="footer-image">
+                    <img src="images/garota 001.png" alt="Pessoa sorrindo">
+                </div>
+            </div>
+            <div class="social-icons">
+                <a href="https://facebook.com/name" target="_blank"><img src="images/facebook-icon.png"
+                        alt="Facebook"></a>
+                <a href="https://twitter.com/name" target="_blank"><img src="images/twitter-icon.png" alt="Twitter"></a>
+                <a href="https://www.instagram.com/name" target="_blank"><img src="images/instagram-icon.png"
+                        alt="Instagram"></a>
+            </div>
+            <p>&copy; 2025 OPER - Backup. Todos os direitos reservados.</p>
+        </div>
+    </footer>
+
+    <script src="js/menu-loader.js"></script>
+    <script src="js/blog-loader.js"></script>
+    <script>
+        // Blog post data with file paths, images, criticality levels, and links
+        const blogPostData = [
+            {
+                file: "blog_post_0.csv",
+                image: "temp_images/teamwork.jpg",
+                criticality: "low",
+                link: "blog-opening.html"
+            },
+            {
+                file: "blog_post_1.csv",
+                image: "temp_images/analytics.jpg",
+                criticality: "high",
+                link: "blog-mtbf-mttr.html"
+            },
+            {
+                file: "blog_post_2.csv",
+                image: "temp_images/dashboard_mockup.jpg",
+                criticality: "medium",
+                link: "blog-criticality-level.html"
+            },
+            {
+                file: "blog_post_3.csv",
+                image: "temp_images/mobile_app.jpg",
+                criticality: "low",
+                link: "blog-automatic-reports.html"
+            }
+        ];
+
+        // Load and display blog posts
+        document.addEventListener('DOMContentLoaded', function() {
+            const blogGrid = document.getElementById('blogGrid');
+            
+            // Create promises for reading all blog posts
+            const postPromises = blogPostData.map(post => 
+                BlogLoader.readBlogPostCSV(post.file).then(data => ({
+                    ...data,
+                    image: post.image,
+                    criticality: post.criticality,
+                    link: post.link
+                }))
+            );
+            
+            // Wait for all posts to load
+            Promise.all(postPromises)
+                .then(posts => {
+                    // Sort posts by date (newest first)
+                    const sortedPosts = BlogLoader.sortPostsByDate(posts);
+                    
+                    // Create HTML for each post
+                    sortedPosts.forEach(post => {
+                        const postHTML = BlogLoader.createBlogCardHTML(
+                            post, 
+                            post.image, 
+                            post.criticality, 
+                            post.link
+                        );
+                        
+                        // Add to the grid
+                        blogGrid.innerHTML += postHTML;
+                    });
+                })
+                .catch(error => {
+                    console.error('Error loading blog posts:', error);
+                    blogGrid.innerHTML = '<p>Erro ao carregar os artigos do blog. Por favor, tente novamente mais tarde.</p>';
+                });
+        });
+    </script>
+</body>
+
+</html>

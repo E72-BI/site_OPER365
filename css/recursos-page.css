@@ -103,7 +103,7 @@
 /* Mockup flutuante */
 .recursos-hero-mockup {
     position: absolute;
-    right: -100px;
+    right: 0;
     top: 50%;
     transform: translateY(-50%);
     width: 400px;
@@ -116,6 +116,25 @@
     50% { transform: translateY(-50%) translateX(20px); }
 }
 
+/* Adicionar media query para mobile */
+@media (max-width: 768px) {
+    .recursos-hero-mockup {
+        position: relative;
+        right: 0;
+        top: 0;
+        transform: none;
+        width: 100%;
+        max-width: 300px;
+        margin: 0 auto;
+        opacity: 0.5;
+    }
+    
+    @keyframes float {
+        0%, 100% { transform: translateX(0); }
+        50% { transform: translateX(10px); }
+    }
+}
+
 /* Grade de Cards Inteligentes */
 .recursos-cards-section {
     padding: 100px 0;
@@ -126,7 +145,7 @@
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
     gap: 30px;
-    max-width: 1200px;
+    max-width: 100%;
     margin: 0 auto;
     padding: 0 20px;
 }
@@ -209,7 +228,7 @@
     grid-template-columns: 1fr 1fr;
     gap: 80px;
     align-items: center;
-    max-width: 1200px;
+    max-width: 100%;
     margin: 0 auto;
     padding: 0 20px;
 }
