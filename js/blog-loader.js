@@ -1,128 +1,172 @@
-// Blog Loader for OPER Website
-// This script reads blog post data from CSV files and displays them on the blog page
-
 /**
- * Parses a CSV line into an array of values
- * @param {string} line - A line from a CSV file
- * @returns {Array} - Array of parsed values
+ * BlogLoader
+ * Funções utilitárias para renderizar cards, listas e conteúdos completos do blog.
  */
-function parseCSVLine(line) {
-    // Simple CSV parsing (doesn't handle quoted fields with commas)
-    return line.split(',').map(field => field.trim());
-}
+(function () {
+    const DETAIL_PAGE = 'conexao-oper.html';
 
-/**
- * Reads a CSV file and extracts blog post data
- * @param {string} filePath - Path to the CSV file
- * @returns {Promise<Object>} - Promise that resolves to blog post data
- */
-function readBlogPostCSV(filePath) {
-    return fetch(filePath)
-        .then(response => response.text())
-        .then(text => {
-            // Split text into lines
-            const lines = text.split('\n').filter(line => line.trim() !== '');
-            
-            if (lines.length === 0) {
-                throw new Error('CSV file is empty');
-            }
-            
-            // First line contains the date, title, and content
-            const firstLine = parseCSVLine(lines[0]);
-            const date = firstLine[0];
-            const title = firstLine[1];
-            
-            // Join remaining lines for content
-            const content = lines.slice(1).join('\n');
-            
-            return {
-                date: date,
-                title: title,
-                content: content
-            };
-        })
-        .catch(error => {
-            console.error('Error reading CSV file:', error);
-            // Return sample data in case of error
-            return {
-                date: new Date().toISOString().slice(0, 19).replace('T', ' '),
-                title: 'Erro ao carregar artigo',
-                content: 'Não foi possível carregar o conteúdo deste artigo.'
-            };
-        });
-}
-
-/**
- * Sorts blog posts by date (newest first)
- * @param {Array} posts - Array of blog post objects
- * @returns {Array} - Sorted array of blog post objects
- */
-function sortPostsByDate(posts) {
-    return posts.sort((a, b) => new Date(b.date) - new Date(a.date));
-}
-
-/**
- * Formats a date for display
- * @param {string} dateString - Date string in format "YYYY-MM-DD HH:MM:SS"
- * @returns {string} - Formatted date string
- */
-function formatPostDate(dateString) {
-    const date = new Date(dateString);
-    return date.toLocaleDateString('pt-BR', {
-        day: '2-digit',
-        month: 'long',
-        year: 'numeric'
-    });
-}
-
-/**
- * Creates an excerpt from the content
- * @param {string} content - The full content
- * @param {number} length - Maximum length of the excerpt
- * @returns {string} - Excerpt of the content
- */
-function createExcerpt(content, length = 150) {
-    // Remove line breaks and extra whitespace
-    let cleanContent = content.replace(/\s+/g, ' ').trim();
-    
-    // If content is shorter than the desired length, return it
-    if (cleanContent.length <= length) {
-        return cleanContent;
+    function getPostUrl(post) {
+        const slug = encodeURIComponent(post.slug || post.id);
+        return `${DETAIL_PAGE}#${slug}`;
     }
-    
-    // Truncate to the desired length and add ellipsis
-    return cleanContent.substring(0, length) + '...';
-}
 
-/**
- * Creates HTML for a blog post card
- * @param {Object} post - Blog post data
- * @param {string} imageUrl - URL for the post image
- * @param {string} criticality - Criticality level (high, medium, low)
- * @param {string} link - Link to the full post
- * @returns {string} - HTML string for the blog card
- */
-function createBlogCardHTML(post, imageUrl, criticality, link) {
-    // Extract first paragraph for excerpt
-    const excerpt = createExcerpt(post.content, 150);
-    
-    return `
-        <article class="blog-card criticality-${criticality}">
-            <img src="${imageUrl}" alt="${post.title}" class="blog-image" onerror="this.src='images/news02.png'">
-            <div class="blog-content">
-                <div class="blog-date">${formatPostDate(post.date)}</div>
-                <h3 class="blog-title">${post.title}</h3>
-                <p class="blog-excerpt">${excerpt}</p>
-                <a href="${link}" class="read-more">Ler artigo completo</a>
-            </div>
-        </article>
-    `;
-}
+    function formatPostDate(post) {
+        if (post.displayDate) {
+            return post.displayDate;
+        }
+        const source = post.publishedAt || post.createdAt;
+        if (!source) {
+            return '';
+        }
+        return new Date(source).toLocaleDateString('pt-BR', {
+            day: '2-digit',
+            month: 'long',
+            year: 'numeric',
+        });
+    }
 
-// Export functions for use in other scripts
-window.BlogLoader = {
-    readBlogPostCSV,
-    sortPostsByDate,
-    formatPostDate,
-    createBlogCardHTML
-};
+    function createBlogCardHTML(post) {
+        const imageSrc = (post.heroImage && post.heroImage.src) || 'images/news02.png';
+        const imageAlt = (post.heroImage && post.heroImage.alt) || post.title || 'Matéria do blog OPER';
+        const excerpt = post.summary || createExcerpt(post.content, 180);
+        const postUrl = getPostUrl(post);
+
+        return `
+            <article class="blog-card criticality-${post.criticality || 'low'}" data-slug="${post.slug}">
+                <img src="${imageSrc}" alt="${escapeHtml(imageAlt)}" class="blog-image" onerror="this.src='images/news02.png'">
+                <div class="blog-content">
+                    <div class="blog-date">${escapeHtml(formatPostDate(post))}</div>
+                    <h3 class="blog-title">${escapeHtml(post.title || '')}</h3>
+                    <p class="blog-excerpt">${escapeHtml(excerpt)}</p>
+                    <div class="blog-meta">
+                        ${renderTagPills(post.tags)}
+                        <span class="reading-time">${post.readingTimeMinutes || 1} min</span>
+                    </div>
+                    <a href="${postUrl}" class="read-more">Ler artigo completo</a>
+                </div>
+            </article>
+        `;
+    }
+
+    function renderTagPills(tags = []) {
+        if (!tags.length) {
+            return '';
+        }
+
+        return `
+            <ul class="tag-list">
+                ${tags
+                    .slice(0, 4)
+                    .map((tag) => `<li class="tag-item">${escapeHtml(tag)}</li>`)
+                    .join('')}
+            </ul>
+        `;
+    }
+
+    function renderPostContent(content) {
+        if (!content) {
+            return '<p>Conteúdo em construção.</p>';
+        }
+
+        const lines = String(content).split(/\r?\n/);
+        const blocks = [];
+        let listBuffer = [];
+        let listType = null;
+
+        const flushList = () => {
+            if (!listBuffer.length) {
+                return;
+            }
+            const items = listBuffer.map((item) => `<li>${formatInline(item)}</li>`).join('');
+            blocks.push(`<${listType}>${items}</${listType}>`);
+            listBuffer = [];
+            listType = null;
+        };
+
+        lines.forEach((rawLine) => {
+            const line = rawLine.trim();
+
+            if (!line) {
+                flushList();
+                return;
+            }
+
+            const unorderedMatch = line.match(/^[-*]\s+(.*)$/);
+            if (unorderedMatch) {
+                const value = unorderedMatch[1];
+                if (listType !== 'ul') {
+                    flushList();
+                    listType = 'ul';
+                }
+                listBuffer.push(value);
+                return;
+            }
+
+            const orderedMatch = line.match(/^\d+\.\s+(.*)$/);
+            if (orderedMatch) {
+                const value = orderedMatch[1];
+                if (listType !== 'ol') {
+                    flushList();
+                    listType = 'ol';
+                }
+                listBuffer.push(value);
+                return;
+            }
+
+            flushList();
+
+            const headingMatch = line.match(/^(#{1,3})\s+(.*)$/);
+            if (headingMatch) {
+                const level = headingMatch[1].length + 1;
+                const headingText = headingMatch[2];
+                blocks.push(`<h${level}>${formatInline(headingText)}</h${level}>`);
+                return;
+            }
+
+            blocks.push(`<p>${formatInline(line)}</p>`);
+        });
+
+        flushList();
+
+        return blocks.join('\n');
+    }
+
+    function createExcerpt(content, length) {
+        if (!content) {
+            return '';
+        }
+        const clean = String(content).replace(/\s+/g, ' ').trim();
+        if (clean.length <= length) {
+            return clean;
+        }
+        return `${clean.substring(0, length - 1).trim()}…`;
+    }
+
+    function escapeHtml(value) {
+        return String(value)
+            .replace(/&/g, '&amp;')
+            .replace(/</g, '&lt;')
+            .replace(/>/g, '&gt;')
+            .replace(/"/g, '&quot;')
+            .replace(/'/g, '&#39;');
+    }
+
+    function formatInline(text) {
+        let formatted = escapeHtml(text);
+
+        formatted = formatted.replace(/\*\*(.+?)\*\*/g, '<strong>$1</strong>');
+        formatted = formatted.replace(/\*(.+?)\*/g, '<em>$1</em>');
+        formatted = formatted.replace(/\[([^\]]+)\]\((https?:\/\/[^\s)]+)\)/g, '<a href="$2" target="_blank" rel="noopener noreferrer">$1</a>');
+        formatted = formatted.replace(/\[([^\]]+)\]/g, '<strong>$1</strong>');
+
+        return formatted;
+    }
+
+    window.BlogLoader = {
+        getPostUrl,
+        formatPostDate,
+        createBlogCardHTML,
+        renderPostContent,
+        createExcerpt,
+    };
+})();

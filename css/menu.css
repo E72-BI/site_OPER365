@@ -395,10 +395,12 @@ body {
 /* Aplicamos padding-top apenas aos elementos que vêm imediatamente após o menu */
 
 /* Seletores específicos para o primeiro elemento após o menu */
+#menu-placeholder + header,
 #menu-placeholder + section,
 #menu-placeholder + .hero,
 #menu-placeholder + .container,
 #menu-placeholder + div:first-of-type,
+body > header:first-of-type,
 body > section:first-of-type,
 body > .hero:first-of-type,
 body > .container:first-of-type {
@@ -407,10 +409,12 @@ body > .container:first-of-type {
 }
 
 @media (min-width: 480px) and (max-width: 767px) {
+  #menu-placeholder + header,
   #menu-placeholder + section,
   #menu-placeholder + .hero,
   #menu-placeholder + .container,
   #menu-placeholder + div:first-of-type,
+  body > header:first-of-type,
   body > section:first-of-type,
   body > .hero:first-of-type,
   body > .container:first-of-type {
@@ -420,10 +424,12 @@ body > .container:first-of-type {
 }
 
 @media (min-width: 768px) {
+  #menu-placeholder + header,
   #menu-placeholder + section,
   #menu-placeholder + .hero,
   #menu-placeholder + .container,
   #menu-placeholder + div:first-of-type,
+  body > header:first-of-type,
   body > section:first-of-type,
   body > .hero:first-of-type,
   body > .container:first-of-type {
@@ -433,10 +439,12 @@ body > .container:first-of-type {
 }
 
 @media (min-width: 1200px) {
+  #menu-placeholder + header,
   #menu-placeholder + section,
   #menu-placeholder + .hero,
   #menu-placeholder + .container,
   #menu-placeholder + div:first-of-type,
+  body > header:first-of-type,
   body > section:first-of-type,
   body > .hero:first-of-type,
   body > .container:first-of-type {
@@ -446,10 +454,12 @@ body > .container:first-of-type {
 }
 
 @media (max-width: 479px) {
+  #menu-placeholder + header,
   #menu-placeholder + section,
   #menu-placeholder + .hero,
   #menu-placeholder + .container,
   #menu-placeholder + div:first-of-type,
+  body > header:first-of-type,
   body > section:first-of-type,
   body > .hero:first-of-type,
   body > .container:first-of-type {

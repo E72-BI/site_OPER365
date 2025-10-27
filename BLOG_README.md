@@ -1,94 +1,131 @@
-# Blog OPER - Documentação
+# Blog OPER – Guia de Administração
 
-## Estrutura do Blog
+## Visão Geral
 
-O blog do OPER consiste nos seguintes arquivos e diretórios:
+O blog da Conexão OPER agora é totalmente abastecido por um único arquivo JSON (`data/blog-posts.json`). A página pública `conexao-oper.html` e a seção “Blog Conexão” da home (`index.html`) carregam esse arquivo via JavaScript para renderizar busca, posts recentes e o conteúdo completo de cada matéria — tudo sem páginas estáticas individuais.
 
-- `blog.html` - Página principal do blog que lista todos os artigos
-- `conexao-oper.html` - Página principal da Conexão OPER (destaque especial)
-- `blog-*.html` - Páginas individuais para cada artigo do blog
-- `blog_post_*.csv` - Arquivos CSV contendo os dados dos artigos
-- `css/blog-styles.css` - Estilos específicos para o blog
-- `js/blog-loader.js` - Script para carregar e exibir os artigos do blog
+Para cadastrar novas matérias ou editar existentes, utilize o painel administrativo disponível em `admin/index.html`. Ele funciona 100% no front-end e permite importar/exportar o JSON atualizado, além de gerar pré-visualizações em tempo real.
 
-## Como Adicionar um Novo Artigo
+---
 
-### 1. Criar o Arquivo CSV
+## Estrutura Principal
 
-Crie um novo arquivo CSV no formato `blog_post_N.csv` onde N é o próximo número disponível.
+- `data/blog-posts.json` – Base de dados com metadados e conteúdo das matérias.
+- `conexao-oper.html` – Hub do blog com leitura inline, busca e navegação sem trocar de página.
+- `index.html` (seção “Blog Conexão”) – Mostra automaticamente as três matérias mais recentes.
+- `js/blog-data-service.js` – Serviço responsável por buscar e normalizar os dados do blog.
+- `js/blog-loader.js` – Funções utilitárias de renderização (conteúdo, snippets, datas etc.).
+- `js/conexao-oper.js` – Script que alimenta e controla a página `conexao-oper.html`.
+- `js/home-blog.js` – Script que injeta os cards dinâmicos na home.
+- `admin/index.html` + `js/blog-admin.js` + `css/blog-admin.css` – Painel administrativo.
 
-A estrutura do arquivo CSV deve ser:
-```
-DATA_HORA,TÍTULO
-CONTEÚDO
-```
+---
 
-Exemplo:
-```
-2025-10-15 14:00:00,Novo Título do Artigo
-Conteúdo do artigo em formato de texto...
-```
+## Painel Administrativo
 
-### 2. Adicionar Dados ao Script
+- **URL:** `admin/index.html`
+- **Usuário:** `admin`
+- **Senha:** `oper@365`
 
-No arquivo `blog.html`, adicione uma nova entrada ao array `blogPostData`:
+### Recursos disponíveis
 
-```javascript
+1. **Listagem e busca** das matérias existentes (por título, tag ou categoria).  
+2. **Cadastro/edição** com suporte a:
+   - Título, slug, status (`published` ou `draft`), criticidade e tempo de leitura
+   - Resumo, conteúdo (Markdown básico), tags, categorias
+   - SEO (descrição e palavras-chave)
+   - FAQ (perguntas e respostas dinâmicas)
+   - Imagem de destaque (caminho/alt)
+3. **Importação** de um `blog-posts.json` já existente (para atualizar a lista).
+4. **Exportação** do JSON atualizado (substitua `data/blog-posts.json` após baixar).
+5. Indicação visual de alterações pendentes e toasts de feedback.
+
+> **Observação:** o painel não grava direto no arquivo do projeto. Após salvar ou excluir matérias, clique em **Baixar JSON** e substitua o arquivo `data/blog-posts.json` no repositório.
+
+---
+
+## Fluxo para criar/editar uma matéria
+
+1. Acesse `admin/index.html` e faça login.  
+2. Clique em **“Nova matéria”** ou selecione uma existente na lista.  
+3. Preencha os campos necessários. Use o campo *Conteúdo* com Markdown básico (`#`, `##`, listas com `-` ou `1.`).  
+4. Adicione perguntas na seção **FAQ** apenas se forem exibidas na matéria.  
+5. Salve a matéria.  
+6. Clique em **“Baixar JSON”** e substitua `data/blog-posts.json` pelo arquivo baixado.  
+7. Faça commit das alterações no repositório.
+
+---
+
+## Estrutura do JSON
+
+```jsonc
 {
-    file: "blog_post_N.csv",
-    image: "caminho/para/imagem.jpg",
-    criticality: "high|medium|low",
-    link: "blog-novo-artigo.html"
+  "meta": {
+    "version": 1,
+    "generatedAt": "2025-10-21T17:53:24.002Z",
+    "locale": "pt-BR"
+  },
+  "posts": [
+    {
+      "id": "blog-automatic-reports",
+      "slug": "blog-automatic-reports",
+      "title": "Relatórios Automáticos: Sua Estratégia de Manutenção",
+      "status": "published",
+      "createdAt": "2025-10-08T09:15:00-03:00",
+      "updatedAt": "2025-10-08T09:15:00-03:00",
+      "publishedAt": "2025-10-08T09:15:00-03:00",
+      "readingTimeMinutes": 6,
+      "author": "Equipe OPER",
+      "criticality": "low",
+      "tags": ["Relatórios", "Automatização", "Compliance"],
+      "categories": ["Tecnologia"],
+      "summary": "Relatórios automáticos do OPER economizam tempo, garantem conformidade e aumentam a precisão das decisões.",
+      "content": "Texto completo em Markdown com parágrafos, títulos (##) e listas (-).",
+      "heroImage": {
+        "src": "temp_images/mobile_app.jpg",
+        "alt": "Aplicativo móvel de manutenção"
+      },
+      "seo": {
+        "description": "Veja como relatórios automáticos da OPER reduzem retrabalho e aceleram decisões em manutenção.",
+        "keywords": ["relatórios automáticos", "gestão de manutenção", "compliance", "dados em tempo real"]
+      },
+      "faq": [
+        { "question": "O que são relatórios automáticos?", "answer": "Relatórios gerados automaticamente a partir de ordens de serviço, checklists e indicadores." },
+        { "question": "Quais os benefícios?", "answer": "Economia de tempo, precisão dos dados, conformidade e decisões rápidas." }
+      ],
+      "legacy": {
+        "sourceCsv": "blog_post_3.csv",
+        "legacyLink": "blog-automatic-reports.html"
+      }
+    }
+  ]
 }
 ```
 
-### 3. Criar a Página Individual do Artigo
+- `summary` é gerado automaticamente se ficar em branco.  
+- `readingTimeMinutes` pode ser calculado pelo painel (1 min/200 palavras).  
+- `legacy` é opcional; mantém referência a URLs anteriores. Novas matérias podem ignorar esse campo.
 
-Crie um novo arquivo HTML para o artigo com o nome `blog-novo-artigo.html` baseando-se em um dos arquivos existentes.
+---
 
-## Estilos de Criticidade
+## Boas Práticas
 
-Os artigos são categorizados por níveis de criticidade que afetam sua aparência visual:
+1. **Slug único:** o painel evita duplicidade, mas revise antes de exportar.  
+2. **Conteúdo com Markdown simples:** use `#` ou `##` para títulos e `-` para listas.  
+3. **Tags/Categorias:** separe por vírgula e mantenha capitalização consistente.  
+4. **Imagem destacada:** garanta que o arquivo exista na pasta indicada (ex.: `temp_images/`).  
+5. **SEO:** escreva descrições objetivas (até ~160 caracteres) e palavras-chave relevantes.  
+6. **FAQ:** utilize apenas perguntas que serão exibidas na matéria; evite deixar perguntas vazias.  
+7. **Controle de versão:** sempre exporte e confirme o commit do `blog-posts.json` após mudanças.
 
-- `high` - Borda vermelha (itens críticos)
-- `medium` - Borda amarela (itens importantes)
-- `low` - Borda verde (itens informativos)
+---
 
-## Imagens
+## Troubleshooting
 
-As imagens devem ser colocadas no diretório `temp_images` ou outro diretório apropriado. O sistema tentará primeiro carregar a imagem especificada e, em caso de falha, usará uma imagem padrão.
+- **Matéria não aparece na listagem:** verifique se o JSON foi exportado e substituído no diretório correto.  
+- **Slug duplicado:** edite a matéria pelo painel e ajuste o slug manualmente.  
+- **Erro ao importar JSON:** confirme se o arquivo contém as chaves `meta` e `posts` e se o JSON é válido.  
+- **Imagens quebradas:** confira o caminho informado no campo “Imagem destacada” e se o arquivo foi adicionado ao projeto.
 
-## Manutenção
+Com isso, o blog fica centralizado em um único arquivo de dados, gerenciado de forma amigável pelo painel administrativo. Boas publicações! 🚀
 
-Para manter o blog funcionando corretamente:
-
-1. Certifique-se de que os arquivos CSV estão no formato correto
-2. Verifique se todas as imagens especificadas existem
-3. Mantenha os links atualizados quando renomear arquivos
-4. Atualize o array `blogPostData` quando adicionar ou remover artigos
-
-## Artigos Atuais
-
-1. `blog_post_0.csv` - Inauguração do Blog OPER (15/10/2025)
-2. `blog_post_1.csv` - MTBF e MTTR: Suas Armas Estratégicas na Manutenção (13/10/2025)
-3. `blog_post_2.csv` - Nível de Criticidade: Sua Bússola na Manutenção (10/10/2025)
-4. `blog_post_3.csv` - Relatórios Automáticos: Sua Estratégia de Manutenção (08/10/2025)
-
-## Página Principal - Conexão OPER
-
-A página `conexao-oper.html` é a página principal da comunidade Conexão OPER, com layout especializado que inclui:
-
-- Barra superior com links de navegação
-- Seção hero com call-to-action principal
-- Layout de duas colunas (conteúdo principal + sidebar)
-- Seção de FAQ com acordeão interativo
-- Widgets de sidebar (busca, posts recentes, tópicos populares, newsletter)
-
-## Solução de Problemas
-
-Se os artigos não estiverem carregando:
-
-1. Verifique se o caminho para o arquivo CSV está correto
-2. Confirme se o arquivo CSV existe e está formatado corretamente
-3. Verifique o console do navegador para mensagens de erro
-4. Certifique-se de que o servidor permite acesso a arquivos CSV (necessário para leitura via JavaScript)

@@ -1,0 +1,220 @@
+{
+  "meta": {
+    "version": 1,
+    "generatedAt": "2025-10-21T17:53:24.0025629-03:00",
+    "locale": "pt-BR"
+  },
+  "posts": [
+    {
+      "id": "blog-opening",
+      "slug": "blog-opening",
+      "title": "Inauguração do Blog OPER: Novo Espaço para Insights de Manutenção",
+      "status": "published",
+      "createdAt": "2025-10-15T09:00:00-03:00",
+      "updatedAt": "2025-10-15T09:00:00-03:00",
+      "publishedAt": "2025-10-15T09:00:00-03:00",
+      "readingTimeMinutes": 4,
+      "author": "Equipe OPER",
+      "criticality": "low",
+      "tags": [
+        "Conexão OPER",
+        "Boas práticas",
+        "Comunidade"
+      ],
+      "categories": [
+        "Editorial"
+      ],
+      "summary": "Apresentamos o Blog OPER, um espaço colaborativo com cases, indicadores e boas práticas para quem cuida de manutenção e facilities.",
+      "content": "Estamos felizes em anunciar o lançamento do Blog OPER, um novo espaço dedicado a compartilhar conhecimentos, dicas e insights sobre gestão de manutenção para hotéis, condomínios, escolas, frotas e indústrias.\n\n## Por que um blog?\n\nAcreditamos que a informação é a base para transformar operações. Com o Blog OPER, queremos:\n- Compartilhar experiências reais de nossos clientes\n- Apresentar cases de sucesso e lições aprendidas\n- Oferecer dicas práticas para otimizar processos de manutenção\n- Explicar conceitos técnicos de forma acessível\n- Manter nossa comunidade atualizada sobre tendências do setor\n\n## O que você encontrará aqui?\n\nNosso blog será dividido em categorias para facilitar sua navegação:\n\n### Indicadores e KPIs\nMTBF, MTTR, disponibilidade e outros indicadores-chave para tomar decisões com segurança.\n\n### Gestão por Criticidade\nComo priorizar tarefas e recursos para garantir operação previsível e segura.\n\n### Tecnologia e Inovação\nNovidades sobre o OPER e tendências do mercado de manutenção e facilities.\n\n### Cases de Sucesso\nHistórias reais de operações que evoluíram com o apoio da plataforma.\n\n### Dicas e Boas Práticas\nOrientações práticas para o dia a dia de gestores, síndicos e equipes técnicas.\n\n## Nosso compromisso\n\nTodos os artigos serão escritos com linguagem clara e objetiva, sempre com foco em resultados aplicáveis. Nossa equipe técnica revisa cada conteúdo para garantir precisão e qualidade.\n\n## Fique atento!\n\nPublicaremos novos artigos todas as semanas. Siga o blog e receba alertas sobre os conteúdos mais recentes. Tem sugestões de temas? Fale com a gente e ajude a construir essa comunidade.\n\nAgradecemos por fazer parte desta jornada. Esperamos que o Blog OPER se torne uma referência valiosa para sua operação.\n\n**Até a próxima!**\n\n*Equipe OPER*",
+      "heroImage": {
+        "src": "temp_images/teamwork.jpg",
+        "alt": "Equipe OPER trabalhando em conjunto"
+      },
+      "seo": {
+        "description": "Conheça o Blog OPER: cases reais, tendências e boas práticas de manutenção e facilities em um só lugar.",
+        "keywords": [
+          "Blog OPER",
+          "Conexão OPER",
+          "manutenção",
+          "facilities",
+          "boas práticas"
+        ]
+      },
+      "faq": [],
+      "legacy": {
+        "sourceCsv": "blog_post_0.csv",
+        "legacyLink": "blog-opening.html"
+      }
+    },
+    {
+      "id": "blog-mtbf-mttr",
+      "slug": "blog-mtbf-mttr",
+      "title": "MTBF e MTTR: Suas Armas Estratégicas na Manutenção",
+      "status": "published",
+      "createdAt": "2025-10-13T10:00:00-03:00",
+      "updatedAt": "2025-10-13T10:00:00-03:00",
+      "publishedAt": "2025-10-13T10:00:00-03:00",
+      "readingTimeMinutes": 6,
+      "author": "Equipe OPER",
+      "criticality": "high",
+      "tags": [
+        "Indicadores",
+        "Estratégia",
+        "Manutenção"
+      ],
+      "categories": [
+        "KPIs"
+      ],
+      "summary": "MTBF e MTTR ajudam a prever falhas, reduzir custos e manter a operação sob controle — entenda como aplicar esses indicadores na prática.",
+      "content": "Você já parou para pensar que entender a vida útil dos equipamentos e o tempo de reparo pode ser um divisor de águas na sua operação?\n\nNo universo da manutenção, dois indicadores fazem toda a diferença: MTBF (Mean Time Between Failures – Tempo Médio Entre Falhas) e MTTR (Mean Time To Repair – Tempo Médio para Reparo). Eles são KPIs essenciais para reduzir custos, aumentar a eficiência e blindar seu patrimônio.\n\n## O que é MTBF e por que ele importa\n\nO MTBF indica quanto tempo, em média, um equipamento funciona antes de apresentar uma falha. É uma métrica de previsibilidade e confiabilidade, essencial para gestores, síndicos e equipes de manutenção.\n\nImagine que você tem um ar-condicionado que quebra, em média, a cada 1.000 horas de uso. Se você souber disso, consegue planejar manutenções preventivas, evitando interrupções inesperadas e custos maiores.\n\n**Benefício direto:** mais eficiência, menos surpresas e decisões baseadas em dados, não em achismos.\n\n## MTTR: o poder de reparar rápido\n\nO MTTR mostra quanto tempo, em média, leva para reparar um equipamento após uma falha. Quanto menor, melhor: significa menos tempo de inatividade e maior disponibilidade de ativos.\n\nUm MTTR baixo indica que sua equipe consegue resolver problemas rapidamente, mantendo operações fluidas e clientes ou hóspedes satisfeitos.\n\n## Como descobrir MTBF e MTTR na prática\n\nHoje, com soluções como o OPER, você não precisa mais calcular MTBF e MTTR manualmente ou em planilhas complexas. Com checklists inteligentes, ordens de serviço rastreáveis e relatórios auditáveis, cada ocorrência é registrada no instante em que acontece.\n\nIsso permite:\n- Planejar manutenção preventiva com precisão\n- Identificar padrões de falha rapidamente\n- Reduzir custos com reparos corretivos\n- Blindar o patrimônio e prolongar a vida útil dos equipamentos\n\n## A pergunta que não quer calar\n\nCom que idade você descobriu o MTBF e o MTTR? Para muitos, a resposta vem tarde — quando problemas já impactaram orçamento e operação. Mas, com a cultura certa de dados e tecnologia, é possível descobrir ainda no começo da operação, evitando prejuízos e fortalecendo a confiabilidade dos ativos.\n\n**Dica OPER:** quanto antes você começar a medir, mais rápido verá resultados. É ação imediata, sem complicação, direto na palma da mão.\n\n## Conclusão\n\nMTBF e MTTR não são apenas números: são armas estratégicas para quem busca eficiência, economia e blindagem operacional. Descobrir e monitorar esses indicadores transforma manutenção em evolução e operações em vantagem competitiva.\n\nSe você quer colocar MTBF e MTTR para trabalhar na sua operação, [comece agora com o OPER](https://wa.me/5582981457117?text=Quero%20come%C3%A7ar%20agora%20com%20o%20OPER) e veja a diferença que dados confiáveis podem fazer.",
+      "heroImage": {
+        "src": "temp_images/analytics.jpg",
+        "alt": "Gráficos de análise de manutenção"
+      },
+      "seo": {
+        "description": "Aprenda a aplicar MTBF e MTTR para reduzir custos, aumentar disponibilidade e dar previsibilidade à manutenção.",
+        "keywords": [
+          "MTBF",
+          "MTTR",
+          "indicadores de manutenção",
+          "tempo médio entre falhas",
+          "tempo médio de reparo"
+        ]
+      },
+      "faq": [
+        {
+          "question": "O que significa MTBF?",
+          "answer": "MTBF (Mean Time Between Failures) é o tempo médio entre falhas de um equipamento, indicando sua confiabilidade."
+        },
+        {
+          "question": "O que significa MTTR?",
+          "answer": "MTTR (Mean Time To Repair) é o tempo médio necessário para reparar um equipamento após uma falha."
+        },
+        {
+          "question": "Por que MTBF e MTTR são importantes?",
+          "answer": "Eles ajudam a planejar manutenções preventivas, reduzir custos corretivos e aumentar a disponibilidade dos ativos."
+        },
+        {
+          "question": "Como o OPER ajuda a medir MTBF e MTTR?",
+          "answer": "Com checklists inteligentes, ordens de serviço rastreáveis e relatórios auditáveis, garantindo dados precisos e acionáveis."
+        }
+      ],
+      "legacy": {
+        "sourceCsv": "blog_post_1.csv",
+        "legacyLink": "blog-mtbf-mttr.html"
+      }
+    },
+    {
+      "id": "blog-criticality-level",
+      "slug": "blog-criticality-level",
+      "title": "Nível de Criticidade: Sua Bússola na Manutenção",
+      "status": "published",
+      "createdAt": "2025-10-10T14:30:00-03:00",
+      "updatedAt": "2025-10-10T14:30:00-03:00",
+      "publishedAt": "2025-10-10T14:30:00-03:00",
+      "readingTimeMinutes": 7,
+      "author": "Equipe OPER",
+      "criticality": "medium",
+      "tags": [
+        "Criticidade",
+        "Governança",
+        "Facilities"
+      ],
+      "categories": [
+        "Processos"
+      ],
+      "summary": "Organize tarefas de manutenção por nível de criticidade para ganhar previsibilidade, reduzir riscos e proteger seus ativos.",
+      "content": "Mesmo com toda dedicação e cuidado, sempre surge aquela dúvida: as tarefas estão sendo feitas na hora certa? Nada está sendo esquecido?\n\nSim, somos humanos. E para mitigar falhas e reduzir preocupações, aplicar o conceito de Nível de Criticidade pode garantir noites mais tranquilas e maior controle sobre sua operação — em hotéis, condomínios, escolas, frotas, edifícios corporativos ou indústrias.\n\n## Por que o Nível de Criticidade é essencial\n\nOrganizar tarefas de manutenção por criticidade traz benefícios para toda a operação:\n- **Previsibilidade operacional:** você sabe o que precisa ser feito e quando.\n- **Redução de riscos:** evita multas, acidentes e problemas legais.\n- **Proteção de ativos:** equipamentos e infraestrutura duram mais e funcionam melhor.\n- **Satisfação e confiança:** usuários percebem que tudo está sob controle.\n\n## Como classificar tarefas por nível de criticidade\n\n### 1. Obrigatórios por Lei\nTarefas que não podem ser esquecidas, com impacto direto em segurança e conformidade.\n\nExemplos: PCI, AVCB, SPDA, sistemas de gás, elétricos e hidráulicos.\n\n**Objetivo:** evitar multas, embargos e responsabilização legal.\n\n### 2. Alto Risco\nTarefas que impactam segurança de pessoas e preservação do patrimônio.\n\nExemplos: elevadores, PMOC do ar-condicionado, sistemas de água e esgoto, áreas verdes.\n\n**Objetivo:** proteger vidas, reduzir emergências caras e preservar ativos.\n\n### 3. Operações e Gestão\nAtividades que melhoram eficiência, governança e experiência dos usuários.\n\nExemplos: limpeza, segurança patrimonial, controle de pragas, governança documental e manutenção preventiva.\n\n**Objetivo:** aumentar satisfação, reduzir conflitos e valorizar o patrimônio.\n\n## Como a OPER transforma criticidade em ação\n\nCom a OPER, cada nível de criticidade vira ação rastreável:\n- **Checklists inteligentes:** nenhuma tarefa é esquecida.\n- **Ordens de serviço rastreáveis:** execução no momento certo.\n- **Relatórios auditáveis:** visibilidade completa e segurança sistêmica.\n\n**Resultado:** organização, previsibilidade e blindagem do patrimônio em qualquer operação.\n\n## Conclusão\n\nO nível de criticidade é a bússola da manutenção. Ele define prioridades, reduz riscos e garante execução no tempo certo, protegendo vidas, ativos e resultados.\n\nQuer transformar a gestão da sua operação? [Comece com o OPER](https://wa.me/5582981457117?text=Quero%20come%C3%A7ar%20com%20o%20OPER) e veja a diferença que dados confiáveis podem fazer.",
+      "heroImage": {
+        "src": "temp_images/dashboard_mockup.jpg",
+        "alt": "Painel de controle de manutenção"
+      },
+      "seo": {
+        "description": "Classifique tarefas por nível de criticidade e garanta manutenção previsível, segura e alinhada às normas.",
+        "keywords": [
+          "nível de criticidade",
+          "gestão de manutenção",
+          "priorização de tarefas",
+          "compliance",
+          "governança"
+        ]
+      },
+      "faq": [
+        {
+          "question": "O que é nível de criticidade?",
+          "answer": "É a classificação das tarefas de manutenção conforme sua importância e urgência, garantindo execução no momento certo."
+        },
+        {
+          "question": "Quem pode aplicar essa metodologia?",
+          "answer": "Gestores e equipes de manutenção de qualquer operação: hotéis, condomínios, escolas, frotas, edifícios corporativos ou indústrias."
+        },
+        {
+          "question": "Como o OPER apoia na gestão de criticidade?",
+          "answer": "Centralizando checklists, ordens de serviço e relatórios auditáveis que refletem as prioridades do seu plano de manutenção."
+        }
+      ],
+      "legacy": {
+        "sourceCsv": "blog_post_2.csv",
+        "legacyLink": "blog-criticality-level.html"
+      }
+    },
+    {
+      "id": "blog-automatic-reports",
+      "slug": "blog-automatic-reports",
+      "title": "Relatórios Automáticos: Sua Estratégia de Manutenção",
+      "status": "published",
+      "createdAt": "2025-10-08T09:15:00-03:00",
+      "updatedAt": "2025-10-08T09:15:00-03:00",
+      "publishedAt": "2025-10-08T09:15:00-03:00",
+      "readingTimeMinutes": 6,
+      "author": "Equipe OPER",
+      "criticality": "low",
+      "tags": [
+        "Relatórios",
+        "Automatização",
+        "Compliance"
+      ],
+      "categories": [
+        "Tecnologia"
+      ],
+      "summary": "Relatórios automáticos do OPER economizam tempo, garantem conformidade e tornam a tomada de decisão muito mais precisa.",
+      "content": "Você ainda perde horas criando relatórios de manutenção em sistemas complexos e não automatizados?\n\nSeja em hotéis, condomínios, escolas, frotas, edifícios corporativos ou operações industriais, gerar relatórios precisos é essencial para tomar decisões, cumprir normas e manter a eficiência. Fazer isso manualmente consome tempo e aumenta o risco de erros.\n\nÉ aqui que entram os relatórios automáticos da OPER: operação organizada, previsível e segura, com dados confiáveis sempre à mão.\n\n## Por que relatórios automáticos são essenciais\n\nCriar relatórios manualmente não é apenas cansativo — é arriscado. Com relatórios automáticos você garante:\n- **Economia de tempo:** dados consolidados sem digitação manual.\n- **Precisão garantida:** elimina erros humanos.\n- **Decisões baseadas em dados reais:** mais confiabilidade.\n- **Conformidade e rastreabilidade:** fácil acompanhamento de inspeções e obrigações legais.\n\n## Como os relatórios automáticos funcionam\n\nCom o OPER, cada ocorrência de manutenção é registrada em tempo real, permitindo gerar relatórios detalhados e auditáveis automaticamente, incluindo:\n- Histórico completo de ordens de serviço\n- Checklists concluídos e pendentes\n- Indicadores como MTBF e MTTR\n- Alertas de conformidade e prazos legais\n\nTudo entregue de forma clara, organizada e pronta para análise, sem planilhas complexas ou retrabalho.\n\n## Benefícios para diferentes operações\n\n- **Hotéis:** acompanhe manutenção e inspeções, garantindo conforto e segurança dos hóspedes.\n- **Condomínios:** controle obrigações legais e técnicas, evitando multas e responsabilizações.\n- **Escolas:** assegure que instalações e equipamentos estejam seguros e funcionando corretamente.\n- **Frotas:** monitore revisões e manutenções preventivas para reduzir falhas e custos.\n- **Indústrias:** rastreie desempenho de máquinas e equipamentos críticos em tempo real.\n\n## Conclusão\n\nRelatórios automáticos não são apenas conveniência — são estratégia. Eles economizam tempo, aumentam precisão, garantem conformidade e permitem decisões rápidas e confiáveis.\n\nCom o OPER, sua operação fica mais organizada, previsível e segura, transformando dados em vantagem competitiva. [Comece agora com o OPER](https://wa.me/5582981457117?text=Quero%20come%C3%A7ar%20agora%20com%20o%20OPER) e veja como relatórios automáticos podem revolucionar sua gestão.",
+      "heroImage": {
+        "src": "temp_images/mobile_app.jpg",
+        "alt": "Aplicativo móvel de manutenção"
+      },
+      "seo": {
+        "description": "Veja como relatórios automáticos da OPER reduzem retrabalho, garantem conformidade e aceleram decisões em manutenção.",
+        "keywords": [
+          "relatórios automáticos",
+          "gestão de manutenção",
+          "compliance",
+          "dados em tempo real",
+          "checklists inteligentes"
+        ]
+      },
+      "faq": [
+        {
+          "question": "O que são relatórios automáticos de manutenção?",
+          "answer": "São relatórios gerados automaticamente a partir de ordens de serviço, checklists e indicadores, sem necessidade de compilação manual."
+        },
+        {
+          "question": "Quais os principais benefícios?",
+          "answer": "Economia de tempo, precisão dos dados, conformidade assegurada e decisões mais rápidas."
+        },
+        {
+          "question": "Quem pode usar relatórios automáticos?",
+          "answer": "Gestores e equipes de manutenção de hotéis, condomínios, escolas, frotas, edifícios corporativos e indústrias."
+        },
+        {
+          "question": "Como o OPER gera esses relatórios?",
+          "answer": "O OPER registra ocorrências em tempo real e consolida tudo em relatórios detalhados, auditáveis e prontos para análise."
+        }
+      ],
+      "legacy": {
+        "sourceCsv": "blog_post_3.csv",
+        "legacyLink": "blog-automatic-reports.html"
+      }
+    }
+  ]
+}

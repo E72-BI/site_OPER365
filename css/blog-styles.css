@@ -83,12 +83,19 @@
 }
 
 /* Blog Layout */
+body.blog-page .container,
+body.blog-page .blog-container {
+    max-width: 960px;
+    margin: 0 auto;
+    padding: 0 1.5rem;
+}
+
 .blog-layout {
     padding: 2rem 0;
 }
 
 .blog-container {
-    max-width: 100%;
+    max-width: 960px;
     margin: 0 auto;
     padding: 0 1.5rem;
 }
