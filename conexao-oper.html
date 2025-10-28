@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="pt-BR">
+<html lang="pt-BR" class="blog-font-small">
 
 <head>
     <meta charset="UTF-8">
@@ -15,6 +15,60 @@
     <link rel="stylesheet" href="css/blog-styles.css">
     <link rel="stylesheet"
         href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&family=Montserrat:wght@400;500;600;700&family=Open+Sans:wght@300;400;600;700&display=swap">
+    <style>
+        :root {
+            --menu-fixed-offset: 72px;
+        }
+
+        html.blog-font-small {
+            font-size: 90%;
+        }
+
+        .hero-fixed-bar {
+            background-color: #2C578C;
+            color: #fff;
+            width: 100%;
+            position: sticky;
+            top: var(--menu-fixed-offset, 72px);
+            z-index: 900;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.25);
+        }
+
+        .hero-fixed-bar__content {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 1rem;
+            padding: 1.25rem 0;
+        }
+
+        .hero-fixed-bar__title {
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 700;
+            font-size: clamp(1.1rem, 2vw, 1.4rem);
+        }
+
+        .hero-fixed-bar__count {
+            font-weight: 500;
+            opacity: 0.95;
+        }
+
+        @media (max-width: 768px) {
+            :root {
+                --menu-fixed-offset: 64px;
+            }
+
+            .hero-fixed-bar__content {
+                flex-direction: column;
+                align-items: flex-start;
+                padding: 1rem 0.5rem;
+            }
+
+            .hero-fixed-bar__count {
+                font-size: 0.95rem;
+            }
+        }
+    </style>
     <!-- Schema.org structured data for SEO -->
     <script type="application/ld+json">
     {
@@ -42,7 +96,7 @@
     </script>
 </head>
 
-<body class="blog-page">
+<body class="blog-page blog-hub">
     <div id="menu-placeholder"></div>
 
     <!-- Top Bar -->
@@ -52,7 +106,7 @@
                 <span>OPER: Otimize sua operação</span>
             </div>
             <div class="top-bar-right">
-                <a href="#" class="top-bar-icon" aria-label="Buscar">
+                <a href="#blogSearchSection" class="top-bar-icon" aria-label="Buscar" data-search-toggle aria-controls="blogSearchSection" aria-expanded="false">
                     <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                         <circle cx="11" cy="11" r="8"></circle>
                         <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
@@ -68,126 +122,150 @@
         </div>
     </div>
 
-    <!-- Hero Section -->
-    <header class="hero-section">
-        <div class="container">
-            <h1>Conexão OPER: Onde profissionais compartilham experiências e conhecimento na prática</h1>
-            <p class="hero-subtitle">Um espaço para gestores, síndicos e equipes de manutenção compartilharem ideias, práticas e insights que tornam operações mais eficientes, seguras e previsíveis.</p>
-            <p class="hero-description">Descubra como a eficiência operacional, a comunidade de manutenção e a manutenção inteligente multi-setor podem transformar sua operação.</p>
-            <a href="#participar" class="btn btn-primary hero-cta">Participe da Conexão OPER</a>
+    <!-- Fixed Blue Accent Bar -->
+    <div class="hero-fixed-bar" role="region" aria-label="Resumo do Blog Conexão OPER">
+        <div class="container hero-fixed-bar__content">
+            <span class="hero-fixed-bar__title">Blog Conexão OPER</span>
+            <span class="hero-fixed-bar__count" data-total-posts>Carregando publicações...</span>
         </div>
-    </header>
+    </div>
 
     <!-- Main Content -->
-    <main class="blog-layout">
-        <div class="container blog-container">
-            <div class="blog-content-wrapper">
-                <!-- Main Article Column -->
-                <article class="blog-main-content">
-                    <div class="article-header">
-                        <h1>Bem-vindo à Conexão OPER!</h1>
+    <main class="blog-shell">
+        <div class="container">
+            <div class="blog-grid">
+                <section id="blogSearchSection" class="blog-search" role="search" aria-label="Buscar no blog" aria-hidden="false">
+                    <div class="blog-search__backdrop" data-search-close tabindex="-1"></div>
+                    <div class="blog-search__panel" data-search-panel>
+                        <button type="button" class="blog-search__close" aria-label="Fechar busca" data-search-close>
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                        <div class="sidebar-card search-card">
+                            <h3 id="blogSearchHeading">Buscar no Blog</h3>
+                            <p>Procure por indicadores, setores ou palavras-chave.</p>
+                            <form id="blogSearchForm" class="search-form" role="search" aria-labelledby="blogSearchHeading">
+                                <label for="blogSearchInput" class="sr-only">Buscar artigos</label>
+                                <div class="search-field">
+                                    <input type="search" id="blogSearchInput" name="q" placeholder="Buscar no blog..." autocomplete="off">
+                                    <button type="submit" aria-label="Buscar">
+                                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                            <circle cx="11" cy="11" r="8"></circle>
+                                            <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+                                        </svg>
+                                    </button>
+                                </div>
+                            </form>
+                            <p class="search-feedback" data-search-status>Mostrando os posts mais recentes.</p>
+                            <div class="search-results" data-search-results hidden>
+                                <p class="search-results__title" data-search-results-title>Resultados</p>
+                                <ul class="search-results__list" data-search-results-list></ul>
+                            </div>
+                        </div>
                     </div>
-                    
-                    <div class="article-content">
+                </section>
+
+                <div class="blog-primary">
+                    <section class="welcome-card card">
+                        <h2>Bem-vindo à Conexão OPER!</h2>
                         <p>Um espaço criado para quem busca eficiência, prevenção e inteligência operacional. Aqui, gestores, síndicos, equipes de manutenção e profissionais de diversos setores podem trocar ideias, compartilhar experiências e contribuir para o crescimento da comunidade.</p>
-                        
                         <p>Mais do que um blog, a Conexão OPER é uma rede viva de conhecimento, onde cada interação gera conteúdos ricos, insights valiosos e práticas que fortalecem operações em hotéis, condomínios, escolas, frotas, edifícios corporativos e indústrias.</p>
-                        
-                        <h2 id="oque-e">O que é a Conexão OPER?</h2>
-                        
-                        <p>A Conexão OPER é o blog da comunidade OPER, mas também é um ponto de encontro virtual:</p>
-                        
-                        <ul>
-                            <li><strong>Troca de ideias e experiências:</strong> cada sugestão, dúvida ou solução compartilhada ajuda todos a evoluir.</li>
-                            <li><strong>Conteúdos estratégicos:</strong> artigos, guias, estudos de caso e novidades do setor.</li>
-                            <li><strong>Feedback constante:</strong> a comunidade influencia diretamente na evolução da plataforma e das melhores práticas de manutenção.</li>
-                            <li><strong>Aprendizado coletivo:</strong> você aprende e ensina, tornando-se parte ativa da transformação digital da manutenção.</li>
-                        </ul>
-                        
-                        <p>Aqui, cada opinião importa, e cada contribuição é transformada em conteúdo útil para todos.</p>
-                        
-                        <h2 id="como-participar">Como participar da Conexão OPER</h2>
-                        
+                        <p>A cultura OPER nasce da colaboração: cada opinião importa e cada contribuição vira um conteúdo útil para toda a comunidade.</p>
+                    </section>
+
+                    <article class="active-post card" data-active-article aria-live="polite">
+                        <p class="active-pill" data-active-category>Carregando categoria...</p>
+                        <h2 data-active-title>Carregando conteúdo...</h2>
+                        <p class="active-meta" data-active-meta></p>
+                        <div class="active-tags" data-active-tags></div>
+                        <p class="active-summary" data-active-summary>Estamos preparando as próximas matérias.</p>
+                        <div class="active-content" data-active-content>
+                            <p>Estamos preparando as próximas matérias.</p>
+                        </div>
+                        <p class="active-author" data-active-author></p>
+                    </article>
+
+                    <section class="more-posts card">
+                        <div class="more-header">
+                            <div>
+                                <p class="eyebrow">Explore mais</p>
+                                <h3>Matérias em destaque</h3>
+                            </div>
+                            <button type="button" class="ghost-btn" data-scroll-top="posts">Voltar ao topo</button>
+                        </div>
+                        <div class="related-grid" data-related-grid>
+                            <p class="empty-state">Carregando matérias...</p>
+                        </div>
+                    </section>
+
+                    <section class="community-guide card" id="sobre-comunidade">
+                        <h3>Como participar da Conexão OPER</h3>
                         <p>Participar é simples e direto:</p>
-                        
                         <ul>
                             <li><strong>Leia e explore os conteúdos do blog:</strong> artigos, dicas, tendências e insights de operação.</li>
-                            <li><strong>Comente e troque ideias:</strong> compartilhe experiências do seu dia a dia e veja como outros profissionais resolvem desafios semelhantes.</li>
+                            <li><strong>Comente e troque ideias:</strong> compartilhe experiências do dia a dia e veja como outros profissionais resolvem desafios semelhantes.</li>
                             <li><strong>Sugira melhorias e novas pautas:</strong> suas ideias podem gerar novos conteúdos e funcionalidades no OPER.</li>
-                            <li><strong>Aprenda continuamente:</strong> acesse materiais exclusivos, webinars e cases de sucesso, e transforme conhecimento em ação.</li>
+                            <li><strong>Aprenda continuamente:</strong> acesse materiais exclusivos, webinars e cases de sucesso para transformar conhecimento em ação.</li>
                         </ul>
-                        
-                        <p>Quanto mais você interage, mais rica e estratégica se torna a comunidade.</p>
-                        
-                        <h2 id="beneficios">Benefícios de fazer parte da Conexão OPER</h2>
-                        
+
+                        <h3>Benefícios para você e sua equipe</h3>
                         <ul>
-                            <li><strong>Decisões mais assertivas:</strong> baseadas em dados e experiências compartilhadas.</li>
+                            <li><strong>Decisões mais assertivas:</strong> baseadas em dados reais e experiências compartilhadas.</li>
                             <li><strong>Redução de falhas e custos:</strong> aprendendo com os casos de outros profissionais.</li>
                             <li><strong>Crescimento contínuo:</strong> acesso a conteúdos exclusivos, dicas práticas e tendências do setor.</li>
-                            <li><strong>Impacto real na plataforma:</strong> sugestões da comunidade podem influenciar melhorias e novas funcionalidades no OPER.</li>
+                            <li><strong>Impacto real na plataforma:</strong> sugestões da comunidade influenciam melhorias e novas funcionalidades do OPER.</li>
                         </ul>
-                        
-                        <p>Seja em hotéis, condomínios, escolas, frotas ou indústrias, a Conexão OPER ajuda a transformar dados e experiências em ações concretas.</p>
-                        
-                        <h2 id="conclusao">Conclusão</h2>
-                        
-                        <p>A Conexão OPER é mais do que um blog — é uma comunidade ativa de profissionais que pensam em eficiência, prevenção e inovação.</p>
-                        
-                        <p>Troque ideias, compartilhe experiências e contribua para uma manutenção mais organizada, previsível e segura.</p>
-                        
+
                         <div class="article-cta">
                             <a href="https://wa.me/5582981457117?text=Quero%20participar%20da%20Conex%C3%A3o%20OPER" target="_blank" class="btn btn-primary">Participe da Conexão OPER agora</a>
                         </div>
-                    </div>
-                    
-                    <!-- FAQ Section -->
-                    <section class="faq-section" id="faq">
-                        <h2>Perguntas Frequentes</h2>
+                    </section>
+
+                    <section class="faq-section card" id="faq">
+                        <h3>Perguntas frequentes</h3>
                         <div class="accordion">
                             <div class="accordion-item">
                                 <button class="accordion-header" aria-expanded="false">
-                                    <span class="accordion-title">1. O que é a Conexão OPER?</span>
+                                    <span class="accordion-title">1. O que é a Conexão OPERé</span>
                                     <span class="accordion-icon">+</span>
                                 </button>
                                 <div class="accordion-content" hidden>
-                                    <p>É o blog e a comunidade da OPER, onde gestores e equipes de manutenção compartilham experiências, sugestões e melhores práticas para otimizar operações.</p>
+                                    <p>� o blog e a comunidade da OPER, onde gestores e equipes de manutenção compartilham experiências, sugestões e melhores práticas para otimizar operações.</p>
                                 </div>
                             </div>
-                            
+
                             <div class="accordion-item">
                                 <button class="accordion-header" aria-expanded="false">
-                                    <span class="accordion-title">2. Quem pode participar?</span>
+                                    <span class="accordion-title">2. Quem pode participaré</span>
                                     <span class="accordion-icon">+</span>
                                 </button>
                                 <div class="accordion-content" hidden>
                                     <p>Profissionais de manutenção e gestores de hotéis, condomínios, escolas, frotas, edifícios corporativos e indústrias.</p>
                                 </div>
                             </div>
-                            
+
                             <div class="accordion-item">
                                 <button class="accordion-header" aria-expanded="false">
-                                    <span class="accordion-title">3. Como posso contribuir para a comunidade?</span>
+                                    <span class="accordion-title">3. Como posso contribuir para a comunidadeé</span>
                                     <span class="accordion-icon">+</span>
                                 </button>
                                 <div class="accordion-content" hidden>
                                     <p>Comentando, trocando ideias, sugerindo pautas ou melhorias na plataforma OPER e compartilhando experiências do dia a dia da operação.</p>
                                 </div>
                             </div>
-                            
+
                             <div class="accordion-item">
                                 <button class="accordion-header" aria-expanded="false">
-                                    <span class="accordion-title">4. Quais os benefícios de participar?</span>
+                                    <span class="accordion-title">4. Quais os benefícios de participaré</span>
                                     <span class="accordion-icon">+</span>
                                 </button>
                                 <div class="accordion-content" hidden>
                                     <p>Aprendizado contínuo, decisões mais assertivas, redução de falhas e custos, acesso a conteúdos exclusivos e influência direta na evolução da plataforma OPER.</p>
                                 </div>
                             </div>
-                            
+
                             <div class="accordion-item">
                                 <button class="accordion-header" aria-expanded="false">
-                                    <span class="accordion-title">5. Como a participação na Conexão OPER impacta minha operação?</span>
+                                    <span class="accordion-title">5. Como a participação impacta minha operaçãoé</span>
                                     <span class="accordion-icon">+</span>
                                 </button>
                                 <div class="accordion-content" hidden>
@@ -196,57 +274,41 @@
                             </div>
                         </div>
                     </section>
-                </article>
-                
-                <!-- Sidebar -->
-                <aside class="blog-sidebar">
-                    <div class="sidebar-widget">
-                        <h3>Buscar no Blog</h3>
-                        <div class="search-box">
-                            <input type="text" placeholder="Buscar no Blog..." class="search-input">
-                            <button class="search-button" aria-label="Buscar">
-                                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                    <circle cx="11" cy="11" r="8"></circle>
-                                    <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
-                                </svg>
-                            </button>
+                </div>
+
+                <aside class="blog-sidebar" aria-label="Painel lateral do blog">
+                    <div class="sidebar-card list-card">
+                        <div class="list-card-header">
+                            <h3 data-sidebar-heading>Posts recentes</h3>
+                            <span class="badge" data-sidebar-count>0</span>
+                        </div>
+                        <ul class="sidebar-list" data-sidebar-posts>
+                            <li class="sidebar-list-placeholder">Carregando lista...</li>
+                        </ul>
+                    </div>
+
+                    <div class="sidebar-card tags-card">
+                        <h3>Tags em destaque</h3>
+                        <div class="tag-chips" data-tag-chips>
+                            <span class="tag-chip muted">Carregando...</span>
                         </div>
                     </div>
-                    
-                    <div class="sidebar-widget">
-                        <h3>Posts Recentes</h3>
-                        <ul class="recent-posts">
-                            <li><a href="blog-mtbf-mttr.html">MTBF e MTTR: Suas Armas Estratégicas na Manutenção</a></li>
-                            <li><a href="blog-criticality-level.html">Nível de Criticidade: Sua Bússola na Manutenção</a></li>
-                            <li><a href="blog-automatic-reports.html">Relatórios Automáticos: Sua Estratégia de Manutenção</a></li>
-                            <li><a href="blog-opening.html">Inauguração do Blog OPER</a></li>
-                        </ul>
-                    </div>
-                    
-                    <div class="sidebar-widget">
-                        <h3>Tópicos Populares</h3>
-                        <ul class="popular-topics">
-                            <li><a href="#">Manutenção Preventiva</a></li>
-                            <li><a href="#">Gestão de Ativos</a></li>
-                            <li><a href="#">Indicadores de Manutenção</a></li>
-                            <li><a href="#">Conformidade Legal</a></li>
-                            <li><a href="#">Digitalização de Processos</a></li>
-                        </ul>
-                    </div>
-                    
-                    <div class="sidebar-widget cta-widget">
-                        <h3>Receba Novidades</h3>
-                        <p>Inscreva-se para receber conteúdos exclusivos e novidades da Conexão OPER.</p>
-                        <form class="newsletter-form">
-                            <input type="email" placeholder="Seu e-mail" class="newsletter-input" required>
-                            <button type="submit" class="btn btn-secondary">Inscrever</button>
+
+                    <div class="sidebar-card newsletter-card">
+                        <h3>Receba novidades</h3>
+                        <p>Ganhe acesso antecipado aos próximos conteúdos da Conexão OPER.</p>
+                        <form id="newsletterForm" class="newsletter-form">
+                            <label for="newsletterEmail" class="sr-only">Digite seu e-mail</label>
+                            <input type="email" id="newsletterEmail" name="newsletterEmail" placeholder="seunome@empresa.com" required>
+                            <button type="submit">Quero receber</button>
                         </form>
+                        <p class="newsletter-feedback" data-newsletter-feedback hidden></p>
                     </div>
-                    
-                    <div class="sidebar-widget cta-widget">
-                        <h3>Recursos Exclusivos</h3>
-                        <p>Acesse materiais exclusivos para profissionais de manutenção.</p>
-                        <a href="recursos.html" class="btn btn-secondary">Ver Recursos</a>
+
+                    <div class="sidebar-card resources-card">
+                        <h3>Recursos exclusivos</h3>
+                        <p>Acesse materiais práticos para profissionais de manutenção.</p>
+                        <a href="recursos.html" class="btn btn-secondary">Ver recursos</a>
                     </div>
                 </aside>
             </div>
@@ -274,7 +336,45 @@
         </div>
     </footer>
 
+    <!-- Botões flutuantes -->
+    <div class="floating-search" data-floating-search>
+        <button type="button" class="floating-search__button" aria-label="Buscar no blog" data-search-toggle aria-controls="blogSearchSection" aria-expanded="false">
+            <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+                <circle cx="11" cy="11" r="8"></circle>
+                <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+            </svg>
+        </button>
+    </div>
+
+    <div class="scroll-top-float is-visible">
+        <button type="button" class="scroll-top-button" aria-label="Voltar ao topo" data-scroll-top="page">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+                <polyline points="18 15 12 9 6 15"></polyline>
+            </svg>
+        </button>
+    </div>
+
+    <!-- Botão flutuante do WhatsApp -->
+    <div class="whatsapp-float" id="whatsappFloat">
+        <a href="https://wa.me/5582981457117?text=Quero%20saber%20mais%20sobre%20a%20OPER!" target="_blank" aria-label="Fale conosco no WhatsApp" rel="noopener noreferrer" class="zap-anchor">
+            <div class="zap-tooltip" role="tooltip">
+                Fale conosco no WhatsApp
+                <div class="zap-tooltip-arrow"></div>
+            </div>
+            <div class="zap-glow"></div>
+            <div class="zap-button ripple-effect">
+                <svg class="zap-icon" width="24" height="24" viewBox="0 0 24 24" aria-hidden="true">
+                    <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z" fill="currentColor" />
+                </svg>
+            </div>
+            <div class="zap-pulse"></div>
+        </a>
+    </div>
+
     <script src="js/menu-loader.js"></script>
+    <script src="js/blog-data-service.js"></script>
+    <script src="js/blog-loader.js"></script>
+    <script src="js/conexao-oper.js"></script>
     <script>
         // Accordion functionality for FAQ
         document.addEventListener('DOMContentLoaded', function() {
@@ -322,3 +422,6 @@
 </body>
 
 </html>
+
+
+
