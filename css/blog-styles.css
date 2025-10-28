@@ -540,7 +540,7 @@ body.blog-hub {
         "main search"
         "main sidebar";
     column-gap: 2rem;
-    row-gap: 1.5rem;
+    row-gap: 1rem;
     align-items: start;
 }
 

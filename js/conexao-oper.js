@@ -278,10 +278,10 @@
             return;
         }
         if (!total) {
-            els.heroTotal.textContent = 'Nenhuma matéria publicada ainda.';
+            els.heroTotal.textContent = 'Nenhuma publicação ainda.';
             return;
         }
-        const label = total === 1 ? 'matéria publicada' : 'matérias publicadas';
+        const label = total === 1 ? 'publicação' : 'publicações';
         els.heroTotal.textContent = `${total} ${label}`;
     }
 
@@ -699,16 +699,32 @@
 
     function initScrollHelper() {
         const buttons = document.querySelectorAll('[data-scroll-top]');
-        if (!buttons.length) {
-            return;
-        }
-        buttons.forEach((button) => {
-            button.addEventListener('click', () => {
-                const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-                const behavior = prefersReducedMotion ? 'auto' : 'smooth';
-                window.scrollTo({ top: 0, behavior });
+        const floatingContainer = document.querySelector('.scroll-top-float');
+        const prefersReducedMotionQuery = window.matchMedia('(prefers-reduced-motion: reduce)');
+
+        if (buttons.length) {
+            buttons.forEach((button) => {
+                button.addEventListener('click', () => {
+                    const behavior = prefersReducedMotionQuery.matches ? 'auto' : 'smooth';
+                    window.scrollTo({ top: 0, behavior });
+                });
             });
-        });
+        }
+
+        if (floatingContainer) {
+            const updateVisibility = () => {
+                const threshold = getStickyOffset() + 24;
+                if (window.scrollY > threshold) {
+                    floatingContainer.classList.add('is-visible');
+                } else {
+                    floatingContainer.classList.remove('is-visible');
+                }
+            };
+
+            window.addEventListener('scroll', updateVisibility, { passive: true });
+            window.addEventListener('resize', updateVisibility);
+            updateVisibility();
+        }
     }
 
     function bindHashWatcher() {
