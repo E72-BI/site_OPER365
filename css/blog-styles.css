@@ -507,7 +507,7 @@ body.blog-hub {
     --tag-bg: #e8f0fd;
     --tag-color: #1d4ed8;
     --fab-size: 56px;
-    --fab-gap: 16px;
+    --fab-gap: 20px;
     --fab-margin: 24px;
     background: var(--blog-bg);
     color: var(--blog-text);
@@ -539,7 +539,8 @@ body.blog-hub {
     grid-template-areas:
         "main search"
         "main sidebar";
-    gap: 2rem;
+    column-gap: 2rem;
+    row-gap: 1.5rem;
     align-items: start;
 }
 
@@ -571,7 +572,7 @@ body.blog-hub {
     height: var(--fab-size);
     border-radius: 999px;
     border: none;
-    background: linear-gradient(135deg, #3A6EA5 0%, #2C578C 100%);
+    background: rgba(44, 87, 140, 0.92);
     color: #fff;
     box-shadow: 0 14px 34px rgba(44, 87, 140, 0.35);
     cursor: pointer;
@@ -581,7 +582,8 @@ body.blog-hub {
 .floating-search__button:hover,
 .floating-search__button:focus-visible {
     transform: translateY(-3px);
-    box-shadow: 0 18px 42px rgba(44, 87, 140, 0.4);
+    background: rgba(35, 70, 114, 0.95);
+    box-shadow: 0 18px 42px rgba(44, 87, 140, 0.42);
     outline: none;
 }
 
