@@ -1160,7 +1160,7 @@ body.blog-hub #whatsappFloat.whatsapp-float {
 @media (max-width: 768px) {
     body.blog-hub {
         --fab-margin: 16px;
-        --fab-gap: 12px;
+        --fab-gap: 16px;
     }
 
     body.search-open {
@@ -1315,15 +1315,20 @@ body.blog-hub #whatsappFloat.whatsapp-float {
     display: flex;
     align-items: center;
     justify-content: center;
+    opacity: 0;
+    pointer-events: none;
+    transform: translateY(20px);
+    transition: opacity 0.3s ease, transform 0.3s ease;
 }
 
 .scroll-top-float.is-visible {
     opacity: 1;
     pointer-events: auto;
+    transform: translateY(0);
 }
 
 .scroll-top-button {
-    background: #2C578C;
+    background: rgba(248, 163, 37, 0.92);
     border: none;
     border-radius: 999px;
     width: var(--fab-size);
@@ -1340,7 +1345,7 @@ body.blog-hub #whatsappFloat.whatsapp-float {
 .scroll-top-button:hover,
 .scroll-top-button:focus-visible {
     transform: translateY(-3px);
-    box-shadow: 0 14px 28px rgba(44, 87, 140, 0.4);
+    box-shadow: 0 16px 32px rgba(248, 163, 37, 0.4);
     outline: none;
 }
 
