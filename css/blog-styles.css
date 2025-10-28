@@ -507,7 +507,7 @@ body.blog-hub {
     --tag-bg: #e8f0fd;
     --tag-color: #1d4ed8;
     --fab-size: 56px;
-    --fab-gap: 20px;
+    --fab-gap: 24px;
     --fab-margin: 24px;
     background: var(--blog-bg);
     color: var(--blog-text);
@@ -540,7 +540,7 @@ body.blog-hub {
         "main search"
         "main sidebar";
     column-gap: 2rem;
-    row-gap: 1rem;
+    row-gap: 0.75rem;
     align-items: start;
 }
 
@@ -594,6 +594,20 @@ body.blog-hub {
 body.blog-hub #whatsappFloat.whatsapp-float {
     bottom: var(--fab-margin);
     right: var(--fab-margin);
+}
+
+body.blog-hub #whatsappFloat .zap-button {
+    width: var(--fab-size);
+    height: var(--fab-size);
+    padding: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+body.blog-hub #whatsappFloat .zap-icon {
+    width: calc(var(--fab-size) * 0.46);
+    height: calc(var(--fab-size) * 0.46);
 }
 
 .blog-search__backdrop {
@@ -1160,7 +1174,7 @@ body.blog-hub #whatsappFloat.whatsapp-float {
 @media (max-width: 768px) {
     body.blog-hub {
         --fab-margin: 16px;
-        --fab-gap: 16px;
+        --fab-gap: 20px;
     }
 
     body.search-open {
@@ -1337,7 +1351,7 @@ body.blog-hub #whatsappFloat.whatsapp-float {
     align-items: center;
     justify-content: center;
     color: #fff;
-    box-shadow: 0 10px 25px rgba(44, 87, 140, 0.35);
+    box-shadow: 0 10px 25px rgba(248, 163, 37, 0.32);
     cursor: pointer;
     transition: transform 0.2s ease, box-shadow 0.2s ease;
 }
