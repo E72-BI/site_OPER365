@@ -903,12 +903,23 @@
         text-align: center !important;
     }
     
+    /* Keep auto margin utilities effective on mobile */
+    .mx-auto {
+        margin-left: auto !important;
+        margin-right: auto !important;
+    }
+    
     .text-left {
         text-align: left !important;
     }
     
     .text-right {
         text-align: right !important;
+    }
+    
+    .text-center .section-title::after {
+        left: 50%;
+        transform: translateX(-50%);
     }
     
     /* Better heading hierarchy */
