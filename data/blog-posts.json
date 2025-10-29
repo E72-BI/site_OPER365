@@ -1,7 +1,7 @@
 {
   "meta": {
     "version": 1,
-    "generatedAt": "2025-10-29T11:34:43.430Z",
+    "generatedAt": "2025-10-29T13:01:44.792Z",
     "locale": "pt-BR"
   },
   "posts": [
@@ -11,8 +11,8 @@
       "title": "Inauguração do Blog OPER: Novo Espaço para Insights de Manutenção",
       "status": "published",
       "createdAt": "2025-10-15T09:00:00-03:00",
-      "updatedAt": "2025-10-15T09:00:00-03:00",
-      "publishedAt": "2025-10-15T09:00:00-03:00",
+      "updatedAt": "2025-10-29T13:01:40.824Z",
+      "publishedAt": "2025-10-15T18:00:00.000Z",
       "readingTimeMinutes": 4,
       "author": "Equipe OPER",
       "criticality": "low",
@@ -27,7 +27,7 @@
       "summary": "Apresentamos o Blog OPER, um espaço colaborativo com cases, indicadores e boas práticas para quem cuida de manutenção e facilities.",
       "content": "Estamos felizes em anunciar o lançamento do Blog OPER, um novo espaço dedicado a compartilhar conhecimentos, dicas e insights sobre gestão de manutenção para hotéis, condomínios, escolas, frotas e indústrias.\n\n## Por que um blog?\n\nAcreditamos que a informação é a base para transformar operações. Com o Blog OPER, queremos:\n- Compartilhar experiências reais de nossos clientes\n- Apresentar cases de sucesso e lições aprendidas\n- Oferecer dicas práticas para otimizar processos de manutenção\n- Explicar conceitos técnicos de forma acessível\n- Manter nossa comunidade atualizada sobre tendências do setor\n\n## O que você encontrará aqui?\n\nNosso blog será dividido em categorias para facilitar sua navegação:\n\n### Indicadores e KPIs\nMTBF, MTTR, disponibilidade e outros indicadores-chave para tomar decisões com segurança.\n\n### Gestão por Criticidade\nComo priorizar tarefas e recursos para garantir operação previsível e segura.\n\n### Tecnologia e Inovação\nNovidades sobre o OPER e tendências do mercado de manutenção e facilities.\n\n### Cases de Sucesso\nHistórias reais de operações que evoluíram com o apoio da plataforma.\n\n### Dicas e Boas Práticas\nOrientações práticas para o dia a dia de gestores, síndicos e equipes técnicas.\n\n## Nosso compromisso\n\nTodos os artigos serão escritos com linguagem clara e objetiva, sempre com foco em resultados aplicáveis. Nossa equipe técnica revisa cada conteúdo para garantir precisão e qualidade.\n\n## Fique atento!\n\nPublicaremos novos artigos todas as semanas. Siga o blog e receba alertas sobre os conteúdos mais recentes. Tem sugestões de temas? Fale com a gente e ajude a construir essa comunidade.\n\nAgradecemos por fazer parte desta jornada. Esperamos que o Blog OPER se torne uma referência valiosa para sua operação.\n\n**Até a próxima!**\n\n*Equipe OPER*",
       "heroImage": {
-        "src": "temp_images/teamwork.jpg",
+        "src": "blog_imagens/comunidade.png",
         "alt": "Equipe OPER trabalhando em conjunto"
       },
       "seo": {
