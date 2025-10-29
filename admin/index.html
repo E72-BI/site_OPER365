@@ -5,15 +5,22 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Admin • Conexão OPER</title>
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&family=Montserrat:wght@600;700&display=swap">
+    <link rel="stylesheet"
+        href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&family=Montserrat:wght@600;700&display=swap">
+    <link rel="stylesheet" href="../css/global-styles.css">
     <link rel="stylesheet" href="../css/blog-admin.css">
 </head>
 
 <body class="admin-body">
     <div class="admin-wrapper">
         <section id="adminLoginView" class="admin-card admin-login">
-            <h1>Área Administrativa</h1>
-            <p>Gerencie matérias, imagens e metadados do Blog Conexão OPER.</p>
+            <div class="admin-login__brand">
+                <img src="../images/logo_OPER_v2.png" alt="OPER" class="admin-brand-logo" loading="lazy">
+                <div>
+                    <h1>Área Administrativa</h1>
+                    <p>Gerencie matérias, imagens e metadados do Blog Conexão OPER.</p>
+                </div>
+            </div>
             <form id="loginForm" autocomplete="off">
                 <div>
                     <label for="loginUsername">Usuário</label>
@@ -24,15 +31,21 @@
                     <input type="password" id="loginPassword" name="password" required placeholder="Digite sua senha">
                 </div>
                 <button type="submit" class="admin-btn primary">Entrar</button>
-                <small>Usuário padrão: <code>admin</code> — Senha padrão: <code>oper@365</code></small>
+                <small>Usuário padrão: <code>admin</code> - Senha padrão: <code>oper@365</code></small>
             </form>
         </section>
 
         <section id="adminDashboardView" class="admin-dashboard hidden">
             <header class="admin-header">
-                <div>
-                    <h1>Conexão OPER • Blog Admin</h1>
-                    <p class="admin-status" data-admin-status>Carregando base de dados…</p>
+                <div class="admin-header-meta">
+                    <div class="admin-brand">
+                        <img src="../images/logo_OPER_v2.png" alt="OPER" class="admin-brand-logo" loading="lazy">
+                        <div>
+                            <h1>Conexão OPER</h1>
+                            <span class="admin-subtitle">Painel do Blog</span>
+                        </div>
+                    </div>
+                    <p class="admin-status" data-admin-status>Carregando base de dados.</p>
                 </div>
                 <div class="admin-actions">
                     <input type="file" id="importInput" accept="application/json" hidden>
@@ -51,7 +64,7 @@
                     <ul id="adminPostList" class="admin-post-list"></ul>
                 </aside>
 
-                <section class="admin-editor">
+                    <section class="admin-editor">
                     <h2 data-editor-title>Nova matéria</h2>
                     <form id="postEditorForm" novalidate>
                         <div class="form-grid">
@@ -85,14 +98,33 @@
                             </div>
                             <div class="form-group">
                                 <label for="postReadingTime">Tempo de leitura (min)</label>
-                                <input type="number" id="postReadingTime" name="readingTimeMinutes" min="1" value="3">
+                                <input type="number" id="postReadingTime" name="readingTimeMinutes" min="1" value="3" readonly>
                             </div>
                         </div>
 
                         <div class="form-grid">
-                            <div class="form-group">
-                                <label for="postHeroImage">Imagem destacada (caminho)</label>
-                                <input type="text" id="postHeroImage" name="heroImageSrc" placeholder="ex: temp_images/nova-imagem.jpg">
+                            <div class="form-group media-upload">
+                                <label for="postHeroUpload">Imagem destacada</label>
+                                <input type="hidden" id="postHeroImage" name="heroImageSrc">
+                                <div class="media-upload-card">
+                                    <div class="media-upload-preview" data-hero-preview-state>
+                                        <img id="postHeroPreview" alt="Pré-visualização da imagem destacada">
+                                        <span class="media-upload-placeholder">Escolha uma imagem para visualizar aqui</span>
+                                    </div>
+                                    <div class="media-upload-details">
+                                        <p>Envie uma imagem em alta definição (1200 x 675 px recomendado).
+                                            Aceita JPG, PNG e WEBP.</p>
+                                        <div class="media-upload-actions">
+                                            <input type="file" id="postHeroUpload" accept="image/*" hidden>
+                                            <button type="button" id="btnHeroUpload" class="admin-btn secondary">Selecionar imagem</button>
+                                            <button type="button" id="btnHeroClear" class="admin-btn outline subtle" disabled>Remover</button>
+                                        </div>
+                                        <label for="postHeroSourceInput" class="media-upload-label">Ou cole a URL pública:</label>
+                                        <input type="text" id="postHeroSourceInput" class="media-upload-input"
+                                            placeholder="https://cdn.oper.com/imagens/banner.jpg">
+                                        <small id="postHeroFileInfo" class="media-upload-info">Nenhuma imagem selecionada.</small>
+                                    </div>
+                                </div>
                             </div>
                             <div class="form-group">
                                 <label for="postHeroAlt">Texto alternativo</label>
@@ -102,7 +134,8 @@
 
                         <div class="form-group">
                             <label for="postSummary">Resumo</label>
-                            <textarea id="postSummary" name="summary" placeholder="Resumo exibido nos cards. Deixe vazio para gerar automaticamente."></textarea>
+                            <textarea id="postSummary" name="summary"
+                                placeholder="Resumo exibido nos cards. Deixe vazio para gerar automaticamente."></textarea>
                         </div>
 
                         <div class="form-grid">
@@ -125,11 +158,13 @@
                             <legend>SEO</legend>
                             <div class="form-group">
                                 <label for="postSeoDescription">Descrição</label>
-                                <textarea id="postSeoDescription" name="seoDescription" placeholder="Descrição para motores de busca"></textarea>
+                                <textarea id="postSeoDescription" name="seoDescription"
+                                    placeholder="Descrição para motores de busca"></textarea>
                             </div>
                             <div class="form-group">
                                 <label for="postSeoKeywords">Palavras-chave (separadas por vírgula)</label>
-                                <input type="text" id="postSeoKeywords" name="seoKeywords" placeholder="ex: manutenção, automação, compliance">
+                                <input type="text" id="postSeoKeywords" name="seoKeywords"
+                                    placeholder="ex: manutenção, automação, compliance">
                             </div>
                         </fieldset>
 
@@ -153,6 +188,15 @@
     </div>
 
     <div id="adminToast" class="admin-toast" role="status" aria-live="polite"></div>
+    <div id="saveModal" class="admin-modal hidden" role="dialog" aria-modal="true" aria-labelledby="saveModalTitle">
+        <div class="admin-modal__content">
+            <img src="../images/logo_OPER_v2.png" alt="OPER" class="admin-modal__logo" loading="lazy">
+            <h3 id="saveModalTitle">Matéria salva com sucesso!</h3>
+            <p class="admin-modal__subtitle" data-save-modal-title></p>
+            <p>Tempo estimado de leitura: <strong data-save-modal-time>0</strong> min</p>
+            <button type="button" id="btnCloseSaveModal" class="admin-btn primary">Continuar edição</button>
+        </div>
+    </div>
 
     <script src="../js/blog-admin.js"></script>
 </body>

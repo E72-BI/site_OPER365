@@ -20,6 +20,7 @@
     };
 
     const elements = {};
+    let lastFocusedElement = null;
 
     document.addEventListener('DOMContentLoaded', init);
 
@@ -72,6 +73,19 @@
         elements.fieldContent = document.getElementById('postContent');
         elements.fieldSeoDescription = document.getElementById('postSeoDescription');
         elements.fieldSeoKeywords = document.getElementById('postSeoKeywords');
+
+        elements.heroUploadInput = document.getElementById('postHeroUpload');
+        elements.heroUploadButton = document.getElementById('btnHeroUpload');
+        elements.heroClearButton = document.getElementById('btnHeroClear');
+        elements.heroPreview = document.getElementById('postHeroPreview');
+        elements.heroPreviewWrapper = document.querySelector('[data-hero-preview-state]');
+        elements.heroInfo = document.getElementById('postHeroFileInfo');
+        elements.heroSourceInput = document.getElementById('postHeroSourceInput');
+
+        elements.saveModal = document.getElementById('saveModal');
+        elements.saveModalTime = document.querySelector('[data-save-modal-time]');
+        elements.saveModalTitle = document.querySelector('[data-save-modal-title]');
+        elements.saveModalClose = document.getElementById('btnCloseSaveModal');
     }
 
     function bindEvents() {
@@ -98,6 +112,30 @@
                 event.returnValue = '';
             }
         });
+        if (elements.heroUploadButton && elements.heroUploadInput) {
+            elements.heroUploadButton.addEventListener('click', () => elements.heroUploadInput.click());
+            elements.heroUploadInput.addEventListener('change', handleHeroUpload);
+        }
+        if (elements.heroClearButton) {
+            elements.heroClearButton.addEventListener('click', handleHeroClear);
+        }
+        if (elements.heroSourceInput) {
+            elements.heroSourceInput.addEventListener('change', handleHeroSourceChange);
+            elements.heroSourceInput.addEventListener('blur', handleHeroSourceChange);
+            elements.heroSourceInput.addEventListener('input', () => {
+                state.formDirty = true;
+                elements.btnResetForm.disabled = false;
+            });
+        }
+        if (elements.saveModal && elements.saveModalClose) {
+            elements.saveModalClose.addEventListener('click', closeSaveModal);
+            elements.saveModal.addEventListener('click', (event) => {
+                if (event.target === elements.saveModal) {
+                    closeSaveModal();
+                }
+            });
+            document.addEventListener('keydown', handleGlobalKeydown);
+        }
     }
 
     function showLogin() {
@@ -341,8 +379,16 @@
         elements.fieldCriticality.value = post.criticality || 'low';
         elements.fieldPublishedAt.value = toInputDateTime(post.publishedAt || post.createdAt);
         elements.fieldReadingTime.value = post.readingTimeMinutes || 3;
-        elements.fieldHeroSrc.value = (post.heroImage && post.heroImage.src) || '';
-        elements.fieldHeroAlt.value = (post.heroImage && post.heroImage.alt) || '';
+        const heroSrc = (post.heroImage && post.heroImage.src) || '';
+        const heroAlt = (post.heroImage && post.heroImage.alt) || '';
+        setHeroImage(heroSrc, { silent: true, message: heroSrc ? (isDataUrl(heroSrc) ? 'Imagem carregada deste dispositivo.' : heroSrc) : 'Nenhuma imagem selecionada.' });
+        elements.fieldHeroAlt.value = heroAlt;
+        if (elements.heroSourceInput) {
+            elements.heroSourceInput.value = heroSrc && !isDataUrl(heroSrc) ? heroSrc : '';
+        }
+        if (elements.heroUploadInput) {
+            elements.heroUploadInput.value = '';
+        }
         elements.fieldSummary.value = post.summary || '';
         elements.fieldTags.value = (post.tags || []).join(', ');
         elements.fieldCategories.value = (post.categories || []).join(', ');
