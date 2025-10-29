@@ -84,7 +84,7 @@
 
         elements.saveModal = document.getElementById('saveModal');
         elements.saveModalTime = document.querySelector('[data-save-modal-time]');
-        elements.saveModalTitle = document.querySelector('[data-save-modal-title]');
+        elements.saveModalPostTitle = document.querySelector('[data-save-modal-title]');
         elements.saveModalClose = document.getElementById('btnCloseSaveModal');
     }
 
@@ -568,6 +568,126 @@
             },
             faq,
         };
+    }
+
+    function handleHeroUpload(event) {
+        const file = event.target.files && event.target.files[0];
+        event.target.value = '';
+        if (!file) {
+            return;
+        }
+
+        if (!file.type.startsWith('image/')) {
+            showToast('Selecione um arquivo de imagem válido.', 'error');
+            return;
+        }
+
+        const MAX_SIZE = 5 * 1024 * 1024;
+        if (file.size > MAX_SIZE) {
+            showToast('A imagem deve ter no máximo 5 MB.', 'error');
+            return;
+        }
+
+        const reader = new FileReader();
+        reader.onload = (loadEvent) => {
+            const result = loadEvent.target && loadEvent.target.result;
+            if (!result) {
+                showToast('Não foi possível carregar a imagem.', 'error');
+                return;
+            }
+            setHeroImage(result, {
+                fileName: file.name,
+                size: file.size,
+            });
+            if (elements.heroSourceInput) {
+                elements.heroSourceInput.value = '';
+            }
+        };
+        reader.readAsDataURL(file);
+    }
+
+    function handleHeroClear() {
+        setHeroImage('', { message: 'Nenhuma imagem selecionada.' });
+        if (elements.heroSourceInput) {
+            elements.heroSourceInput.value = '';
+        }
+        if (elements.heroUploadInput) {
+            elements.heroUploadInput.value = '';
+        }
+    }
+
+    function handleHeroSourceChange(event) {
+        const value = (event.target && event.target.value) ? event.target.value.trim() : '';
+        if (!value) {
+            setHeroImage('', { message: 'Nenhuma imagem selecionada.' });
+            return;
+        }
+        setHeroImage(value, { message: 'Imagem externa vinculada.', fromUrl: true });
+    }
+
+    function setHeroImage(src, options = {}) {
+        if (!elements.fieldHeroSrc) {
+            return;
+        }
+        const value = src || '';
+        elements.fieldHeroSrc.value = value;
+
+        if (elements.heroPreview) {
+            if (value) {
+                elements.heroPreview.src = value;
+            } else {
+                elements.heroPreview.removeAttribute('src');
+            }
+            elements.heroPreview.alt = options.alt || elements.heroPreview.alt || 'Pré-visualização da imagem destacada';
+        }
+
+        if (elements.heroPreviewWrapper) {
+            elements.heroPreviewWrapper.classList.toggle('has-image', Boolean(value));
+        }
+
+        if (elements.heroInfo) {
+            if (!value) {
+                elements.heroInfo.textContent = options.message || 'Nenhuma imagem selecionada.';
+            } else if (options.fileName) {
+                const fileSize = options.size ? ` • ${formatFileSize(options.size)}` : '';
+                elements.heroInfo.textContent = `${options.fileName}${fileSize}`;
+            } else if (options.message) {
+                elements.heroInfo.textContent = options.message;
+            } else if (isDataUrl(value)) {
+                elements.heroInfo.textContent = 'Imagem carregada deste dispositivo.';
+            } else {
+                elements.heroInfo.textContent = value;
+            }
+        }
+
+        if (elements.heroClearButton) {
+            elements.heroClearButton.disabled = !value;
+        }
+
+        if (options.fromUrl && elements.heroSourceInput) {
+            elements.heroSourceInput.value = value;
+        }
+
+        if (!options.silent) {
+            state.formDirty = true;
+            if (elements.btnResetForm) {
+                elements.btnResetForm.disabled = false;
+            }
+        }
+    }
+
+    function isDataUrl(value) {
+        return typeof value === 'string' && /^data:image\/[a-zA-Z]+;base64,/.test(value);
+    }
+
+    function formatFileSize(bytes) {
+        if (!bytes) {
+            return '';
+        }
+        if (bytes >= 1024 * 1024) {
+            return `${(bytes / (1024 * 1024)).toFixed(2)} MB`;
+        }
+        return `${Math.ceil(bytes / 1024)} KB`;
     }
 
     function readFaqRows() {
