@@ -381,8 +381,11 @@
         elements.fieldReadingTime.value = post.readingTimeMinutes || 3;
         const heroSrc = (post.heroImage && post.heroImage.src) || '';
         const heroAlt = (post.heroImage && post.heroImage.alt) || '';
-        setHeroImage(heroSrc, { silent: true, message: heroSrc ? (isDataUrl(heroSrc) ? 'Imagem carregada deste dispositivo.' : heroSrc) : 'Nenhuma imagem selecionada.' });
+        setHeroImage(heroSrc, { silent: true, message: heroSrc ? (isDataUrl(heroSrc) ? 'Imagem carregada deste dispositivo.' : heroSrc) : 'Nenhuma imagem selecionada.', alt: heroAlt });
         elements.fieldHeroAlt.value = heroAlt;
+        if (elements.heroPreview) {
+            elements.heroPreview.alt = heroAlt || 'Pré-visualização da imagem destacada';
+        }
         if (elements.heroSourceInput) {
             elements.heroSourceInput.value = heroSrc && !isDataUrl(heroSrc) ? heroSrc : '';
         }
@@ -510,10 +513,11 @@
         }
 
         state.dataDirty = true;
-        state.formDirty = false;
+       state.formDirty = false;
         setStatus('Alterações realizadas. Baixe o JSON para publicar.');
         renderPostList();
         selectPost(state.selectedPostId);
+        openSaveModal(data.title, data.readingTimeMinutes);
     }
 
     function collectFormData() {
@@ -535,7 +539,8 @@
         }
 
         const publishedAt = fromInputDateTime(elements.fieldPublishedAt.value) || new Date().toISOString();
-        const readingTime = parseInt(elements.fieldReadingTime.value, 10) || estimateReadingTime(content);
+        const readingTime = estimateReadingTime(content);
+        elements.fieldReadingTime.value = readingTime;
         const summary = elements.fieldSummary.value.trim() || createSummary(content);
         const tags = splitCommaList(elements.fieldTags.value);
         const categories = splitCommaList(elements.fieldCategories.value);
