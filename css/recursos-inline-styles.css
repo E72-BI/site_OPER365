@@ -1,11 +1,19 @@
 /* Recursos page-specific styles that were previously inline in recursos.html */
 
-/* WhatsApp Float — ajustes mínimos locais iguais ao index */
+/* WhatsApp Float - ajustes mínimos locais iguais ao index */
 @media (max-width: 768px) {
     #whatsappFloat.whatsapp-float { bottom: 15px; right: 15px; }
     #whatsappFloat .zap-button { padding: 20px; }
     #whatsappFloat .zap-icon { width: 28px; height: 28px; }
     #whatsappFloat .zap-tooltip { display: none; }
+}
+
+/* Background específico da seção Operação Previsível */
+.app-section.recursos-app-section {
+    background: linear-gradient(rgba(34,34,34,0.85), rgba(34,34,34,0.85)), url('../images/manutencao.png');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
 }
 
 /* CTA do Hero: Tour + OU + Agendar (idêntico ao index) */
@@ -416,6 +424,7 @@
     font-size: 1.2rem;
     margin-bottom: 30px;
     line-height: 1.6;
+    color: #d9dee6;
 }
 
 /* Reduce spacing between sections */
