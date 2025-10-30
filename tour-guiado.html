@@ -295,6 +295,9 @@
                         <a href="javascript:void(0)" class="mobile-voltar-btn" id="mobileVoltarBtnBottom" aria-label="Voltar">
                             voltar
                         </a>
+                        <a href="https://wa.me/5582981457117?text=Quero%20saber%20mais%20sobre%20a%20OPER!" target="_blank" rel="noopener noreferrer" class="mobile-contact-link" aria-label="Fale conosco no WhatsApp">
+                            fale conosco
+                        </a>
                     </div>
 
                     <div class="mobile-info-card" id="mobileInfoCard">
@@ -578,6 +581,16 @@
             }
         }
 
+        function goToStep(stepNumber) {
+            const target = Number(stepNumber);
+            if (!Number.isInteger(target) || target < 1 || target > totalSteps) {
+                return;
+            }
+            currentStep = target;
+            currentVariant = 0;
+            updateTourUI();
+        }
+
         function setMobileInfoCard(data) {
             const titles = [
                 'Login e Acesso',
@@ -740,9 +753,13 @@
             
             document.querySelectorAll('.tour-step').forEach(step => {
                 step.addEventListener('click', function() {
-                    currentStep = parseInt(this.dataset.step, 10);
-                    currentVariant = 0; // ao clicar em uma etapa, começa em 'a'
-                    updateTourUI();
+                    goToStep(this.dataset.step);
+                });
+                step.addEventListener('keydown', function(e) {
+                    if (e.key === 'Enter' || e.key === ' ') {
+                        e.preventDefault();
+                        goToStep(this.dataset.step);
+                    }
                 });
             });
             
