@@ -15,7 +15,6 @@
 
     document.addEventListener('DOMContentLoaded', () => {
         cacheElements();
-        initScrollHelper();
         initNewsletter();
         loadPosts();
         bindSearch();
@@ -695,36 +694,6 @@
             els.newsletterFeedback.hidden = false;
             els.newsletterFeedback.textContent = `Obrigado! ${email} receberá os próximos conteúdos da Conexão OPER.`;
         });
-    }
-
-    function initScrollHelper() {
-        const buttons = document.querySelectorAll('[data-scroll-top]');
-        const floatingContainer = document.querySelector('.scroll-top-float');
-        const prefersReducedMotionQuery = window.matchMedia('(prefers-reduced-motion: reduce)');
-
-        if (buttons.length) {
-            buttons.forEach((button) => {
-                button.addEventListener('click', () => {
-                    const behavior = prefersReducedMotionQuery.matches ? 'auto' : 'smooth';
-                    window.scrollTo({ top: 0, behavior });
-                });
-            });
-        }
-
-        if (floatingContainer) {
-            const updateVisibility = () => {
-                const threshold = getStickyOffset() + 24;
-                if (window.scrollY > threshold) {
-                    floatingContainer.classList.add('is-visible');
-                } else {
-                    floatingContainer.classList.remove('is-visible');
-                }
-            };
-
-            window.addEventListener('scroll', updateVisibility, { passive: true });
-            window.addEventListener('resize', updateVisibility);
-            updateVisibility();
-        }
     }
 
     function bindHashWatcher() {

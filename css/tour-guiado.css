@@ -20,13 +20,23 @@
 .tour-main-content { display: flex; justify-content: center; align-items: flex-start; min-height: 80vh; padding: 20px 32px; }
 .tour-showcase { display: grid; grid-template-columns: 200px 1fr 300px; gap: 12px; align-items: flex-start; max-width: 100%; width: 95%; margin: 0 auto; padding: 0 12px; }
 
+.page-tour-guiado #whatsappFloat.whatsapp-float {
+  bottom: 20px;
+  right: 20px;
+}
+
+.page-tour-guiado #whatsappFloat .zap-button {
+  padding: 18px;
+}
+
 /* Navegação lateral */
 .tour-navigation { background: transparent; padding: 16px 12px; border-radius: 12px; box-shadow: none; z-index: 100; max-width: 300px; }
 .tour-nav-title { font-size: 1rem; font-weight: 700; color: #2c3e50; margin-bottom: 12px; padding-bottom: 10px; border-bottom: 2px solid #4586DF; }
 .tour-steps { list-style: none; padding: 0; margin: 0; }
-.tour-step { padding: 0; border-bottom: 1px solid rgba(0,0,0,0.05); cursor: pointer; transition: all 0.3s ease; position: relative; }
+.tour-step { display: flex; align-items: center; gap: 12px; padding: 6px 0; border: none; border-bottom: 1px solid rgba(0,0,0,0.05); cursor: pointer; transition: all 0.3s ease; position: relative; background: transparent; width: 100%; text-align: left; }
 .tour-step:last-child { border-bottom: none; }
-.tour-step.active { background: rgba(69, 134, 223, 0.1); margin: 0 -15px; padding: 8px 15px; border-radius: 8px; }
+.tour-step:focus-visible { outline: 2px solid rgba(69,134,223,0.35); outline-offset: 2px; }
+.tour-step.active { background: rgba(69, 134, 223, 0.1); margin: 0 -12px; padding: 12px 15px; border-radius: 8px; }
 .tour-step.active::before { content: ''; position: absolute; left: -8px; top: 50%; transform: translateY(-50%); width: 3px; height: 24px; background: #4586DF; border-radius: 2px; }
 .tour-step-number { display: inline-block; width: 28px; height: 28px; background: #4586DF; color: white; border-radius: 50%; text-align: center; line-height: 28px; font-weight: 600; font-size: 13px; margin-right: 12px; }
 .tour-step.active .tour-step-number { background: #2c3e50; }
@@ -134,17 +144,28 @@
 }
 .page-tour-guiado .tour-steps { list-style: none; padding: 0; margin: 0; }
 .page-tour-guiado .tour-step {
-  padding: 0;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 6px 0;
+  border: none;
   border-bottom: 1px solid rgba(0,0,0,0.05);
   cursor: pointer;
   transition: var(--transition-fast);
   position: relative;
+  background: transparent;
+  width: 100%;
+  text-align: left;
 }
 .page-tour-guiado .tour-step:last-child { border-bottom: none; }
+.page-tour-guiado .tour-step:focus-visible {
+  outline: 2px solid rgba(69,134,223,0.35);
+  outline-offset: 2px;
+}
 .page-tour-guiado .tour-step.active {
   background: rgba(69, 134, 223, 0.1);
-  margin: 0 -15px;
-  padding: 8px 15px;
+  margin: 0 -12px;
+  padding: 12px 15px;
   border-radius: 8px;
 }
 .page-tour-guiado .tour-step.active::before {
@@ -339,21 +360,21 @@
     min-height: 0;
   }
   .page-tour-guiado .tour-main-content {
-    height: calc(100vh - 115px); /* Adjusted height */
+    min-height: calc(100vh - 115px);
     padding: 30px 24px; /* Slightly increased padding */
     padding-top: 0 !important;
     margin-top: 0 !important;
-    overflow: hidden;
+    overflow: visible;
     justify-content: center;
   }
 
   /* Grid em três colunas: Etapas | Mockup | Descrição - DESCRIÇÃO MAIS PRÓXIMA */
   .page-tour-guiado .tour-showcase {
     margin: 0 auto;
-    max-width: 1200px;
+    max-width: 1180px;
     width: 95%;
-    grid-template-columns: 180px 380px 280px;
-    column-gap: 8px;
+    grid-template-columns: 190px minmax(340px, 400px) minmax(320px, 360px);
+    column-gap: 18px;
     row-gap: 12px;
     justify-content: center;
     align-items: flex-start;
@@ -364,11 +385,11 @@
   /* Coluna 1 (Etapas): padding voltado ao centro e entrelinha menor */
   .page-tour-guiado .tour-navigation {
     align-self: flex-start;
-    max-height: calc(100vh - 135px);
-    overflow: hidden;
-    padding: 12px 8px;
+    max-height: calc(100vh - 128px);
+    overflow-y: auto;
+    padding: 6px 6px;
     position: sticky;
-    top: 95px;
+    top: calc(var(--menu-fixed-offset, 72px) + 4px);
   }
   .page-tour-guiado .tour-column-nav {
     justify-self: end;
@@ -377,32 +398,33 @@
     padding-left: 0;
   }
   .page-tour-guiado .tour-steps { margin: 0; }
-  .page-tour-guiado .tour-step {
-    padding: 0;
-    border-bottom: 1px solid rgba(0,0,0,0.05);
-  }
   .page-tour-guiado .tour-step-number {
-    width: 24px; height: 24px; line-height: 24px;
-    font-size: 12px; margin-right: 8px;
+    width: 26px; height: 26px; line-height: 26px;
+    font-size: 13px; margin-right: 8px;
   }
   .page-tour-guiado .tour-step-title {
-    font-size: 12px;
+    font-size: 13px;
     line-height: 1.1;
+  }
+  .page-tour-guiado .tour-nav-title {
+    font-size: 1.1rem;
   }
 
   /* Coluna 2 (Mockup): centralizado e equilibrado */
   .page-tour-guiado .mobile-showcase {
-    padding: 0 16px;
-    align-items: center;
+    padding: 0 10px;
+    align-items: flex-start;
+    justify-content: flex-start;
   }
   .page-tour-guiado .tour-column-mock {
-    align-items: center;
+    align-items: flex-start;
     justify-self: center;
     margin: 0;
+    align-self: flex-start;
   }
   .page-tour-guiado .mock-image {
-    width: 49.5% !important; /* Increased by 10% from 45% to 49.5% */
-    max-width: 462px; /* Increased by 10% from 420px to 462px */
+    width: 52% !important;
+    max-width: 520px;
   }
 
   /* Coluna 3 (Descrição): padding voltado ao centro visual - MAIS PRÓXIMA DO MOCKUP */
@@ -411,31 +433,33 @@
     border: 1px solid #e9eef5;
     border-radius: 16px;
     box-shadow: none;
-    padding: 10px;
-    margin-left: -5px;
-    max-width: 280px;
+    padding: 16px 18px 16px 14px;
+    margin-left: -8px;
+    max-width: 340px;
+    width: 100%;
   }
   .page-tour-guiado .tour-column-desc {
     justify-self: start;
-    margin-left: -5px;
-    padding: 10px;
+    margin-left: -8px;
+    padding: 12px;
+    align-self: flex-start;
   }
 
   /* Hierarquia tipográfica clara e compacta */
   .page-tour-guiado .tour-step-title-main {
-    font-size: 1.5rem;
+    font-size: 1.65rem;
     line-height: 1.2;
     margin-bottom: 8px;
     color: #111827;
   }
   .page-tour-guiado .tour-step-subtitle {
-    font-size: 1rem;
+    font-size: 1.1rem;
     line-height: 1.25;
     margin-bottom: 10px;
     color: var(--primary-blue);
   }
   .page-tour-guiado .tour-step-description {
-    font-size: 0.9rem;
+    font-size: calc(0.9rem * 1.1);
     line-height: 1.5;
     margin-bottom: 12px;
     color: #4B5563;
@@ -451,7 +475,7 @@
     position: relative;
     padding-left: 12px;
     margin-bottom: 6px;
-    font-size: 0.9rem;
+    font-size: calc(0.9rem * 1.1);
     line-height: 1.4;
     color: #1F2937;
   }
@@ -482,7 +506,8 @@
 /* Desktop-only adjustments: add top margin and increase mockup size */
 @media (min-width: 769px) {
   .page-tour-guiado .mock-image {
-    width: 54.5%;
+    width: 52%;
+    max-width: 520px;
   }
 }
 

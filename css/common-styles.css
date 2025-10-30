@@ -99,7 +99,55 @@
         margin-right: 24px;
     }
     
-    .cta-row .btn.btn-primary {
+.cta-row .btn.btn-primary {
         margin-left: 24px;
     }
+}
+
+/* Scroll-to-top button shared styles */
+.scroll-top-float {
+    position: fixed;
+    bottom: calc(var(--scroll-top-offset, calc(var(--fab-margin, 16px) + var(--fab-size, 56px) + var(--fab-gap, 16px))));
+    right: var(--fab-margin, 16px);
+    z-index: 985;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    pointer-events: none;
+    transform: translateY(20px);
+    transition: opacity 0.3s ease, transform 0.3s ease;
+}
+
+.scroll-top-float.is-visible {
+    opacity: 1;
+    pointer-events: auto;
+    transform: translateY(0);
+}
+
+.scroll-top-button {
+    background: rgba(248, 163, 37, 0.92);
+    border: none;
+    border-radius: 999px;
+    width: var(--fab-size, 56px);
+    height: var(--fab-size, 56px);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #fff;
+    box-shadow: 0 10px 25px rgba(248, 163, 37, 0.32);
+    cursor: pointer;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.scroll-top-button:hover,
+.scroll-top-button:focus-visible {
+    transform: translateY(-3px);
+    box-shadow: 0 16px 32px rgba(248, 163, 37, 0.4);
+    outline: none;
+}
+
+.scroll-top-button svg {
+    width: 22px;
+    height: 22px;
 }
