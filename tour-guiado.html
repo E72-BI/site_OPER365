@@ -196,33 +196,47 @@
                 <nav class="tour-navigation tour-column-nav" id="desktopNavigation">
                     <h3 class="tour-nav-title">Tour Guiado</h3>
                     <ul class="tour-steps">
-                        <li class="tour-step active" data-step="1" role="button" tabindex="0">
-                            <span class="tour-step-number">1</span>
-                            <span class="tour-step-title">Login e Acesso</span>
+                        <li class="tour-step-item">
+                            <button type="button" class="tour-step active" data-step="1" aria-pressed="true">
+                                <span class="tour-step-number">1</span>
+                                <span class="tour-step-title">Login e Acesso</span>
+                            </button>
                         </li>
-                        <li class="tour-step" data-step="2" role="button" tabindex="0">
-                            <span class="tour-step-number">2</span>
-                            <span class="tour-step-title">Dashboard Inteligente</span>
+                        <li class="tour-step-item">
+                            <button type="button" class="tour-step" data-step="2" aria-pressed="false">
+                                <span class="tour-step-number">2</span>
+                                <span class="tour-step-title">Dashboard Inteligente</span>
+                            </button>
                         </li>
-                        <li class="tour-step" data-step="3" role="button" tabindex="0">
-                            <span class="tour-step-number">3</span>
-                            <span class="tour-step-title">Ordens de Serviço</span>
+                        <li class="tour-step-item">
+                            <button type="button" class="tour-step" data-step="3" aria-pressed="false">
+                                <span class="tour-step-number">3</span>
+                                <span class="tour-step-title">Ordens de Serviço</span>
+                            </button>
                         </li>
-                        <li class="tour-step" data-step="4" role="button" tabindex="0">
-                            <span class="tour-step-number">4</span>
-                            <span class="tour-step-title">Checklists Digital</span>
+                        <li class="tour-step-item">
+                            <button type="button" class="tour-step" data-step="4" aria-pressed="false">
+                                <span class="tour-step-number">4</span>
+                                <span class="tour-step-title">Checklists Digital</span>
+                            </button>
                         </li>
-                        <li class="tour-step" data-step="5" role="button" tabindex="0">
-                            <span class="tour-step-number">5</span>
-                            <span class="tour-step-title">Inventário Inteligente</span>
+                        <li class="tour-step-item">
+                            <button type="button" class="tour-step" data-step="5" aria-pressed="false">
+                                <span class="tour-step-number">5</span>
+                                <span class="tour-step-title">Inventário Inteligente</span>
+                            </button>
                         </li>
-                        <li class="tour-step" data-step="6" role="button" tabindex="0">
-                            <span class="tour-step-number">6</span>
-                            <span class="tour-step-title">Relatórios e Análises</span>
+                        <li class="tour-step-item">
+                            <button type="button" class="tour-step" data-step="6" aria-pressed="false">
+                                <span class="tour-step-number">6</span>
+                                <span class="tour-step-title">Relatórios e Análises</span>
+                            </button>
                         </li>
-                        <li class="tour-step" data-step="7" role="button" tabindex="0">
-                            <span class="tour-step-number">7</span>
-                            <span class="tour-step-title">Modo Offline</span>
+                        <li class="tour-step-item">
+                            <button type="button" class="tour-step" data-step="7" aria-pressed="false">
+                                <span class="tour-step-number">7</span>
+                                <span class="tour-step-title">Modo Offline</span>
+                            </button>
                         </li>
                     </ul>
                 </nav>
@@ -591,7 +605,9 @@
             document.getElementById('progressBar').style.width = progress + '%';
 
             document.querySelectorAll('.tour-step').forEach(step => {
-                step.classList.toggle('active', parseInt(step.dataset.step) === currentStep);
+                const isActive = parseInt(step.dataset.step, 10) === currentStep;
+                step.classList.toggle('active', isActive);
+                step.setAttribute('aria-pressed', isActive ? 'true' : 'false');
             });
 
             updateStepAttribute();
@@ -724,17 +740,9 @@
             
             document.querySelectorAll('.tour-step').forEach(step => {
                 step.addEventListener('click', function() {
-                    currentStep = parseInt(this.dataset.step);
+                    currentStep = parseInt(this.dataset.step, 10);
                     currentVariant = 0; // ao clicar em uma etapa, começa em 'a'
                     updateTourUI();
-                });
-                step.addEventListener('keydown', function(e) {
-                    if (e.key === 'Enter' || e.key === ' ') {
-                        e.preventDefault();
-                        currentStep = parseInt(this.dataset.step);
-                        currentVariant = 0;
-                        updateTourUI();
-                    }
                 });
             });
             

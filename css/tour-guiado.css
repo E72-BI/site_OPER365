@@ -18,7 +18,7 @@
 /* Estrutura principal */
 .guided-tour-container { background: #fff4d6; padding: 25px 0; min-height: 100vh; position: relative; }
 .tour-main-content { display: flex; justify-content: center; align-items: flex-start; min-height: 80vh; padding: 20px 32px; }
-.tour-showcase { display: grid; grid-template-columns: 200px 1fr 300px; gap: 12px; align-items: flex-start; max-width: 100%; width: 95%; margin: 0 auto; padding: 0 12px; }
+.tour-showcase { display: grid; grid-template-columns: 220px 1fr 300px; gap: 12px; align-items: flex-start; max-width: 100%; width: 95%; margin: 0 auto; padding: 0 12px; }
 
 .page-tour-guiado #whatsappFloat.whatsapp-float {
   bottom: 20px;
@@ -33,10 +33,11 @@
 .tour-navigation { background: transparent; padding: 16px 12px; border-radius: 12px; box-shadow: none; z-index: 100; max-width: 300px; }
 .tour-nav-title { font-size: 1rem; font-weight: 700; color: #2c3e50; margin-bottom: 12px; padding-bottom: 10px; border-bottom: 2px solid #4586DF; }
 .tour-steps { list-style: none; padding: 0; margin: 0; }
-.tour-step { display: flex; align-items: center; gap: 12px; padding: 6px 0; border: none; border-bottom: 1px solid rgba(0,0,0,0.05); cursor: pointer; transition: all 0.3s ease; position: relative; background: transparent; width: 100%; text-align: left; }
-.tour-step:last-child { border-bottom: none; }
+.tour-step-item { border-bottom: 1px solid rgba(0,0,0,0.05); margin: 0; padding: 0; }
+.tour-step-item:last-child { border-bottom: none; }
+.tour-step { display: flex; align-items: center; gap: 12px; padding: 10px 0; border: none; background: transparent; width: 100%; text-align: left; cursor: pointer; transition: all 0.3s ease; }
 .tour-step:focus-visible { outline: 2px solid rgba(69,134,223,0.35); outline-offset: 2px; }
-.tour-step.active { background: rgba(69, 134, 223, 0.1); margin: 0 -12px; padding: 12px 15px; border-radius: 8px; }
+.tour-step.active { background: rgba(69, 134, 223, 0.1); margin: 0 -12px; padding: 12px 15px; border-radius: 8px; position: relative; }
 .tour-step.active::before { content: ''; position: absolute; left: -8px; top: 50%; transform: translateY(-50%); width: 3px; height: 24px; background: #4586DF; border-radius: 2px; }
 .tour-step-number { display: inline-block; width: 28px; height: 28px; background: #4586DF; color: white; border-radius: 50%; text-align: center; line-height: 28px; font-weight: 600; font-size: 13px; margin-right: 12px; }
 .tour-step.active .tour-step-number { background: #2c3e50; }
@@ -143,13 +144,18 @@
   border-bottom: 2px solid var(--primary-blue);
 }
 .page-tour-guiado .tour-steps { list-style: none; padding: 0; margin: 0; }
+.page-tour-guiado .tour-step-item {
+  border-bottom: 1px solid rgba(0,0,0,0.05);
+  margin: 0;
+  padding: 0;
+}
+.page-tour-guiado .tour-step-item:last-child { border-bottom: none; }
 .page-tour-guiado .tour-step {
   display: flex;
   align-items: center;
   gap: 12px;
-  padding: 6px 0;
+  padding: 10px 0;
   border: none;
-  border-bottom: 1px solid rgba(0,0,0,0.05);
   cursor: pointer;
   transition: var(--transition-fast);
   position: relative;
@@ -157,7 +163,6 @@
   width: 100%;
   text-align: left;
 }
-.page-tour-guiado .tour-step:last-child { border-bottom: none; }
 .page-tour-guiado .tour-step:focus-visible {
   outline: 2px solid rgba(69,134,223,0.35);
   outline-offset: 2px;
@@ -373,8 +378,8 @@
     margin: 0 auto;
     max-width: 1180px;
     width: 95%;
-    grid-template-columns: 190px minmax(340px, 400px) minmax(320px, 360px);
-    column-gap: 18px;
+    grid-template-columns: 220px minmax(320px, 380px) minmax(320px, 360px);
+    column-gap: 12px;
     row-gap: 12px;
     justify-content: center;
     align-items: flex-start;
@@ -387,7 +392,7 @@
     align-self: flex-start;
     max-height: calc(100vh - 128px);
     overflow-y: auto;
-    padding: 6px 6px;
+    padding: 8px 10px;
     position: sticky;
     top: calc(var(--menu-fixed-offset, 72px) + 4px);
   }
@@ -412,12 +417,14 @@
 
   /* Coluna 2 (Mockup): centralizado e equilibrado */
   .page-tour-guiado .mobile-showcase {
-    padding: 0 10px;
-    align-items: flex-start;
+    padding: 0 12px;
+    align-items: center;
     justify-content: flex-start;
   }
   .page-tour-guiado .tour-column-mock {
-    align-items: flex-start;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
     justify-self: center;
     margin: 0;
     align-self: flex-start;
@@ -433,14 +440,14 @@
     border: 1px solid #e9eef5;
     border-radius: 16px;
     box-shadow: none;
-    padding: 16px 18px 16px 14px;
-    margin-left: -8px;
-    max-width: 340px;
+    padding: 18px 22px 18px 16px;
+    margin-left: -6px;
+    max-width: 360px;
     width: 100%;
   }
   .page-tour-guiado .tour-column-desc {
     justify-self: start;
-    margin-left: -8px;
+    margin-left: -6px;
     padding: 12px;
     align-self: flex-start;
   }

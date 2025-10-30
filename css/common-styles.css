@@ -13,6 +13,13 @@
     color: #2c3e50;
 }
 
+/* Global FAB spacing defaults */
+:root {
+    --fab-size: 56px;
+    --fab-margin: 24px;
+    --fab-gap: 16px;
+}
+
 /* Tour Button Styles */
 .tour-button .zap-icon {
     width: 92px;
@@ -107,9 +114,9 @@
 /* Scroll-to-top button shared styles */
 .scroll-top-float {
     position: fixed;
-    bottom: calc(var(--scroll-top-offset, calc(var(--fab-margin, 16px) + var(--fab-size, 56px) + var(--fab-gap, 16px))));
-    right: var(--fab-margin, 16px);
-    z-index: 985;
+    bottom: calc(var(--scroll-top-offset, calc(var(--fab-margin, 24px) + var(--fab-size, 56px) + var(--fab-gap, 16px))));
+    right: var(--fab-margin, 24px);
+    z-index: 1100;
     display: flex;
     align-items: center;
     justify-content: center;
