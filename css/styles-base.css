@@ -248,6 +248,11 @@ blockquote {
   color: var(--accent-blue); /* Changed to match button color */
 }
 
+.page-oper-partner .hero .title {
+  font-size: clamp(1.9rem, 5vw, 2.3rem);
+  line-height: 1.2;
+}
+
 .subtitle, .hero-content .subtitle {
   display: block;
   font-weight: var(--font-weight-bold);
@@ -807,6 +812,16 @@ blockquote {
 
 .qr-card:hover .qr-image-center {
   transform: scale(1.05);
+}
+
+.partner-training .training-cta {
+  display: flex;
+  justify-content: center;
+  margin-top: var(--space-xl);
+}
+
+.partner-training .training-cta .btn {
+  min-width: 240px;
 }
 
 .partner-training .training-cta {

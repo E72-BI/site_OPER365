@@ -184,6 +184,18 @@
     font-size: var(--text-3xl); /* Reduced from default mobile size */
     line-height: 1.2;
   }
+
+  .page-oper-partner .hero {
+    padding-top: 120px;
+  }
+
+  .page-oper-partner .hero-image {
+    margin-top: var(--space-lg);
+  }
+
+  .page-oper-partner .hero .title {
+    font-size: clamp(1.7rem, 7vw, 2.1rem);
+  }
   
   /* Seção intermediária (mulher) visível e centralizada no mobile */
   .hero-next-image {
