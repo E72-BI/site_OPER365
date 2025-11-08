@@ -809,6 +809,11 @@ blockquote {
   transform: scale(1.05);
 }
 
+.partner-training .training-cta {
+  justify-content: center;
+  margin-top: var(--space-xl);
+}
+
 /* Stats Section - Harmonized */
 .stats {
   padding: var(--space-3xl) 0;
@@ -924,6 +929,18 @@ blockquote {
   background: rgba(255, 255, 255, 0.15);
 }
 
+.stat-circle {
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto var(--space-md);
+  background: var(--primary-blue);
+  box-shadow: var(--shadow-colored);
+}
+
 .stat-header {
   margin-bottom: var(--space-md);
 }
@@ -938,30 +955,19 @@ blockquote {
   margin-bottom: 0;
 }
 
-.stat-circle {
-  width: 80px;
-  height: 80px;
-  border-radius: 50%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  margin: 0 auto var(--space-md);
-  background: var(--primary-blue);
-  box-shadow: var(--shadow-colored);
+.stat-card-title {
+  margin-top: var(--space-md);
+  color: var(--white);
+  font-size: var(--text-xl);
+  font-weight: var(--font-weight-semibold);
 }
 
-.stat-number {
-  font-size: 28px;
-  font-weight: var(--font-weight-bold);
-  color: var(--white);
-  line-height: 1;
-}
-
-.stat-unit {
-  font-size: 28px;
-  font-weight: var(--font-weight-bold);
-  color: var(--white);
-  line-height: 1;
+.stat-card-text {
+  color: rgba(255, 255, 255, 0.85);
+  text-align: center;
+  line-height: 1.5;
+  font-size: var(--text-base);
+  margin-top: var(--space-sm);
 }
 
 /* Testimonials Section - Harmonized */
@@ -1000,6 +1006,21 @@ blockquote {
   max-width: 700px;
   margin: 0 auto var(--space-xl);
   font-size: var(--text-lg);
+}
+
+.partner-value-parallax {
+  background-image: url('../images/oper_partner_020.png');
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
+  margin-top: -80px;
+  padding-top: calc(var(--space-3xl) + 80px);
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.25);
+  z-index: 2;
+}
+
+.partner-value-parallax::before {
+  background: linear-gradient(180deg, rgba(11, 44, 82, 0.85) 0%, rgba(11, 44, 82, 0.65) 60%, rgba(11, 44, 82, 0.85) 100%);
 }
 
 .testimonials-grid-no-photo {
@@ -1465,29 +1486,29 @@ blockquote {
 }
 
 .cta-image {
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  z-index: 1;
-  width: 50%;
-  height: 100%;
+  flex: 1;
   display: flex;
-  align-items: flex-end;
-  justify-content: flex-start;
+  align-items: center;
+  justify-content: center;
+  padding-right: var(--space-xl);
+  position: relative;
+  z-index: 2;
+}
+
+.cta-image picture,
+.cta-image img {
+  width: 100%;
+  max-width: 520px;
 }
 
 .cta-image img {
-    max-width: 130%;
-    height: auto;
-    display: block;
-    margin: 0 0 0 -50px;
-    transition: var(--transition);
-    border-radius: 0;
-    box-shadow: none;
-    border: none;
-    object-fit: contain;
-    object-position: left bottom;
-  }
+  height: auto;
+  display: block;
+  object-fit: cover;
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-lg);
+  margin: 0;
+}
 
 .cta-image img:hover {
   transform: translateY(-5px);
