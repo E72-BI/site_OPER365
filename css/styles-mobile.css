@@ -796,6 +796,10 @@
     padding-top: calc(var(--space-3xl) + 40px);
     background-attachment: scroll;
   }
+
+  .partner-training .training-cta {
+    margin-top: var(--space-md);
+  }
   
   .stat-item {
     display: flex;
@@ -830,6 +834,20 @@
     backdrop-filter: blur(5px); /* Maintain blur effect */
     width: 100%; /* Ensure cards don't overflow */
     box-sizing: border-box; /* Include padding in width calculation */
+  }
+
+  .page-oper-partner .stat-card {
+    padding: var(--space-sm);
+  }
+
+  .page-oper-partner .stat-card-title {
+    font-size: var(--text-lg);
+    margin-top: var(--space-sm);
+  }
+
+  .page-oper-partner .stat-card-text {
+    font-size: var(--text-sm);
+    margin-top: var(--space-xs);
   }
   
   .stat-circle {
